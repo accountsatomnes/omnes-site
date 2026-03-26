@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Omnes — Brand Media Kit 2026</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f7f6f2;--bg-alt:#f0efe9;--bg-warm:#ebe9e1;--white:#ffffff;
+  --border:#e2e0d8;--border-mid:#cbc8be;
+  --ink:#1a1a1a;--muted:#5a5a5a;--hint:#888880;
+  --terra:#C4522E;--terra-dark:#a84226;--terra-light:#e8b8a8;--terra-pale:#faf0ec;
+  --teal:#5A7A5E;--teal-dark:#4a6a4e;--teal-light:#c8ddc8;--teal-pale:#edf4ee;
+  --sand:#B89A72;--sand-light:#e8d8b4;--sand-pale:#f8f3ec;
+  --blue:#4A6E8A;--blue-light:#c4d8e8;--blue-pale:#e8f0f5;
+  --tr:all .18s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:15px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4;mix-blend-mode:multiply}
+
+/* NAV — exact from omnes.io */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:var(--bg);border-bottom:1px solid var(--border);transition:all .18s ease}
+.nav-logo{display:flex;align-items:center;cursor:pointer;transition:opacity .15s}
+.nav-logo:hover{opacity:.7}
+.nav-links{display:flex;gap:2px}
+.nd-wrap{position:relative}
+.nd-lbl{display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:400;color:var(--hint);transition:all .18s ease;user-select:none;white-space:nowrap}
+.nd-lbl svg{transition:transform .2s ease;opacity:.45;flex-shrink:0}
+.nd-wrap.open .nd-lbl,.nd-lbl:hover{color:var(--ink);background:rgba(26,26,20,.05)}
+.nd-wrap.open .nd-lbl svg{transform:rotate(180deg)}
+.nd-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);background:var(--white);border:1px solid var(--border);box-shadow:0 4px 16px rgba(26,26,20,.08),0 12px 40px rgba(26,26,20,.06);width:268px;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:600;border-radius:2px;overflow:hidden}
+.nd-wrap.open .nd-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nd-item{display:flex;flex-direction:column;gap:3px;padding:14px 18px;cursor:pointer;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .12s}
+.nd-item:last-child{border-bottom:none}
+.nd-item:hover{background:var(--bg)}
+.nd-item:hover .nd-title{color:var(--terra)}
+.nd-title{font-size:13.5px;font-weight:500;color:var(--ink);letter-spacing:-0.01em;transition:color .12s}
+.nd-sub{font-size:12px;color:var(--hint);line-height:1.45;margin-top:1px}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-login{font-size:13px;font-weight:400;color:var(--hint);cursor:pointer;padding:8px 12px;transition:all .18s ease;border-radius:4px;text-decoration:none}
+.nav-login:hover{color:var(--ink);background:rgba(26,26,20,.04)}
+.nav-cta{font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:9px 20px;background:var(--terra);color:#fff;cursor:pointer;transition:background .18s;border-radius:2px;text-decoration:none}
+.nav-cta:hover{background:var(--terra-dark)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:none}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .18s ease;border-radius:1px}
+.mobile-nav{display:none;position:fixed;inset:0;z-index:490;background:var(--bg);padding:80px 32px 40px;flex-direction:column;gap:0;overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mn-item{font-size:22px;font-weight:300;letter-spacing:-0.02em;color:var(--ink);padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;display:block;text-decoration:none}
+.mn-item:hover{color:var(--terra)}
+.mn-item:last-of-type{border-bottom:none}
+.mn-close{position:absolute;top:22px;right:32px;font-size:24px;cursor:pointer;color:var(--hint);line-height:1;transition:color .15s;background:none;border:none}
+.mn-close:hover{color:var(--ink)}
+.mn-cta{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.btn-p{font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;background:var(--terra);color:#fff;border-radius:2px;cursor:pointer;transition:background .18s;display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;text-decoration:none}
+.btn-p:hover{background:var(--terra-dark)}
+.btn-g{font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;background:transparent;color:var(--ink);border:1px solid var(--border-mid);border-radius:2px;cursor:pointer;transition:all .18s ease;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.btn-g:hover{border-color:var(--ink)}
+@media(max-width:960px){.nav-links,.nav-login,.nav-cta{display:none}.nav-hamburger{display:flex}nav{padding:0 20px}}
+
+/* HERO */
+.hero{padding-top:64px;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%);pointer-events:none}
+.hero-inner{max-width:1280px;width:100%;margin:0 auto;padding:0 48px 88px;position:relative;z-index:1}
+.slabel{font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);display:flex;align-items:center;gap:8px;margin-bottom:44px}
+.sl{color:var(--terra)}
+.hero-h1{font-size:clamp(48px,7vw,108px);font-weight:300;letter-spacing:-0.04em;line-height:.92;color:var(--ink)}
+.hero-h1 .l2{display:block;padding-left:clamp(60px,10vw,160px);color:var(--terra)}
+.hero-h1 .l3{display:block;padding-left:clamp(120px,20vw,320px)}
+.hero-bot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:64px;gap:32px;flex-wrap:wrap}
+.hero-desc{max-width:420px;font-size:16px;color:var(--muted);line-height:1.85}
+.hero-stats{display:flex;border:1px solid var(--border)}
+.hstat{padding:20px 32px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:5px}
+.hstat:last-child{border-right:none}
+.hstat-v{font-size:22px;font-weight:300;letter-spacing:-0.03em;line-height:1;color:var(--terra)}
+.hstat-l{font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint)}
+
+/* SECTIONS */
+.section{border-bottom:1px solid var(--border);background:var(--bg)}
+.section.alt{background:var(--bg-alt)}
+.section.warm{background:var(--bg-warm)}
+.si{max-width:1280px;margin:0 auto;padding:100px 48px}
+.s-lbl{font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.sl-t{color:var(--teal)}.sl-s{color:var(--sand)}.sl-b{color:var(--blue)}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:64px;flex-wrap:wrap;gap:16px}
+.hl{font-size:clamp(26px,3.2vw,46px);font-weight:300;letter-spacing:-0.03em;line-height:1.15;color:var(--ink)}
+.sec-count{font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);opacity:.5}
+
+/* PALETTE */
+.palette-grid{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--border)}
+.cc{border-right:1px solid var(--border)}.cc:last-child{border-right:none}
+.cs{aspect-ratio:3/4;transition:transform .25s ease}
+.cc:hover .cs{transform:scale(1.02)}
+.s-ink{background:#1a1a1a}
+.s-bg-alt{background:#f0efe9;border-bottom:1px solid var(--border)}
+.s-bg-warm{background:#ebe9e1;border-bottom:1px solid var(--border)}
+.s-bg{background:#f7f6f2;border-bottom:1px solid var(--border)}
+.s-white{background:#ffffff;border-bottom:1px solid var(--border)}
+.ci{padding:20px 22px 24px}
+.cn{font-size:15px;font-weight:500;letter-spacing:-0.01em;margin-bottom:8px}
+.ch{font-size:12px;color:var(--muted);margin-bottom:3px}
+.cr{font-size:11.5px;color:var(--hint);margin-bottom:10px}
+.ctag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px}
+.t-pri{color:var(--terra);background:var(--terra-pale);border:1px solid rgba(196,82,46,.2)}
+.t-sec{color:var(--muted);background:var(--bg-warm);border:1px solid var(--border-mid)}
+.t-neu{color:var(--blue);background:var(--blue-pale);border:1px solid rgba(74,110,138,.2)}
+.t-bg{color:var(--teal);background:var(--teal-pale);border:1px solid rgba(90,122,94,.2)}
+.t-cv{color:var(--sand);background:var(--sand-pale);border:1px solid rgba(184,154,114,.2)}
+.cpybtn{display:block;margin-top:12px;font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:none;padding:6px 12px;border-radius:2px;color:var(--hint);transition:var(--tr);width:fit-content}
+.cpybtn:hover{border-color:var(--border-mid);color:var(--ink);background:var(--bg-warm)}
+.cpybtn.ok{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+/* ACCENT */
+.accent-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border)}
+.ac{border-right:1px solid var(--border)}.ac:last-child{border-right:none}
+.as{height:120px}
+.s-te{background:#C4522E}.s-tl{background:#5A7A5E}.s-sa{background:#B89A72}.s-bl{background:#4A6E8A}
+
+/* USAGE */
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
+.uc{padding:48px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.uc:nth-child(2n){border-right:none}.uc:nth-child(n+3){border-bottom:none}
+.u-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:20px;opacity:.45}
+.u-hl{font-size:clamp(20px,2vw,30px);font-weight:300;letter-spacing:-0.025em;line-height:1.2;margin-bottom:12px}
+.u-body{font-size:13.5px;line-height:1.85;opacity:.6;max-width:300px}
+
+/* LOGO SECTION */
+.logo-sub-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--hint);padding:16px 0 12px;display:block;border-top:1px solid var(--border);margin-top:0}
+.logo-row{display:grid;border:1px solid var(--border)}
+.logo-row.wm{grid-template-columns:1fr 1fr 1fr}
+.logo-row.lm{grid-template-columns:repeat(4,1fr)}
+.lv{display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid var(--border);padding:52px 40px 36px;position:relative}
+.lv:last-child{border-right:none}
+.lv-asset{display:flex;align-items:center;justify-content:center;width:100%;min-height:90px}
+.lv-meta{width:100%;margin-top:24px;padding-top:16px;border-top:1px solid rgba(26,26,26,.1)}
+.lv-dark .lv-meta,.lv-dkgray .lv-meta{border-top-color:rgba(255,255,255,.1)}
+.lv-name{font-size:12px;font-weight:600;margin-bottom:3px}
+.lv-file{font-size:10.5px;color:var(--hint);margin-bottom:10px}
+.lv-dark .lv-name,.lv-dkgray .lv-name{color:#f7f6f2}
+.lv-dark .lv-file,.lv-dkgray .lv-file{color:rgba(247,246,242,.4)}
+.lv-light{background:#ffffff}
+.lv-linen{background:#F3F1EE}
+.lv-dark{background:#000000}
+.lv-dkgray{background:#1a1a1a}
+/* download button */
+.dl-btn{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:none;padding:7px 13px;border-radius:2px;color:var(--hint);transition:var(--tr)}
+.dl-btn:hover{border-color:var(--border-mid);color:var(--ink);background:var(--bg-warm)}
+.lv-dark .dl-btn,.lv-dkgray .dl-btn{border-color:rgba(255,255,255,.2);color:rgba(247,246,242,.5)}
+.lv-dark .dl-btn:hover,.lv-dkgray .dl-btn:hover{border-color:rgba(255,255,255,.5);color:#f7f6f2;background:rgba(255,255,255,.08)}
+/* clearspace */
+.cs-wrap{border:1px solid var(--border);border-top:none;background:var(--white);padding:72px;display:flex;align-items:center;justify-content:center}
+.cs-inner{position:relative;padding:36px 56px}
+.cs-dash{position:absolute;inset:0;border:1px dashed var(--border-mid)}
+.cs-top{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);opacity:.5;white-space:nowrap}
+.cs-left{position:absolute;left:-52px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);opacity:.5;white-space:nowrap}
+/* usage note strip */
+.logo-note{border:1px solid var(--border);border-top:none;display:grid;grid-template-columns:1fr 1fr 1fr}
+.logo-note-cell{padding:28px 32px;border-right:1px solid var(--border)}
+.logo-note-cell:last-child{border-right:none}
+.logo-note-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);margin-bottom:10px}
+.logo-note-body{font-size:13.5px;color:var(--muted);line-height:1.75}
+
+/* TYPOGRAPHY */
+.type-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
+.tc{padding:52px;border-right:1px solid var(--border)}.tc:last-child{border-right:none}
+.t-lbl{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--hint);margin-bottom:28px}
+.t-disp{font-size:52px;font-weight:300;letter-spacing:-0.03em;line-height:1;margin-bottom:20px}
+.t-disp em{font-style:italic}
+.t-alpha{font-size:13.5px;color:var(--muted);line-height:1.9;margin-bottom:24px}
+.t-meta{display:flex;gap:36px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap}
+.t-meta-i label{font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);display:block;margin-bottom:4px}
+.t-meta-i span{font-size:13px}
+.type-scale{margin-top:64px;border-top:1px solid var(--border)}
+.sc-row{display:grid;grid-template-columns:140px 1fr;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--border);gap:24px}
+.sc-lbl{font-size:9.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint)}
+
+/* PILLARS */
+.ir{display:grid;grid-template-columns:100px 1fr;border-top:1px solid var(--border);padding:40px 0}
+.ir:last-child{border-bottom:1px solid var(--border)}
+.in{font-size:12.5px;font-weight:700;letter-spacing:0.06em;padding-top:3px}
+.in-te{color:var(--terra)}.in-tl{color:var(--teal)}.in-sa{color:var(--sand)}.in-bl{color:var(--blue)}
+.it{font-size:17px;font-weight:500;letter-spacing:-0.015em;margin-bottom:8px}
+.ib{font-size:14.5px;color:var(--muted);line-height:1.85;max-width:560px}
+
+/* FOOTER */
+footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
+.ft-i{max-width:1280px;margin:0 auto;padding:72px 48px 48px}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:1px solid var(--border);margin-bottom:36px}
+.ft-brand-col{display:flex;flex-direction:column}
+.ft-logo-link{display:inline-flex;cursor:pointer;margin-bottom:24px}
+.ft-social{display:flex;gap:10px;align-items:center}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);border-radius:2px;transition:border-color .18s,background .18s}
+.ft-social a:hover{border-color:var(--border-mid);background:var(--bg-alt)}
+.ft-social svg{width:14px;height:14px;fill:var(--muted);transition:fill .18s}
+.ft-social a:hover svg{fill:var(--ink)}
+.ft-ch{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);margin-bottom:18px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul li a{font-size:13.5px;color:var(--muted);cursor:pointer;transition:color .15s;display:block}
+.ft-col ul li a:hover{color:var(--ink)}
+.ft-bot{display:flex;flex-direction:column;gap:12px}
+.ft-legal{font-size:11.5px;color:var(--hint);line-height:1.9}
+.ft-legal a{color:var(--terra);border-bottom:1px solid var(--terra-light);transition:color .15s}
+.ft-legal a:hover{color:var(--terra-dark)}
+.ft-wm{font-size:11px;letter-spacing:0.04em;color:var(--hint)}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--ink);color:#fff;font-size:13px;font-weight:500;padding:12px 24px;border-radius:2px;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* SUPPORTING TOKENS STRIP */
+.token-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-top:none}
+.token-cell{padding:20px 22px;border-right:1px solid var(--border)}
+.token-cell:last-child{border-right:none}
+
+@media(max-width:1000px){
+  nav,.hero-inner,.si,.ft-i{padding-left:24px;padding-right:24px}
+  .si{padding-top:64px;padding-bottom:64px}
+  .palette-grid,.accent-grid{grid-template-columns:1fr 1fr}
+  .cc:nth-child(2n){border-right:none}.cc:nth-child(2n+1){border-right:1px solid var(--border)}
+  .ac:nth-child(2n){border-right:none}.ac:nth-child(2n+1){border-right:1px solid var(--border)}
+  .usage-grid,.type-grid{grid-template-columns:1fr}
+  .uc,.tc{border-right:none;border-bottom:1px solid var(--border)}
+  .uc:nth-child(n+3){border-bottom:1px solid var(--border)}
+  .logo-row.wm,.logo-row.lm{grid-template-columns:1fr}
+  .lv{border-right:none;border-bottom:1px solid var(--border)}
+  .logo-note{grid-template-columns:1fr}
+  .logo-note-cell{border-right:none;border-bottom:1px solid var(--border)}
+  .logo-note-cell:last-child{border-bottom:none}
+  .ft-top{grid-template-columns:1fr 1fr;gap:36px}
+  .token-strip{grid-template-columns:1fr 1fr}
+  .token-cell:nth-child(2n){border-right:none}
+}
+@media(max-width:600px){
+  .palette-grid,.accent-grid{grid-template-columns:1fr}
+  .cc{border-right:none}.ft-top{grid-template-columns:1fr}
+  .hero-bot{flex-direction:column;align-items:flex-start}
+  .sc-row{grid-template-columns:100px 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- INLINE SVG ASSETS FOR DOWNLOAD -->
+<script>
+var SVGS = {
+'Omnes_logo_black.svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 234"><path transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M114.383 20.8323C114.571 20.8061 114.758 20.7849 114.947 20.7688C145.548 18.1316 146.272 68.6479 119.813 70.7172C106.071 71.2577 97.201 65.5635 94.8847 51.2055C93.1032 40.1624 96.7536 26.9918 107.861 22.3493C110.068 21.427 112.021 21.1808 114.383 20.8323ZM117.499 64.3754C137.058 63.3779 134.878 25.6242 116.428 27.3611C104.552 28.0525 101.615 38.2471 102.313 48.4181C102.966 57.9419 107.601 64.1753 117.499 64.3754Z"/><path transform="scale(2.75269 2.75294)" d="M170.021 20.572C176.839 19.9231 181.397 23.1987 184.816 28.8165C188.625 23.406 192.606 20.3735 199.492 20.5188C216.722 20.8822 214.784 36.7159 214.793 49.0146C214.853 56.0779 214.817 63.1416 214.686 70.2039L207.044 70.1569C206.947 61.7384 207.122 53.2893 207.066 44.8863C207.036 40.3237 207.834 33.4637 204.32 30.1052C202.332 28.2054 199.761 27.2572 197.026 27.3334C185.528 27.6536 186.478 37.644 186.485 45.9547L186.5 60.625L186.463 70.1325C185.63 70.1615 178.863 70.5303 178.796 69.7679C177.73 57.8475 179.282 45.459 178.087 33.5541C177.703 29.7315 172.656 27.4377 169.224 27.3927C166.362 27.3641 163.604 28.4657 161.55 30.4582C156.688 35.2276 157.767 46.2084 157.783 52.6251C157.818 58.4654 157.808 64.3058 157.753 70.1458C155.347 70.1907 152.941 70.1766 150.536 70.1036C150.171 63.0272 150.258 55.0207 150.251 47.8992C150.181 39.0088 150.256 30.1178 150.475 21.2298L157.659 21.2458C157.633 23.7652 157.718 26.4842 157.743 29.0176C158.062 28.5553 158.383 28.095 158.707 27.6367C162.321 22.5405 164.033 21.5908 170.021 20.572Z"/><path transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M298.389 20.8133C303.57 19.9613 310.85 21.9807 314.664 25.6142C321.076 31.722 321.379 39.8675 321.67 48.0636C312.992 47.6683 303.062 48.2517 294.28 48.015C291.5 47.9401 288.681 48.3462 285.924 48.2086C286.18 49.803 286.411 51.3629 286.8 52.9581C289.238 62.9574 301.182 68.3496 309.649 61.7509C310.912 60.766 311.751 59.6465 312.739 58.4014C313.033 57.9643 313.234 57.8148 313.626 57.4785C315.43 56.9013 318.816 58.1859 320.962 58.6776C320.344 60.4066 320.013 61.335 318.975 62.8383C316.143 66.8865 311.82 69.6447 306.956 70.5067C300.946 71.5993 293.436 70.851 288.35 67.4072C274.424 57.9787 275.594 30.1273 291 22.7584C293.19 21.7109 296.001 21.2389 298.389 20.8133ZM285.771 41.6325C291.373 41.5849 297.128 41.7348 302.813 41.6961C306.22 41.7099 310.871 41.5187 314.106 41.6493C312.964 31.7402 308.301 26.4861 297.917 27.5508C289.594 30.1019 287.882 33.6021 285.771 41.6325Z"/><path transform="scale(2.75269 2.75294)" d="M70.2786 47.7728C73.4736 47.631 77.6988 47.7322 80.9604 47.7213C80.5396 51.1103 80.0305 52.8429 78.892 56.0622C77.6354 59.3258 75.4369 63.1986 73.3325 65.9805C67.0136 74.3284 57.6402 79.8277 47.2704 81.2711C25.7575 84.2392 5.92965 69.3724 2.9463 47.7937C6.1429 47.6953 10.2485 47.6647 13.3974 47.8196C14.1167 50.2357 14.9056 52.5876 16.0173 54.8575C19.3953 61.7247 25.3565 66.9738 32.5959 69.4557C44.4041 73.4803 58.3884 69.0546 65.417 58.7212C67.9202 55.0408 68.8783 51.8977 70.2786 47.7728Z"/><path transform="scale(2.75269 2.75294)" d="M41.0445 2.35756C47.3598 1.75169 57.9824 5.2353 63.293 8.86083C73.5373 15.8545 78.5428 24.2676 80.9411 36.2714C77.3863 36.36 73.8501 36.2842 70.2862 36.4806C66.3425 23.3322 58.2813 14.4913 43.9151 13.2629C34.0868 13.0247 25.7702 16.0978 19.4501 23.8863C16.233 27.8509 14.9988 31.5146 13.5693 36.2743C10.0022 36.3363 6.43429 36.3446 2.86689 36.299C4.50097 28.4088 6.40466 22.5155 11.8911 16.2782C19.5952 7.52 29.5353 3.13078 41.0445 2.35756Z"/><path transform="scale(2.75269 2.75294)" d="M249.106 20.5642C249.525 20.5294 249.946 20.5192 250.366 20.5337C254.959 20.6974 259.65 21.9646 262.855 25.4355C264.543 27.2904 265.738 29.539 266.332 31.9753C267.27 35.7146 267.289 42.296 267.364 46.3224C267.572 54.2251 267.52 62.1326 267.208 70.0319C264.738 70.1686 262.473 70.1537 259.998 70.1351C259.417 61.5159 260.953 38.8205 258.036 32.7813C256.966 30.5441 255.055 28.8209 252.719 27.9879C249.261 26.7909 245.123 27.3984 241.856 28.9866C236.72 31.6687 236.321 36.7168 236.147 41.8441C235.828 51.2655 236.451 60.7224 235.939 70.1229C233.382 70.2868 230.908 70.2369 228.349 70.2115C228.026 65.0235 228.209 58.0465 228.203 52.748L228.262 21.229C230.704 21.2823 233.147 21.2885 235.589 21.2477C235.702 23.823 235.74 26.401 235.702 28.9786C240.112 22.8556 241.892 21.9286 249.106 20.5642Z"/><path transform="scale(2.75269 2.75294)" d="M348.747 20.8483C357.795 20.0591 364.646 23.3953 367.814 32.278C366.522 32.4256 362.861 33.5094 361.314 33.8932C360.347 32.5554 359.071 30.7861 357.966 29.6618C354.428 26.062 345.112 26.4319 341.826 30.2529C340.725 31.5337 339.905 32.6301 340.003 34.4355C340.396 41.706 351.493 41.5659 356.564 43.4494C359.576 44.3797 362.934 45.7176 365.225 47.9461C369.962 52.555 369.591 60.8493 364.9 65.4019C359.847 70.3055 356.143 70.6835 349.531 70.8287C340.001 70.6701 333.239 68.4328 331.153 58.279C332.09 58.0105 337.317 56.7978 337.528 57.0002C340.263 59.6189 340.555 63.1189 345.246 64.0948C348.904 64.8558 353.78 64.7152 357.018 62.6714C359.68 60.9909 360.409 59.7461 361.108 56.8752C359.204 49.5584 352.677 50.0499 346.492 48.3498C342.99 47.3871 340.059 46.5354 337.074 44.2954C331.71 40.2704 331.291 31.7757 335.396 26.7255C338.975 22.2937 343.412 21.5 348.747 20.8483Z"/></svg>',
+'Omnes_logo_white.svg':'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 234"><path fill="white" transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M114.383 20.8323C114.571 20.8061 114.758 20.7849 114.947 20.7688C145.548 18.1316 146.272 68.6479 119.813 70.7172C106.071 71.2577 97.201 65.5635 94.8847 51.2055C93.1032 40.1624 96.7536 26.9918 107.861 22.3493C110.068 21.427 112.021 21.1808 114.383 20.8323ZM117.499 64.3754C137.058 63.3779 134.878 25.6242 116.428 27.3611C104.552 28.0525 101.615 38.2471 102.313 48.4181C102.966 57.9419 107.601 64.1753 117.499 64.3754Z"/><path fill="white" transform="scale(2.75269 2.75294)" d="M170.021 20.572C176.839 19.9231 181.397 23.1987 184.816 28.8165C188.625 23.406 192.606 20.3735 199.492 20.5188C216.722 20.8822 214.784 36.7159 214.793 49.0146C214.853 56.0779 214.817 63.1416 214.686 70.2039L207.044 70.1569C206.947 61.7384 207.122 53.2893 207.066 44.8863C207.036 40.3237 207.834 33.4637 204.32 30.1052C202.332 28.2054 199.761 27.2572 197.026 27.3334C185.528 27.6536 186.478 37.644 186.485 45.9547L186.5 60.625L186.463 70.1325C185.63 70.1615 178.863 70.5303 178.796 69.7679C177.73 57.8475 179.282 45.459 178.087 33.5541C177.703 29.7315 172.656 27.4377 169.224 27.3927C166.362 27.3641 163.604 28.4657 161.55 30.4582C156.688 35.2276 157.767 46.2084 157.783 52.6251C157.818 58.4654 157.808 64.3058 157.753 70.1458C155.347 70.1907 152.941 70.1766 150.536 70.1036C150.171 63.0272 150.258 55.0207 150.251 47.8992C150.181 39.0088 150.256 30.1178 150.475 21.2298L157.659 21.2458C157.633 23.7652 157.718 26.4842 157.743 29.0176C158.062 28.5553 158.383 28.095 158.707 27.6367C162.321 22.5405 164.033 21.5908 170.021 20.572Z"/><path fill="white" transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M298.389 20.8133C303.57 19.9613 310.85 21.9807 314.664 25.6142C321.076 31.722 321.379 39.8675 321.67 48.0636C312.992 47.6683 303.062 48.2517 294.28 48.015C291.5 47.9401 288.681 48.3462 285.924 48.2086C286.18 49.803 286.411 51.3629 286.8 52.9581C289.238 62.9574 301.182 68.3496 309.649 61.7509C310.912 60.766 311.751 59.6465 312.739 58.4014C313.033 57.9643 313.234 57.8148 313.626 57.4785C315.43 56.9013 318.816 58.1859 320.962 58.6776C320.344 60.4066 320.013 61.335 318.975 62.8383C316.143 66.8865 311.82 69.6447 306.956 70.5067C300.946 71.5993 293.436 70.851 288.35 67.4072C274.424 57.9787 275.594 30.1273 291 22.7584C293.19 21.7109 296.001 21.2389 298.389 20.8133ZM285.771 41.6325C291.373 41.5849 297.128 41.7348 302.813 41.6961C306.22 41.7099 310.871 41.5187 314.106 41.6493C312.964 31.7402 308.301 26.4861 297.917 27.5508C289.594 30.1019 287.882 33.6021 285.771 41.6325Z"/><path fill="white" transform="scale(2.75269 2.75294)" d="M70.2786 47.7728C73.4736 47.631 77.6988 47.7322 80.9604 47.7213C80.5396 51.1103 80.0305 52.8429 78.892 56.0622C77.6354 59.3258 75.4369 63.1986 73.3325 65.9805C67.0136 74.3284 57.6402 79.8277 47.2704 81.2711C25.7575 84.2392 5.92965 69.3724 2.9463 47.7937C6.1429 47.6953 10.2485 47.6647 13.3974 47.8196C14.1167 50.2357 14.9056 52.5876 16.0173 54.8575C19.3953 61.7247 25.3565 66.9738 32.5959 69.4557C44.4041 73.4803 58.3884 69.0546 65.417 58.7212C67.9202 55.0408 68.8783 51.8977 70.2786 47.7728Z"/><path fill="white" transform="scale(2.75269 2.75294)" d="M41.0445 2.35756C47.3598 1.75169 57.9824 5.2353 63.293 8.86083C73.5373 15.8545 78.5428 24.2676 80.9411 36.2714C77.3863 36.36 73.8501 36.2842 70.2862 36.4806C66.3425 23.3322 58.2813 14.4913 43.9151 13.2629C34.0868 13.0247 25.7702 16.0978 19.4501 23.8863C16.233 27.8509 14.9988 31.5146 13.5693 36.2743C10.0022 36.3363 6.43429 36.3446 2.86689 36.299C4.50097 28.4088 6.40466 22.5155 11.8911 16.2782C19.5952 7.52 29.5353 3.13078 41.0445 2.35756Z"/><path fill="white" transform="scale(2.75269 2.75294)" d="M249.106 20.5642C249.525 20.5294 249.946 20.5192 250.366 20.5337C254.959 20.6974 259.65 21.9646 262.855 25.4355C264.543 27.2904 265.738 29.539 266.332 31.9753C267.27 35.7146 267.289 42.296 267.364 46.3224C267.572 54.2251 267.52 62.1326 267.208 70.0319C264.738 70.1686 262.473 70.1537 259.998 70.1351C259.417 61.5159 260.953 38.8205 258.036 32.7813C256.966 30.5441 255.055 28.8209 252.719 27.9879C249.261 26.7909 245.123 27.3984 241.856 28.9866C236.72 31.6687 236.321 36.7168 236.147 41.8441C235.828 51.2655 236.451 60.7224 235.939 70.1229C233.382 70.2868 230.908 70.2369 228.349 70.2115C228.026 65.0235 228.209 58.0465 228.203 52.748L228.262 21.229C230.704 21.2823 233.147 21.2885 235.589 21.2477C235.702 23.823 235.74 26.401 235.702 28.9786C240.112 22.8556 241.892 21.9286 249.106 20.5642Z"/><path fill="white" transform="scale(2.75269 2.75294)" d="M348.747 20.8483C357.795 20.0591 364.646 23.3953 367.814 32.278C366.522 32.4256 362.861 33.5094 361.314 33.8932C360.347 32.5554 359.071 30.7861 357.966 29.6618C354.428 26.062 345.112 26.4319 341.826 30.2529C340.725 31.5337 339.905 32.6301 340.003 34.4355C340.396 41.706 351.493 41.5659 356.564 43.4494C359.576 44.3797 362.934 45.7176 365.225 47.9461C369.962 52.555 369.591 60.8493 364.9 65.4019C359.847 70.3055 356.143 70.6835 349.531 70.8287C340.001 70.6701 333.239 68.4328 331.153 58.279C332.09 58.0105 337.317 56.7978 337.528 57.0002C340.263 59.6189 340.555 63.1189 345.246 64.0948C348.904 64.8558 353.78 64.7152 357.018 62.6714C359.68 60.9909 360.409 59.7461 361.108 56.8752C359.204 49.5584 352.677 50.0499 346.492 48.3498C342.99 47.3871 340.059 46.5354 337.074 44.2954C331.71 40.2704 331.291 31.7757 335.396 26.7255C338.975 22.2937 343.412 21.5 348.747 20.8483Z"/></svg>',
+'Omnes_logomark_black_no_bg.svg':'<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="black"/></svg>',
+'Omnes_logomark_black_w_white_bg.svg':'<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="300" fill="white"/><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="black"/></svg>',
+'Omnes_logomark_white_w_black_bg.svg':'<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="300" fill="black"/><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="white"/></svg>',
+'Omnes_logomark_white_no_bg.svg':'<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="white"/></svg>'
+};
+function dl(f){var s=SVGS[f];if(!s)return;var b=new Blob([s],{type:'image/svg+xml'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download=f;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(u)},1000);toast(f+' downloaded');}
+function cpx(btn,hex){navigator.clipboard.writeText(hex).then(function(){btn.textContent='Copied!';btn.classList.add('ok');toast(hex+' copied');setTimeout(function(){btn.textContent='Copy hex';btn.classList.remove('ok')},2000)});}
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200);}
+</script>
+
+<!-- REUSABLE SVG SYMBOL -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="wm" viewBox="0 0 1024 234">
+    <path transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M114.383 20.8323C114.571 20.8061 114.758 20.7849 114.947 20.7688C145.548 18.1316 146.272 68.6479 119.813 70.7172C106.071 71.2577 97.201 65.5635 94.8847 51.2055C93.1032 40.1624 96.7536 26.9918 107.861 22.3493C110.068 21.427 112.021 21.1808 114.383 20.8323ZM117.499 64.3754C137.058 63.3779 134.878 25.6242 116.428 27.3611C104.552 28.0525 101.615 38.2471 102.313 48.4181C102.966 57.9419 107.601 64.1753 117.499 64.3754Z"/>
+    <path transform="scale(2.75269 2.75294)" d="M170.021 20.572C176.839 19.9231 181.397 23.1987 184.816 28.8165C188.625 23.406 192.606 20.3735 199.492 20.5188C216.722 20.8822 214.784 36.7159 214.793 49.0146C214.853 56.0779 214.817 63.1416 214.686 70.2039L207.044 70.1569C206.947 61.7384 207.122 53.2893 207.066 44.8863C207.036 40.3237 207.834 33.4637 204.32 30.1052C202.332 28.2054 199.761 27.2572 197.026 27.3334C185.528 27.6536 186.478 37.644 186.485 45.9547L186.5 60.625L186.463 70.1325C185.63 70.1615 178.863 70.5303 178.796 69.7679C177.73 57.8475 179.282 45.459 178.087 33.5541C177.703 29.7315 172.656 27.4377 169.224 27.3927C166.362 27.3641 163.604 28.4657 161.55 30.4582C156.688 35.2276 157.767 46.2084 157.783 52.6251C157.818 58.4654 157.808 64.3058 157.753 70.1458C155.347 70.1907 152.941 70.1766 150.536 70.1036C150.171 63.0272 150.258 55.0207 150.251 47.8992C150.181 39.0088 150.256 30.1178 150.475 21.2298L157.659 21.2458C157.633 23.7652 157.718 26.4842 157.743 29.0176C158.062 28.5553 158.383 28.095 158.707 27.6367C162.321 22.5405 164.033 21.5908 170.021 20.572Z"/>
+    <path transform="scale(2.75269 2.75294)" fill-rule="evenodd" d="M298.389 20.8133C303.57 19.9613 310.85 21.9807 314.664 25.6142C321.076 31.722 321.379 39.8675 321.67 48.0636C312.992 47.6683 303.062 48.2517 294.28 48.015C291.5 47.9401 288.681 48.3462 285.924 48.2086C286.18 49.803 286.411 51.3629 286.8 52.9581C289.238 62.9574 301.182 68.3496 309.649 61.7509C310.912 60.766 311.751 59.6465 312.739 58.4014C313.033 57.9643 313.234 57.8148 313.626 57.4785C315.43 56.9013 318.816 58.1859 320.962 58.6776C320.344 60.4066 320.013 61.335 318.975 62.8383C316.143 66.8865 311.82 69.6447 306.956 70.5067C300.946 71.5993 293.436 70.851 288.35 67.4072C274.424 57.9787 275.594 30.1273 291 22.7584C293.19 21.7109 296.001 21.2389 298.389 20.8133ZM285.771 41.6325C291.373 41.5849 297.128 41.7348 302.813 41.6961C306.22 41.7099 310.871 41.5187 314.106 41.6493C312.964 31.7402 308.301 26.4861 297.917 27.5508C289.594 30.1019 287.882 33.6021 285.771 41.6325Z"/>
+    <path transform="scale(2.75269 2.75294)" d="M70.2786 47.7728C73.4736 47.631 77.6988 47.7322 80.9604 47.7213C80.5396 51.1103 80.0305 52.8429 78.892 56.0622C77.6354 59.3258 75.4369 63.1986 73.3325 65.9805C67.0136 74.3284 57.6402 79.8277 47.2704 81.2711C25.7575 84.2392 5.92965 69.3724 2.9463 47.7937C6.1429 47.6953 10.2485 47.6647 13.3974 47.8196C14.1167 50.2357 14.9056 52.5876 16.0173 54.8575C19.3953 61.7247 25.3565 66.9738 32.5959 69.4557C44.4041 73.4803 58.3884 69.0546 65.417 58.7212C67.9202 55.0408 68.8783 51.8977 70.2786 47.7728Z"/>
+    <path transform="scale(2.75269 2.75294)" d="M41.0445 2.35756C47.3598 1.75169 57.9824 5.2353 63.293 8.86083C73.5373 15.8545 78.5428 24.2676 80.9411 36.2714C77.3863 36.36 73.8501 36.2842 70.2862 36.4806C66.3425 23.3322 58.2813 14.4913 43.9151 13.2629C34.0868 13.0247 25.7702 16.0978 19.4501 23.8863C16.233 27.8509 14.9988 31.5146 13.5693 36.2743C10.0022 36.3363 6.43429 36.3446 2.86689 36.299C4.50097 28.4088 6.40466 22.5155 11.8911 16.2782C19.5952 7.52 29.5353 3.13078 41.0445 2.35756Z"/>
+    <path transform="scale(2.75269 2.75294)" d="M249.106 20.5642C249.525 20.5294 249.946 20.5192 250.366 20.5337C254.959 20.6974 259.65 21.9646 262.855 25.4355C264.543 27.2904 265.738 29.539 266.332 31.9753C267.27 35.7146 267.289 42.296 267.364 46.3224C267.572 54.2251 267.52 62.1326 267.208 70.0319C264.738 70.1686 262.473 70.1537 259.998 70.1351C259.417 61.5159 260.953 38.8205 258.036 32.7813C256.966 30.5441 255.055 28.8209 252.719 27.9879C249.261 26.7909 245.123 27.3984 241.856 28.9866C236.72 31.6687 236.321 36.7168 236.147 41.8441C235.828 51.2655 236.451 60.7224 235.939 70.1229C233.382 70.2868 230.908 70.2369 228.349 70.2115C228.026 65.0235 228.209 58.0465 228.203 52.748L228.262 21.229C230.704 21.2823 233.147 21.2885 235.589 21.2477C235.702 23.823 235.74 26.401 235.702 28.9786C240.112 22.8556 241.892 21.9286 249.106 20.5642Z"/>
+    <path transform="scale(2.75269 2.75294)" d="M348.747 20.8483C357.795 20.0591 364.646 23.3953 367.814 32.278C366.522 32.4256 362.861 33.5094 361.314 33.8932C360.347 32.5554 359.071 30.7861 357.966 29.6618C354.428 26.062 345.112 26.4319 341.826 30.2529C340.725 31.5337 339.905 32.6301 340.003 34.4355C340.396 41.706 351.493 41.5659 356.564 43.4494C359.576 44.3797 362.934 45.7176 365.225 47.9461C369.962 52.555 369.591 60.8493 364.9 65.4019C359.847 70.3055 356.143 70.6835 349.531 70.8287C340.001 70.6701 333.239 68.4328 331.153 58.279C332.09 58.0105 337.317 56.7978 337.528 57.0002C340.263 59.6189 340.555 63.1189 345.246 64.0948C348.904 64.8558 353.78 64.7152 357.018 62.6714C359.68 60.9909 360.409 59.7461 361.108 56.8752C359.204 49.5584 352.677 50.0499 346.492 48.3498C342.99 47.3871 340.059 46.5354 337.074 44.2954C331.71 40.2704 331.291 31.7757 335.396 26.7255C338.975 22.2937 343.412 21.5 348.747 20.8483Z"/>
+  </symbol>
+  <symbol id="lm" viewBox="0 0 300 300">
+    <path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z"/>
+  </symbol>
+</svg>
+
+<div class="toast" id="toast"></div>
+
+<!-- NAV — exact from omnes.io -->
+<nav>
+  <a class="nav-logo" href="https://omnes.io" aria-label="Omnes home">
+    <svg viewBox="0 0 1024 234" height="17" style="fill:#1a1a1a"><use href="#wm"/></svg>
+  </a>
+  <div class="nav-links" role="navigation" aria-label="Main navigation">
+    <div class="nd-wrap">
+      <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Invest<svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nd-menu" role="menu">
+        <a class="nd-item" href="https://omnes.io/omn" role="menuitem"><span class="nd-title">Omnes Mining Note</span><span class="nd-sub">OMN Series 1</span></a>
+        <a class="nd-item" href="https://omnes.io/login" role="menuitem"><span class="nd-title">Investor Portal</span><span class="nd-sub">Log in to your account</span></a>
+        <a class="nd-item" href="https://omnes.io/signup" role="menuitem"><span class="nd-title">Sign Up</span><span class="nd-sub">Create an investor account</span></a>
+        <a class="nd-item" href="https://omnes.gitbook.io/omnes-docs/" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Documentation &#8599;&#xFE0E;</span><span class="nd-sub">Technical docs and gitbook</span></a>
+      </div>
+    </div>
+    <div class="nd-wrap">
+      <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">About<svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nd-menu" role="menu">
+        <a class="nd-item" href="https://omnes.io/about" role="menuitem"><span class="nd-title">About Omnes</span><span class="nd-sub">Mission, team, and key facts</span></a>
+        <a class="nd-item" href="https://omnes.io/faqs" role="menuitem"><span class="nd-title">FAQs</span><span class="nd-sub">Common questions answered</span></a>
+        <a class="nd-item" href="https://insights.omnes.io" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Insights &#8599;&#xFE0E;</span><span class="nd-sub">Research, news, and analysis</span></a>
+        <a class="nd-item" href="https://omnesbrand.notion.site" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Media Kit &#8599;&#xFE0E;</span><span class="nd-sub">Brand assets and press info</span></a>
+      </div>
+    </div>
+    <div class="nd-wrap">
+      <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Contact<svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="nd-menu" role="menu">
+        <a class="nd-item" href="https://omnes.io/contact" role="menuitem"><span class="nd-title">Contact IR</span><span class="nd-sub">Speak to the investor relations team</span></a>
+        <a class="nd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">LinkedIn &#8599;&#xFE0E;</span><span class="nd-sub">Follow us on LinkedIn</span></a>
+        <a class="nd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">X (Twitter) &#8599;&#xFE0E;</span><span class="nd-sub">Follow @omnesfinance</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a class="nav-login" href="https://omnes.io/login">Log in</a>
+    <a class="nav-cta" href="https://omnes.io/signup">Sign up</a>
+    <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
+  <button class="mn-close" onclick="toggleMobile()" aria-label="Close menu">×</button>
+  <a class="mn-item" href="https://omnes.io/omn">Omnes Mining Note</a>
+  <a class="mn-item" href="https://omnes.io/about">About</a>
+  <a class="mn-item" href="https://omnes.io/faqs">FAQs</a>
+  <a class="mn-item" href="https://insights.omnes.io" target="_blank" rel="noopener">Insights &#8599;&#xFE0E;</a>
+  <a class="mn-item" href="https://omnes.io/contact">Contact</a>
+  <div class="mn-cta">
+    <a class="btn-p" href="https://omnes.io/signup">Sign up</a>
+    <a class="btn-g" href="https://omnes.io/login">Log in →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="slabel"><span class="sl">///</span> Brand Identity &amp; Guidelines</p>
+    <h1 class="hero-h1">Brand media<span class="l2">kit for</span><span class="l3">omnes.</span></h1>
+    <div class="hero-bot">
+      <p class="hero-desc">A complete reference for Omnes brand assets, colors, typography, and usage guidelines. For press, partners, and platform integrations.</p>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-v">5</div><div class="hstat-l">Base Colors</div></div>
+        <div class="hstat"><div class="hstat-v">4</div><div class="hstat-l">Accent Colors</div></div>
+        <div class="hstat"><div class="hstat-v">1</div><div class="hstat-l">Typeface</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BASE COLORS -->
+<div class="section reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl">///</span> Brand Color Palette</p><h2 class="hl">Base colors.</h2></div>
+      <span class="sec-count">From :root CSS variables</span>
+    </div>
+    <div class="palette-grid">
+      <div class="cc"><div class="cs s-ink"></div><div class="ci"><div class="cn">Ink</div><div class="ch">#1a1a1a</div><div class="cr">var(--ink) · Body text</div><span class="ctag t-pri">--ink</span><button class="cpybtn" onclick="cpx(this,'#1a1a1a')">Copy hex</button></div></div>
+      <div class="cc"><div class="cs s-bg-alt"></div><div class="ci"><div class="cn">BG Alt</div><div class="ch">#f0efe9</div><div class="cr">var(--bg-alt) · Alt sections</div><span class="ctag t-sec">--bg-alt</span><button class="cpybtn" onclick="cpx(this,'#f0efe9')">Copy hex</button></div></div>
+      <div class="cc"><div class="cs s-bg-warm"></div><div class="ci"><div class="cn">BG Warm</div><div class="ch">#ebe9e1</div><div class="cr">var(--bg-warm) · Warm sections</div><span class="ctag t-sec">--bg-warm</span><button class="cpybtn" onclick="cpx(this,'#ebe9e1')">Copy hex</button></div></div>
+      <div class="cc"><div class="cs s-bg"></div><div class="ci"><div class="cn">BG</div><div class="ch">#f7f6f2</div><div class="cr">var(--bg) · Page background</div><span class="ctag t-bg">--bg</span><button class="cpybtn" onclick="cpx(this,'#f7f6f2')">Copy hex</button></div></div>
+      <div class="cc" style="border-right:none"><div class="cs s-white"></div><div class="ci"><div class="cn">White</div><div class="ch">#ffffff</div><div class="cr">var(--white) · Cards, footer</div><span class="ctag t-cv">--white</span><button class="cpybtn" onclick="cpx(this,'#ffffff')">Copy hex</button></div></div>
+    </div>
+    <div class="token-strip">
+      <div class="token-cell"><div class="cn" style="font-size:13px">Muted</div><div class="ch">#5a5a5a</div><div class="cr">var(--muted) · Secondary text</div><button class="cpybtn" onclick="cpx(this,'#5a5a5a')">Copy hex</button></div>
+      <div class="token-cell"><div class="cn" style="font-size:13px">Hint</div><div class="ch">#888880</div><div class="cr">var(--hint) · Labels, meta</div><button class="cpybtn" onclick="cpx(this,'#888880')">Copy hex</button></div>
+      <div class="token-cell"><div class="cn" style="font-size:13px">Border</div><div class="ch">#e2e0d8</div><div class="cr">var(--border) · Dividers</div><button class="cpybtn" onclick="cpx(this,'#e2e0d8')">Copy hex</button></div>
+      <div class="token-cell" style="border-right:none"><div class="cn" style="font-size:13px">Border Mid</div><div class="ch">#cbc8be</div><div class="cr">var(--border-mid) · Strong borders</div><button class="cpybtn" onclick="cpx(this,'#cbc8be')">Copy hex</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCENT COLORS -->
+<div class="section alt reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl">///</span> Accent Colors</p><h2 class="hl">Functional accents.</h2></div>
+      <span class="sec-count">4 Colors</span>
+    </div>
+    <div class="accent-grid">
+      <div class="ac cc"><div class="cs as s-te"></div><div class="ci"><div class="cn">Terra</div><div class="ch">#C4522E</div><div class="cr">Dark: #a84226</div><span class="ctag t-pri">CTA / Primary Action</span><button class="cpybtn" onclick="cpx(this,'#C4522E')">Copy hex</button></div></div>
+      <div class="ac cc"><div class="cs as s-tl"></div><div class="ci"><div class="cn">Teal</div><div class="ch">#5A7A5E</div><div class="cr">Dark: #4a6a4e</div><span class="ctag t-bg">Positive / Success</span><button class="cpybtn" onclick="cpx(this,'#5A7A5E')">Copy hex</button></div></div>
+      <div class="ac cc"><div class="cs as s-sa"></div><div class="ci"><div class="cn">Sand</div><div class="ch">#B89A72</div><div class="cr">Light: #e8d8b4</div><span class="ctag t-cv">Tertiary / Warmth</span><button class="cpybtn" onclick="cpx(this,'#B89A72')">Copy hex</button></div></div>
+      <div class="ac cc" style="border-right:none"><div class="cs as s-bl"></div><div class="ci"><div class="cn">Blue</div><div class="ch">#4A6E8A</div><div class="cr">Light: #c4d8e8</div><span class="ctag t-neu">Data / Informational</span><button class="cpybtn" onclick="cpx(this,'#4A6E8A')">Copy hex</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- USAGE IN CONTEXT -->
+<div class="section reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl-t">///</span> Usage Guide</p><h2 class="hl">Colors in context.</h2></div>
+    </div>
+    <div class="usage-grid">
+      <div class="uc" style="background:#1a1a1a;color:#f7f6f2"><div class="u-lbl">Ink · #1a1a1a</div><div class="u-hl">Headings, body text &amp; high-contrast UI.</div><div class="u-body">The dominant text color. Not pure black — slightly warmer. Use on light backgrounds only.</div></div>
+      <div class="uc" style="background:#ebe9e1"><div class="u-lbl">BG Warm · #ebe9e1</div><div class="u-hl">Warm section backgrounds.</div><div class="u-body">The warmest background tone, used for sections that need extra grounding and warmth.</div></div>
+      <div class="uc" style="background:#f0efe9"><div class="u-lbl">BG Alt · #f0efe9</div><div class="u-hl">Alternate section backgrounds.</div><div class="u-body">Slightly cooler than --bg, used to create subtle depth between alternating content panels.</div></div>
+      <div class="uc" style="background:#f7f6f2"><div class="u-lbl">BG · #f7f6f2</div><div class="u-hl">Primary page background.</div><div class="u-body">The site's base. A warm off-white that creates a refined, editorial atmosphere across all pages.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGOS -->
+<div class="section alt reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl-s">///</span> Logo</p><h2 class="hl">Logo assets.</h2></div>
+      <span class="sec-count">2 Wordmarks · 4 Logomarks</span>
+    </div>
+
+    <!-- WORDMARKS -->
+    <span class="logo-sub-lbl">Wordmark — Horizontal</span>
+    <div class="logo-row wm">
+      <div class="lv lv-light">
+        <div class="lv-asset"><svg viewBox="0 0 1024 234" height="28" style="fill:#1a1a1a"><use href="#wm"/></svg></div>
+        <div class="lv-meta">
+          <div class="lv-name">Black on White</div>
+          <div class="lv-file">Omnes_logo_black.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logo_black.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+      <div class="lv lv-linen">
+        <div class="lv-asset"><svg viewBox="0 0 1024 234" height="28" style="fill:#1a1a1a"><use href="#wm"/></svg></div>
+        <div class="lv-meta">
+          <div class="lv-name">Black on Linen</div>
+          <div class="lv-file">Omnes_logo_black.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logo_black.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+      <div class="lv lv-dark">
+        <div class="lv-asset"><svg viewBox="0 0 1024 234" height="28" style="fill:#ffffff"><use href="#wm"/></svg></div>
+        <div class="lv-meta">
+          <div class="lv-name">White on Black</div>
+          <div class="lv-file">Omnes_logo_white.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logo_white.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGOMARKS -->
+    <span class="logo-sub-lbl" style="margin-top:2px">Logomark — Icon Only</span>
+    <div class="logo-row lm">
+      <div class="lv lv-light">
+        <div class="lv-asset"><svg viewBox="0 0 300 300" width="80" height="80" style="fill:#000000"><use href="#lm"/></svg></div>
+        <div class="lv-meta">
+          <div class="lv-name">Black, No Background</div>
+          <div class="lv-file">Omnes_logomark_black_no_bg.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logomark_black_no_bg.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+      <div class="lv lv-light">
+        <div class="lv-asset">
+          <svg viewBox="0 0 300 300" width="80" height="80">
+            <rect width="300" height="300" fill="white" stroke="#e2e0d8" stroke-width="1"/>
+            <path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="lv-meta">
+          <div class="lv-name">Black on White Background</div>
+          <div class="lv-file">Omnes_logomark_black_w_white_bg.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logomark_black_w_white_bg.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+      <div class="lv lv-dark">
+        <div class="lv-asset">
+          <svg viewBox="0 0 300 300" width="80" height="80">
+            <rect width="300" height="300" fill="black"/>
+            <path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="lv-meta">
+          <div class="lv-name">White on Black Background</div>
+          <div class="lv-file">Omnes_logomark_white_w_black_bg.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logomark_white_w_black_bg.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+      <div class="lv lv-dkgray">
+        <div class="lv-asset"><svg viewBox="0 0 300 300" width="80" height="80" style="fill:#ffffff"><use href="#lm"/></svg></div>
+        <div class="lv-meta">
+          <div class="lv-name">White, No Background</div>
+          <div class="lv-file">Omnes_logomark_white_no_bg.svg</div>
+          <button class="dl-btn" onclick="dl('Omnes_logomark_white_no_bg.svg')">↓ Download SVG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLEARSPACE -->
+    <div class="cs-wrap">
+      <div class="cs-inner">
+        <div class="cs-dash"></div>
+        <span class="cs-top">Minimum clearspace — equal to cap height of wordmark</span>
+        <span class="cs-left">Minimum clearspace</span>
+        <svg viewBox="0 0 1024 234" height="28" style="fill:#1a1a1a"><use href="#wm"/></svg>
+      </div>
+    </div>
+
+    <!-- USAGE NOTES -->
+    <div class="logo-note">
+      <div class="logo-note-cell"><div class="logo-note-lbl">Do</div><div class="logo-note-body">Use the black wordmark on light backgrounds (white, linen, bg). Use the white wordmark on dark backgrounds only.</div></div>
+      <div class="logo-note-cell"><div class="logo-note-lbl">Don't</div><div class="logo-note-body">Do not place the logo on busy backgrounds, apply color fills, stretch or distort, or use the wordmark below 80px wide.</div></div>
+      <div class="logo-note-cell"><div class="logo-note-lbl">File Formats</div><div class="logo-note-body">SVG for digital and web use. PNG for presentations, documents, and anywhere SVG is not supported.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl-b">///</span> Typography</p><h2 class="hl">Typeface.</h2></div>
+      <span class="sec-count">Inter Tight</span>
+    </div>
+    <div class="type-grid">
+      <div class="tc">
+        <div class="t-lbl">Display — Inter Tight, Light 300</div>
+        <div class="t-disp">Aa Bb<br><em>Cc Dd</em></div>
+        <div class="t-alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; . , : ; ! ?</div>
+        <div class="t-meta">
+          <div class="t-meta-i"><label>Weight</label><span>Light 300</span></div>
+          <div class="t-meta-i"><label>Usage</label><span>Page headings, hero</span></div>
+          <div class="t-meta-i"><label>Tracking</label><span>−0.03 to −0.04em</span></div>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="t-lbl">Body — Inter Tight, 400 / 500 / 600</div>
+        <div class="t-disp" style="font-size:36px;font-weight:400;line-height:1.4">The quick brown fox jumps over the lazy dog.</div>
+        <div class="t-alpha" style="font-weight:500">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; . , : ; ! ?</div>
+        <div class="t-meta">
+          <div class="t-meta-i"><label>Weight</label><span>400 / 500 / 600</span></div>
+          <div class="t-meta-i"><label>Usage</label><span>Body, UI labels, nav</span></div>
+          <div class="t-meta-i"><label>Size</label><span>13–16px body</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="type-scale">
+      <div class="sc-row"><span class="sc-lbl">Display</span><span style="font-size:clamp(48px,7vw,88px);font-weight:300;letter-spacing:-0.04em;line-height:1">Bitcoin.</span></div>
+      <div class="sc-row"><span class="sc-lbl">H1</span><span style="font-size:clamp(32px,4vw,56px);font-weight:300;letter-spacing:-0.03em">Structured products.</span></div>
+      <div class="sc-row"><span class="sc-lbl">H2</span><span style="font-size:clamp(22px,2.8vw,40px);font-weight:300;letter-spacing:-0.025em">Built for institutional confidence.</span></div>
+      <div class="sc-row"><span class="sc-lbl">Body Large</span><span style="font-size:16px;color:var(--muted);line-height:1.85">A tokenized Bitcoin hashrate-backed debt security providing direct exposure to Bitcoin mining economics.</span></div>
+      <div class="sc-row"><span class="sc-lbl">Body</span><span style="font-size:14.5px;color:var(--muted);line-height:1.85">All mined Bitcoin accrues over the 36-month tenor and is distributed directly to investors at maturity.</span></div>
+      <div class="sc-row"><span class="sc-lbl">Section Label</span><span style="font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint)">/// Bitcoin-Native Structured Products</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN PRINCIPLES -->
+<div class="section warm reveal">
+  <div class="si">
+    <div class="sec-hd">
+      <div><p class="s-lbl"><span class="sl">///</span> Design Principles</p><h2 class="hl">What guides the brand.</h2></div>
+    </div>
+    <div>
+      <div class="ir"><span class="in in-te">[01]</span><div><div class="it">Institutional Precision</div><div class="ib">Every design decision should convey rigor and trustworthiness. Clean grids, controlled typography, generous whitespace. Nothing decorative that doesn't serve a function.</div></div></div>
+      <div class="ir"><span class="in in-tl">[02]</span><div><div class="it">Warm Minimalism</div><div class="ib">The warm linen palette differentiates Omnes from cold institutional finance. Subtle grain texture and warm off-whites create a refined, approachable aesthetic without sacrificing authority.</div></div></div>
+      <div class="ir"><span class="in in-sa">[03]</span><div><div class="it">Systematic Accents</div><div class="ib">Terra is used exclusively for primary CTAs and active states. Teal for positive/zero-fee indicators. Sand for warmth and tertiary information. Blue for data and informational contexts.</div></div></div>
+      <div class="ir"><span class="in in-bl">[04]</span><div><div class="it">Section Label Convention</div><div class="ib">All section openers use the <strong>/// Label</strong> pattern — uppercase, 10.5px, 0.12em letter-spacing. This is a core visual motif across all Omnes communications and must be preserved.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER — exact from omnes.io -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div class="ft-brand-col">
+        <a href="https://omnes.io" class="ft-logo-link" aria-label="Omnes home">
+          <svg viewBox="0 0 1024 234" height="16" style="fill:#1a1a1a"><use href="#wm"/></svg>
+        </a>
+        <div class="ft-social">
+          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Company</div>
+        <ul>
+          <li><a href="https://omnes.io/about">About</a></li>
+          <li><a href="https://omnes.io/contact">Contact us</a></li>
+          <li><a href="https://omnesbrand.notion.site/Omnes-Media-Kit-31caf5d4bca8800c91b0f890bbcf149a" target="_blank" rel="noopener">Media Kit &#8599;</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Products</div>
+        <ul>
+          <li><a href="https://omnes.io/omn">Omnes Mining Note</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Resources</div>
+        <ul>
+          <li><a href="https://omnes.io/faqs">FAQs</a></li>
+          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights &#8599;</a></li>
+          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener">Security &#8599;</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Legal</div>
+        <ul>
+          <li><a href="https://omnes.io/website-terms">Website Terms</a></li>
+          <li><a href="https://omnes.io/global-privacy-notice">Global Privacy Notice</a></li>
+          <li><a href="https://omnes.io/cookies-policy">Cookies Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-legal">This website and the information contained in it is subject to our <a href="https://omnes.io/website-terms">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.</p>
+      <p class="ft-wm">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 1px 20px rgba(26,26,20,.07)':'none'},{passive:true});
+function toggleDrop(el){var w=el.closest('.nd-wrap');var was=w.classList.contains('open');document.querySelectorAll('.nd-wrap').forEach(function(x){x.classList.remove('open');var l=x.querySelector('.nd-lbl');if(l)l.setAttribute('aria-expanded','false')});if(!was){w.classList.add('open');el.setAttribute('aria-expanded','true')}}
+function toggleMobile(){var mn=document.getElementById('mobile-nav');var btn=document.querySelector('.nav-hamburger');var isOpen=mn.classList.contains('open');if(isOpen){mn.classList.remove('open');document.body.style.overflow='';if(btn)btn.setAttribute('aria-expanded','false')}else{mn.classList.add('open');document.body.style.overflow='hidden';if(btn)btn.setAttribute('aria-expanded','true')}}
+document.addEventListener('click',function(e){if(!e.target.closest('.nd-wrap')){document.querySelectorAll('.nd-wrap').forEach(function(w){w.classList.remove('open');var l=w.querySelector('.nd-lbl');if(l)l.setAttribute('aria-expanded','false')})}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.nd-wrap').forEach(function(w){w.classList.remove('open')});var mn=document.getElementById('mobile-nav');if(mn&&mn.classList.contains('open'))toggleMobile()}});
+</script>
+</body>
+</html>
