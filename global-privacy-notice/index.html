@@ -473,11 +473,10 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 .legal-prose{max-width:800px}
 .legal-intro{font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--hint);margin-bottom:8px}
 .legal-updated{font-size:13px;color:var(--hint);margin-bottom:64px}
-.legal-nav{display:flex;gap:0;margin-bottom:64px;border:1px solid var(--border);border-radius:2px;overflow:hidden}
-.legal-nav a{font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:12px 20px;color:var(--muted);cursor:pointer;transition:all .15s;border-right:1px solid var(--border);white-space:nowrap}
-.legal-nav a:last-child{border-right:none}
-.legal-nav a:hover{color:var(--ink);background:var(--bg-alt)}
-.legal-nav a.active{color:var(--terra);background:var(--terra-pale)}
+.legal-nav{display:inline-flex;gap:0;margin-bottom:64px;border-bottom:1px solid var(--border);overflow:hidden;flex-wrap:wrap}
+.legal-nav a{font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:12px 20px;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
+.legal-nav a:hover{color:var(--ink)}
+.legal-nav a.active{color:var(--terra);border-bottom:2px solid var(--terra)}
 .lh2{font-size:clamp(15px,1.6vw,18px);font-weight:600;letter-spacing:-0.01em;color:var(--ink);margin:48px 0 14px;padding-top:48px;border-top:1px solid var(--border)}
 .lh2:first-of-type{margin-top:0;padding-top:0;border-top:none}
 .lp{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:16px}
