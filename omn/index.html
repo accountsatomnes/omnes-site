@@ -8,7 +8,7 @@
 <meta property="og:description" content="Institutional-grade Bitcoin yield through tokenized financial instruments. Luxembourg-issued. On-chain transparent."/>
 <title>Omnes | Bitcoin-Native Structured Products</title>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://www.omnes.io/"/>
+<meta property="og:url" content="https://omnes.io/omn/"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@omnesfinance"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -540,14 +540,14 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 <!-- Mobile nav overlay -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
   <span class="mn-close" onclick="toggleMobile()" aria-label="Close menu">×</span>
-  <span class="mn-item" onclick="go('omn');toggleMobile()">Omnes Mining Note</span>
-  <span class="mn-item" onclick="go('about');toggleMobile()">About</span>
-  <span class="mn-item" onclick="go('faqs');toggleMobile()">FAQs</span>
+  <a class="mn-item" href="/omn">Omnes Mining Note</a>
+  <a class="mn-item" href="/about">About</a>
+  <a class="mn-item" href="/faqs">FAQs</a>
   <a class="mn-item" href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></a>
-  <span class="mn-item" onclick="go('contact');toggleMobile()">Contact</span>
+  <a class="mn-item" href="/contact">Contact</a>
   <div class="mn-cta">
-    <span class="btn-p" onclick="go('signup');toggleMobile()" style="text-align:center;justify-content:center">Sign up</span>
-    <span class="btn-g" onclick="go('login');toggleMobile()" style="text-align:center;justify-content:center">Log in →</span>
+    <a class="btn-p" href="/signup" style="text-align:center;justify-content:center">Sign up</a>
+    <a class="btn-g" href="/login" style="text-align:center;justify-content:center">Log in →</a>
   </div>
 </div>
 
@@ -870,13 +870,6 @@ function handleSubscribe(btn){
   var inp=btn.previousElementSibling;
   if(!inp||!inp.value||inp.value.indexOf('@')<0){toast('Please enter a valid email address.');return}
   inp.value='';toast('✓ Subscribed, thank you!');
-}
-/* ── Contact ── */
-function handleContact(){
-  var c=document.getElementById('contact-confirm');
-  if(c)c.style.display='block';
-  toast('✓ Message sent, we\'ll be in touch shortly.');
-  setTimeout(function(){if(c)c.style.display='none'},5000);
 }
 /* ── Close dropdowns outside click ── */
 document.addEventListener('click',function(e){
