@@ -505,17 +505,17 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Invest<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/omn" role="menuitem"><span class="nd-title">Omnes Mining Note</span><span class="nd-sub">OMN Series 1</span></a>
-        <a class="nd-item" href="/login" role="menuitem"><span class="nd-title">Investor Portal</span><span class="nd-sub">Log in to your account</span></a>
-        <a class="nd-item" href="/signup" role="menuitem"><span class="nd-title">Sign Up</span><span class="nd-sub">Create an investor account</span></a>
+        <span class="nd-item" href="/omn" role="menuitem"><span class="nd-title">Omnes Mining Note</span><span class="nd-sub">OMN Series 1</span></span>
+        <span class="nd-item" href="/login" role="menuitem"><span class="nd-title">Investor Portal</span><span class="nd-sub">Log in to your account</span></span>
+        <span class="nd-item" href="/signup" role="menuitem"><span class="nd-title">Sign Up</span><span class="nd-sub">Create an investor account</span></span>
         <a class="nd-item" href="https://omnes.gitbook.io/omnes-docs/" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Documentation <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Technical docs and gitbook</span></a>
       </div>
     </div>
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">About<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/about" role="menuitem"><span class="nd-title">About Omnes</span><span class="nd-sub">Mission, team, and key facts</span></a>
-        <a class="nd-item" href="/faqs" role="menuitem"><span class="nd-title">FAQs</span><span class="nd-sub">Common questions answered</span></a>
+        <span class="nd-item" href="/about" role="menuitem"><span class="nd-title">About Omnes</span><span class="nd-sub">Mission, team, and key facts</span></span>
+        <span class="nd-item" href="/faqs" role="menuitem"><span class="nd-title">FAQs</span><span class="nd-sub">Common questions answered</span></span>
         <a class="nd-item" href="https://insights.omnes.io" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Research, news, and analysis</span></a>
         <a class="nd-item" href="https://omnesbrand.notion.site" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Media Kit <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Brand assets and press info</span></a>
       </div>
@@ -523,15 +523,15 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Contact<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/contact" role="menuitem"><span class="nd-title">Contact IR</span><span class="nd-sub">Speak to the investor relations team</span></a>
+        <span class="nd-item" href="/contact" role="menuitem"><span class="nd-title">Contact IR</span><span class="nd-sub">Speak to the investor relations team</span></span>
         <a class="nd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">LinkedIn <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Follow us on LinkedIn</span></a>
         <a class="nd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">X (Twitter) <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Follow @omnesfinance</span></a>
       </div>
     </div>
   </div>
   <div class="nav-right">
-    <a class="nav-login" href="/login">Log in</a>
-    <a class="nav-cta" href="/signup">Sign up</a>
+    <span class="nav-login" href="/login">Log in</span>
+    <span class="nav-cta" href="/signup">Sign up</span>
     <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -541,14 +541,14 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 <!-- Mobile nav overlay -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
   <span class="mn-close" onclick="toggleMobile()" aria-label="Close menu">×</span>
-  <a class="mn-item" href="/omn">Omnes Mining Note</a>
-  <a class="mn-item" href="/about">About</a>
-  <a class="mn-item" href="/faqs">FAQs</a>
+  <span class="mn-item" onclick="go('omn');toggleMobile()">Omnes Mining Note</span>
+  <span class="mn-item" onclick="go('about');toggleMobile()">About</span>
+  <span class="mn-item" onclick="go('faqs');toggleMobile()">FAQs</span>
   <a class="mn-item" href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></a>
-  <a class="mn-item" href="/contact">Contact</a>
+  <span class="mn-item" onclick="go('contact');toggleMobile()">Contact</span>
   <div class="mn-cta">
-    <a class="btn-p" href="/signup" style="text-align:center;justify-content:center">Sign up</a>
-    <a class="btn-g" href="/login" style="text-align:center;justify-content:center">Log in →</a>
+    <span class="btn-p" onclick="go('signup');toggleMobile()" style="text-align:center;justify-content:center">Sign up</span>
+    <span class="btn-g" onclick="go('login');toggleMobile()" style="text-align:center;justify-content:center">Log in →</span>
   </div>
 </div>
 
@@ -570,10 +570,10 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
       <h2 class="lh2">02 Why do we use cookies?</h2><p class="lp">When we conduct business with our clients, we primarily do so over the internet by way of devices such as computers and mobile devices. In order to make our websites work properly and to help us understand the activities of our clients and other users, we sometimes place small data files called cookies. In this cookie notice, we outline the types of cookies we use.</p>
       <h2 class="lh2">03 What are cookies?</h2><p class="lp">A cookie is a small text file that a website saves on your browser when you visit the site.</p>
       <h2 class="lh2">04 We only collect necessary cookies</h2><p class="lp">Necessary Cookies are enabled by default and are necessary to enable you to move around our websites and take advantage of their features. Without these cookies, essential security features cannot be activated and services you have asked for cannot be provided.</p>
-      <h2 class="lh2">05 You cannot opt out of or reject necessary cookies</h2><p class="lp">You have the right to accept or reject certain types of optional cookies. We do not collect optional. We only collect necessary cookies that you cannot opt out of or reject.</p><p class="lp">You can control and/or delete cookies as you wish. For further details, please visit the following website: <a href="https://www.aboutcookies.org" target="_blank" rel="noopener"><strong>www.aboutcookies.org</strong></a>.</p><p class="lp">You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, please that note that you may have to manually adjust some preferences each time you visit our website or use our platform. Furthermore, a number of services and functionalities we offer may not work.</p><p class="lp">We take cyber security matters seriously and we are committed to keeping your personal information safe. For more information on how we handle your data, see the global privacy notice on our website.</p>
+      <h2 class="lh2">05 You cannot opt out of or reject necessary cookies</h2><p class="lp">You have the right to accept or reject certain types of optional cookies. We do not collect optional cookies. We only collect necessary cookies that you cannot opt out of or reject.</p><p class="lp">You can control and/or delete cookies as you wish. For further details, please visit the following website: <a href="https://www.aboutcookies.org" target="_blank" rel="noopener"><strong>www.aboutcookies.org</strong></a>.</p><p class="lp">You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, please note that you may have to manually adjust some preferences each time you visit our website or use our platform. Furthermore, a number of services and functionalities we offer may not work.</p><p class="lp">We take cyber security matters seriously and we are committed to keeping your personal information safe. For more information on how we handle your data, see the global privacy notice on our website.</p>
       <h2 class="lh2">06 How to contact us</h2><p class="lp">If you have questions or comments about our cookies practices, you can contact us via one of the methods set out below: <a href="mailto:legal@omnes.io"><strong>legal@omnes.io</strong></a></p>
       <h2 class="lh2">07 Changes to our cookies policy</h2><p class="lp">Any changes we make to our cookies policy in the future will be posted on this page and, where appropriate, notified to you by e-mail. Please check back frequently to see any updates or changes to our cookies policy.</p>
-      <p class="lp" style="font-size:13px;color:var(--hint)">Last updated: 3 November 2025</p>
+      <p class="lp" style="font-size:13px;color:var(--hint)">Last updated: 26 March 2026</p>
     </div>
   </div></div>
 <footer>
@@ -636,7 +636,7 @@ function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.c
 function go(id){var urls={"home":"/","omn":"/omn","about":"/about","faqs":"/faqs","contact":"/contact","login":"/login","signup":"/signup","terms":"/website-terms","privacy":"/global-privacy-notice","cookies":"/cookies-policy"};if(urls[id]!==undefined){window.location.href=urls[id];return}}
 function toggleDrop(el){var w=el.closest('.nd-wrap');var was=w.classList.contains('open');document.querySelectorAll('.nd-wrap').forEach(function(x){x.classList.remove('open');var l=x.querySelector('.nd-lbl');if(l)l.setAttribute('aria-expanded','false')});if(!was){w.classList.add('open');el.setAttribute('aria-expanded','true')}}
 function toggleMobile(){var mn=document.getElementById('mobile-nav');var btn=document.querySelector('.nav-hamburger');var isOpen=mn.classList.contains('open');if(isOpen){mn.classList.remove('open');document.body.style.overflow='';if(btn)btn.setAttribute('aria-expanded','false')}else{mn.classList.add('open');document.body.style.overflow='hidden';if(btn)btn.setAttribute('aria-expanded','true')}}
-function otab(el,id){document.querySelectorAll('.stab').forEach(function(t){t.classList.remove('act')});document.querySelectorAll('.omn-panel').forEach(function(p){p.classList.remove('act')});el.classList.add('act');document.getElementById(id).classList.add('act')}
+
 function toggleFaq(el){var item=el.closest('.faq-item');var wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');var q=i.querySelector('[aria-expanded]');if(q)q.setAttribute('aria-expanded','false')});if(!wasOpen){item.classList.add('open');el.setAttribute('aria-expanded','true')}}
 document.addEventListener('click',function(e){if(!e.target.closest('.nd-wrap')){document.querySelectorAll('.nd-wrap').forEach(function(w){w.classList.remove('open');var l=w.querySelector('.nd-lbl');if(l)l.setAttribute('aria-expanded','false')})}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.nd-wrap').forEach(function(w){w.classList.remove('open')});var mn=document.getElementById('mobile-nav');if(mn&&mn.classList.contains('open'))toggleMobile()}});

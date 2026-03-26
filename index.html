@@ -100,10 +100,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 /* ─────────── HERO ─────────── */
 .hero{padding-top:64px;min-height:100svh;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%),radial-gradient(ellipse at 50% 90%,rgba(74,110,138,.04) 0%,transparent 60%);pointer-events:none}
-.hero-bg-text{position:absolute;bottom:-40px;right:-20px;font-size:clamp(200px,28vw,420px);font-weight:500;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(196,82,46,.045);pointer-events:none;user-select:none;line-height:1;z-index:0}
-.hero-corner{position:absolute;width:44px;height:44px;opacity:.2}
-.hero-corner.tl{top:86px;left:48px;border-top:1px solid var(--terra);border-left:1px solid var(--terra)}
-.hero-corner.br{bottom:48px;right:48px;border-bottom:1px solid var(--teal);border-right:1px solid var(--teal)}
+.hero-bg-text{display:none}
+.hero-corner{display:none}
+.hero-corner.tl{display:none}
+.hero-corner.br{display:none}
 .hero-inner{max-width:1280px;width:100%;margin:0 auto;padding:0 48px 88px;position:relative;z-index:1}
 .slabel{font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);display:flex;align-items:center;gap:8px;margin-bottom:44px}
 .sl{color:var(--terra)}.sl-terra{color:var(--terra)}.sl-teal{color:var(--teal)}.sl-sand{color:var(--sand)}.sl-blue{color:var(--blue)}
@@ -394,9 +394,9 @@ textarea.form-in{resize:vertical;min-height:110px}
 /* ─────────── HERO FULL-WIDTH ─────────── */
 .hero{padding-top:64px;min-height:100svh;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%);pointer-events:none}
-.hero-bg-text{position:absolute;bottom:-40px;right:-20px;font-size:clamp(200px,28vw,420px);font-weight:500;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(196,82,46,.045);pointer-events:none;user-select:none;line-height:1;z-index:0}
-.hero-corner-tl{position:absolute;top:86px;left:48px;width:44px;height:44px;opacity:.2;border-top:1px solid var(--terra);border-left:1px solid var(--terra)}
-.hero-corner-br{position:absolute;bottom:48px;right:48px;width:44px;height:44px;opacity:.2;border-bottom:1px solid var(--teal);border-right:1px solid var(--teal)}
+.hero-bg-text{display:none}
+.hero-corner-tl{display:none}
+.hero-corner-br{display:none}
 .hero-inner{max-width:1280px;width:100%;margin:0 auto;padding:0 48px 88px;position:relative;z-index:1}
 .hero-h1-new{font-size:clamp(48px,7vw,108px);font-weight:300;letter-spacing:-0.04em;line-height:.92;color:var(--ink);margin-bottom:0}
 .hero-h1-new .l2{display:block;padding-left:clamp(60px,10vw,160px);color:var(--terra)}
@@ -493,6 +493,31 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 .l-table th{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);padding:12px 16px;border-bottom:2px solid var(--border);text-align:left;background:var(--bg-alt)}
 .l-table td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.65;vertical-align:top}
 .l-table tr:last-child td{border-bottom:none}
+
+/* ─────────── HERO MOBILE SPACING ─────────── */
+@media(max-width:768px){
+  .slabel{margin-bottom:12px}
+}
+
+/* ─────────── LEADERSHIP MOBILE SINGLE COLUMN ─────────── */
+@media(max-width:768px){
+  .team-grid{grid-template-columns:1fr}
+}
+
+/* ─────────── HYPERLINK STYLES ─────────── */
+.si a, .blog-si a, .warm-i a, .pg-hero-i a, .legal-prose a, .faq-ai a, .hero-desc a, .cd-val a, .ft-legal a {
+  font-weight:normal;
+  color:var(--terra);
+}
+a[href^="mailto:"], a[href^="http://"], a[href^="https://"] {
+  font-variant:small-caps;
+}
+/* Exclude nav, buttons, and styled elements from hyperlink overrides */
+nav a, .btn-p, .btn-g, .btn-cta-p, .btn-cta-g, .nav-cta, .nav-login, .bc-read, .blog-va, .team-li, .ft-col ul li a, .nd-item {
+  font-weight:revert;
+  color:revert;
+  font-variant:normal;
+}
 </style>
 </head>
 <body>
@@ -506,17 +531,17 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Invest<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/omn" role="menuitem"><span class="nd-title">Omnes Mining Note</span><span class="nd-sub">OMN Series 1</span></a>
-        <a class="nd-item" href="/login" role="menuitem"><span class="nd-title">Investor Portal</span><span class="nd-sub">Log in to your account</span></a>
-        <a class="nd-item" href="/signup" role="menuitem"><span class="nd-title">Sign Up</span><span class="nd-sub">Create an investor account</span></a>
+        <span class="nd-item" href="/omn" role="menuitem"><span class="nd-title">Omnes Mining Note</span><span class="nd-sub">OMN Series 1</span></span>
+        <span class="nd-item" href="/login" role="menuitem"><span class="nd-title">Investor Portal</span><span class="nd-sub">Log in to your account</span></span>
+        <span class="nd-item" href="/signup" role="menuitem"><span class="nd-title">Sign Up</span><span class="nd-sub">Create an investor account</span></span>
         <a class="nd-item" href="https://omnes.gitbook.io/omnes-docs/" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Documentation <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Technical docs and gitbook</span></a>
       </div>
     </div>
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">About<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/about" role="menuitem"><span class="nd-title">About Omnes</span><span class="nd-sub">Mission, team, and key facts</span></a>
-        <a class="nd-item" href="/faqs" role="menuitem"><span class="nd-title">FAQs</span><span class="nd-sub">Common questions answered</span></a>
+        <span class="nd-item" href="/about" role="menuitem"><span class="nd-title">About Omnes</span><span class="nd-sub">Mission, team, and key facts</span></span>
+        <span class="nd-item" href="/faqs" role="menuitem"><span class="nd-title">FAQs</span><span class="nd-sub">Common questions answered</span></span>
         <a class="nd-item" href="https://insights.omnes.io" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Research, news, and analysis</span></a>
         <a class="nd-item" href="https://omnesbrand.notion.site" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">Media Kit <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Brand assets and press info</span></a>
       </div>
@@ -524,15 +549,15 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     <div class="nd-wrap">
       <div class="nd-lbl" onclick="toggleDrop(this)" role="button" aria-expanded="false" aria-haspopup="true">Contact<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="nd-menu" role="menu">
-        <a class="nd-item" href="/contact" role="menuitem"><span class="nd-title">Contact IR</span><span class="nd-sub">Speak to the investor relations team</span></a>
+        <span class="nd-item" href="/contact" role="menuitem"><span class="nd-title">Contact IR</span><span class="nd-sub">Speak to the investor relations team</span></span>
         <a class="nd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">LinkedIn <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Follow us on LinkedIn</span></a>
         <a class="nd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener" role="menuitem"><span class="nd-title">X (Twitter) <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></span><span class="nd-sub">Follow @omnesfinance</span></a>
       </div>
     </div>
   </div>
   <div class="nav-right">
-    <a class="nav-login" href="/login">Log in</a>
-    <a class="nav-cta" href="/signup">Sign up</a>
+    <span class="nav-login" href="/login">Log in</span>
+    <span class="nav-cta" href="/signup">Sign up</span>
     <button class="nav-hamburger" onclick="toggleMobile()" aria-label="Open navigation menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -542,14 +567,14 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 <!-- Mobile nav overlay -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
   <span class="mn-close" onclick="toggleMobile()" aria-label="Close menu">×</span>
-  <a class="mn-item" href="/omn">Omnes Mining Note</a>
-  <a class="mn-item" href="/about">About</a>
-  <a class="mn-item" href="/faqs">FAQs</a>
+  <span class="mn-item" onclick="go('omn');toggleMobile()">Omnes Mining Note</span>
+  <span class="mn-item" onclick="go('about');toggleMobile()">About</span>
+  <span class="mn-item" onclick="go('faqs');toggleMobile()">FAQs</span>
   <a class="mn-item" href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></a>
-  <a class="mn-item" href="/contact">Contact</a>
+  <span class="mn-item" onclick="go('contact');toggleMobile()">Contact</span>
   <div class="mn-cta">
-    <a class="btn-p" href="/signup" style="text-align:center;justify-content:center">Sign up</a>
-    <a class="btn-g" href="/login" style="text-align:center;justify-content:center">Log in →</a>
+    <span class="btn-p" onclick="go('signup');toggleMobile()" style="text-align:center;justify-content:center">Sign up</span>
+    <span class="btn-g" onclick="go('login');toggleMobile()" style="text-align:center;justify-content:center">Log in →</span>
   </div>
 </div>
 
