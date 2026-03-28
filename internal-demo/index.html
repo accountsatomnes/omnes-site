@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>OMN Investor Dashboard — Omnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f7f6f2;
+  --bg-alt:#f0efe9;
+  --bg-warm:#ebe9e1;
+  --white:#ffffff;
+  --terra:#C4522E;
+  --terra-dark:#a84226;
+  --terra-light:#e8b8a8;
+  --terra-pale:#faf0ec;
+  --teal:#5A7A5E;
+  --teal-dark:#4a6a4e;
+  --teal-light:#c8ddc8;
+  --teal-pale:#edf4ee;
+  --sand:#B89A72;
+  --sand-light:#e8d8b4;
+  --sand-pale:#f8f3ec;
+  --blue:#4A6E8A;
+  --blue-light:#c4d8e8;
+  --blue-pale:#e8f0f5;
+  --ink:#1a1a1a;
+  --muted:#5a5a5a;
+  --hint:#888880;
+  --border:#e2e0d8;
+  --border-mid:#cbc8be;
+}
+
+body{
+  font-family:'Inter Tight',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  font-size:15px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* grain texture */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.04;mix-blend-mode:multiply;pointer-events:none;z-index:9999;
+}
+
+/* ── NAV ── */
+.nav{
+  background:rgba(247,246,242,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  height:64px;display:flex;align-items:center;
+  position:sticky;top:0;z-index:100;
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;width:100%;
+  padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cir{
+  font-size:13.5px;color:var(--ink);text-decoration:none;cursor:pointer;
+}
+.nav-vo{
+  font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;
+  padding:9px 22px;background:var(--terra);color:#fff;
+  border:none;cursor:pointer;font-family:'Inter Tight',sans-serif;
+  text-decoration:none;display:inline-block;transition:background .18s;
+}
+.nav-vo:hover{background:var(--terra-dark)}
+
+/* ── HERO SPLIT ── */
+.hero{
+  max-width:1280px;margin:0 auto;
+  padding:0 48px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - 64px - 53px);
+  border-bottom:1px solid var(--border);
+}
+.hero-left{
+  padding:80px 56px 80px 0;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-tags{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.tag{
+  font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 12px;border:1px solid var(--border);color:var(--hint);
+  background:transparent;
+}
+.tag.live{
+  color:var(--teal);
+  border-color:rgba(90,122,94,.4);
+  display:flex;align-items:center;gap:6px;
+}
+.live-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--teal);
+  animation:blink 2.2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+.hero-h1{
+  font-size:clamp(38px,5.2vw,72px);
+  font-weight:300;letter-spacing:-0.03em;
+  color:var(--ink);line-height:1.04;margin-bottom:22px;
+}
+.hero-h1 em{color:var(--terra);font-style:normal}
+.hero-sub{
+  font-size:15px;color:var(--muted);line-height:1.75;
+  max-width:460px;margin-bottom:40px;
+}
+.hero-btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn-terra{
+  font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  padding:13px 28px;background:var(--terra);color:#fff;
+  border:none;cursor:pointer;font-family:'Inter Tight',sans-serif;
+  text-decoration:none;display:inline-block;transition:background .18s;
+}
+.btn-terra:hover{background:var(--terra-dark)}
+.btn-ghost{
+  font-size:11.5px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;
+  padding:12px 24px;background:transparent;color:var(--ink);
+  border:1px solid var(--border-mid);cursor:pointer;
+  font-family:'Inter Tight',sans-serif;text-decoration:none;
+  display:inline-block;transition:border-color .18s;
+}
+.btn-ghost:hover{border-color:var(--ink)}
+
+/* key terms */
+.hero-right{
+  padding:80px 0 80px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.kt-label{
+  font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--hint);margin-bottom:22px;
+  display:flex;align-items:center;gap:8px;
+}
+.kt-label::before{content:'///';color:var(--terra);font-weight:600;letter-spacing:0.04em}
+.kt-table{width:100%;border-top:1px solid var(--border)}
+.kt-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:15px 0;border-bottom:1px solid var(--border);
+  font-size:14px;gap:16px;
+}
+.kt-k{color:var(--muted);flex-shrink:0}
+.kt-v{font-weight:500;color:var(--ink);text-align:right}
+.kt-v.terra{color:var(--terra)}
+.kt-v.blue{color:var(--blue)}
+
+/* ── CONTENT ── */
+.content{max-width:1280px;margin:0 auto;padding:0 48px 80px}
+
+.sec{
+  font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--hint);margin:60px 0 28px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec::before{content:'///';color:var(--terra);font-weight:600;letter-spacing:0.04em}
+
+/* ── OVERVIEW GRID ── */
+.overview-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);border-left:1px solid var(--border);
+  margin-bottom:60px;
+}
+.ov-cell{
+  padding:26px 32px;
+  border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .18s;
+}
+.ov-cell:hover{background:var(--bg-alt)}
+.ov-label{
+  font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--hint);margin-bottom:10px;
+}
+.ov-val{font-size:clamp(18px,1.6vw,24px);font-weight:300;letter-spacing:-0.02em;color:var(--ink)}
+.ov-val.terra{color:var(--terra)}
+.ov-val.large{font-size:clamp(26px,2.5vw,38px);font-weight:300;letter-spacing:-0.03em}
+.ov-val.green{color:var(--teal);font-size:14px;font-weight:500}
+
+/* ── PERF GRID ── */
+.perf-grid{
+  display:grid;grid-template-columns:2fr 1fr;gap:56px;
+  margin-bottom:60px;
+}
+.chart-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.chart-desc{font-size:13px;color:var(--muted)}
+.ctabs{display:flex}
+.ctab{
+  font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  padding:5px 12px;border:1px solid var(--border);margin-right:-1px;
+  background:transparent;color:var(--hint);cursor:pointer;
+  font-family:'Inter Tight',sans-serif;transition:all .15s;
+}
+.ctab.on{background:var(--ink);color:var(--white);border-color:var(--ink);z-index:1;position:relative}
+.ctab:hover:not(.on){border-color:var(--ink);color:var(--ink)}
+canvas{display:block;width:100%}
+.chart-foot{
+  display:flex;justify-content:space-between;
+  margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--border);font-size:12px;
+}
+.cf-k{color:var(--muted);margin-bottom:3px}
+.cf-v{font-weight:500}
+
+.term-head{font-size:13px;color:var(--muted);margin-bottom:18px}
+.term-nums{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
+.t-big{font-size:clamp(38px,4vw,52px);font-weight:300;letter-spacing:-0.04em;line-height:1}
+.t-big sup{font-size:20px}
+.t-right{text-align:right}
+.t-days{font-size:clamp(26px,3vw,34px);font-weight:300;letter-spacing:-0.03em;line-height:1}
+.t-sub{font-size:11px;color:var(--hint);margin-top:4px;letter-spacing:0.07em;text-transform:uppercase}
+.pbar{height:1px;background:var(--border);margin-bottom:10px}
+.pbar-fill{height:1px;background:var(--ink);width:0%}
+.pdates{display:flex;justify-content:space-between;font-size:11px;color:var(--hint)}
+
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;border:1px solid var(--border);margin-bottom:60px}
+.tbl thead th{
+  font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--hint);padding:13px 22px;text-align:left;
+  border-bottom:1px solid var(--border);background:var(--bg-alt);
+}
+.tbl thead th:not(:first-child){text-align:right}
+.tbl tbody td{padding:19px 22px;font-size:14px;border-bottom:1px solid var(--border)}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody td:not(:first-child){text-align:right}
+.tbl tbody tr:hover td{background:var(--bg-alt)}
+.td-main{font-size:15px;font-weight:500;color:var(--ink)}
+.td-dim{color:var(--muted)}
+.td-terra{color:var(--terra);font-weight:500}
+.status{
+  font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;
+  padding:4px 12px;background:var(--teal-pale);color:var(--teal);border-radius:2px;
+}
+
+/* info icon */
+.ii{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:14px;height:14px;border-radius:50%;
+  border:1px solid var(--border-mid);font-size:9px;font-weight:700;color:var(--hint);
+  cursor:default;position:relative;margin-left:4px;vertical-align:middle;
+}
+.ii .tt{
+  display:none;position:absolute;bottom:calc(100% + 8px);left:50%;
+  transform:translateX(-50%);
+  background:var(--ink);color:#fff;
+  font-size:11px;font-weight:400;padding:8px 14px;white-space:nowrap;
+  z-index:200;pointer-events:none;line-height:1.5;letter-spacing:0;text-transform:none;
+}
+.ii .tt::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:var(--ink)}
+.ii:hover .tt{display:block}
+
+/* ── IR STRIP ── */
+.ir{
+  border-top:1px solid var(--border);padding:60px 0;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+}
+.ir-label{font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ir-label::before{content:'///';color:var(--terra)}
+.ir-h{font-size:clamp(20px,2vw,28px);font-weight:300;letter-spacing:-0.02em;margin-bottom:10px}
+.ir-sub{font-size:14px;color:var(--muted);line-height:1.75;max-width:520px}
+.ir-btns{display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap}
+
+/* FOOTER */
+.foot{
+  border-top:1px solid var(--border);padding:28px 48px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  background:var(--bg-alt);
+}
+.foot p{font-size:11px;color:var(--hint);line-height:1.7}
+.foot a{color:var(--hint);border-bottom:1px solid var(--border);text-decoration:none;transition:color .15s}
+.foot a:hover{color:var(--ink)}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  .hero,.content,.nav-inner{padding-left:28px;padding-right:28px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{border-right:none;border-bottom:1px solid var(--border);padding-right:0;padding-bottom:48px}
+  .hero-right{padding-left:0;padding-top:48px}
+  .overview-grid{grid-template-columns:1fr 1fr}
+  .perf-grid{grid-template-columns:1fr;gap:40px}
+  .foot{padding-left:28px;padding-right:28px}
+  .ir{flex-direction:column;align-items:flex-start;gap:28px}
+}
+
+@media(max-width:640px){
+  .hero,.content,.nav-inner{padding-left:20px;padding-right:20px}
+  .foot{padding-left:20px;padding-right:20px}
+
+  /* nav */
+  .nav{height:56px}
+  .nav-cir{display:none}
+  .nav-vo{font-size:11px;padding:8px 16px}
+
+  /* hero */
+  .hero-left{padding-top:48px;padding-bottom:36px}
+  .hero-right{padding-top:36px;padding-bottom:48px}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .btn-terra,.btn-ghost{text-align:center;padding:14px 20px}
+
+  /* overview grid — 1 col on small phones */
+  .overview-grid{grid-template-columns:1fr}
+  .ov-cell{padding:20px 20px}
+
+  /* section labels */
+  .sec{margin:40px 0 20px}
+
+  /* chart tabs — scrollable */
+  .ctabs{overflow-x:auto}
+
+  /* term progress */
+  .term-nums{gap:16px}
+
+  /* table — horizontal scroll */
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:60px}
+  .tbl-wrap .tbl{margin-bottom:0;min-width:600px}
+  .tbl thead th,.tbl tbody td{padding:12px 16px}
+
+  /* IR strip */
+  .ir{padding:40px 0}
+  .ir-btns{flex-direction:column;width:100%}
+  .ir-btns .btn-terra,.ir-btns .btn-ghost{text-align:center;padding:14px 20px}
+
+  /* footer */
+  .foot{flex-direction:column;gap:8px}
+
+  /* key terms */
+  .kt-row{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 234" height="16" style="display:block;flex-shrink:0">
+      <path transform="scale(2.75269 2.75294)" fill-rule="evenodd" fill="#1a1a1a" d="M114.383 20.8323C114.571 20.8061 114.758 20.7849 114.947 20.7688C145.548 18.1316 146.272 68.6479 119.813 70.7172C106.071 71.2577 97.201 65.5635 94.8847 51.2055C93.1032 40.1624 96.7536 26.9918 107.861 22.3493C110.068 21.427 112.021 21.1808 114.383 20.8323ZM117.499 64.3754C137.058 63.3779 134.878 25.6242 116.428 27.3611C104.552 28.0525 101.615 38.2471 102.313 48.4181C102.966 57.9419 107.601 64.1753 117.499 64.3754Z"/>
+      <path transform="scale(2.75269 2.75294)" fill="#1a1a1a" d="M170.021 20.572C176.839 19.9231 181.397 23.1987 184.816 28.8165C188.625 23.406 192.606 20.3735 199.492 20.5188C216.722 20.8822 214.784 36.7159 214.793 49.0146C214.853 56.0779 214.817 63.1416 214.686 70.2039L207.044 70.1569C206.947 61.7384 207.122 53.2893 207.066 44.8863C207.036 40.3237 207.834 33.4637 204.32 30.1052C202.332 28.2054 199.761 27.2572 197.026 27.3334C185.528 27.6536 186.478 37.644 186.485 45.9547L186.5 60.625L186.463 70.1325C185.63 70.1615 178.863 70.5303 178.796 69.7679C177.73 57.8475 179.282 45.459 178.087 33.5541C177.703 29.7315 172.656 27.4377 169.224 27.3927C166.362 27.3641 163.604 28.4657 161.55 30.4582C156.688 35.2276 157.767 46.2084 157.783 52.6251C157.818 58.4654 157.808 64.3058 157.753 70.1458C155.347 70.1907 152.941 70.1766 150.536 70.1036C150.171 63.0272 150.258 55.0207 150.251 47.8992C150.181 39.0088 150.256 30.1178 150.475 21.2298L157.659 21.2458C157.633 23.7652 157.718 26.4842 157.743 29.0176C158.062 28.5553 158.383 28.095 158.707 27.6367C162.321 22.5405 164.033 21.5908 170.021 20.572Z"/>
+      <path transform="scale(2.75269 2.75294)" fill-rule="evenodd" fill="#1a1a1a" d="M298.389 20.8133C303.57 19.9613 310.85 21.9807 314.664 25.6142C321.076 31.722 321.379 39.8675 321.67 48.0636C312.992 47.6683 303.062 48.2517 294.28 48.015C291.5 47.9401 288.681 48.3462 285.924 48.2086C286.18 49.803 286.411 51.3629 286.8 52.9581C289.238 62.9574 301.182 68.3496 309.649 61.7509C310.912 60.766 311.751 59.6465 312.739 58.4014C313.033 57.9643 313.234 57.8148 313.626 57.4785C315.43 56.9013 318.816 58.1859 320.962 58.6776C320.344 60.4066 320.013 61.335 318.975 62.8383C316.143 66.8865 311.82 69.6447 306.956 70.5067C300.946 71.5993 293.436 70.851 288.35 67.4072C274.424 57.9787 275.594 30.1273 291 22.7584C293.19 21.7109 296.001 21.2389 298.389 20.8133ZM285.771 41.6325C291.373 41.5849 297.128 41.7348 302.813 41.6961C306.22 41.7099 310.871 41.5187 314.106 41.6493C312.964 31.7402 308.301 26.4861 297.917 27.5508C289.594 30.1019 287.882 33.6021 285.771 41.6325Z"/>
+      <path transform="scale(2.75269 2.75294)" fill="#1a1a1a" d="M70.2786 47.7728C73.4736 47.631 77.6988 47.7322 80.9604 47.7213C80.5396 51.1103 80.0305 52.8429 78.892 56.0622C77.6354 59.3258 75.4369 63.1986 73.3325 65.9805C67.0136 74.3284 57.6402 79.8277 47.2704 81.2711C25.7575 84.2392 5.92965 69.3724 2.9463 47.7937C6.1429 47.6953 10.2485 47.6647 13.3974 47.8196C14.1167 50.2357 14.9056 52.5876 16.0173 54.8575C19.3953 61.7247 25.3565 66.9738 32.5959 69.4557C44.4041 73.4803 58.3884 69.0546 65.417 58.7212C67.9202 55.0408 68.8783 51.8977 70.2786 47.7728Z"/>
+      <path transform="scale(2.75269 2.75294)" fill="#1a1a1a" d="M41.0445 2.35756C47.3598 1.75169 57.9824 5.2353 63.293 8.86083C73.5373 15.8545 78.5428 24.2676 80.9411 36.2714C77.3863 36.36 73.8501 36.2842 70.2862 36.4806C66.3425 23.3322 58.2813 14.4913 43.9151 13.2629C34.0868 13.0247 25.7702 16.0978 19.4501 23.8863C16.233 27.8509 14.9988 31.5146 13.5693 36.2743C10.0022 36.3363 6.43429 36.3446 2.86689 36.299C4.50097 28.4088 6.40466 22.5155 11.8911 16.2782C19.5952 7.52 29.5353 3.13078 41.0445 2.35756Z"/>
+      <path transform="scale(2.75269 2.75294)" fill="#1a1a1a" d="M249.106 20.5642C249.525 20.5294 249.946 20.5192 250.366 20.5337C254.959 20.6974 259.65 21.9646 262.855 25.4355C264.543 27.2904 265.738 29.539 266.332 31.9753C267.27 35.7146 267.289 42.296 267.364 46.3224C267.572 54.2251 267.52 62.1326 267.208 70.0319C264.738 70.1686 262.473 70.1537 259.998 70.1351C259.417 61.5159 260.953 38.8205 258.036 32.7813C256.966 30.5441 255.055 28.8209 252.719 27.9879C249.261 26.7909 245.123 27.3984 241.856 28.9866C236.72 31.6687 236.321 36.7168 236.147 41.8441C235.828 51.2655 236.451 60.7224 235.939 70.1229C233.382 70.2868 230.908 70.2369 228.349 70.2115C228.026 65.0235 228.209 58.0465 228.203 52.748L228.262 21.229C230.704 21.2823 233.147 21.2885 235.589 21.2477C235.702 23.823 235.74 26.401 235.702 28.9786C240.112 22.8556 241.892 21.9286 249.106 20.5642Z"/>
+      <path transform="scale(2.75269 2.75294)" fill="#1a1a1a" d="M348.747 20.8483C357.795 20.0591 364.646 23.3953 367.814 32.278C366.522 32.4256 362.861 33.5094 361.314 33.8932C360.347 32.5554 359.071 30.7861 357.966 29.6618C354.428 26.062 345.112 26.4319 341.826 30.2529C340.725 31.5337 339.905 32.6301 340.003 34.4355C340.396 41.706 351.493 41.5659 356.564 43.4494C359.576 44.3797 362.934 45.7176 365.225 47.9461C369.962 52.555 369.591 60.8493 364.9 65.4019C359.847 70.3055 356.143 70.6835 349.531 70.8287C340.001 70.6701 333.239 68.4328 331.153 58.279C332.09 58.0105 337.317 56.7978 337.528 57.0002C340.263 59.6189 340.555 63.1189 345.246 64.0948C348.904 64.8558 353.78 64.7152 357.018 62.6714C359.68 60.9909 360.409 59.7461 361.108 56.8752C359.204 49.5584 352.677 50.0499 346.492 48.3498C342.99 47.3871 340.059 46.5354 337.074 44.2954C331.71 40.2704 331.291 31.7757 335.396 26.7255C338.975 22.2937 343.412 21.5 348.747 20.8483Z"/>
+    </svg>
+    <div class="nav-right">
+      <a class="nav-cir">Log in</a>
+      <a class="nav-vo">SIGN UP</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tags">
+      <span class="tag">OMN</span>
+      <span class="tag live"><span class="live-dot"></span>Live Dashboard</span>
+    </div>
+    <h1 class="hero-h1">OMN Investor<br>Dashboard</h1>
+    <p class="hero-sub">Real-time performance data for the Omnes Mining Note. All hashrate, output, and custody balances are independently verifiable on-chain.</p>
+    <div class="hero-btns">
+      <a href="https://omnes.io/contact" target="_blank" class="btn-terra">Contact IR</a>
+      <a href="https://omnes.io/omn" target="_blank" class="btn-ghost">View Offering →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="kt-label">Key Metrics — Series 1</div>
+    <div class="kt-table">
+      <div class="kt-row"><span class="kt-k">Value / OMN <span class="ii" tabindex="0">i<span class="tt">Total BTC mined × BTC price + (days remaining × hashprice) − 15%</span></span></span><span class="kt-v terra">$24,254.25</span></div>
+      <div class="kt-row"><span class="kt-k">Total fund value</span><span class="kt-v">US$50,000,000</span></div>
+      <div class="kt-row"><span class="kt-k">Total hashrate</span><span class="kt-v">2.00 EH/s</span></div>
+      <div class="kt-row"><span class="kt-k">BTC mined / OMN</span><span class="kt-v">0.0000</span></div>
+      <div class="kt-row"><span class="kt-k">Hashprice (spot)</span><span class="kt-v">$30.57</span></div>
+      <div class="kt-row"><span class="kt-k">Expense ratio</span><span class="kt-v">3.75% total</span></div>
+      <div class="kt-row"><span class="kt-k">Performance fee</span><span class="kt-v">0%</span></div>
+      <div class="kt-row"><span class="kt-k">As of</span><span class="kt-v">28 Mar 2026, 04:25 UTC</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <p class="sec reveal">Overview</p>
+  <div class="overview-grid reveal">
+    <div class="ov-cell">
+      <div class="ov-label">Value / OMN <span class="ii" tabindex="0">i<span class="tt">Total BTC mined × BTC price + (days remaining × hashprice) − 15%</span></span></div>
+      <div class="ov-val terra large">$24,254.25</div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">BTC / USD</div>
+      <div class="ov-val large">$71,646</div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">Total Hashrate</div>
+      <div class="ov-val">2.00 EH/s</div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">BTC Mined / OMN</div>
+      <div class="ov-val">0.0000</div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">Hashprice (spot)</div>
+      <div class="ov-val">$30.57 <span class="ov-val green">▲ Tracking</span></div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">Expense Ratio</div>
+      <div class="ov-val">3.75% all-in</div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">Term Elapsed</div>
+      <div class="ov-val">0% &nbsp;<span style="font-size:14px;color:var(--hint)">Day 0 of 1,095</span></div>
+    </div>
+    <div class="ov-cell">
+      <div class="ov-label">Maturity</div>
+      <div class="ov-val">30 Apr 2029</div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <p class="sec reveal">Performance</p>
+  <div class="perf-grid reveal">
+    <div>
+      <div class="chart-head">
+        <span class="chart-desc">BTC mined / OMN — cumulative</span>
+        <div class="ctabs">
+          <button class="ctab">7D</button>
+          <button class="ctab on">1M</button>
+          <button class="ctab">1Y</button>
+          <button class="ctab">All</button>
+        </div>
+      </div>
+      <canvas id="chart" height="160"></canvas>
+      <div class="chart-foot">
+        <div><div class="cf-k">30 days ago</div><div class="cf-v">0.0000 BTC</div></div>
+        <div style="text-align:right"><div class="cf-k">Today</div><div class="cf-v">0.0000 BTC</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="term-head">Term progress</div>
+      <div class="term-nums">
+        <div>
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);margin-bottom:8px">Elapsed</div>
+          <div class="t-big">0<sup>%</sup></div>
+        </div>
+        <div class="t-right">
+          <div style="font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);margin-bottom:8px">Remaining</div>
+          <div class="t-days">1,095</div>
+          <div class="t-sub">of 1,095 days</div>
+        </div>
+      </div>
+      <div class="pbar"><div class="pbar-fill"></div></div>
+      <div class="pdates"><span>1 May 2026</span><span>Day 0</span><span>30 Apr 2029</span></div>
+    </div>
+  </div>
+
+  <!-- ISSUANCES -->
+  <p class="sec reveal">All OMN Issuances</p>
+  <div class="tbl-wrap reveal">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>Series</th>
+        <th>Issue date</th>
+        <th>Total hashrate</th>
+        <th>Value per OMN</th>
+        <th>Per PH/s</th>
+        <th>Per BTC mined</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-main">Series 1</td>
+        <td class="td-dim">1 May 2026</td>
+        <td class="td-dim">2,000.00 PH/s</td>
+        <td class="td-terra">$24,254.25</td>
+        <td class="td-dim">$22.15</td>
+        <td class="td-dim">$60,635.62</td>
+        <td><span class="status">Active</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- IR -->
+  <div class="ir reveal">
+    <div>
+      <div class="ir-label">Investor Relations</div>
+      <div class="ir-h">Interested in the Omnes Mining Note?</div>
+      <div class="ir-sub">Speak to our IR team for subscription details, offering documents, and professional onboarding. Available to non-US professional investors only.</div>
+    </div>
+    <div class="ir-btns">
+      <a href="https://omnes.io/contact" target="_blank" class="btn-terra">Contact IR</a>
+      <a href="https://omnes.io/omn" target="_blank" class="btn-ghost">View offering →</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="foot">
+  <p>© Omnes 2024–2026 · <a href="https://omnes.io/website-terms">Website Terms</a> · <a href="https://omnes.io/global-privacy-notice">Privacy Notice</a></p>
+  <p>For professional investors only. Not for retail distribution. Past performance is not indicative of future results.</p>
+</div>
+
+<script>
+document.querySelectorAll('.ctab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');drawChart();
+  });
+});
+
+function drawChart(){
+  const c=document.getElementById('chart');if(!c)return;
+  const ctx=c.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const W=c.parentElement.offsetWidth||600;const H=160;
+  c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';
+  ctx.scale(dpr,dpr);ctx.clearRect(0,0,W,H);
+  const pts=[0,.000012,.000025,.000038,.000052,.000065,.000079,.000093,.000107,.000121,.000135,.000149,.000163,.000178,.000192,.000207,.000222,.000237,.000252,.000267,.000282,.000298,.000313,.000329,.000345,.000361,.000377,.000393,.000409,.000426];
+  const mn=Math.min(...pts)-.00003,mx=Math.max(...pts)+.00003,rng=mx-mn||1;
+  const p={t:8,b:8};const cH=H-p.t-p.b;
+  const px=i=>(i/(pts.length-1))*W;
+  const py=v=>p.t+(1-(v-mn)/rng)*cH;
+  ctx.setLineDash([1,4]);ctx.strokeStyle='rgba(26,26,26,.05)';ctx.lineWidth=1;
+  [.25,.5,.75].forEach(f=>{const gy=p.t+cH*f;ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke()});
+  ctx.setLineDash([]);
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'rgba(196,82,46,.12)');g.addColorStop(1,'rgba(196,82,46,0)');
+  ctx.beginPath();ctx.moveTo(px(0),py(pts[0]));
+  pts.forEach((v,i)=>{if(!i)return;const cx=(px(i-1)+px(i))/2;ctx.bezierCurveTo(cx,py(pts[i-1]),cx,py(v),px(i),py(v))});
+  ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=g;ctx.fill();
+  ctx.beginPath();ctx.moveTo(px(0),py(pts[0]));
+  pts.forEach((v,i)=>{if(!i)return;const cx=(px(i-1)+px(i))/2;ctx.bezierCurveTo(cx,py(pts[i-1]),cx,py(v),px(i),py(v))});
+  ctx.strokeStyle='#C4522E';ctx.lineWidth=1.5;ctx.stroke();
+  const ex=px(pts.length-1),ey=py(pts[pts.length-1]);
+  ctx.beginPath();ctx.arc(ex,ey,4,0,Math.PI*2);ctx.fillStyle='rgba(196,82,46,.18)';ctx.fill();
+  ctx.beginPath();ctx.arc(ex,ey,2.5,0,Math.PI*2);ctx.fillStyle='#C4522E';ctx.fill();
+}
+window.addEventListener('load',()=>setTimeout(drawChart,40));
+window.addEventListener('resize',drawChart);
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=(i*0.06)+'s';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
