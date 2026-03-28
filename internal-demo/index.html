@@ -276,14 +276,28 @@ canvas{display:block;width:100%}
 .ir-btns{display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap}
 
 /* FOOTER */
-.foot{
-  border-top:1px solid var(--border);padding:28px 48px;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-  background:var(--bg-alt);
-}
-.foot p{font-size:11px;color:var(--hint);line-height:1.7}
-.foot a{color:var(--hint);border-bottom:1px solid var(--border);text-decoration:none;transition:color .15s}
-.foot a:hover{color:var(--ink)}
+footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
+.ft-i{max-width:1280px;margin:0 auto;padding:72px 48px 48px}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:1px solid var(--border);margin-bottom:36px}
+.ft-brand-col{display:flex;flex-direction:column}
+.ft-logo-link{display:inline-flex;cursor:pointer;margin-bottom:24px}
+.ft-logo-img{height:16px;width:auto;display:block}
+.ft-social{display:flex;gap:10px;align-items:center}
+.ft-social a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--border);border-radius:2px;transition:border-color .18s,background .18s}
+.ft-social a:hover{border-color:var(--border-mid);background:var(--bg-alt)}
+.ft-social img{width:15px;height:15px;filter:brightness(0) saturate(100%) invert(28%) sepia(8%) saturate(600%) hue-rotate(10deg) brightness(85%);transition:filter .18s}
+.ft-social a:hover img{filter:brightness(0)}
+.ft-ch{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);margin-bottom:18px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul li a{font-size:13.5px;color:var(--muted);cursor:pointer;transition:color .15s;display:block;text-decoration:none}
+.ft-col ul li a:hover{color:var(--ink)}
+.ft-bot{display:flex;flex-direction:column;gap:12px}
+.ft-legal{font-size:11.5px;color:var(--hint);line-height:1.9;max-width:100%}
+.ft-legal a{cursor:pointer;color:var(--terra);border-bottom:1px solid var(--terra-light);transition:color .15s;text-decoration:none}
+.ft-legal a:hover{color:var(--terra-dark)}
+.ft-wm{font-size:11px;letter-spacing:0.04em;color:var(--hint)}
+@media(max-width:1100px){.ft-top{grid-template-columns:1fr 1fr;gap:36px}}
+@media(max-width:768px){.ft-i{padding:52px 24px 40px}.ft-top{grid-template-columns:1fr}}
 
 /* scroll reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
@@ -296,13 +310,11 @@ canvas{display:block;width:100%}
   .hero-right{padding-left:0;padding-top:48px}
   .overview-grid{grid-template-columns:1fr 1fr}
   .perf-grid{grid-template-columns:1fr;gap:40px}
-  .foot{padding-left:28px;padding-right:28px}
   .ir{flex-direction:column;align-items:flex-start;gap:28px}
 }
 
 @media(max-width:640px){
   .hero,.content,.nav-inner{padding-left:20px;padding-right:20px}
-  .foot{padding-left:20px;padding-right:20px}
 
   /* nav */
   .nav{height:56px}
@@ -338,8 +350,6 @@ canvas{display:block;width:100%}
   .ir-btns{flex-direction:column;width:100%}
   .ir-btns .btn-terra,.ir-btns .btn-ghost{text-align:center;padding:14px 20px}
 
-  /* footer */
-  .foot{flex-direction:column;gap:8px}
 
   /* key terms */
   .kt-row{font-size:13px}
@@ -516,10 +526,59 @@ canvas{display:block;width:100%}
 
 </div>
 
-<div class="foot">
-  <p>© Omnes 2024–2026 · <a href="https://omnes.io/website-terms">Website Terms</a> · <a href="https://omnes.io/global-privacy-notice">Privacy Notice</a></p>
-  <p>For professional investors only. Not for retail distribution. Past performance is not indicative of future results.</p>
-</div>
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <div class="ft-brand-col">
+        <a href="/" class="ft-logo-link" aria-label="Omnes home">
+          <img src="https://cdn.prod.website-files.com/68c9b516fd2e47c72a665c9a/6935bd4afde10e239ba07ffa_Omnes%20icon%20and%20text%20logo%20black%20no%20background.svg" alt="Omnes" class="ft-logo-img"/>
+        </a>
+        <div class="ft-social">
+          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <img src="https://cdn.prod.website-files.com/68c9b516fd2e47c72a665c9a/69006cd6b267ca0708a07021_twitter-white.svg" alt="X"/>
+          </a>
+          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="https://cdn.prod.website-files.com/68c9b516fd2e47c72a665c9a/69006cd6742fd69eb39d6864_linkedin-white.svg" alt="LinkedIn"/>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Company</div>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact us</a></li>
+          <li><a href="/media-kit">Media Kit</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Products</div>
+        <ul>
+          <li><a href="/omn">Omnes Mining Note</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Resources</div>
+        <ul>
+          <li><a href="/faqs">FAQs</a></li>
+          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></a></li>
+          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener">Security <span style="font-family:Arial,sans-serif;font-style:normal;text-decoration:none">&#8599;&#xFE0E;</span></a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-ch">Legal</div>
+        <ul>
+          <li><a href="/website-terms">Website Terms</a></li>
+          <li><a href="/global-privacy-notice">Global Privacy Notice</a></li>
+          <li><a href="/cookies-policy">Cookies Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-legal">This website and the information contained in it is subject to our <a href="/website-terms">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.</p>
+      <p class="ft-wm">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
 <script>
 document.querySelectorAll('.ctab').forEach(t=>{
