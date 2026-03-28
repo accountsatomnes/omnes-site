@@ -64,8 +64,8 @@ to{opacity:1;transform:translateY(0)}}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4;mix-blend-mode:multiply}
 
 /* ─────────── NAV ─────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:center;padding:0 48px;background:var(--bg);border-bottom:1px solid var(--border);transition:var(--transition)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1280px}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:center;padding:0;background:var(--bg);border-bottom:1px solid var(--border);transition:var(--transition)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1280px;padding:0 48px}
 .nav-logo{display:flex;align-items:center;cursor:pointer;transition:opacity .15s}
 .nav-logo:hover{opacity:.7}
 .nav-links{display:flex;gap:2px}
@@ -308,7 +308,7 @@ textarea.form-in{resize:vertical;min-height:110px}
 /* ─────────── RESPONSIVE ─────────── */
 /* ── Tablet (≤1100px) ── */
 @media(max-width:1100px){
-  nav,.si,.blog-si,.warm-i,.pg-hero-i,.ft-i{padding-left:32px;padding-right:32px}
+  .nav-inner,.si,.blog-si,.warm-i,.pg-hero-i,.ft-i{padding-left:32px;padding-right:32px}
   .hero-inner{padding-left:32px;padding-right:32px}
   .hero-h1-new .l2{padding-left:clamp(40px,7vw,100px)}
   .hero-h1-new .l3{padding-left:clamp(80px,14vw,200px)}
@@ -334,7 +334,7 @@ textarea.form-in{resize:vertical;min-height:110px}
 @media(max-width:768px){
   .nav-links,.nav-login,.nav-cta{display:none}
   .nav-hamburger{display:flex}
-  nav{padding:0 20px}
+  .nav-inner{padding:0 20px}
   .si,.blog-si,.warm-i{padding:56px 20px}
   .pg-hero-i{padding:56px 20px 48px}
   .hero{min-height:calc(100svh - 0px)}
