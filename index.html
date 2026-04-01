@@ -245,18 +245,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .faq-item.open .faq-a{max-height:600px}
 .faq-ai{font-size:15px;color:var(--muted);line-height:1.9;padding:0 0 24px;max-width:680px}
 
-/* ─────────── TEAM ─────────── */
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);margin-top:56px}
-.team-card{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:44px 40px;display:flex;flex-direction:column;gap:0;transition:background .18s}
-.team-card:hover{background:var(--bg-alt)}
-.team-avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;margin-bottom:24px;border:1px solid var(--border);background:var(--bg-alt);flex-shrink:0}
-.team-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(100%);transition:filter .3s ease,transform .3s ease}
-.team-role-tag{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
-.team-name{font-size:20px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);margin-bottom:6px;line-height:1.2}
-.team-role{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.5}
-.team-bio{font-size:14px;color:var(--muted);line-height:1.82;flex:1;margin-bottom:24px}
-.team-li{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-light);padding-bottom:1px;transition:border-color .18s,color .18s}
-.team-li:hover{border-color:var(--teal);color:var(--teal-dark)}
+/* ─────────── TEAM (see main block below) ─────────── */
 
 /* ─────────── WARM SECTION ─────────── */
 .warm-s{background:var(--bg-warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -398,8 +387,6 @@ textarea.form-in{resize:vertical;min-height:110px}
 .hero{padding-top:64px;min-height:80svh;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%);pointer-events:none}
 .hero-bg-text{position:absolute;bottom:-40px;right:-20px;font-size:clamp(200px,28vw,420px);font-weight:500;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(196,82,46,.045);pointer-events:none;user-select:none;line-height:1;z-index:0}
-.hero-corner-tl{position:absolute;top:86px;left:48px;width:44px;height:44px;opacity:.2;border-top:1px solid var(--terra);border-left:1px solid var(--terra)}
-.hero-corner-br{position:absolute;bottom:48px;right:48px;width:44px;height:44px;opacity:.2;border-bottom:1px solid var(--teal);border-right:1px solid var(--teal)}
 .hero-inner{max-width:1280px;width:100%;margin:0 auto;padding:0 48px 88px;position:relative;z-index:1}
 .hero-h1-new{font-size:clamp(48px,7vw,108px);font-weight:300;letter-spacing:-0.04em;line-height:.92;color:var(--ink);margin-bottom:0}
 .hero-h1-new .l2{display:block;padding-left:clamp(60px,10vw,160px);color:var(--terra)}
