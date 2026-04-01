@@ -60,10 +60,10 @@ button,input,textarea,select{font-family:inherit}
 img{max-width:100%;height:auto;display:block}
 @keyframes pagein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── GRAIN TEXTURE ── */
+/* ‚îÄ‚îÄ GRAIN TEXTURE ‚îÄ‚îÄ */
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4;mix-blend-mode:multiply}
 
-/* ─────────── NAV ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ NAV ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:center;padding:0;background:var(--bg);border-bottom:1px solid var(--border);transition:var(--transition)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1280px;padding:0 48px}
 .nav-logo{display:flex;align-items:center;cursor:pointer;transition:opacity .15s}
@@ -99,7 +99,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .mn-close:hover{color:var(--ink)}
 .mn-cta{margin-top:32px;display:flex;flex-direction:column;gap:12px}
 
-/* ─────────── HERO ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ HERO ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .hero{padding-top:64px;min-height:80svh;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%),radial-gradient(ellipse at 50% 90%,rgba(74,110,138,.04) 0%,transparent 60%);pointer-events:none}
 .hero-bg-text{position:absolute;bottom:-40px;right:-20px;font-size:clamp(200px,28vw,420px);font-weight:500;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(196,82,46,.045);pointer-events:none;user-select:none;line-height:1;z-index:0}
@@ -123,7 +123,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2.2s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
 
-/* ─────────── BUTTONS ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ BUTTONS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .btn-p{font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;background:var(--terra);color:#fff;border-radius:2px;cursor:pointer;transition:background .18s;display:inline-flex;align-items:center;gap:6px;border:none}
 .btn-p:hover{background:var(--terra-dark)}
 .btn-p.teal{background:var(--teal)}.btn-p.teal:hover{background:var(--teal-dark)}
@@ -131,7 +131,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .btn-g{font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;background:transparent;color:var(--ink);border:1px solid var(--border-mid);border-radius:2px;cursor:pointer;transition:border-color .18s,color .18s;display:inline-flex;align-items:center;gap:6px}
 .btn-g:hover{border-color:var(--ink)}
 
-/* ─────────── LAYOUT ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ LAYOUT ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .section{border-bottom:1px solid var(--border);background:var(--bg)}
 .si{max-width:1280px;margin:0 auto;padding:100px 48px}
 .si.narrow{max-width:860px}
@@ -142,7 +142,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .hl-lg{font-size:clamp(38px,6vw,80px);font-weight:300;letter-spacing:-0.04em;line-height:.95}
 .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:72px}
 
-/* ─────────── PILLAR ROWS ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ PILLAR ROWS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .ir{display:grid;grid-template-columns:88px 1fr;border-top:1px solid var(--border);padding:40px 0;gap:0}
 .ir:last-child{border-bottom:1px solid var(--border)}
 .in{font-size:12.5px;font-weight:700;letter-spacing:0.06em;padding-top:3px;font-variant-numeric:tabular-nums}
@@ -150,7 +150,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .it{font-size:18px;font-weight:500;letter-spacing:-0.015em;color:var(--ink);margin-bottom:10px;line-height:1.3}
 .ib{font-size:15px;color:var(--muted);line-height:1.88;max-width:540px}
 
-/* ─────────── BLOG CARDS ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ BLOG CARDS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .blog-s{border-bottom:1px solid var(--border);background:var(--bg)}
 .blog-si{max-width:1280px;margin:0 auto;padding:100px 48px}
 .blog-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:16px}
@@ -166,7 +166,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .bc:hover .bc-title{color:var(--terra)}
 .bc-read{font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:5px}
 
-/* ─────────── KV LIST ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ KV LIST ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .kv-list{list-style:none}
 .kv-row{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--border);font-size:14px;gap:16px}
 .kv-row:last-child{border-bottom:none}
@@ -174,7 +174,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .kv-v{color:var(--ink);font-weight:500;text-align:right;font-size:14.5px}
 .kv-v.terra{color:var(--terra)}.kv-v.teal{color:var(--teal)}.kv-v.blue{color:var(--blue)}.kv-v.sand{color:var(--sand)}
 
-/* ─────────── CTA BAND ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ CTA BAND ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .cta-band{background:var(--ink);padding:88px 48px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(196,82,46,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(90,122,94,.08) 0%,transparent 60%);pointer-events:none}
 .cta-band-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
@@ -188,7 +188,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .btn-cta-g{font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:13px 28px;background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);border-radius:2px;cursor:pointer;transition:all .18s}
 .btn-cta-g:hover{color:#fff;border-color:rgba(255,255,255,.45)}
 
-/* ─────────── OMN PAGE ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ OMN PAGE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .omn-hero{padding-top:64px;border-bottom:1px solid var(--border)}
 .omn-hgrid{display:grid;grid-template-columns:1fr 1fr;max-width:1280px;margin:0 auto}
 .omn-hl{padding:88px 64px 88px 48px;border-right:1px solid var(--border)}
@@ -202,7 +202,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .stab:hover{color:var(--ink)}.stab.act{color:var(--ink);border-bottom-color:var(--terra);font-weight:600}
 .omn-panel{display:none}.omn-panel.act{display:block}
 
-/* ─────────── SPEC GRID ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ SPEC GRID ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
 .sc{padding:20px 0;border-bottom:1px solid var(--border)}
 .sc:nth-child(odd){padding-right:48px}
@@ -210,7 +210,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .sk{font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);margin-bottom:7px}
 .sv{font-size:14px;color:var(--ink);font-weight:500}
 
-/* ─────────── FEES ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ FEES ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .fees-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);margin-bottom:52px}
 .fee-c{padding:56px;border-right:1px solid var(--border);text-align:center}
 .fee-c:last-child{border-right:none}
@@ -220,14 +220,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .fee-pct.zero em{color:var(--teal)}
 .fee-sub{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.7}
 
-/* ─────────── STEP ROWS ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ STEP ROWS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .step-row{display:grid;grid-template-columns:88px 1fr;border-top:1px solid var(--border);padding:36px 0}
 .step-row:last-child{border-bottom:1px solid var(--border)}
 .step-n{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding-top:3px}
 .step-t{font-size:17px;font-weight:500;letter-spacing:-0.015em;color:var(--ink);margin-bottom:10px;line-height:1.3}
 .step-b{font-size:15px;color:var(--muted);line-height:1.88;max-width:580px}
 
-/* ─────────── FAQ ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ FAQ ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .disc-row{display:grid;grid-template-columns:60px 1fr;border-top:1px solid var(--border);padding:22px 0;gap:0}
 .disc-row:last-child{border-bottom:1px solid var(--border)}
 .disc-n{font-size:13px;font-weight:600;padding-top:2px}
@@ -245,7 +245,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .faq-item.open .faq-a{max-height:600px}
 .faq-ai{font-size:15px;color:var(--muted);line-height:1.9;padding:0 0 24px;max-width:680px}
 
-/* ─────────── TEAM ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ TEAM ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);margin-top:56px}
 .team-card{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:44px 40px;display:flex;flex-direction:column;gap:0;transition:background .18s}
 .team-card:hover{background:var(--bg-alt)}
@@ -258,7 +258,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .team-li{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-light);padding-bottom:1px;transition:border-color .18s,color .18s}
 .team-li:hover{border-color:var(--teal);color:var(--teal-dark)}
 
-/* ─────────── WARM SECTION ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ WARM SECTION ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .warm-s{background:var(--bg-warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .warm-i{max-width:1280px;margin:0 auto;padding:100px 48px}
 .warm-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);padding:52px 0;align-items:start}
@@ -269,7 +269,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;ali
 .warm-b{font-size:15px;color:var(--muted);line-height:1.88;max-width:420px}
 .warm-right{padding-left:40px}
 
-/* ─────────── CONTACT ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ CONTACT ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
 .cf{padding:52px;border-right:1px solid var(--border)}
 .ci-side{padding:52px;background:var(--bg-alt)}
@@ -287,9 +287,9 @@ textarea.form-in{resize:vertical;min-height:110px}
 .cd-val a:hover{color:var(--teal-dark)}
 .cd-sub{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.65}
 
-/* ─────────── PARTNER STRIP ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ PARTNER STRIP ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 
-/* ─────────── AUTH ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ AUTH ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .auth-wrap{padding-top:64px;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg)}
 .auth-box{width:100%;max-width:460px;padding:24px}
 .auth-card{background:var(--white);border:1px solid var(--border);padding:44px;box-shadow:var(--shadow-sm)}
@@ -305,8 +305,8 @@ textarea.form-in{resize:vertical;min-height:110px}
 .legal-box a{color:var(--terra);border-bottom:1px solid var(--terra-light);transition:border-color .15s}
 .legal-box a:hover{border-color:var(--terra)}
 
-/* ─────────── RESPONSIVE ─────────── */
-/* ── Tablet (≤1100px) ── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ RESPONSIVE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+/* ‚îÄ‚îÄ Tablet (‚â§1100px) ‚îÄ‚îÄ */
 @media(max-width:1100px){
   .nav-inner,.si,.blog-si,.warm-i,.pg-hero-i,.ft-i{padding-left:32px;padding-right:32px}
   .hero-inner{padding-left:32px;padding-right:32px}
@@ -330,7 +330,7 @@ textarea.form-in{resize:vertical;min-height:110px}
   .offering-inner>div:first-child{border-right:none!important;border-bottom:1px solid var(--border)}
   .l-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 }
-/* ── Mobile (≤768px) ── */
+/* ‚îÄ‚îÄ Mobile (‚â§768px) ‚îÄ‚îÄ */
 @media(max-width:960px){
   .nav-links,.nav-login,.nav-cta{display:none}
   .nav-hamburger{display:flex}
@@ -339,9 +339,11 @@ textarea.form-in{resize:vertical;min-height:110px}
   .pg-hero-i{padding:56px 20px 48px}
   .hero{min-height:auto;padding-top:140px}
   .hero-inner{padding:0 20px 44px}
-  .slabel{margin-bottom:8px}
+  .slabel{margin-bottom:20px}
+  .h1d{display:none}
+  .h1m{display:block}
   .hero-h1-new{font-size:clamp(38px,11vw,64px)}
-  .hero-h1-new .l2{padding-left:0}
+  .hero-h1-new .l2{display:block;padding-left:0}
   .hero-h1-new .l3{padding-left:0}
   .hero-bot{margin-top:36px;flex-direction:column;align-items:flex-start;gap:20px}
   .hero-desc{font-size:15px;max-width:100%}
@@ -379,7 +381,7 @@ textarea.form-in{resize:vertical;min-height:110px}
   .si{padding:56px 20px}
   .spec-grid{grid-template-columns:1fr}.sc:nth-child(even){padding-left:0;border-left:none}
 }
-/* ── Small mobile (≤480px) ── */
+/* ‚îÄ‚îÄ Small mobile (‚â§480px) ‚îÄ‚îÄ */
 @media(max-width:480px){
   .hero-h1-new{font-size:clamp(32px,10vw,52px)}
   .hero-h1-new .l2{padding-left:0}
@@ -393,7 +395,7 @@ textarea.form-in{resize:vertical;min-height:110px}
 }
 
 
-/* ─────────── HERO FULL-WIDTH ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ HERO FULL-WIDTH ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .hero{padding-top:64px;min-height:80svh;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(196,82,46,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 25%,rgba(90,122,94,.05) 0%,transparent 55%);pointer-events:none}
 .hero-bg-text{position:absolute;bottom:-40px;right:-20px;font-size:clamp(200px,28vw,420px);font-weight:500;letter-spacing:-0.06em;color:transparent;-webkit-text-stroke:1px rgba(196,82,46,.045);pointer-events:none;user-select:none;line-height:1;z-index:0}
@@ -403,19 +405,21 @@ textarea.form-in{resize:vertical;min-height:110px}
 .hero-h1-new{font-size:clamp(48px,7vw,108px);font-weight:300;letter-spacing:-0.04em;line-height:.92;color:var(--ink);margin-bottom:0}
 .hero-h1-new .l2{display:block;padding-left:clamp(60px,10vw,160px);color:var(--terra)}
 .hero-h1-new .l3{display:block;padding-left:clamp(120px,20vw,320px)}
+.h1m{display:none}
+.h1d{display:block}
 .hero-bot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:64px;flex-wrap:wrap;gap:32px}
 .hero-desc{max-width:380px;font-size:16px;color:var(--muted);line-height:1.85}
-/* ─────────── MARQUEE ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ MARQUEE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .m-tag{font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;padding:2px 8px;border-radius:2px}
 .m-tag.terra{color:var(--terra);background:var(--terra-pale);border:1px solid rgba(196,82,46,.2)}
 .m-tag.teal{color:var(--teal);background:var(--teal-pale);border:1px solid rgba(90,122,94,.2)}
 .m-tag.sand{color:var(--sand);background:var(--sand-pale);border:1px solid rgba(184,154,114,.2)}
 .m-tag.blue{color:var(--blue);background:var(--blue-pale);border:1px solid rgba(74,110,138,.2)}
-/* ─────────── SCROLL REVEAL ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ SCROLL REVEAL ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
-/* ─────────── TEAM ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ TEAM ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border);margin-top:56px}
 .team-card{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:48px 44px;display:flex;flex-direction:column;transition:background .18s}
 .team-card:hover{background:var(--bg-alt)}
@@ -429,25 +433,25 @@ textarea.form-in{resize:vertical;min-height:110px}
 .team-bio{font-size:14px;color:var(--muted);line-height:1.85;flex:1;margin-bottom:24px}
 .team-li{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-light);padding-bottom:2px;transition:all .18s}
 .team-li:hover{color:var(--teal-dark);border-color:var(--teal)}
-/* ─────────── ABOUT HERO STATS ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ ABOUT HERO STATS ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .pg-stats{display:flex;flex-wrap:wrap;margin-top:40px;padding-top:28px;border-top:1px solid var(--border)}
 .pg-stat{display:flex;flex-direction:column;gap:4px;padding-right:32px;margin-right:32px;border-right:1px solid var(--border)}
 .pg-stat:last-child{border-right:none;padding-right:0;margin-right:0}
 .pg-stat-val{font-size:26px;font-weight:300;letter-spacing:-0.03em;color:var(--ink);line-height:1}
 .pg-stat-val em{font-style:normal;color:var(--terra)}
 .pg-stat-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint)}
-/* ─────────── TOAST ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ TOAST ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--ink);color:#fff;font-size:13px;font-weight:500;padding:12px 24px;border-radius:2px;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* ─────────── SKIP LINK ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ SKIP LINK ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .skip-link{position:absolute;top:-100%;left:16px;background:var(--terra);color:#fff;padding:8px 16px;font-size:13px;font-weight:600;z-index:9999;transition:top .15s}
 .skip-link:focus{top:0}
-/* ─────────── REDUCED MOTION ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ REDUCED MOTION ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .reveal{opacity:1!important;transform:none!important}
 }
-/* ─────────── FOOTER ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ FOOTER ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 .ft-i{max-width:1280px;margin:0 auto;padding:72px 48px 48px}
 .ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:1px solid var(--border);margin-bottom:36px}
@@ -472,7 +476,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 @media(max-width:1100px){.ft-top{grid-template-columns:1fr 1fr;gap:36px}}
 @media(max-width:768px){.ft-i{padding:52px 24px 40px}.ft-top{grid-template-columns:1fr}}
 
-/* ─────────── LEGAL PROSE ─────────── */
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ LEGAL PROSE ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
 .legal-prose{max-width:800px}
 .legal-intro{font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--hint);margin-bottom:8px}
 .legal-updated{font-size:13px;color:var(--hint);margin-bottom:64px}
@@ -489,7 +493,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 .lp a:hover{color:var(--terra-dark)}
 .l-ul{margin:12px 0 16px 0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
 .l-ul li{font-size:15px;color:var(--muted);line-height:1.75;padding-left:20px;position:relative}
-.l-ul li::before{content:'—';position:absolute;left:0;color:var(--border-mid)}
+.l-ul li::before{content:'‚Äî';position:absolute;left:0;color:var(--border-mid)}
 .l-table-wrap{overflow-x:auto;margin:20px 0 32px}
 .l-table{width:100%;border-collapse:collapse;font-size:13.5px}
 .l-table th{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);padding:12px 16px;border-bottom:2px solid var(--border);text-align:left;background:var(--bg-alt)}
@@ -549,7 +553,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 
 .gate-h2{
   font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);
-  margin:28px 0 12px;padding-top:140px;border-top:1px solid var(--border);
+  margin:28px 0 12px;padding-top:20px;border-top:1px solid var(--border);
 }
 .gate-h2:first-child{margin-top:0;padding-top:0;border-top:none}
 .gate-p{font-size:13.5px;color:var(--muted);line-height:1.85;margin-bottom:12px}
@@ -560,7 +564,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
   padding-left:16px;position:relative;margin-bottom:6px;
 }
 .gate-ul li::before{
-  content:'·';position:absolute;left:0;color:var(--terra);font-weight:700;font-size:18px;line-height:1.5;
+  content:'¬∑';position:absolute;left:0;color:var(--terra);font-weight:700;font-size:18px;line-height:1.5;
 }
 .gate-ol{list-style:none;padding:0;margin:0 0 12px;counter-reset:gate-ol}
 .gate-ol li{
@@ -627,7 +631,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     <div class="gate-header">
       <p class="gate-slabel"><span class="sl">///</span> Terms of Access</p>
       <h1 class="gate-title">Welcome to the<br><span>Omnes Website.</span></h1>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.à r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.√† r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
       <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
     </div>
 
@@ -735,7 +739,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
 
 <!-- Mobile nav overlay -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu">
-  <span class="mn-close" onclick="toggleMobile()" aria-label="Close menu">×</span>
+  <span class="mn-close" onclick="toggleMobile()" aria-label="Close menu">√ó</span>
   <a class="mn-item" href="/omn">Omnes Mining Note</a>
   <a class="mn-item" href="/about">About</a>
   <a class="mn-item" href="/faqs">FAQs</a>
@@ -743,29 +747,29 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
   <a class="mn-item" href="/contact">Contact</a>
   <div class="mn-cta">
     <a class="btn-p" href="/signup" style="text-align:center;justify-content:center">Sign up</a>
-    <a class="btn-g" href="/login" style="text-align:center;justify-content:center">Log in →</a>
+    <a class="btn-g" href="/login" style="text-align:center;justify-content:center">Log in ‚Üí</a>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
      HOME
-══════════════════════════════════════════ -->
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
 
-<!-- ══════════════════════════════════════════
+<!-- ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
      HOME
-══════════════════════════════════════════ -->
+‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê -->
 <main>
 <div id="page-home" style="display:block">
   <div class="hero" id="main-content">
 
     <div class="hero-inner">
       <p class="slabel"><span class="sl">///</span> ComputeFi</p>
-      <h1 class="hero-h1-new">The financial layer<span class="l2">for compute.</span></h1>
+      <h1 class="hero-h1-new"><span class="h1d">The financial layer<span class="l2">for compute.</span></span><span class="h1m">The financial<br>layer for<br><span class="l2">compute.</span></span></h1>
       <div class="hero-bot">
         <p class="hero-desc">Omnes turns productive compute into institutional-grade, yield-generating tokenized products with full DeFi composability.</p>
         <div class="hero-actions">
-          <a class="btn-p" href="/omn">Explore OMN →</a>
-          <a class="btn-g" href="/about">About Omnes →</a>
+          <a class="btn-p" href="/omn">Explore OMN ‚Üí</a>
+          <a class="btn-g" href="/about">About Omnes ‚Üí</a>
         </div>
       </div>
     </div>
@@ -801,7 +805,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
           </div>
           <div style="margin-top:36px;display:flex;gap:12px;flex-wrap:wrap">
             <a class="btn-p" href="/omn">Full Offering Details</a>
-            <a class="btn-g" href="/contact">Contact IR →</a>
+            <a class="btn-g" href="/contact">Contact IR ‚Üí</a>
           </div>
         </div>
       </div>
@@ -842,19 +846,19 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
           <div class="bc-cat" style="color:var(--terra)">News</div>
           <div class="bc-date">24 March 2026</div>
           <div class="bc-title">Omnes Partners With Apex Group to Tokenise Institutional Bitcoin Mining Structured Note on Base</div>
-          <div class="bc-read">Read →</div>
+          <div class="bc-read">Read ‚Üí</div>
         </a>
         <a href="https://insights.omnes.io/p/omnes-engages-arendt-and-medernach" target="_blank" rel="noopener" class="bc" role="listitem">
           <div class="bc-cat" style="color:var(--terra)">News</div>
           <div class="bc-date">6 March 2026</div>
           <div class="bc-title">Omnes engages Arendt &amp; Medernach to advise on legal, regulatory, and tax for the OMN launch</div>
-          <div class="bc-read">Read →</div>
+          <div class="bc-read">Read ‚Üí</div>
         </a>
         <a href="https://insights.omnes.io/p/the-centi-billion-dollar-recluse" target="_blank" rel="noopener" class="bc" role="listitem">
           <div class="bc-cat" style="color:var(--teal)">Research</div>
           <div class="bc-date">6 March 2026</div>
           <div class="bc-title">The Centi-Billion Dollar Recluse: Bitcoin Yield</div>
-          <div class="bc-read">Read →</div>
+          <div class="bc-read">Read ‚Üí</div>
         </a>
       </div>
     </div>
@@ -910,7 +914,7 @@ footer{width:100%;background:var(--white);border-top:1px solid var(--border)}
     </div>
     <div class="ft-bot">
       <p class="ft-legal">This website and the information contained in it is subject to our <a href="/website-terms">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.</p>
-      <p class="ft-wm">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+      <p class="ft-wm">Copyright Omnes 2024 ‚Äì 2026, All rights reserved.</p>
     </div>
   </div>
 </footer>
