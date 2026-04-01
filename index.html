@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@omnesfinance"/>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" as="style"/>
-<link rel="preconnect" href="https://fonts.googleapiscom"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -337,12 +337,12 @@ textarea.form-in{resize:vertical;min-height:110px}
   .nav-inner{padding:0 20px}
   .si,.blog-si,.warm-i{padding:56px 20px}
   .pg-hero-i{padding:56px 20px 48px}
-  .hero{min-height:auto}
-  .hero-inner{padding:0 20px 64px}
+  .hero{min-height:auto;padding-top:20px}
+  .hero-inner{padding:0 20px 44px}
   .slabel{margin-bottom:8px}
   .hero-h1-new{font-size:clamp(38px,11vw,64px)}
-  .hero-h1-new .l2{padding-left:clamp(20px,6vw,48px)}
-  .hero-h1-new .l3{padding-left:clamp(40px,12vw,96px)}
+  .hero-h1-new .l2{padding-left:0}
+  .hero-h1-new .l3{padding-left:0}
   .hero-bot{margin-top:36px;flex-direction:column;align-items:flex-start;gap:20px}
   .hero-desc{font-size:15px;max-width:100%}
   .hero-actions{width:100%}
@@ -382,8 +382,8 @@ textarea.form-in{resize:vertical;min-height:110px}
 /* ── Small mobile (≤480px) ── */
 @media(max-width:480px){
   .hero-h1-new{font-size:clamp(32px,10vw,52px)}
-  .hero-h1-new .l2{padding-left:16px}
-  .hero-h1-new .l3{padding-left:32px}
+  .hero-h1-new .l2{padding-left:0}
+  .hero-h1-new .l3{padding-left:0}
   .btn-p,.btn-g{font-size:11px;padding:12px 18px}
   .auth-card{padding:28px 20px}
   .hl-lg{font-size:clamp(32px,9vw,56px)}
