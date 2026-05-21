@@ -90,7 +90,7 @@
 
       <div>
         <h2 class="ct-form-h">Send a message</h2>
-        <form class="cb-form" style="margin-top:0;" onsubmit="event.preventDefault();">
+        <form class="cb-form" id="contactForm" style="margin-top:0;">
           <div class="cb-form-row">
             <div class="cb-field">
               <label for="cf-first">First name</label>
@@ -126,6 +126,42 @@
           </div>
           <button type="submit" class="cb-form-submit">Send Message</button>
         </form>
+        <script>
+          (function(){
+            var form = document.getElementById('contactForm');
+            if (!form) return;
+            // Route subject → recipient
+            var routes = {
+              'Investment enquiry':    'ir@omnes.io',
+              'KYC / Onboarding':      'ir@omnes.io',
+              'Media / Press':         'info@omnes.io',
+              'Partnership':           'info@omnes.io',
+              'General question':      'info@omnes.io'
+            };
+            form.addEventListener('submit', function(e){
+              e.preventDefault();
+              var first = (document.getElementById('cf-first').value || '').trim();
+              var last  = (document.getElementById('cf-last').value || '').trim();
+              var email = (document.getElementById('cf-email').value || '').trim();
+              var org   = (document.getElementById('cf-org').value || '').trim();
+              var subj  = (document.getElementById('cf-subject').value || '').trim() || 'Website enquiry';
+              var msg   = (document.getElementById('cf-message').value || '').trim();
+              if (!email || !msg) { alert('Please add your email address and a message.'); return; }
+              var to = routes[subj] || 'info@omnes.io';
+              var who = (first + ' ' + last).trim();
+              var subject = '[omnes.io] ' + subj + (who ? ' — ' + who : '');
+              var body =
+                'Name: ' + who + '\n' +
+                'Email: ' + email + '\n' +
+                'Organisation: ' + org + '\n' +
+                'Subject: ' + subj + '\n\n' +
+                msg + '\n';
+              window.location.href = 'mailto:' + to +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+            });
+          })();
+        </script>
       </div>
 
       <aside>
