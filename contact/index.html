@@ -90,28 +90,28 @@
 
       <div>
         <h2 class="ct-form-h">Send a message</h2>
-        <form class="cb-form" id="contactForm" style="margin-top:0;">
+        <form class="cb-form" id="contactForm" action="https://formspree.io/f/mgonglpj" method="POST" style="margin-top:0;">
           <div class="cb-form-row">
             <div class="cb-field">
               <label for="cf-first">First name</label>
-              <input type="text" id="cf-first" placeholder="Jane" />
+              <input type="text" id="cf-first" name="first_name" placeholder="Jane" autocomplete="given-name" required />
             </div>
             <div class="cb-field">
               <label for="cf-last">Last name</label>
-              <input type="text" id="cf-last" placeholder="Smith" />
+              <input type="text" id="cf-last" name="last_name" placeholder="Smith" autocomplete="family-name" required />
             </div>
           </div>
           <div class="cb-field">
             <label for="cf-email">Email address</label>
-            <input type="email" id="cf-email" placeholder="you@fund.com" />
+            <input type="email" id="cf-email" name="email" placeholder="you@fund.com" autocomplete="email" required />
           </div>
           <div class="cb-field">
             <label for="cf-org">Organisation</label>
-            <input type="text" id="cf-org" placeholder="Fund / Family Office / Bank" />
+            <input type="text" id="cf-org" name="organisation" placeholder="Fund / Family Office / Bank" autocomplete="organization" />
           </div>
           <div class="cb-field">
             <label for="cf-subject">Subject</label>
-            <select id="cf-subject">
+            <select id="cf-subject" name="subject">
               <option value="">Select a topic…</option>
               <option>Investment enquiry</option>
               <option>KYC / Onboarding</option>
@@ -122,43 +122,55 @@
           </div>
           <div class="cb-field">
             <label for="cf-message">Message</label>
-            <textarea id="cf-message" rows="5" placeholder="Tell us how we can help…"></textarea>
+            <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
           </div>
-          <button type="submit" class="cb-form-submit">Send Message</button>
+          <button type="submit" class="cb-form-submit" id="cfSubmit">Send Message</button>
+          <div id="cfStatus" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;font-size:14px;border-radius:8px"></div>
         </form>
         <script>
           (function(){
             var form = document.getElementById('contactForm');
             if (!form) return;
-            // Route subject → recipient
-            var routes = {
-              'Investment enquiry':    'ir@omnes.io',
-              'KYC / Onboarding':      'ir@omnes.io',
-              'Media / Press':         'info@omnes.io',
-              'Partnership':           'info@omnes.io',
-              'General question':      'info@omnes.io'
-            };
+            var btn = document.getElementById('cfSubmit');
+            var status = document.getElementById('cfStatus');
+            function showStatus(ok, msg){
+              status.textContent = msg;
+              status.style.display = 'block';
+              status.style.background = ok ? 'rgba(90,122,94,0.10)' : 'rgba(196,82,46,0.08)';
+              status.style.border = '1px solid ' + (ok ? 'rgba(90,122,94,0.35)' : 'rgba(196,82,46,0.35)');
+              status.style.color = ok ? 'var(--teal)' : 'var(--terra)';
+            }
             form.addEventListener('submit', function(e){
               e.preventDefault();
-              var first = (document.getElementById('cf-first').value || '').trim();
-              var last  = (document.getElementById('cf-last').value || '').trim();
-              var email = (document.getElementById('cf-email').value || '').trim();
-              var org   = (document.getElementById('cf-org').value || '').trim();
-              var subj  = (document.getElementById('cf-subject').value || '').trim() || 'Website enquiry';
-              var msg   = (document.getElementById('cf-message').value || '').trim();
-              if (!email || !msg) { alert('Please add your email address and a message.'); return; }
-              var to = routes[subj] || 'info@omnes.io';
-              var who = (first + ' ' + last).trim();
-              var subject = '[omnes.io] ' + subj + (who ? ' — ' + who : '');
-              var body =
-                'Name: ' + who + '\n' +
-                'Email: ' + email + '\n' +
-                'Organisation: ' + org + '\n' +
-                'Subject: ' + subj + '\n\n' +
-                msg + '\n';
-              window.location.href = 'mailto:' + to +
-                '?subject=' + encodeURIComponent(subject) +
-                '&body=' + encodeURIComponent(body);
+              btn.disabled = true;
+              var originalText = btn.textContent;
+              btn.textContent = 'Sending…';
+              status.style.display = 'none';
+              fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+              })
+              .then(function(res){
+                if (res.ok) {
+                  form.reset();
+                  showStatus(true, '✓ Message sent. We will be in touch shortly.');
+                } else {
+                  return res.json().then(function(data){
+                    var msg = (data && data.errors && data.errors.map(function(x){return x.message;}).join(', ')) || 'Could not send. Please email ir@omnes.io directly.';
+                    showStatus(false, msg);
+                  }).catch(function(){
+                    showStatus(false, 'Could not send. Please email ir@omnes.io directly.');
+                  });
+                }
+              })
+              .catch(function(){
+                showStatus(false, 'Network error. Please email ir@omnes.io directly.');
+              })
+              .finally(function(){
+                btn.disabled = false;
+                btn.textContent = originalText;
+              });
             });
           })();
         </script>
