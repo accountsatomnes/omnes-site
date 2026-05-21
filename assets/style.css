@@ -1521,9 +1521,13 @@
   .legal-content li { font-size: 18px; line-height: 1.65; color: var(--ink); margin-bottom: 10px; }
   .legal-content a { color: var(--terra); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
   .legal-content a:hover { color: var(--terra-dark); }
-  .legal-content table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 16px; font-family: 'Source Serif 4', Georgia, serif; }
-  .legal-content table th, .legal-content table td { padding: 16px 18px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.6; color: var(--ink); }
+  .legal-content table { width: 100%; max-width: 100%; table-layout: fixed; border-collapse: collapse; margin: 28px 0; font-size: 16px; font-family: 'Source Serif 4', Georgia, serif; }
+  .legal-content table th, .legal-content table td { padding: 16px 18px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.6; color: var(--ink); word-break: break-word; overflow-wrap: anywhere; }
   .legal-content table th { background: transparent; font-weight: 600; color: var(--ink); border-bottom: 1.5px solid var(--ink); }
+  @media (max-width: 720px) {
+    .legal-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .legal-content table th, .legal-content table td { padding: 10px 12px; font-size: 13.5px; }
+  }
 
   /* FAQ accordions inside the legal (sidebar TOC) layout — keep sans typography */
   .legal-content .cb-faq { border-top: 1px solid var(--border); margin-bottom: 8px; }
@@ -2137,13 +2141,28 @@
   .cb-takeover-link span { display: inline-block; transition: transform .18s; margin-left: 4px; }
   .cb-takeover-link:hover { color: #fff; }
   .cb-takeover-link:hover span { transform: translateX(3px); }
+  /* let grid items shrink below intrinsic content size at narrow widths */
+  .cb-takeover-visual, .cb-takeover-text { min-width: 0; }
   @media (max-width: 860px) {
     .cb-takeover-grid { grid-template-columns: 1fr; gap: 44px; padding: 64px 28px; text-align: center; }
     .cb-takeover-text p { margin-left: auto; margin-right: auto; }
+    .cb-takeover-ctas { justify-content: center; }
   }
   @media (max-width: 720px) {
     .cb-takeover { padding: 24px 0 0; }
-    .cb-takeover-card { min-height: 60vh; }
+    .cb-takeover-card { min-height: 60vh; margin: 0 16px !important; }
+    .cb-takeover-grid { padding: 56px 20px; gap: 36px; }
+    .cb-takeover-visual { padding: 28px 22px !important; border-radius: 14px; }
+    .mts-row:first-child .mts-v { font-size: 20px; }
+    .mts-v { font-size: 14.5px; }
+    .mts-k { font-size: 13.5px; }
+    .cb-takeover-text h2 { font-size: clamp(26px, 7vw, 36px); }
+  }
+  @media (max-width: 400px) {
+    .cb-takeover-grid { padding: 48px 16px; }
+    .cb-takeover-visual { padding: 22px 16px !important; }
+    .mts-row { padding: 12px 0; }
+    .mts-row:first-child .mts-v { font-size: 18px; }
   }
 
   /* ──────────── ONCHAIN TABBED SHOWCASE (homepage) ──────────── */
