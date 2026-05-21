@@ -182,4 +182,29 @@ document.querySelectorAll('.tabs').forEach(tabs => {
   window.addEventListener('resize', update);
 })();
 
+/* Mobile nav drawer (hamburger) */
+(() => {
+  const btn = document.querySelector('.nav-hamburger');
+  const drawer = document.getElementById('mobileNav');
+  if (!btn || !drawer) return;
+  const setOpen = (open) => {
+    drawer.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+  };
+  btn.addEventListener('click', () => setOpen(!drawer.classList.contains('open')));
+  // close on link click
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  // close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) setOpen(false);
+  });
+  // close if viewport grows past breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 921 && drawer.classList.contains('open')) setOpen(false);
+  });
+})();
+
 
