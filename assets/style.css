@@ -2103,7 +2103,7 @@
   .cb-takeover-visual {
     position: relative;
     display: grid; place-items: center;
-    background: linear-gradient(155deg, #f7efdf 0%, #ece3cf 100%);
+    background: #ebeae4;
     border-radius: 18px;
     padding: clamp(40px, 4.8vw, 64px);
     box-shadow:
