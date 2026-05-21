@@ -183,25 +183,3 @@ document.querySelectorAll('.tabs').forEach(tabs => {
 })();
 
 
-/* Access Gate (terms of access modal) */
-(function(){
-  function init(){
-    if (sessionStorage.getItem('omnes_access_agreed')) {
-      var g = document.getElementById('accessGate'); if (g) g.style.display = 'none';
-      return;
-    }
-    var btn = document.getElementById('btnAgree');
-    if (!btn) return;
-    btn.disabled = false;
-    btn.classList.add('enabled');
-    btn.addEventListener('click', function(){
-      sessionStorage.setItem('omnes_access_agreed', '1');
-      var g = document.getElementById('accessGate'); if (g) g.style.display = 'none';
-    });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
