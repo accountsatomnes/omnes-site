@@ -2330,13 +2330,15 @@
     padding:24px;
   }
   .gate-modal{
+    font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     background:var(--bg);
     border:1px solid var(--border);
     max-width:680px;width:100%;
     max-height:90vh;
     display:flex;flex-direction:column;
-    border-radius:2px;
+    border-radius:14px;
     box-shadow:0 24px 80px rgba(0,0,0,.35);
+    overflow:hidden;
   }
   .gate-header{ padding:40px 40px 0; flex-shrink:0; }
   .gate-slabel{
@@ -2346,8 +2348,8 @@
   .gate-slabel .sl{color:var(--terra)}
   .gate-title{
     font-family:'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size:clamp(24px,3.5vw,32px);font-weight:400;letter-spacing:-0.03em;
-    line-height:1.15;color:var(--ink);margin-bottom:16px;
+    font-size:clamp(26px,3.5vw,34px);font-weight:600;letter-spacing:-0.035em;
+    line-height:1.1;color:var(--ink);margin-bottom:16px;
   }
   .gate-title span{color:var(--terra)}
   .gate-intro{ font-size:14.5px;color:var(--muted);line-height:1.85;margin-bottom:8px; }
@@ -2401,12 +2403,11 @@
   }
   .gate-btn-agree{
     font-family:'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size:11.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
-    padding:13px 32px;background:var(--terra);color:#fff;border:none;border-radius:2px;
-    cursor:pointer;transition:all .18s;opacity:.35;pointer-events:none;
+    font-size:15px;font-weight:600;letter-spacing:-0.005em;
+    padding:14px 30px;background:var(--terra);color:#fff;border:none;border-radius:var(--pill);
+    cursor:pointer;transition:background .18s, transform .18s;
   }
-  .gate-btn-agree.enabled{opacity:1;pointer-events:auto;cursor:pointer}
-  .gate-btn-agree.enabled:hover{background:var(--terra-dark)}
+  .gate-btn-agree:hover{background:var(--terra-dark);transform:translateY(-1px)}
   @media(max-width:680px){
     .gate-overlay{padding:0}
     .gate-modal{max-height:100vh;height:100vh;border-radius:0;border:none}
