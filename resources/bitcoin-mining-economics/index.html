@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Bitcoin Mining Economics: An Institutional Primer | Omnes</title>
+<meta name="description" content="A definitive explainer of Bitcoin mining economics for institutional investors. Revenue, cost structure, hashprice, ASIC efficiency, halving cycles, and worked profitability examples." />
+<link rel="canonical" href="https://omnes.io/resources/bitcoin-mining-economics/" />
+<meta property="og:title" content="Bitcoin Mining Economics: An Institutional Primer" />
+<meta property="og:description" content="A definitive explainer of Bitcoin mining economics for institutional investors. Revenue, cost structure, hashprice, ASIC efficiency, halving cycles, and worked profitability examples." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omnes.io/resources/bitcoin-mining-economics/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@omnesfinance" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/style.css?v=101">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Bitcoin Mining Economics: An Institutional Primer",
+  "description": "A definitive explainer of Bitcoin mining economics for institutional investors. Revenue, cost structure, hashprice, ASIC efficiency, halving cycles, and worked profitability examples.",
+  "author": {"@type": "Organization", "name": "Omnes"},
+  "publisher": {"@type": "Organization", "name": "Omnes", "logo": {"@type": "ImageObject", "url": "https://omnes.io/omnes-logo-black.svg"}},
+  "datePublished": "2026-05-21",
+  "dateModified": "2026-05-21",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://omnes.io/resources/bitcoin-mining-economics/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://omnes.io/"},
+    {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://omnes.io/resources/"},
+    {"@type": "ListItem", "position": 3, "name": "Bitcoin Mining Economics", "item": "https://omnes.io/resources/bitcoin-mining-economics/"}
+  ]
+}
+</script>
+<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
+</head>
+<body>
+
+<!-- ──────────── NAV ──────────── -->
+<nav class="top">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="Omnes">
+      <img src="/omnes-logo-black.svg" alt="Omnes" />
+    </a>
+    <div class="nav-mid">
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">Invest
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/omn/"><span class="nav-dd-item-title">Omnes Mining Note</span><span class="nav-dd-item-sub">OMN Series 1</span></a>
+          <a class="nav-dd-item" href="/login/"><span class="nav-dd-item-title">Investor Portal</span><span class="nav-dd-item-sub">Log in to your account</span></a>
+          <a class="nav-dd-item" href="/signup/"><span class="nav-dd-item-title">Sign Up</span><span class="nav-dd-item-sub">Create an investor account</span></a>
+          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener"><span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span><span class="nav-dd-item-sub">Technical docs and gitbook</span></a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">About
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
+          <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
+          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
+          <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
+        </div>
+      </div>
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">Contact
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/contact/"><span class="nav-dd-item-title">Contact IR</span><span class="nav-dd-item-sub">Speak to the investor relations team</span></a>
+          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow us on LinkedIn</span></a>
+          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow @omnesfinance</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="/login/" class="nav-login">Log in</a>
+      <a href="/signup/" class="nav-signup">Sign up</a>
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ──────────── HERO ──────────── -->
+<header class="pg-hero">
+  <nav class="cb-breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> <span aria-hidden="true">/</span>
+    <a href="/resources/">Resources</a> <span aria-hidden="true">/</span>
+    <span aria-current="page">Bitcoin Mining Economics</span>
+  </nav>
+  <p class="pg-eyebrow">Resources · Pillar</p>
+  <h1>Bitcoin mining economics: an institutional primer.</h1>
+  <p class="pg-lede">Bitcoin mining is, at its core, an extractive industry. Operators convert two scarce inputs, electricity and specialised silicon, into a single commodity output, freshly issued Bitcoin and transaction fees. The economics that determine which operators survive are no more exotic than those of an oil refinery or a copper smelter, and they are governed by a small number of variables that compound predictably across a four-year cycle.</p>
+</header>
+
+<!-- ──────────── BODY ──────────── -->
+<section class="legal">
+  <div class="legal-content">
+
+    <h2 class="cb-h2">Why mining economics matter to institutional capital.</h2>
+    <p>Institutional allocators have historically engaged with Bitcoin through spot exposure, futures, or, more recently, regulated exchange-traded products. Each of these wraps the same underlying asset and inherits the same return profile: the price of Bitcoin. Mining sits a layer beneath. It is the production economics of the network itself, the cost-curve that issues new supply, and the cash-yielding industrial activity that secures the chain.</p>
+    <p>For a portfolio manager, that distinction matters because mining economics carry return drivers that spot Bitcoin does not. A miner earns block subsidy and fees regardless of price direction, although the dollar value of that revenue is denominated in Bitcoin. Mining therefore behaves like a leveraged, operationally geared claim on Bitcoin, with additional sensitivity to network hashrate, energy markets, and hardware cycles. Understanding these drivers is a prerequisite for any institution considering exposure to compute-yield products, hashrate financing, or direct equity in mining operators.</p>
+    <p>This primer takes that institutional lens. It walks through the revenue side, the cost side, the canonical profitability metrics, the four-year halving cycle, and the comparison to traditional extractive industries.</p>
+
+    <h2 class="cb-h2">The revenue side: block subsidy, fees, and the issuance schedule.</h2>
+    <p>A Bitcoin miner earns revenue when it successfully appends a valid block to the chain. That revenue has two components.</p>
+
+    <h3>Block subsidy.</h3>
+    <p>The block subsidy is freshly issued Bitcoin paid by protocol to the miner that mines a block. The subsidy started at 50 BTC per block in 2009 and halves every 210,000 blocks, roughly every four years. The schedule is fixed in the protocol and known in advance, which gives mining a degree of revenue predictability unusual for an extractive industry.</p>
+    <ul>
+      <li>2009 to 2012: 50 BTC per block</li>
+      <li>2012 to 2016: 25 BTC per block</li>
+      <li>2016 to 2020: 12.5 BTC per block</li>
+      <li>2020 to 2024: 6.25 BTC per block</li>
+      <li>2024 to 2028: 3.125 BTC per block</li>
+      <li>2028 to 2032: 1.5625 BTC per block</li>
+    </ul>
+    <p>With one block produced approximately every ten minutes, the network issues 144 blocks per day on average. At the current 3.125 BTC subsidy, daily issuance is approximately 450 BTC, or roughly 164,000 BTC per year. By the 2028 halving, that figure will fall to approximately 82,000 BTC per year. The terminal supply of 21 million BTC is reached around 2140.</p>
+
+    <h3>Transaction fees.</h3>
+    <p>The second revenue component is the transaction fees paid by users to have their transactions included in a block. Fee revenue is variable. It rises with network demand, with the launch of new fee-paying use cases like ordinals and inscriptions, and with periods of mempool congestion. Over multi-year averages, fees have historically represented 1 to 5 percent of total miner revenue, although intraday and intra-week spikes regularly push fees to 20 percent of block reward and occasionally above 50 percent.</p>
+    <p>As the block subsidy continues to halve, the fee share of miner revenue mechanically grows. Many analysts model a long-run equilibrium in which fees become the dominant component of miner compensation, although the trajectory and pace remain a subject of active debate.</p>
+
+    <h3>Hashprice: the unifying revenue metric.</h3>
+    <p>The standard way to express miner revenue is hashprice. Hashprice is the daily revenue generated per unit of hashrate, typically quoted in US dollars per terahash per second per day (USD per TH per day). It collapses block subsidy, fees, BTC price, and total network hashrate into a single number.</p>
+    <p>The formula is straightforward:</p>
+    <p><strong>Hashprice (USD per TH per day) = (Block subsidy + Average fees per block) × Blocks per day × BTC price ÷ (Total network hashrate in TH per second × 86,400 seconds per day) × 86,400</strong></p>
+    <p>Which simplifies to:</p>
+    <p><strong>Hashprice ≈ (Daily BTC issued + Daily BTC fees) × BTC price ÷ Total network hashrate in PH per second × 1,000</strong></p>
+    <p>Hashprice is the price of the commodity a miner sells. A miner whose all-in cost is below hashprice runs profitably. A miner whose all-in cost is above hashprice burns capital. Across the cycle, hashprice has ranged from below 50 USD per PH per day in the depths of bear markets to several hundred USD per PH per day in late-cycle peaks.</p>
+
+    <h2 class="cb-h2">The cost side: energy, hardware, hosting, and operations.</h2>
+    <p>Mining has four cost buckets. Two are dominant, two are smaller but operationally critical.</p>
+
+    <h3>Energy.</h3>
+    <p>Electricity is the single largest line item for any mining operation. A modern ASIC consumes between 3 and 5 kilowatts and runs 24 hours per day. Energy cost is quoted in cents per kilowatt-hour (¢ per kWh), and the global merchant rate for industrial-scale mining clusters in the 3 to 6 ¢ per kWh range. Tier-one operators with stranded gas, behind-the-meter renewables, or curtailment arrangements can secure 2 to 3 ¢ per kWh. Operators relying on grid power in higher-cost jurisdictions often pay 6 to 9 ¢ per kWh and are structurally disadvantaged.</p>
+    <p>The breakeven energy cost for a mining fleet is a direct function of hashprice and ASIC efficiency. We work through the math below.</p>
+
+    <h3>Hardware.</h3>
+    <p>ASIC miners are specialised silicon designed to compute SHA-256 hashes at maximum efficiency. The relevant metric is joules per terahash (J per TH). A 2018-era Antminer S9 ran at approximately 100 J per TH. A 2021 S19 ran at approximately 30 J per TH. A 2024 S21 runs at approximately 17 J per TH. Each generation roughly doubles efficiency, and obsolete generations become unprofitable as network difficulty climbs.</p>
+    <p>ASIC capex is amortised over the operational life of the machine, typically 3 to 5 years depending on energy cost and price environment. At a list price of 20 to 30 USD per TH for current-generation machines, a 100 PH per second fleet requires 2 to 3 million USD of hardware capex, before hosting and infrastructure.</p>
+
+    <h3>Hosting and infrastructure.</h3>
+    <p>Most institutional-scale operators do not build their own substations. They host machines in third-party data centres that provide power, cooling, network, and racks under a hosting agreement. Hosting fees are quoted as an all-in dollar rate per kilowatt-hour, typically 1 to 3 ¢ per kWh on top of underlying energy cost. A hosted operator pays 5 to 8 ¢ per kWh all-in, depending on the venue.</p>
+    <p>The build-vs-buy question for an institutional operator is a tradeoff between capital intensity, control, and time to deploy. Hosting trades a margin point for capital efficiency and operational simplicity.</p>
+
+    <h3>Operations.</h3>
+    <p>Operations covers the rest: management overhead, pool fees, insurance, security, treasury management, accounting, regulatory compliance, and reserves for hardware replacement. For institutional operators, this typically sums to 50 to 150 basis points of revenue. Pool fees alone are usually 1 to 2 percent of mined Bitcoin.</p>
+
+    <h2 class="cb-h2">Profitability metrics: how operators are actually measured.</h2>
+    <p>Bitcoin mining is a margin business. Institutional analysts evaluate operators using a compact set of metrics.</p>
+
+    <h3>Energy cost per Bitcoin mined.</h3>
+    <p>The headline metric. Calculated as total energy spent in dollars divided by Bitcoin mined over a period. For tier-one operators, the figure has typically clustered in the 15,000 to 30,000 USD per BTC range, depending on power costs and network difficulty. Operators above 50,000 USD per BTC are structurally vulnerable to drawdowns.</p>
+
+    <h3>All-in cost per Bitcoin.</h3>
+    <p>Energy cost plus hosting, depreciation, ops, and corporate overhead. All-in cost is what determines survival across a halving. The gap between energy cost and all-in cost is typically 50 to 100 percent, meaning an operator with 20,000 USD energy cost may have an all-in cost of 30,000 to 40,000 USD per BTC.</p>
+
+    <h3>Hashprice margin.</h3>
+    <p>Daily revenue per TH minus daily cost per TH, expressed as a percentage of revenue. A 50 percent hashprice margin is robust. A 20 percent margin signals stress. Negative margin means the operator is mining at a loss and either has hedged, has subsidised power, or is funding losses from balance-sheet reserves.</p>
+
+    <h3>ASIC efficiency and fleet age.</h3>
+    <p>Average J per TH across the fleet is a proxy for competitive positioning. Operators running 17 to 20 J per TH machines are at the frontier. Operators running 30 J per TH or higher are vulnerable to the next difficulty increase. Fleet age, measured as weighted average generation, is the leading indicator of capex obligations.</p>
+
+    <h3>Uptime and realised hashrate.</h3>
+    <p>Nameplate hashrate is the rated capacity of the fleet. Realised hashrate is what actually hashes after curtailment, maintenance, and failure. Best-in-class operators realise 95 to 98 percent of nameplate. Weaker operators come in at 85 to 90 percent. The gap directly reduces revenue.</p>
+
+    <h2 class="cb-h2">Worked example: a 100 PH per second fleet.</h2>
+    <p>Consider a hypothetical institutional miner operating a 100 PH per second (100,000 TH per second) fleet of current-generation S21 machines at 17 J per TH. Assume the operator hosts the fleet at an all-in energy and hosting cost of 6 ¢ per kWh.</p>
+
+    <h3>Power draw.</h3>
+    <p>100,000 TH × 17 J per TH = 1,700,000 joules per second = 1.7 megawatts. Over 24 hours, that is 1.7 MW × 24 h = 40.8 MWh per day.</p>
+
+    <h3>Daily energy cost.</h3>
+    <p>40,800 kWh × 0.06 USD per kWh = 2,448 USD per day.</p>
+
+    <h3>Daily revenue.</h3>
+    <p>Assume a hashprice of 55 USD per PH per day (a mid-cycle estimate). The fleet generates 100 PH × 55 USD = 5,500 USD per day of gross revenue.</p>
+
+    <h3>Daily gross margin.</h3>
+    <p>Revenue 5,500 minus energy 2,448 = 3,052 USD per day, or roughly 55 percent gross margin before depreciation, ops, and corporate overhead.</p>
+
+    <h3>Daily Bitcoin mined.</h3>
+    <p>At a network hashrate of 600 EH per second and 450 BTC issued daily, the fleet's share is 100 PH ÷ 600,000 PH × 450 BTC = approximately 0.075 BTC per day, or roughly 27 BTC per year.</p>
+
+    <h3>Energy cost per BTC.</h3>
+    <p>2,448 USD per day ÷ 0.075 BTC per day = approximately 32,640 USD per BTC. With all-in cost typically 50 percent higher, the operator is somewhere around 45,000 to 50,000 USD per BTC all-in, profitable at BTC prices of 60,000 USD and above and stressed below that.</p>
+
+    <h3>Sensitivity to inputs.</h3>
+    <p>The same fleet at 4 ¢ per kWh energy cost yields energy cost per BTC of approximately 21,760 USD, a step-function improvement. At 8 ¢ per kWh, it rises to 43,520 USD per BTC, pushing all-in cost above 60,000 USD and making the operator marginal in mid-cycle conditions. Energy cost dominates every other variable.</p>
+
+    <h2 class="cb-h2">The four-year halving cycle.</h2>
+    <p>Bitcoin mining moves in a predictable rhythm shaped by the halving. Understanding the cycle is essential for institutional positioning.</p>
+
+    <h3>Pre-halving.</h3>
+    <p>In the 12 to 18 months before a halving, network hashrate typically grows aggressively as operators race to lock in the higher subsidy. ASIC capex accelerates, capital floods into hosting deals, and hashprice can compress if BTC price has not yet caught up to the supply-and-demand reshaping.</p>
+
+    <h3>Halving day.</h3>
+    <p>Block subsidy is mechanically cut in half. Hashprice falls roughly in half overnight, holding price and network hashrate constant. Operators with high all-in costs are immediately squeezed. Historically, 20 to 40 percent of legacy network hashrate has been retired in the months following a halving as obsolete generations capitulate.</p>
+
+    <h3>Post-halving capitulation.</h3>
+    <p>The 3 to 6 months after a halving have historically been the most operationally difficult period for miners. Weak operators sell BTC reserves, restructure debt, or shut down. Difficulty adjusts downward as hashrate exits. The fittest operators acquire distressed hardware and expand market share.</p>
+
+    <h3>Mid-cycle recovery.</h3>
+    <p>Bitcoin price typically rises in the 12 to 18 months following a halving, lifting hashprice and restoring industry-wide margins. Network hashrate begins growing again as new ASIC generations ship and price economics turn favourable.</p>
+
+    <h3>Late-cycle peak.</h3>
+    <p>In the 6 to 12 months before the next halving, hashprice peaks. Operators generate strong free cash flow, capex commitments rise, and the cycle prepares to begin again.</p>
+
+    <p>For an institutional allocator, the cycle implies that mining-economy exposure earns its risk premium across a multi-year window. Capital deployed late-cycle compounds at peak hashprice but faces halving compression. Capital deployed post-halving captures the recovery but underwrites operational stress. The 36-month tenor of the Omnes Mining Note is specifically designed to span a full halving cycle so that investor outcomes are not held hostage to entry timing.</p>
+
+    <h2 class="cb-h2">Comparison to extractive industries.</h2>
+    <p>The cleanest analogue for Bitcoin mining is not financial markets but extractive resource industries: oil and gas, gold, copper, lithium. Each shares the same fundamental structure. A commodity is produced from scarce physical inputs (land, energy, equipment, labour), the producer is a price-taker on a transparent global market, and the survival of the operator depends on its position on the cost curve.</p>
+
+    <h3>The cost curve.</h3>
+    <p>Like oil, Bitcoin mining is best understood through its cost curve. The lowest-cost operators (3 ¢ per kWh hydro, stranded gas, behind-the-meter renewables) sit at the bottom. The highest-cost operators (9 ¢ grid power, obsolete fleets) sit at the top. Hashprice is the price line that determines which operators are above water. Below the price line, operators earn margin. Above it, they are losing money on every block.</p>
+    <p>This is structurally identical to oil. The Saudi marginal barrel costs 5 to 10 USD to produce; the Canadian tar sands barrel costs 40 to 60 USD. The market clears at the price that calls forward the marginal barrel needed to satisfy demand. Below-curve producers earn rent. Above-curve producers shut in or burn capital.</p>
+
+    <h3>Reserves and depletion.</h3>
+    <p>Oil reserves deplete with extraction. Bitcoin's analogue is the diminishing block subsidy. Each halving reduces the rate of issuance, and the terminal cap of 21 million BTC is reached around 2140. Unlike oil, however, Bitcoin's depletion schedule is fixed in protocol and known with certainty. There is no exploration risk, no political risk over reserves, no geopolitical contest for marginal reserves. The supply curve is the most transparent in the history of any commodity.</p>
+
+    <h3>Capital intensity and operating leverage.</h3>
+    <p>Like mid-stream oil and gas or smelting, Bitcoin mining is capital-intensive at deployment and operationally levered to the commodity price. A 1 percent rise in BTC price lifts revenue 1 percent, but because energy and depreciation costs are fixed, free cash flow rises 2 to 3 percent. The reverse is also true. This is the same operating leverage that makes oil producers and copper smelters volatile equity stories.</p>
+
+    <h3>Where the analogy breaks.</h3>
+    <p>Three differences separate Bitcoin mining from traditional extractive industries:</p>
+    <ol>
+      <li><strong>Difficulty adjustment.</strong> The Bitcoin protocol automatically retargets difficulty every 2,016 blocks to keep block time at ten minutes. As hashrate grows, difficulty rises; as it falls, difficulty falls. The protocol therefore has a built-in stabiliser that no traditional commodity has, ensuring that block production continues regardless of who is producing.</li>
+      <li><strong>Zero exploration cost.</strong> Bitcoin has no exploration phase. Every miner with the same equipment has the same expected output for a given share of network hashrate. This is structurally different from oil and gas, where exploration is a multi-billion-dollar gating capex.</li>
+      <li><strong>Hardware obsolescence cycles.</strong> ASIC generations turn over every 18 to 30 months. Operators must maintain a hardware replacement programme to remain at the frontier of efficiency. Traditional commodity producers face equipment refresh, but rarely at this pace and rarely with this kind of efficiency gain per generation.</li>
+    </ol>
+
+    <h2 class="cb-h2">The institutional view.</h2>
+    <p>For institutional capital, the question is not whether Bitcoin mining is a real industry. It is. The question is how to gain exposure without inheriting the operational complexity of running a mining business.</p>
+    <p>Direct ownership of mining equipment requires the institution to underwrite hardware procurement, hosting agreements, energy contracts, operations staff, treasury policy, and regulatory regimes across multiple jurisdictions. Few allocators are equipped to do this in-house, and the operational drag erodes the very return premium that justifies the allocation.</p>
+    <p>Equity in listed miners offers liquid exposure but inherits balance-sheet risk, dilution risk, and management discretion. The correlation to BTC price is high but contaminated by company-specific noise.</p>
+    <p>Tokenised hashrate notes offer a third path. By converting the production cash-flow of a contracted block of hashrate into a securitised instrument, an institutional allocator gains direct economic exposure to the mining economy without operational risk, with regulated structure, and with onchain transparency on output and custody.</p>
+    <p>The <a href="/omn/">Omnes Mining Note</a> is one such instrument: 1 PH per second of contracted hashrate backing each note, 36-month tenor designed to span a full halving cycle, distributions paid in Bitcoin at maturity, 3.75 percent all-in expense ratio, and no performance fee. The structure isolates the mining-economy return for the allocator without forcing the allocator to become a miner.</p>
+
+    <h2 class="cb-h2">Key takeaways for institutional readers.</h2>
+    <ul>
+      <li>Mining revenue is the sum of block subsidy and transaction fees, denominated in Bitcoin, monetised against a fixed and known issuance schedule.</li>
+      <li>Hashprice is the single unifying revenue metric. It collapses BTC price, network hashrate, and block reward into one USD-per-TH number.</li>
+      <li>Energy is the dominant cost driver. ASIC efficiency (J per TH) is the second-largest lever. Together they explain the majority of operator survival outcomes across a cycle.</li>
+      <li>The four-year halving cycle creates a predictable rhythm of pre-halving expansion, post-halving capitulation, mid-cycle recovery, and late-cycle peak. Multi-year exposure averages across this rhythm.</li>
+      <li>Bitcoin mining is best understood as an extractive industry. The cost curve is the dominant organising frame. Difficulty adjustment, zero exploration cost, and hardware obsolescence cycles are the three structural differences from oil, gas, copper, and gold.</li>
+      <li>Institutional exposure can come via direct ownership, listed equity, or tokenised hashrate notes. Each carries a distinct risk profile.</li>
+    </ul>
+
+    <p class="cb-prose">For further reading on how institutional structures wrap Bitcoin mining economics, see our overview of the <a href="/omn/">Omnes Mining Note</a> and the <a href="/faqs/">FAQ</a>. For research and commentary, visit <a href="https://insights.omnes.io" target="_blank" rel="noopener">Omnes Insights</a>.</p>
+
+  </div>
+</section>
+
+<!-- ──────────── FOOTER ──────────── -->
+<footer id="contact">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
+        <div class="ft-socials">
+          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/contact/">Contact us</a></li><li><a href="/media-kit/">Media Kit</a></li></ul></div>
+      <div class="ft-col"><h5>Products</h5><ul><li><a href="/omn/">Omnes Mining Note</a></li></ul></div>
+      <div class="ft-col"><h5>Resources</h5><ul><li><a href="/faqs/">FAQs</a></li><li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li><li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li></ul></div>
+      <div class="ft-col"><h5>Legal</h5><ul><li><a href="/website-terms/">Website Terms</a></li><li><a href="/global-privacy-notice/">Global Privacy Notice</a></li><li><a href="/cookies-policy/">Cookies Policy</a></li></ul></div>
+    </div>
+    <p class="ft-disc">This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.</p>
+    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=8"></script>
+
+<!-- ──────────── ACCESS GATE ──────────── -->
+<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
+  <div class="gate-modal">
+    <div class="gate-header">
+      <p class="gate-slabel">Terms of Access</p>
+      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
+      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    </div>
+    <div class="gate-body" id="gateBody">
+      <h2 class="gate-h2">1. Acceptance of terms</h2>
+      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by the Website Terms, Global Privacy Notice, and Cookies Policy.</p>
+    </div>
+    <div class="gate-footer">
+      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

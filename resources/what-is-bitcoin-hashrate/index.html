@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>What Is Bitcoin Hashrate? An Institutional Explainer | Omnes</title>
+<meta name="description" content="A definitive institutional explainer on Bitcoin hashrate: how it is measured, why it matters to professional investors, and how hashrate has become a financial primitive accessible through tokenized securities." />
+<link rel="canonical" href="https://omnes.io/resources/what-is-bitcoin-hashrate/" />
+<meta property="og:title" content="What Is Bitcoin Hashrate? An Institutional Explainer | Omnes" />
+<meta property="og:description" content="A definitive institutional explainer on Bitcoin hashrate: how it is measured, why it matters to professional investors, and how hashrate has become a financial primitive accessible through tokenized securities." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://omnes.io/resources/what-is-bitcoin-hashrate/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@omnesfinance" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is Bitcoin Hashrate? An Institutional Explainer",
+  "description": "A definitive institutional explainer on Bitcoin hashrate: how it is measured, why it matters to professional investors, and how hashrate has become a financial primitive accessible through tokenized securities.",
+  "author": {
+    "@type": "Organization",
+    "name": "Omnes",
+    "url": "https://omnes.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnes.io/omnes-logo-black.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnes.io/resources/what-is-bitcoin-hashrate/"
+  },
+  "inLanguage": "en",
+  "about": [
+    {"@type": "Thing", "name": "Bitcoin hashrate"},
+    {"@type": "Thing", "name": "Bitcoin mining"},
+    {"@type": "Thing", "name": "Institutional investing"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="apple-touch-icon" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/style.css?v=101">
+<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
+</head>
+<body>
+
+
+<!-- ──────────── NAV ──────────── -->
+<nav class="top">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="Omnes">
+      <img src="/omnes-logo-black.svg" alt="Omnes" />
+    </a>
+
+    <div class="nav-mid">
+      <!-- Invest -->
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">
+          Invest
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/omn/">
+            <span class="nav-dd-item-title">Omnes Mining Note</span>
+            <span class="nav-dd-item-sub">OMN Series 1</span>
+          </a>
+          <a class="nav-dd-item" href="/login/">
+            <span class="nav-dd-item-title">Investor Portal</span>
+            <span class="nav-dd-item-sub">Log in to your account</span>
+          </a>
+          <a class="nav-dd-item" href="/signup/">
+            <span class="nav-dd-item-title">Sign Up</span>
+            <span class="nav-dd-item-sub">Create an investor account</span>
+          </a>
+          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">
+            <span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span>
+            <span class="nav-dd-item-sub">Technical docs and gitbook</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">
+          About
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/about/">
+            <span class="nav-dd-item-title">About Omnes</span>
+            <span class="nav-dd-item-sub">Mission, team, and key facts</span>
+          </a>
+          <a class="nav-dd-item" href="/faqs/">
+            <span class="nav-dd-item-title">FAQs</span>
+            <span class="nav-dd-item-sub">Common questions answered</span>
+          </a>
+          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener">
+            <span class="nav-dd-item-title">Insights <span class="ext">↗</span></span>
+            <span class="nav-dd-item-sub">Research, news, and analysis</span>
+          </a>
+          <a class="nav-dd-item" href="/media-kit/">
+            <span class="nav-dd-item-title">Media Kit</span>
+            <span class="nav-dd-item-sub">Brand assets and press info</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="nav-dd">
+        <button class="nav-dd-toggle" type="button">
+          Contact
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-dd-menu">
+          <a class="nav-dd-item" href="/contact/">
+            <span class="nav-dd-item-title">Contact IR</span>
+            <span class="nav-dd-item-sub">Speak to the investor relations team</span>
+          </a>
+          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">
+            <span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span>
+            <span class="nav-dd-item-sub">Follow us on LinkedIn</span>
+          </a>
+          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener">
+            <span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span>
+            <span class="nav-dd-item-sub">Follow @omnesfinance</span>
+          </a>
+        </div>
+      </div>
+    </div>    <div class="nav-right">
+      <a href="/login/" class="nav-login">Log in</a>
+      <a href="/signup/" class="nav-signup">Sign up</a>
+      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav-inner">
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-h">Invest</div>
+      <a href="/omn/">Omnes Mining Note</a>
+      <a href="/login/">Investor Portal</a>
+      <a href="/signup/">Sign Up</a>
+      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-h">About</div>
+      <a href="/about/">About Omnes</a>
+      <a href="/faqs/">FAQs</a>
+      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
+      <a href="/media-kit/">Media Kit</a>
+    </div>
+    <div class="mobile-nav-section">
+      <div class="mobile-nav-h">Contact</div>
+      <a href="/contact/">Contact IR</a>
+      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
+      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
+    </div>
+    <div class="mobile-nav-cta">
+      <a href="/login/" class="btn btn-ghost">Log in</a>
+      <a href="/signup/" class="btn btn-terra">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────── HERO ──────────── -->
+<header class="pg-hero">
+  <div class="cb-wrap cb-narrow">
+    <p class="pg-eyebrow">Resources / Pillar Explainer</p>
+    <h1 class="pg-title">What is Bitcoin hashrate?</h1>
+    <p class="cb-lead">A definitive explainer for institutional readers: how hashrate is measured, why it has become a structural input to capital allocation, and how professional investors gain exposure to it through regulated vehicles.</p>
+  </div>
+</header>
+
+<!-- ──────────── DEFINITION (snippet-worthy) ──────────── -->
+<section class="cb-section legal">
+  <div class="cb-wrap cb-narrow legal-content">
+
+    <h2 class="cb-h2">Definition</h2>
+    <div class="cb-prose">
+      <p><strong>Bitcoin hashrate is the total computational power dedicated to securing the Bitcoin network and competing to produce new blocks, expressed as the number of cryptographic hash operations performed per second across all active mining hardware.</strong> Hashrate is measured in hashes per second (H/s), with the global network now operating in the exahash range (one quintillion hashes per second). It is simultaneously a measure of network security, a real-time indicator of capital invested in Bitcoin mining infrastructure, and the underlying productive input that determines who earns block rewards and transaction fees.</p>
+      <p>For institutional readers, the most useful framing is this: hashrate is the unit of production for Bitcoin. Owning hashrate is conceptually equivalent to owning a share of the network's productive capacity, in the same way owning generation capacity gives a power producer a share of an electricity market.</p>
+    </div>
+
+    <h2 class="cb-h2">Why hashrate matters to institutions</h2>
+    <div class="cb-prose">
+      <p>Until recently, hashrate was treated by most institutional allocators as a technical artefact, a metric monitored by miners and protocol engineers but not by capital markets desks. That framing is outdated. Three structural shifts have moved hashrate into the institutional conversation.</p>
+      <p><strong>First, hashrate is a primary determinant of Bitcoin mining cash flows.</strong> Block rewards and transaction fees are distributed in proportion to the share of total network hashrate a miner contributes. A megawatt of capacity, a fleet of ASICs, or a tokenized claim on a fixed hashrate quantity all produce Bitcoin in direct proportion to their share of the network. For an allocator evaluating mining exposure, hashrate is the production function.</p>
+      <p><strong>Second, hashrate has become a strategic asset.</strong> Listed mining companies, sovereign-linked entities, and private capital pools now compete for hashrate capacity in much the same way utilities compete for generation. Pension funds, sovereign wealth analysts, and large family offices that previously regarded mining as an operational business now study hashrate as a financial primitive: an input whose price, supply, and yield can be modelled.</p>
+      <p><strong>Third, the instruments have caught up.</strong> Tokenized debt securities such as the <a href="/omn/">Omnes Mining Note</a> now allow professional investors to take direct, contractually defined hashrate exposure inside a Luxembourg-regulated structure, without the operational burdens of running infrastructure. Hashrate has crossed the threshold from operational metric to investable quantity.</p>
+    </div>
+
+    <!-- ──────────── INLINE GLOSSARY ──────────── -->
+    <div class="cb-prose">
+      <div style="border:1px solid rgba(0,0,0,.10);background:#fafaf7;padding:1.75rem 1.75rem;margin:2rem 0;border-radius:6px;">
+        <p style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#7a7a72;margin:0 0 1rem 0;">Glossary</p>
+        <p style="margin:.4rem 0;"><strong>Hash function</strong> : A one-way mathematical function (SHA-256 for Bitcoin) that transforms an input of arbitrary length into a fixed-length output. Each attempt is one "hash."</p>
+        <p style="margin:.4rem 0;"><strong>Hashrate</strong> : The number of hash attempts performed per second by a miner, a pool, or the entire network.</p>
+        <p style="margin:.4rem 0;"><strong>Hashprice</strong> : The expected daily revenue per unit of hashrate (commonly per PH/s or TH/s), denominated in BTC or USD. The closest analogue to a "spot price" for hashrate.</p>
+        <p style="margin:.4rem 0;"><strong>Difficulty</strong> : A protocol parameter, adjusted every 2,016 blocks (roughly two weeks), that calibrates how computationally hard it is to find a valid block, holding the average block interval near 10 minutes.</p>
+        <p style="margin:.4rem 0;"><strong>Block reward</strong> : The newly issued Bitcoin paid to the miner that produces a valid block, plus transaction fees included in that block. The subsidy halves every 210,000 blocks.</p>
+        <p style="margin:.4rem 0;"><strong>ASIC</strong> : Application-specific integrated circuit. Purpose-built mining hardware that performs SHA-256 hashing far more efficiently than general-purpose chips.</p>
+      </div>
+    </div>
+
+    <h2 class="cb-h2">How hashrate is measured</h2>
+    <div class="cb-prose">
+      <p>Hashrate is expressed in hashes per second, scaled with standard SI prefixes. The progression mirrors the network's growth from hobbyist hardware to industrial-scale facilities.</p>
+      <ul>
+        <li><strong>H/s</strong> : hashes per second. The base unit. A modern CPU might produce a handful of kH/s on SHA-256.</li>
+        <li><strong>KH/s</strong> : kilohash per second (1,000 H/s). The era of early CPU mining.</li>
+        <li><strong>MH/s</strong> : megahash per second (one million H/s). The GPU era of the early 2010s.</li>
+        <li><strong>GH/s</strong> : gigahash per second (one billion H/s). The FPGA and early ASIC era.</li>
+        <li><strong>TH/s</strong> : terahash per second (one trillion H/s). The unit a single modern ASIC produces.</li>
+        <li><strong>PH/s</strong> : petahash per second (one quadrillion H/s). The unit used by mining pools and tokenized hashrate securities such as OMN, where each note is backed by one PH/s.</li>
+        <li><strong>EH/s</strong> : exahash per second (one quintillion H/s). The current measurement scale for the global Bitcoin network as a whole.</li>
+        <li><strong>ZH/s</strong> : zetahash per second. The plausible scale of the network over the coming decade if growth trends continue.</li>
+      </ul>
+      <p>Hashrate cannot be measured directly. No single observer counts every hash attempt. Network-wide hashrate is estimated from observed block production: given a known difficulty target and the rate at which blocks are being found, the network's aggregate hashrate can be inferred statistically. Most major Bitcoin data providers publish rolling estimates calculated over 1-day, 7-day, and 30-day windows. Short-window figures are noisy because block timing follows a Poisson distribution and individual blocks can be found in seconds or hours; longer windows smooth the variance and are the standard reference for institutional analysis.</p>
+    </div>
+
+    <h2 class="cb-h2">The economics that drive hashrate</h2>
+    <div class="cb-prose">
+      <p>Hashrate is the output of a global capital allocation process. New hashrate appears when expected mining revenue exceeds the all-in cost of producing it. Hashrate leaves the network when the opposite is true. Three variables dominate that calculation.</p>
+      <p><strong>The Bitcoin price.</strong> Block rewards and transaction fees are paid in Bitcoin. When the Bitcoin price rises, the dollar value of mining revenue rises in lockstep, all else equal, and the marginal cost curve permits more hashrate to come online profitably.</p>
+      <p><strong>Hardware efficiency.</strong> Each ASIC generation produces more hashes per watt than the last. Efficiency improvements reduce the energy required per terahash, allowing the same revenue to support more hardware. This is why hashrate has consistently grown faster than electricity consumption: the network is becoming more efficient, not just larger.</p>
+      <p><strong>Energy cost.</strong> Electricity is the largest variable cost for nearly every mining operation. Hashrate concentrates where energy is cheap, abundant, and ideally stranded or curtailed. Hashrate growth has tracked the expansion of low-cost generation in North America, the Middle East, parts of Latin America, and the Nordics. When power prices spike, hashrate migrates.</p>
+      <p>Together these variables explain the durable pattern of hashrate growth: prices and efficiency rise, energy costs differ across regions, and capital flows toward the lowest-cost producers. The result is an industry that resembles a global commodity producer cohort more than a software ecosystem.</p>
+    </div>
+
+    <h2 class="cb-h2">The hashrate-price relationship</h2>
+    <div class="cb-prose">
+      <p>The relationship between Bitcoin's price and the network's hashrate is one of the most widely discussed and least precisely understood subjects in Bitcoin analysis. The intuition is simple. Higher prices fund higher mining revenue, which attracts more hashrate. Lower prices compress margins and push less efficient hashrate offline. Over long horizons, hashrate and price have grown together.</p>
+      <p>The mechanics, however, are asymmetric. Hashrate responds to price with a lag, because hardware procurement, site development, and grid interconnection take quarters or years. A price rally does not instantly translate into new hashrate. Conversely, when prices fall sharply, hashrate can come offline within days as miners turn off uneconomical machines, but the more efficient base of the network typically stays online through deep drawdowns because its all-in cost is below the marginal price.</p>
+      <p>Two practical conclusions follow. First, hashrate is not a leading indicator of price; it is a function of price, lagged. Investors who use hashrate as a directional signal for Bitcoin tend to misinterpret the causality. Second, the spread between hashrate growth and price growth carries real information about miner profitability. When hashrate grows faster than price, hashprice declines and unit economics tighten. When price outruns hashrate, hashprice rises and mining margins expand.</p>
+    </div>
+
+    <h2 class="cb-h2">Difficulty adjustment</h2>
+    <div class="cb-prose">
+      <p>The Bitcoin protocol does not target a fixed hashrate. It targets a fixed block interval of approximately 10 minutes. As hashrate rises or falls, blocks would otherwise be found faster or slower than that target. Difficulty is the protocol's self-correcting mechanism.</p>
+      <p>Every 2,016 blocks, the network compares the actual time taken to produce those blocks against the target of 20,160 minutes (10 minutes per block). If blocks were found faster, difficulty rises; if slower, difficulty falls. Adjustments are capped at a factor of four in either direction. The result is a remarkably stable block cadence over years of explosive hashrate growth, despite the fact that no central authority calibrates the system.</p>
+      <p>For institutional readers, difficulty matters because it is the protocol's allocation mechanism. The amount of Bitcoin issued per block is fixed. Difficulty determines how the network distributes that fixed reward across the hashrate competing for it. A miner's share of network revenue is, by construction, equal to its share of network hashrate. This is why hashrate, not megawatts and not number of machines, is the meaningful unit of production for any Bitcoin mining cash flow model.</p>
+    </div>
+
+    <h2 class="cb-h2">Hashrate as a financial primitive</h2>
+    <div class="cb-prose">
+      <p>The transition that defines this market cycle is the financialization of hashrate. Five characteristics make hashrate behave like a financial primitive rather than purely operational data.</p>
+      <p><strong>It is verifiable.</strong> Hashrate output for a given facility or pool can be measured and attested onchain. Custody balances, mining payouts, and operational uptime are observable on public ledgers. That auditability is a precondition for institutional adoption and underpins the design of products such as OMN.</p>
+      <p><strong>It is fungible.</strong> One terahash from a facility in West Texas is, in terms of expected reward, equivalent to one terahash from a facility in Paraguay or Norway, holding fees and uptime equal. This fungibility is what makes hashrate tradable.</p>
+      <p><strong>It has a spot-like reference rate.</strong> Hashprice, expressed in BTC or USD per PH/s per day, functions as a daily clearing price for the productive output of a unit of hashrate. It can be observed, charted, and used as a discount factor for forward cash flows.</p>
+      <p><strong>It has a forward curve.</strong> Forward hashprice and difficulty curves are quoted by sophisticated counterparties. Hashrate forwards, options, and swaps trade in increasing volume.</p>
+      <p><strong>It can be securitized.</strong> Hashrate-backed debt securities, structured under established frameworks such as the Luxembourg Securitisation Law of 22 March 2004, can be issued, tokenized, distributed to professional investors, and traded onchain. The Omnes Mining Note is one example.</p>
+      <p>The implication for allocators is that hashrate is now an asset class adjacent to commodities and infrastructure, with its own forward curve, basis, and securitized expression. Frameworks developed for energy markets, commodity producers, and yield-bearing infrastructure carry over with only modest adjustment.</p>
+    </div>
+
+    <h2 class="cb-h2">Institutional paths to hashrate exposure</h2>
+    <div class="cb-prose">
+      <p>Professional investors who want hashrate exposure can express the view through several distinct vehicles. Each carries a different risk, return, and operational profile.</p>
+
+      <p><strong>1. Listed mining equities.</strong> Public mining companies such as the large North American operators are the most accessible route to hashrate exposure for traditional portfolios. Investors should understand, however, that listed miner equity is leveraged exposure to mining economics combined with corporate, financing, dilution, and management risk. The equity beta to Bitcoin is typically high but inconsistent across cycles.</p>
+
+      <p><strong>2. Bitcoin spot and futures.</strong> Spot Bitcoin (or spot Bitcoin ETFs in jurisdictions where they are available to the relevant investor class) and listed Bitcoin futures give exposure to the asset that hashrate produces, but not to hashrate itself. They will track Bitcoin's price; they will not capture mining yield or the hashprice differential.</p>
+
+      <p><strong>3. Private mining funds and managed accounts.</strong> Private vehicles run by mining specialists provide direct hashrate exposure, often with active management of fleets, sites, and energy procurement. They typically carry meaningful management and performance fees, long lock-ups, and operational opacity that can be challenging for institutional reporting frameworks.</p>
+
+      <p><strong>4. Hashrate derivatives.</strong> Hashprice swaps, difficulty futures, and bilateral hashrate forwards have emerged as instruments for miners and trading desks. They are useful for sophisticated hedgers but typically require counterparty credit lines and ISDA-style documentation, limiting their suitability for many allocators.</p>
+
+      <p><strong>5. Hashrate-backed tokenized debt securities.</strong> A newer category, exemplified by the <a href="/omn/">Omnes Mining Note (OMN) Series 1</a>, packages hashrate exposure inside a Luxembourg-regulated securitisation vehicle. Each OMN is backed by one petahash per second of mining capacity for a fixed 36-month tenor, with all mined Bitcoin distributed at maturity, net of a flat 3.75% all-in expense ratio and zero performance fee. The structure combines the regulatory clarity of a Luxembourg securitisation fund, multi-party custody, audited financials, and onchain transparency, and is intended for MiFID II professional, non-US, non-Canadian, non-UK retail, and non-EEA retail investors. Detailed mechanics are covered in the <a href="/faqs/">Omnes FAQs</a>.</p>
+
+      <p>Choice of vehicle should map to the investor's mandate. A discretionary equity book can express the view through listed miners. A multi-asset allocator with a fixed-income or yield bucket and capacity to hold tokenized securities may find a hashrate-backed note a more direct expression. A trading desk with appropriate counterparty infrastructure can layer in derivative hedges around any of the above.</p>
+    </div>
+
+    <h2 class="cb-h2">Risks to understand</h2>
+    <div class="cb-prose">
+      <p>Hashrate exposure, however expressed, carries risks that should be modelled explicitly rather than assumed away.</p>
+
+      <p><strong>Bitcoin price risk.</strong> All mining revenue is denominated in Bitcoin. A sustained decline in the Bitcoin price compresses mining revenue in fiat terms and, if severe enough, drives hashrate offline. Investors taking hashrate exposure are taking, in part, Bitcoin price exposure.</p>
+
+      <p><strong>Difficulty risk.</strong> If aggregate network hashrate grows faster than expected, a given quantity of hashrate produces a declining share of the fixed block reward over time. This is the mechanical headwind every miner faces. Hashprice tends to decline over multi-year horizons, even as the dollar value of mining revenue may rise with Bitcoin's price.</p>
+
+      <p><strong>Energy and operational risk.</strong> Mining facilities depend on electricity supply, hardware uptime, cooling, network connectivity, and site security. Operational underperformance translates directly into yield shortfalls.</p>
+
+      <p><strong>Regulatory and jurisdictional risk.</strong> Mining is subject to evolving regulation around energy use, taxation, securities classification, and environmental disclosure. Hashrate exposure inside a regulated securitisation structure mitigates some of these risks for the investor, but does not eliminate them at the underlying asset level.</p>
+
+      <p><strong>Counterparty and custody risk.</strong> Mined Bitcoin must be custodied. Structured products must be administered by competent counterparties. Investors should evaluate the custodian, auditor, security agent, and fund administrator with the same rigour applied to any structured credit product. The Omnes structure documents these counterparties explicitly; details are summarized on the <a href="/about/">Omnes about page</a>.</p>
+
+      <p><strong>Halving risk.</strong> Every four years (approximately), the block subsidy halves. This is a known event with a known schedule, but the path of hashprice through halvings depends on the joint behaviour of price, fees, and hashrate, and historically has produced periods of severe miner stress.</p>
+    </div>
+
+    <h2 class="cb-h2">How to think about hashrate in a portfolio</h2>
+    <div class="cb-prose">
+      <p>For an institutional portfolio, hashrate exposure should be framed as a hybrid commodity and infrastructure position. It carries a productive cash flow profile, a fungible underlying unit, a measurable forward curve, and a regulatory frame inside a tokenized securitisation. It is correlated to Bitcoin but not identical to it, since hashprice can decline even as Bitcoin appreciates, and hashprice can hold up even when Bitcoin trades sideways.</p>
+      <p>The right sizing depends on the investor's existing Bitcoin exposure, return targets, liquidity tolerance, and ability to hold tokenized securities. As a general analytic framework, hashrate exposure is best evaluated using three lenses: yield (expected BTC distribution per dollar invested), basis (hashprice today versus expected hashprice over the tenor), and structural risk (counterparty, custody, regulatory, and operational risks of the chosen wrapper).</p>
+      <p>For most institutional allocators encountering hashrate for the first time, the pragmatic starting point is a small, well-structured pilot allocation through a regulated vehicle that exposes them to the production economics, lets them observe the relationship between hashrate, hashprice, and Bitcoin in their own portfolio, and builds the internal capacity to size the position over time.</p>
+    </div>
+
+    <h2 class="cb-h2">Hashrate in summary</h2>
+    <div class="cb-prose">
+      <p>Bitcoin hashrate is the productive backbone of the largest digital asset network in the world. It is measurable, fungible, increasingly liquid, and now accessible inside institutional wrappers that meet professional investors where they already operate. For allocators who view Bitcoin as a structural part of the global asset universe, hashrate is the production layer underneath that view, and it is becoming a distinct and investable exposure in its own right.</p>
+      <p>The OMN Series 1 was designed to give professional investors a direct, transparent, and structurally robust way to express that view. Detailed mechanics, eligibility, and offering documentation are available through the <a href="/omn/">OMN product page</a>, with broader context in the <a href="/faqs/">Omnes FAQs</a> and the <a href="/about/">about page</a>. Investors with specific questions are encouraged to reach Omnes investor relations through the <a href="/contact/">contact page</a>.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ──────────── CLOSING CTA ──────────── -->
+<section class="cb-cta">
+  <div class="cb-form-wrap">
+    <h2>Speak with investor relations</h2>
+    <p>For professional investors evaluating hashrate-backed exposure through the Omnes Mining Note, our investor relations team is available to walk through structure, eligibility, and offering documentation.</p>
+    <form class="cb-form" onsubmit="event.preventDefault();">
+      <div class="cb-form-row">
+        <div class="cb-field">
+          <label for="cf-first">First name</label>
+          <input type="text" id="cf-first" placeholder="Jane" />
+        </div>
+        <div class="cb-field">
+          <label for="cf-last">Last name</label>
+          <input type="text" id="cf-last" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="cb-field">
+        <label for="cf-email">Email address</label>
+        <input type="email" id="cf-email" placeholder="you@fund.com" />
+      </div>
+      <div class="cb-field">
+        <label for="cf-org">Organisation</label>
+        <input type="text" id="cf-org" placeholder="Fund / Family Office / Bank" />
+      </div>
+      <div class="cb-field">
+        <label for="cf-subject">Subject</label>
+        <select id="cf-subject">
+          <option value="">Select a topic…</option>
+          <option>OMN Series 1 fact sheet</option>
+          <option>Private compartment / white-label issuance</option>
+          <option>Investor onboarding</option>
+          <option>Partnerships</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cb-field">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" rows="5" placeholder="Tell us how we can help…"></textarea>
+      </div>
+      <button type="submit" class="cb-form-submit">Send message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ──────────── FOOTER ──────────── -->
+<footer id="contact">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
+        <div class="ft-socials">
+          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact us</a></li>
+          <li><a href="/media-kit/">Media Kit</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="/omn/">Omnes Mining Note</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/faqs/">FAQs</a></li>
+          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
+          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/website-terms/">Website Terms</a></li>
+          <li><a href="/global-privacy-notice/">Global Privacy Notice</a></li>
+          <li><a href="/cookies-policy/">Cookies Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ft-disc">
+      This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.
+    </p>
+    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=8"></script>
+
+
+<!-- ──────────── ACCESS GATE ──────────── -->
+<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
+  <div class="gate-modal">
+    <div class="gate-header">
+      <p class="gate-slabel">Terms of Access</p>
+      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
+      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    </div>
+    <div class="gate-body" id="gateBody">
+      <h2 class="gate-h2">1. Acceptance of terms</h2>
+      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+      <ul class="gate-ul">
+        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
+        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
+      </ul>
+      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+
+      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
+      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+      <p class="gate-p">In particular:</p>
+      <ul class="gate-ul">
+        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+      </ul>
+      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+
+      <h2 class="gate-h2">3. Access at your initiative</h2>
+      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+      <ol class="gate-ol">
+        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+      </ol>
+
+      <h2 class="gate-h2">4. Validity</h2>
+      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+
+      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
+      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+
+      <div class="gate-notice" id="gateNotice">
+        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
+        <ul class="gate-ul">
+          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+          <li>You access the website entirely at your own risk and initiative.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gate-footer">
+      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

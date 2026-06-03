@@ -2313,14 +2313,17 @@
   .ct-social svg { width: 17px; height: 17px; fill: currentColor; }
 
   /* ──────────── ACCESS GATE (terms of access modal) ──────────── */
-  .omnes-agreed .gate-overlay{display:none!important;}
+  /* Default-hidden. Revealed by JS on DOMContentLoaded only when no agreement flag. */
   .gate-overlay{
+    display:none;
     position:fixed;inset:0;z-index:9999;
     background:rgba(26,26,20,.65);
     backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    display:flex;align-items:center;justify-content:center;
+    align-items:center;justify-content:center;
     padding:24px;
   }
+  .omnes-gate-pending .gate-overlay:not([hidden]){display:flex;}
+  .omnes-agreed .gate-overlay{display:none!important;}
   .gate-modal{
     font-family:'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
     background:var(--bg);

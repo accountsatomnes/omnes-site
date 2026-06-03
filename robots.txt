@@ -1,6 +1,8 @@
+# omnes.io robots.txt
+# Allow indexing of all public pages; block auth stubs.
+
 User-agent: *
 Allow: /
-
 Disallow: /login/
 Disallow: /signup/
 

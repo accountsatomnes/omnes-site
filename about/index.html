@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>About | Omnes</title>
-<meta name="description" content="Meet the team building the financial layer for compute. Omnes is an institutional-grade issuer making compute yield investable." />
+<title>About Omnes: institutional issuer of compute notes | Omnes</title>
+<meta name="description" content="Omnes Securities is a Luxembourg-based issuer making productive compute investable through tokenized notes for professional investors." />
 <link rel="canonical" href="https://omnes.io/about/" />
-<meta property="og:title" content="About | Omnes" />
-<meta property="og:description" content="Meet the team building the financial layer for compute. Omnes is an institutional-grade issuer making compute yield investable." />
+<meta property="og:title" content="About Omnes: institutional issuer of compute notes | Omnes" />
+<meta property="og:description" content="Omnes Securities is a Luxembourg-based issuer making productive compute investable through tokenized notes for professional investors." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://omnes.io/about/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -17,8 +17,90 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=100">
-<script>(function(){try{if(localStorage.getItem('omnes_access_agreed')){document.documentElement.classList.add('omnes-agreed');return;}document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');var g=document.getElementById('accessGate');if(g)g.style.display='none';});});}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/style.css?v=101">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://omnes.io/#organization",
+  "name": "Omnes",
+  "legalName": "Omnes Securities S.à r.l.",
+  "url": "https://omnes.io",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://omnes.io/omnes-logo-black.svg"
+  },
+  "description": "Omnes is a compute infrastructure investment platform building the financial layer for institutional Bitcoin hashrate and compute-backed products.",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Luxembourg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Luxembourg City",
+      "addressCountry": "LU"
+    }
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/omnesfinance",
+    "https://x.com/omnesfinance"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://omnes.io/#website",
+  "url": "https://omnes.io",
+  "name": "Omnes",
+  "publisher": {
+    "@id": "https://omnes.io/#organization"
+  },
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://omnes.io/about/#webpage",
+  "url": "https://omnes.io/about/",
+  "name": "About Omnes",
+  "description": "About Omnes: mission, team, and the firm building the financial layer for compute.",
+  "isPartOf": {
+    "@id": "https://omnes.io/#website"
+  },
+  "about": {
+    "@id": "https://omnes.io/#organization"
+  },
+  "inLanguage": "en",
+  "breadcrumb": {
+    "@id": "https://omnes.io/about/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://omnes.io/about/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://omnes.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://omnes.io/about/"
+    }
+  ]
+}
+</script>
+<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
 
@@ -127,7 +209,7 @@
     </div>
     <div class="cb-prose">
       <p>The compute economy powers the modern world. It underpins artificial intelligence, digital finance, and the infrastructure of global technology, yet the capital markets that serve it remain fragmented, opaque, and largely inaccessible to investors.</p>
-      <p>Omnes is changing that. We aggregate yield-generating compute assets across a fragmented industry, structure them into regulated financial instruments, and make that yield accessible to professional investors worldwide through onchain securities.</p>
+      <p>Omnes is changing that. We aggregate yield-generating compute assets across a fragmented industry, structure them into regulated financial instruments, and make that yield accessible to professional investors worldwide through onchain securities such as <a href="/omn/">the Omnes Mining Note</a>.</p>
     </div>
   </div>
 </section>
@@ -145,7 +227,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h3>Regulatory Excellence</h3>
-        <p>Luxembourg-structured, the gold standard for institutional products globally. Our securitisation fund provides clear ring-fencing, legal certainty, and recognition by institutional investors and regulators worldwide.</p>
+        <p><a href="/omn/#panel-details">Luxembourg-structured</a>, the gold standard for institutional products globally. Our securitisation fund provides clear ring-fencing, legal certainty, and recognition by institutional investors and regulators worldwide.</p>
       </div>
       <div class="cb-card">
         <div class="cb-ico">
@@ -159,7 +241,7 @@
           <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
         </div>
         <h3>TradFi Ready, DeFi Composable</h3>
-        <p>Omnes products are structured to meet the compliance and reporting requirements of traditional institutional investors, while being issued and settled on-chain. We bridge the gap between institutional capital markets and blockchain infrastructure, without compromising on either side.</p>
+        <p>Omnes products are structured to meet the compliance and reporting requirements of traditional institutional investors, while being issued and settled onchain. We bridge the gap between institutional capital markets and blockchain infrastructure, without compromising on either side.</p>
       </div>
     </div>
   </div>
@@ -294,14 +376,14 @@
 </footer>
 
 
-<script src="/assets/site.js?v=7"></script>
+<script src="/assets/site.js?v=8"></script>
 
 <!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet>
+<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
   <div class="gate-modal">
     <div class="gate-header">
-      <p class="gate-slabel"><span class="sl">///</span> Terms of Access</p>
-      <h1 class="gate-title">Welcome to the<br><span>Omnes Website.</span></h1>
+      <p class="gate-slabel">Terms of Access</p>
+      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
       <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
       <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
     </div>
