@@ -14,10 +14,10 @@
 <meta name="twitter:site" content="@omnesfinance" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
 <script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 
 <script type="application/ld+json">
@@ -97,31 +97,31 @@
 
 <style>
 /* page-scoped styles for the glossary; reuses .cb-section / .cb-wrap / .cb-narrow / .cb-h2 / .cb-prose / .pg-hero */
-.gl-toc{position:sticky;top:72px;z-index:5;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:14px 0;margin:0 0 36px}
+.gl-toc{position:sticky;top:72px;z-index:5;background:#ebeae4;border-top:1px solid #dbd9d1;border-bottom:1px solid #dbd9d1;padding:14px 0;margin:0 0 36px}
 .gl-toc-inner{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}
-.gl-toc-label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6b6b66;margin-right:10px}
-.gl-toc a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;color:#1a1a1a;text-decoration:none;border:1px solid #e5e5e0;border-radius:6px;transition:all .15s}
+.gl-toc-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#55554f;margin-right:10px}
+.gl-toc a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;color:#1a1a1a;text-decoration:none;border:1px solid #cfcdc3;border-radius:10px;transition:all .15s}
 .gl-toc a:hover{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
-.gl-toc a.is-empty{color:#bdbdb8;pointer-events:none;background:#fafaf8}
+.gl-toc a.is-empty{color:#8a8a83;pointer-events:none;background:transparent;border-color:#dbd9d1}
 .gl-letter{margin:0 auto 44px;max-width:980px;padding:0 28px}
-.gl-letter-h{font-family:'DM Sans',sans-serif;font-weight:700;font-size:64px;line-height:1;color:#1a1a1a;border-bottom:1px solid #1a1a1a;padding-bottom:14px;margin:0 0 28px;scroll-margin-top:140px}
-.gl-term{padding:24px 0;border-bottom:1px solid #ececea}
+.gl-letter-h{font-family:'Source Serif 4',Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(44px,6vw,70px);letter-spacing:-0.015em;line-height:1;color:#1a1a1a;border-bottom:1px solid #1a1a1a;padding-bottom:14px;margin:0 0 28px;scroll-margin-top:140px}
+.gl-term{padding:24px 0;border-bottom:1px solid #dbd9d1}
 .gl-term:last-child{border-bottom:none}
 .gl-term-name{font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;line-height:1.2;color:#1a1a1a;margin:0 0 6px;scroll-margin-top:140px}
-.gl-term-anchor{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#9a9a93;text-decoration:none;margin-left:10px;font-weight:400;letter-spacing:.04em}
-.gl-term-anchor:hover{color:#C4522E}
+.gl-term-anchor{font-size:11px;color:#6a6a62;text-decoration:none;margin-left:10px;font-weight:400;letter-spacing:.04em}
+.gl-term-anchor:hover{color:#0e0e0a}
 .gl-term-def{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.6;color:#2a2a26;margin:0 0 14px;max-width:760px}
-.gl-term-fin{font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.55;color:#4a4a44;margin:0 0 14px;max-width:760px;padding-left:14px;border-left:2px solid #C4522E}
-.gl-term-fin-label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#C4522E;display:block;margin-bottom:4px;font-weight:500}
-.gl-term-rel{font-family:'DM Sans',sans-serif;font-size:13px;color:#6b6b66;margin:0 0 10px}
-.gl-term-rel-label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a93;font-weight:500;margin-right:8px}
-.gl-term-rel a{color:#1a1a1a;text-decoration:underline;text-decoration-color:#d4d4cf;text-underline-offset:3px}
-.gl-term-rel a:hover{text-decoration-color:#C4522E;color:#C4522E}
-.gl-term-why{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;color:#1a1a1a;background:#f7f5f0;padding:12px 14px;border-radius:6px;margin:0;max-width:760px}
-.gl-term-why-label{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#1a1a1a;font-weight:600;display:block;margin-bottom:4px}
+.gl-term-fin{font-family:'Source Serif 4',Georgia,serif;font-size:15px;line-height:1.55;color:#4a4a44;margin:0 0 14px;max-width:760px;padding-left:14px;border-left:2px solid #cfcdc3}
+.gl-term-fin-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#55554f;display:block;margin-bottom:4px;font-weight:500}
+.gl-term-rel{font-family:'DM Sans',sans-serif;font-size:13px;color:#55554f;margin:0 0 10px}
+.gl-term-rel-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#5c5c55;font-weight:500;margin-right:8px}
+.gl-term-rel a{color:#1a1a1a;text-decoration:underline;text-decoration-color:#cfcdc3;text-underline-offset:2px}
+.gl-term-rel a:hover{text-decoration-color:#0e0e0a;color:#0e0e0a}
+.gl-term-why{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;color:#1a1a1a;background:#dfded8;padding:14px 16px;border-radius:12px;margin:0;max-width:760px}
+.gl-term-why-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#1a1a1a;font-weight:600;display:block;margin-bottom:4px}
 .gl-intro{max-width:780px;margin:0 auto 12px;text-align:center;padding:0 28px}
 @media (max-width:720px){
-.gl-letter-h{font-size:44px}
+.gl-letter-h{font-size:48px}
 .gl-term-name{font-size:20px}
 .gl-toc{top:60px;padding:10px 0}
 .gl-toc-inner{gap:4px;padding:0 14px}
@@ -180,6 +180,10 @@
             <span class="nav-dd-item-title">FAQs</span>
             <span class="nav-dd-item-sub">Common questions answered</span>
           </a>
+          <a class="nav-dd-item" href="/resources/">
+            <span class="nav-dd-item-title">Resources</span>
+            <span class="nav-dd-item-sub">Explainers, research, and glossary</span>
+          </a>
           <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener">
             <span class="nav-dd-item-title">Insights <span class="ext">↗</span></span>
             <span class="nav-dd-item-sub">Research, news, and analysis</span>
@@ -236,6 +240,7 @@
       <div class="mobile-nav-h">About</div>
       <a href="/about/">About Omnes</a>
       <a href="/faqs/">FAQs</a>
+      <a href="/resources/">Resources</a>
       <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
       <a href="/media-kit/">Media Kit</a>
     </div>
@@ -255,8 +260,8 @@
 <!-- ──────────── HERO ──────────── -->
 <header class="pg-hero">
   <div class="cb-wrap cb-narrow" style="text-align:center;">
-    <p class="cb-eyebrow" style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b66;margin:0 0 14px;">Resources / Glossary</p>
-    <h1 style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:56px;line-height:1.05;margin:0 0 18px;color:#1a1a1a;">The hashrate glossary.</h1>
+    <p class="cb-eyebrow" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b66;margin:0 0 14px;">Resources / Glossary</p>
+    <h1 style="font-family:'Source Serif 4',Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(38px,5vw,62px);letter-spacing:-0.017em;line-height:1.08;margin:0 0 18px;color:#0e0e0a;">The hashrate glossary.</h1>
     <p class="cb-lead" style="margin:0 auto;max-width:680px;">A canonical reference for Bitcoin hashrate, mining, and hashrate-backed security terminology, written for institutional investors, family offices, asset managers, and regulated treasurers.</p>
   </div>
 </header>
@@ -867,6 +872,7 @@
       <div class="ft-col">
         <h5>Resources</h5>
         <ul>
+          <li><a href="/resources/">Resources</a></li>
           <li><a href="/faqs/">FAQs</a></li>
           <li><a href="/resources/glossary/">Glossary</a></li>
           <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
@@ -891,7 +897,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 
 
 <!-- ──────────── ACCESS GATE ──────────── -->

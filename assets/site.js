@@ -159,28 +159,6 @@ document.querySelectorAll('.tabs').forEach(tabs => {
   });
 })();
 
-/* Hero scroll-takeover: expand the feature card to full-bleed as it scrolls into view */
-(() => {
-  const card = document.querySelector('.cb-takeover-card');
-  if (!card) return;
-  let ticking = false;
-  const update = () => {
-    ticking = false;
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    const top = card.getBoundingClientRect().top;
-    const start = vh * 0.46;
-    const end = vh * 0.02;
-    let p = (start - top) / (start - end);
-    p = p < 0 ? 0 : p > 1 ? 1 : p;
-    card.style.setProperty('--p', p.toFixed(4));
-  };
-  const onScroll = () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  };
-  update();
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', update);
-})();
 
 /* Mobile nav drawer (hamburger) */
 (() => {
@@ -208,3 +186,56 @@ document.querySelectorAll('.tabs').forEach(tabs => {
 })();
 
 
+
+
+/* Overlay nav: transparent over the hero, solid once scrolled past it */
+(() => {
+  if (!document.body.classList.contains('has-overlay-hero')) return;
+  const nav = document.querySelector('nav.top');
+  if (!nav) return;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    nav.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+/* Auth pages: async submit of the email request form */
+(() => {
+  const form = document.getElementById('authForm');
+  if (!form) return;
+  const status = document.getElementById('authStatus');
+  const btn = form.querySelector('.auth-submit');
+  const label = btn ? btn.textContent : '';
+
+  const say = (msg, ok) => {
+    if (!status) return;
+    status.textContent = msg;
+    status.classList.toggle('is-ok', !!ok);
+    status.classList.toggle('is-err', !ok);
+    status.hidden = false;
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error('bad status');
+      form.reset();
+      say('Thanks. Investor relations will be in touch at that address.', true);
+      if (btn) btn.textContent = 'Sent';
+    } catch (err) {
+      say('Something went wrong. Email us directly at ir@omnes.io.', false);
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+    }
+  });
+})();

@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <title>OMN Investor Dashboard — Omnes</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -15,10 +15,10 @@
   --bg-alt:#f0efe9;
   --bg-warm:#ebe9e1;
   --white:#ffffff;
-  --terra:#C4522E;
-  --terra-dark:#a84226;
-  --terra-light:#e8b8a8;
-  --terra-pale:#faf0ec;
+  --terra:#0e0e0a;
+  --terra-dark:#010101;
+  --terra-light:#cfcdc3;
+  --terra-pale:#dfded8;
   --teal:#5A7A5E;
   --teal-dark:#4a6a4e;
   --teal-light:#c8ddc8;
@@ -37,7 +37,7 @@
 }
 
 body{
-  font-family:'Inter Tight',sans-serif;
+  font-family:'DM Sans',sans-serif;
   background:var(--bg);
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
@@ -75,7 +75,7 @@ body::before{
 .nav-vo{
   font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;
   padding:9px 22px;background:var(--terra);color:#fff;
-  border:none;cursor:pointer;font-family:'Inter Tight',sans-serif;
+  border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
   text-decoration:none;display:inline-block;transition:background .18s;
 }
 .nav-vo:hover{background:var(--terra-dark)}
@@ -126,7 +126,7 @@ body::before{
 .btn-terra{
   font-size:11.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
   padding:13px 28px;background:var(--terra);color:#fff;
-  border:none;cursor:pointer;font-family:'Inter Tight',sans-serif;
+  border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
   text-decoration:none;display:inline-block;transition:background .18s;
 }
 .btn-terra:hover{background:var(--terra-dark)}
@@ -134,7 +134,7 @@ body::before{
   font-size:11.5px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;
   padding:12px 24px;background:transparent;color:var(--ink);
   border:1px solid var(--border-mid);cursor:pointer;
-  font-family:'Inter Tight',sans-serif;text-decoration:none;
+  font-family:'DM Sans',sans-serif;text-decoration:none;
   display:inline-block;transition:border-color .18s;
 }
 .btn-ghost:hover{border-color:var(--ink)}
@@ -204,7 +204,7 @@ body::before{
   font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
   padding:5px 12px;border:1px solid var(--border);margin-right:-1px;
   background:transparent;color:var(--hint);cursor:pointer;
-  font-family:'Inter Tight',sans-serif;transition:all .15s;
+  font-family:'DM Sans',sans-serif;transition:all .15s;
 }
 .ctab.on{background:var(--ink);color:var(--white);border-color:var(--ink);z-index:1;position:relative}
 .ctab:hover:not(.on){border-color:var(--ink);color:var(--ink)}
@@ -605,16 +605,16 @@ function drawChart(){
   [.25,.5,.75].forEach(f=>{const gy=p.t+cH*f;ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke()});
   ctx.setLineDash([]);
   const g=ctx.createLinearGradient(0,0,0,H);
-  g.addColorStop(0,'rgba(196,82,46,.12)');g.addColorStop(1,'rgba(196,82,46,0)');
+  g.addColorStop(0,'rgba(14,14,10,.12)');g.addColorStop(1,'rgba(14,14,10,0)');
   ctx.beginPath();ctx.moveTo(px(0),py(pts[0]));
   pts.forEach((v,i)=>{if(!i)return;const cx=(px(i-1)+px(i))/2;ctx.bezierCurveTo(cx,py(pts[i-1]),cx,py(v),px(i),py(v))});
   ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=g;ctx.fill();
   ctx.beginPath();ctx.moveTo(px(0),py(pts[0]));
   pts.forEach((v,i)=>{if(!i)return;const cx=(px(i-1)+px(i))/2;ctx.bezierCurveTo(cx,py(pts[i-1]),cx,py(v),px(i),py(v))});
-  ctx.strokeStyle='#C4522E';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.strokeStyle='#0e0e0a';ctx.lineWidth=1.5;ctx.stroke();
   const ex=px(pts.length-1),ey=py(pts[pts.length-1]);
-  ctx.beginPath();ctx.arc(ex,ey,4,0,Math.PI*2);ctx.fillStyle='rgba(196,82,46,.18)';ctx.fill();
-  ctx.beginPath();ctx.arc(ex,ey,2.5,0,Math.PI*2);ctx.fillStyle='#C4522E';ctx.fill();
+  ctx.beginPath();ctx.arc(ex,ey,4,0,Math.PI*2);ctx.fillStyle='rgba(14,14,10,.18)';ctx.fill();
+  ctx.beginPath();ctx.arc(ex,ey,2.5,0,Math.PI*2);ctx.fillStyle='#0e0e0a';ctx.fill();
 }
 window.addEventListener('load',()=>setTimeout(drawChart,40));
 window.addEventListener('resize',drawChart);

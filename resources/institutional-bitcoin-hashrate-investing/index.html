@@ -14,10 +14,10 @@
 <meta name="twitter:site" content="@omnesfinance" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
 <script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 
 <script type="application/ld+json">
@@ -127,6 +127,7 @@
         <div class="nav-dd-menu">
           <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
           <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
+          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
           <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
           <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
         </div>
@@ -185,7 +186,7 @@
 
 <section class="pg-hero">
   <div class="cb-wrap cb-narrow">
-    <nav class="legal-toc" aria-label="Breadcrumb" style="margin-bottom:18px;">
+    <nav class="cb-breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a> / <a href="/resources/">Resources</a> / <span>Institutional Bitcoin Hashrate Investing</span>
     </nav>
     <h1>Institutional Bitcoin hashrate investing: a framework for allocators.</h1>
@@ -242,16 +243,16 @@
         <table class="cb-comparison" style="width:100%;border-collapse:collapse;font-size:14px;">
           <thead>
             <tr style="background:#f7f6f3;border-bottom:2px solid #1a1a1a;">
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Criterion</th>
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Direct mining</th>
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Listed mining equity</th>
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">ETFs and proxies</th>
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Hashrate derivatives</th>
-              <th style="padding:14px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Tokenized hashrate-backed security</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Criterion</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Direct mining</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Listed mining equity</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">ETFs and proxies</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Hashrate derivatives</th>
+              <th style="padding:14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;">Tokenized hashrate-backed security</th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Capital intensity</td>
               <td style="padding:14px;vertical-align:top;">Very high. Hardware, power, real estate, working capital.</td>
               <td style="padding:14px;vertical-align:top;">Low. Standard equity ticket sizes.</td>
@@ -259,7 +260,7 @@
               <td style="padding:14px;vertical-align:top;">Moderate. Margin and credit lines required.</td>
               <td style="padding:14px;vertical-align:top;">Defined. Minimum US$100,000 for OMN.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Operational risk</td>
               <td style="padding:14px;vertical-align:top;">Maximum. Uptime, power price, hardware obsolescence.</td>
               <td style="padding:14px;vertical-align:top;">Indirect. Borne by issuer management.</td>
@@ -267,7 +268,7 @@
               <td style="padding:14px;vertical-align:top;">Counterparty and settlement risk.</td>
               <td style="padding:14px;vertical-align:top;">Outsourced to operator network. Performance and downtime risk remain.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Regulatory profile</td>
               <td style="padding:14px;vertical-align:top;">Operating business. Energy, environmental, local permitting.</td>
               <td style="padding:14px;vertical-align:top;">Listed equity rules. Standard market regulation.</td>
@@ -275,7 +276,7 @@
               <td style="padding:14px;vertical-align:top;">OTC derivatives. ISDA, margining, credit frameworks.</td>
               <td style="padding:14px;vertical-align:top;">Securitisation security. Luxembourg Law of 22 March 2004. Offered to MiFID II professionals.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Exposure quality</td>
               <td style="padding:14px;vertical-align:top;">Pure mining economics, single-asset concentration.</td>
               <td style="padding:14px;vertical-align:top;">Equity proxy. Dilution and capital structure noise.</td>
@@ -283,7 +284,7 @@
               <td style="padding:14px;vertical-align:top;">Synthetic. Tracks hashprice index.</td>
               <td style="padding:14px;vertical-align:top;">Direct claim on Bitcoin produced by a defined hashrate quantity.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Custody</td>
               <td style="padding:14px;vertical-align:top;">Self-custody or counterparty risk on operator wallets.</td>
               <td style="padding:14px;vertical-align:top;">DTC or equivalent registry. Standard.</td>
@@ -291,7 +292,7 @@
               <td style="padding:14px;vertical-align:top;">Bilateral. Negotiated per trade.</td>
               <td style="padding:14px;vertical-align:top;">Regulated qualified custodian (Coinbase Luxembourg S.A. for OMN). Pledged to noteholders via security agent.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Accounting treatment</td>
               <td style="padding:14px;vertical-align:top;">Operating subsidiary. Complex consolidation.</td>
               <td style="padding:14px;vertical-align:top;">Listed equity. Standard.</td>
@@ -299,7 +300,7 @@
               <td style="padding:14px;vertical-align:top;">Derivative. Mark-to-market complexity.</td>
               <td style="padding:14px;vertical-align:top;">Debt security held to maturity. Familiar fixed-income treatment.</td>
             </tr>
-            <tr style="border-bottom:1px solid #e5e5e0;">
+            <tr style="border-bottom:1px solid #dbd9d1;">
               <td style="padding:14px;font-weight:600;vertical-align:top;">Tax implications</td>
               <td style="padding:14px;vertical-align:top;">Operating income. Multi-jurisdictional. Highly bespoke.</td>
               <td style="padding:14px;vertical-align:top;">Capital gains on equity. Familiar.</td>
@@ -479,6 +480,7 @@
       <div class="ft-col">
         <h5>Resources</h5>
         <ul>
+          <li><a href="/resources/">Resources</a></li>
           <li><a href="/faqs/">FAQs</a></li>
           <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
           <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
@@ -502,7 +504,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 
 <div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
   <div class="gate-modal">

@@ -14,10 +14,15 @@
 <meta name="twitter:site" content="@omnesfinance" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
+<link rel="preload" as="image" type="image/webp"
+      href="/assets/hero-waves.webp"
+      imagesrcset="/assets/hero-waves-800.webp 800w, /assets/hero-waves.webp 1448w"
+      imagesizes="(max-width: 667px) 667px, (max-width: 960px) 100vw, 92vw"
+      fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,7 +89,7 @@
 </script>
 <script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
-<body>
+<body class="has-overlay-hero">
 
 
 <!-- ──────────── NAV ──────────── -->
@@ -135,6 +140,10 @@
           <a class="nav-dd-item" href="/faqs/">
             <span class="nav-dd-item-title">FAQs</span>
             <span class="nav-dd-item-sub">Common questions answered</span>
+          </a>
+          <a class="nav-dd-item" href="/resources/">
+            <span class="nav-dd-item-title">Resources</span>
+            <span class="nav-dd-item-sub">Explainers, research, and glossary</span>
           </a>
           <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener">
             <span class="nav-dd-item-title">Insights <span class="ext">↗</span></span>
@@ -192,6 +201,7 @@
       <div class="mobile-nav-h">About</div>
       <a href="/about/">About Omnes</a>
       <a href="/faqs/">FAQs</a>
+      <a href="/resources/">Resources</a>
       <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
       <a href="/media-kit/">Media Kit</a>
     </div>
@@ -210,42 +220,104 @@
 
 <!-- ──────────── HERO (Anthropic-style: headline left, aside right) ──────────── -->
 <header class="hero" id="top">
-  <div class="hero-headline">
-    <h1>The financial layer for compute</h1>
+  <div class="hero-copy">
+    <div class="hero-copy-inner">
+      <h1>The financial layer<br>for compute.</h1>
+      <p class="hero-sub">Omnes turns productive compute into institutional-grade, yield-generating tokenized products with full DeFi composability.</p>
+      <div class="hero-ctas">
+        <a href="/omn/" class="btn btn-terra btn-lg">Explore OMN</a>
+        <a href="/about/" class="btn btn-ghost btn-lg">About Omnes</a>
+      </div>
+    </div>
   </div>
-  <div class="hero-aside">
-    <p class="sub">Omnes turns productive compute into institutional-grade, yield-generating tokenized products with full DeFi composability.</p>
+
+  <div class="hero-visual">
+    <picture class="hero-pic">
+      <source type="image/webp"
+              srcset="/assets/hero-waves-800.webp 800w, /assets/hero-waves.webp 1448w"
+              sizes="(max-width: 667px) 667px, (max-width: 960px) 100vw, 92vw">
+      <img class="hero-img"
+           src="/assets/hero-waves.jpg"
+           srcset="/assets/hero-waves-800.jpg 800w, /assets/hero-waves.jpg 1448w"
+           sizes="(max-width: 667px) 667px, (max-width: 960px) 100vw, 92vw"
+           alt="" width="1448" height="1086"
+           decoding="async" fetchpriority="high">
+    </picture>
+    <div class="hero-visual-fade" aria-hidden="true"></div>
+    <div class="hero-visual-inner">
+      <aside class="hero-card" aria-label="Current offering">
+        <div class="hero-card-lbl">Now structuring</div>
+        <div class="hero-card-big">OMN Series 1</div>
+        <div class="hero-card-sub">Omnes Mining Note</div>
+        <div class="hero-card-rows">
+          <div class="hero-card-row"><span>Backing per note</span><span>1 PH/s</span></div>
+          <div class="hero-card-row"><span>Tenor</span><span>36 months</span></div>
+          <div class="hero-card-row"><span>Distribution</span><span>Bitcoin at maturity</span></div>
+        </div>
+      </aside>
+    </div>
   </div>
 </header>
 
-<!-- ──────────── SCROLL-TAKEOVER FEATURE ──────────── -->
+<!-- ──────────── OMN FEATURE (waves field + floating term sheet) ──────────── -->
 <section class="cb-takeover">
-  <div class="cb-takeover-card">
-    <div class="cb-takeover-grid">
-      <div class="cb-takeover-visual">
-        <div class="mini-ts">
-          <div class="mts-rows">
-            <div class="mts-row"><span class="mts-k">Target raise</span><span class="mts-v">US$50,000,000</span></div>
-            <div class="mts-row"><span class="mts-k">Backing per OMN</span><span class="mts-v">1 PH/s hashrate</span></div>
-            <div class="mts-row"><span class="mts-k">Tenor</span><span class="mts-v">36 months</span></div>
-            <div class="mts-row"><span class="mts-k">Minimum investment</span><span class="mts-v">US$100,000</span></div>
-            <div class="mts-row"><span class="mts-k">Expense ratio</span><span class="mts-v">3.75% total</span></div>
-            <div class="mts-row"><span class="mts-k">Performance fee</span><span class="mts-v">0%</span></div>
-            <div class="mts-row"><span class="mts-k">Distribution</span><span class="mts-v">Bitcoin at maturity</span></div>
-          </div>
+  <div class="cb-takeover-grid">
+
+    <div class="cb-takeover-visual">
+      <picture class="ct-pic">
+        <source type="image/webp"
+                srcset="/assets/hero-waves-800.webp 800w, /assets/hero-waves.webp 1448w"
+                sizes="(max-width: 960px) 100vw, 52vw">
+        <img class="ct-img"
+             src="/assets/hero-waves.jpg"
+             srcset="/assets/hero-waves-800.jpg 800w, /assets/hero-waves.jpg 1448w"
+             sizes="(max-width: 960px) 100vw, 52vw"
+             alt="" width="1448" height="1086" loading="lazy" decoding="async">
+      </picture>
+      <div class="ct-visual-fade" aria-hidden="true"></div>
+
+      <div class="mini-ts">
+        <div class="mts-head">
+          <span class="mts-title">Omnes Mining Note</span>
+          <span class="mts-badge">Active</span>
         </div>
-      </div>
-      <div class="cb-takeover-text">
-        <span class="cb-takeover-eyebrow">OMN Series 1</span>
-        <h2>The Omnes Mining Note</h2>
-        <p><a href="/omn/">The Omnes Mining Note</a> is a tokenized hashrate-backed debt security issued under Luxembourg law, giving institutional investors direct exposure to Bitcoin mining economics without owning or operating infrastructure.</p>
-        <p>All mined Bitcoin accrues over the 36-month tenor and is distributed directly to investors at maturity, net of a flat 3.75% all-in expense ratio. No performance fee. No caps. No surprises.</p>
-        <div class="cb-takeover-ctas">
-          <a href="/omn/" class="btn btn-white btn-lg">Learn more</a>
-          <a href="/contact/" class="cb-takeover-link">Contact IR <span aria-hidden="true">→</span></a>
+        <div class="mts-rows">
+          <div class="mts-row"><span class="mts-k">Target raise</span><span class="mts-v">US$50,000,000</span></div>
+          <div class="mts-row"><span class="mts-k">Backing per OMN</span><span class="mts-v">1 PH/s hashrate</span></div>
+          <div class="mts-row"><span class="mts-k">Tenor</span><span class="mts-v">36 months</span></div>
+          <div class="mts-row"><span class="mts-k">Minimum investment</span><span class="mts-v">US$100,000</span></div>
+          <div class="mts-row"><span class="mts-k">Expense ratio</span><span class="mts-v">3.75% total</span></div>
+          <div class="mts-row"><span class="mts-k">Performance fee</span><span class="mts-v">0%</span></div>
+          <div class="mts-row"><span class="mts-k">Distribution</span><span class="mts-v">Bitcoin at maturity</span></div>
         </div>
       </div>
     </div>
+
+    <div class="cb-takeover-text">
+      <h2>The Omnes Mining Note</h2>
+      <p><a href="/omn/">The Omnes Mining Note</a> is a tokenized hashrate-backed debt security issued under Luxembourg law, giving institutional investors direct exposure to Bitcoin mining economics without owning or operating infrastructure.</p>
+      <p>All mined Bitcoin accrues over the 36-month tenor and is distributed directly to investors at maturity, net of a flat 3.75% all-in expense ratio. No performance fee. No caps. No surprises.</p>
+      <div class="cb-takeover-ctas">
+        <a href="/omn/" class="btn btn-terra btn-lg">Explore OMN <span class="ct-arrow" aria-hidden="true">&#8594;</span></a>
+        <a href="/contact/" class="btn btn-ghost btn-lg">Contact IR</a>
+      </div>
+
+      <ul class="ct-trust">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V6z"/></svg>
+          <span><strong>Secure</strong>Institutional-grade</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a4.5 4.5 0 006.8.5l2.7-2.7a4.5 4.5 0 00-6.4-6.4L11.6 6"/><path d="M14 11a4.5 4.5 0 00-6.8-.5l-2.7 2.7a4.5 4.5 0 006.4 6.4L12.4 18"/></svg>
+          <span><strong>Transparent</strong>Onchain ownership</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
+          <span><strong>Global</strong>Bitcoin at scale</span>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
@@ -322,9 +394,9 @@
             <h3>Borrow against your position.</h3>
             <p>Pledge OMN as collateral and borrow against it, unlock liquidity without giving up your compute-yield exposure.</p>
             <ul class="onx-list">
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Post OMN as collateral in onchain vaults</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Borrow stablecoins while mining yield keeps accruing</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Loop to build leveraged compute-yield exposure</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Post OMN as collateral in onchain vaults</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Borrow stablecoins while mining yield keeps accruing</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Loop to build leveraged compute-yield exposure</li>
             </ul>
           </div>
         </div>
@@ -345,9 +417,9 @@
             <h3>A reserve asset that works while you hold it.</h3>
             <p>OMN is a fully auditable, Bitcoin-backed instrument you can carry on your balance sheet, with yield accruing onchain and every figure independently verifiable.</p>
             <ul class="onx-list">
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Bitcoin-denominated yield accrues continuously without any active management</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>NAV, custody balance, and hashrate output all verifiable on a public ledger</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Holds like a bond, performs like productive infrastructure</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Bitcoin-denominated yield accrues continuously without any active management</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>NAV, custody balance, and hashrate output all verifiable on a public ledger</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Holds like a bond, performs like productive infrastructure</li>
             </ul>
           </div>
         </div>
@@ -369,9 +441,9 @@
             <h3>Settle and verify, around the clock.</h3>
             <p>Move OMN onchain 24/7 and hold it as a transparent, Bitcoin-backed reserve asset, with every figure independently auditable.</p>
             <ul class="onx-list">
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Transfer and settle instantly, with no cut-off windows</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Hold as a yield-bearing treasury asset onchain</li>
-              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#C4522E"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Verify output, custody, and NAV on a public ledger</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Transfer and settle instantly, with no cut-off windows</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Hold as a yield-bearing treasury asset onchain</li>
+              <li><svg class="onx-chk" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#0e0e0a"/><path d="M5.8 10.3l2.7 2.7 5.7-6.4" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>Verify output, custody, and NAV on a public ledger</li>
             </ul>
           </div>
         </div>
@@ -386,32 +458,56 @@
 <section class="blog">
   <div class="blog-inner">
     <div class="blog-head">
-      <div>
-        <h2 class="blog-h">Latest from Omnes.</h2>
-      </div>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener" class="blog-view">View all on Substack</a>
+      <h2 class="blog-h">Latest from Omnes.</h2>
+      <a href="https://insights.omnes.io" target="_blank" rel="noopener" class="blog-view">
+        View all articles <span class="blog-view-arrow" aria-hidden="true">&#8594;</span>
+      </a>
     </div>
 
     <div class="blog-grid">
       <a class="blog-card" href="https://insights.omnes.io/p/omnes-partners-with-apex-group-to" target="_blank" rel="noopener">
-        <div class="blog-cat">News</div>
-        <div class="blog-date">24 March 2026</div>
-        <div class="blog-title">Omnes Partners With Apex Group to Tokenise Institutional Bitcoin Mining Structured Note on Base</div>
-        <span class="blog-read">Read</span>
+        <div class="blog-media">
+          <picture>
+            <source type="image/webp" srcset="/assets/blog-particles.webp">
+            <img src="/assets/blog-particles.jpg" alt="" width="800" height="450" loading="lazy" decoding="async">
+          </picture>
+          <span class="blog-cat">News</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">24 March 2026</div>
+          <div class="blog-title">Omnes Partners With Apex Group to Tokenise Institutional Bitcoin Mining Structured Note on Base</div>
+          <span class="blog-read">Read article <span class="blog-read-arrow" aria-hidden="true">&#8594;</span></span>
+        </div>
       </a>
 
       <a class="blog-card" href="https://insights.omnes.io/p/omnes-engages-arendt-and-medernach" target="_blank" rel="noopener">
-        <div class="blog-cat">News</div>
-        <div class="blog-date">6 March 2026</div>
-        <div class="blog-title">Omnes engages Arendt &amp; Medernach to advise on legal, regulatory, and tax for the OMN launch</div>
-        <span class="blog-read">Read</span>
+        <div class="blog-media">
+          <picture>
+            <source type="image/webp" srcset="/assets/blog-waves.webp">
+            <img src="/assets/blog-waves.jpg" alt="" width="800" height="450" loading="lazy" decoding="async">
+          </picture>
+          <span class="blog-cat">News</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">6 March 2026</div>
+          <div class="blog-title">Omnes engages Arendt &amp; Medernach to advise on legal, regulatory, and tax for the OMN launch</div>
+          <span class="blog-read">Read article <span class="blog-read-arrow" aria-hidden="true">&#8594;</span></span>
+        </div>
       </a>
 
       <a class="blog-card" href="https://insights.omnes.io/p/the-centi-billion-dollar-recluse" target="_blank" rel="noopener">
-        <div class="blog-cat research">Research</div>
-        <div class="blog-date">6 March 2026</div>
-        <div class="blog-title">The Centi-Billion Dollar Recluse: Bitcoin Yield</div>
-        <span class="blog-read">Read</span>
+        <div class="blog-media">
+          <picture>
+            <source type="image/webp" srcset="/assets/blog-blocks.webp">
+            <img src="/assets/blog-blocks.jpg" alt="" width="800" height="450" loading="lazy" decoding="async">
+          </picture>
+          <span class="blog-cat is-research">Research</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-date">6 March 2026</div>
+          <div class="blog-title">The Centi-Billion Dollar Recluse: Bitcoin Yield</div>
+          <span class="blog-read">Read article <span class="blog-read-arrow" aria-hidden="true">&#8594;</span></span>
+        </div>
       </a>
     </div>
   </div>
@@ -532,6 +628,7 @@
       <div class="ft-col">
         <h5>Resources</h5>
         <ul>
+          <li><a href="/resources/">Resources</a></li>
           <li><a href="/faqs/">FAQs</a></li>
           <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
           <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
@@ -555,7 +652,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 
 
 <!-- ──────────── ACCESS GATE ──────────── -->

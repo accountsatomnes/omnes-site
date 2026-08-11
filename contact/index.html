@@ -14,10 +14,10 @@
 <meta name="twitter:site" content="@omnesfinance" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,6 +132,7 @@
         <div class="nav-dd-menu">
           <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
           <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
+          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
           <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
           <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
         </div>
@@ -172,6 +173,7 @@
       <div class="mobile-nav-h">About</div>
       <a href="/about/">About Omnes</a>
       <a href="/faqs/">FAQs</a>
+      <a href="/resources/">Resources</a>
       <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
       <a href="/media-kit/">Media Kit</a>
     </div>
@@ -238,7 +240,7 @@
             <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
           </div>
           <button type="submit" class="cb-form-submit" id="cfSubmit">Send Message</button>
-          <div id="cfStatus" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;font-size:14px;border-radius:8px"></div>
+          <div id="cfStatus" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;font-size:14px;border-radius:14px"></div>
         </form>
         <script>
           (function(){
@@ -249,9 +251,9 @@
             function showStatus(ok, msg){
               status.textContent = msg;
               status.style.display = 'block';
-              status.style.background = ok ? 'rgba(90,122,94,0.10)' : 'rgba(196,82,46,0.08)';
-              status.style.border = '1px solid ' + (ok ? 'rgba(90,122,94,0.35)' : 'rgba(196,82,46,0.35)');
-              status.style.color = ok ? 'var(--teal)' : 'var(--terra)';
+              status.style.background = ok ? 'rgba(90,122,94,0.10)' : 'rgba(14,14,10,0.06)';
+              status.style.border = '1px solid ' + (ok ? 'rgba(90,122,94,0.35)' : 'rgba(14,14,10,0.28)');
+              status.style.color = ok ? 'var(--teal)' : 'var(--ink)';
             }
             form.addEventListener('submit', function(e){
               e.preventDefault();
@@ -361,6 +363,7 @@
       <div class="ft-col">
         <h5>Resources</h5>
         <ul>
+          <li><a href="/resources/">Resources</a></li>
           <li><a href="/faqs/">FAQs</a></li>
           <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
           <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
@@ -385,7 +388,7 @@
 </footer>
 
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 
 <!-- ──────────── ACCESS GATE ──────────── -->
 <div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">

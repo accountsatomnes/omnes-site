@@ -15,10 +15,10 @@
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
 <script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body class="auth">
@@ -27,7 +27,6 @@
 <nav class="auth-nav">
   <a href="/" class="brand" aria-label="Omnes"><img src="/omnes-logo-black.svg" alt="Omnes" /></a>
   <div class="auth-nav-right">
-    <a href="/signup/" class="auth-nav-cta">Sign up</a>
     <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
@@ -48,6 +47,7 @@
       <div class="mobile-nav-h">About</div>
       <a href="/about/">About Omnes</a>
       <a href="/faqs/">FAQs</a>
+      <a href="/resources/">Resources</a>
       <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
       <a href="/media-kit/">Media Kit</a>
     </div>
@@ -66,26 +66,27 @@
 
 <main class="auth-main">
   <div class="auth-card">
-    <div class="auth-logo">
-      <svg viewBox="0 0 300 300" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z"/></svg>
-    </div>
-    <span class="badge">Coming Soon</span>
-    <h1>Investor Portal</h1>
-    <p class="lead">The Omnes investor portal will be available once the OMN is available for subscription. To express interest or request early access, contact our investor relations team directly.</p>
-    <div class="ctas">
-      <a href="/contact/" class="btn btn-terra">Contact Investor Relations</a>
-      <a href="/omn/" class="btn btn-ghost">View OMN Details</a>
-    </div>
-    <p class="help">Questions? Email us at <a href="mailto:ir@omnes.io">ir@omnes.io</a></p>
+    <a href="/" class="auth-mark" aria-label="Omnes home"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z"/></svg></a>
+    <h1>Investor portal</h1>
+    <p class="auth-sub">Enter your email to request access to the Omnes investor portal</p>
+    <form class="auth-form" id="authForm" action="https://formspree.io/f/mgonglpj" method="POST">
+      <input type="hidden" name="subject" value="Investor portal access request" />
+      <label class="sr-only" for="authEmail">Email address</label>
+      <input class="auth-input" id="authEmail" type="email" name="email" placeholder="name@example.com" autocomplete="email" required />
+      <button class="auth-submit" type="submit">Continue</button>
+    </form>
+    <p class="auth-status" id="authStatus" role="status" aria-live="polite" hidden></p>
+    <p class="auth-alt">Not registered yet? <a href="/signup/">Request an account</a></p>
   </div>
 </main>
 
 <div class="auth-legal">
-  <div class="auth-legal-disc">© Omnes 2024 – 2026. All rights reserved.</div>
+  <div class="auth-legal-disc">By continuing, you agree to our <a href="/website-terms/">Website Terms</a> and <a href="/global-privacy-notice/">Privacy Notice</a>. The Omnes investor portal is available to professional investors only.</div>
   <div class="auth-legal-links">
     <a href="/global-privacy-notice/">Privacy Notice</a>
     <a href="/website-terms/">Website Terms</a>
     <a href="/cookies-policy/">Cookies</a>
+    <a href="/contact/">Contact IR</a>
   </div>
 </div>
 
@@ -152,6 +153,6 @@
   </div>
 </div>
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 </body>
 </html>

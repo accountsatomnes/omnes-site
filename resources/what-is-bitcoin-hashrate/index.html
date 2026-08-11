@@ -45,10 +45,10 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=101">
+<link rel="stylesheet" href="/assets/style.css?v=130">
 <script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
@@ -102,6 +102,10 @@
           <a class="nav-dd-item" href="/faqs/">
             <span class="nav-dd-item-title">FAQs</span>
             <span class="nav-dd-item-sub">Common questions answered</span>
+          </a>
+          <a class="nav-dd-item" href="/resources/">
+            <span class="nav-dd-item-title">Resources</span>
+            <span class="nav-dd-item-sub">Explainers, research, and glossary</span>
           </a>
           <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener">
             <span class="nav-dd-item-title">Insights <span class="ext">↗</span></span>
@@ -159,6 +163,7 @@
       <div class="mobile-nav-h">About</div>
       <a href="/about/">About Omnes</a>
       <a href="/faqs/">FAQs</a>
+      <a href="/resources/">Resources</a>
       <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
       <a href="/media-kit/">Media Kit</a>
     </div>
@@ -205,7 +210,7 @@
     <!-- ──────────── INLINE GLOSSARY ──────────── -->
     <div class="cb-prose">
       <div style="border:1px solid rgba(0,0,0,.10);background:#fafaf7;padding:1.75rem 1.75rem;margin:2rem 0;border-radius:6px;">
-        <p style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#7a7a72;margin:0 0 1rem 0;">Glossary</p>
+        <p style="font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#7a7a72;margin:0 0 1rem 0;">Glossary</p>
         <p style="margin:.4rem 0;"><strong>Hash function</strong> : A one-way mathematical function (SHA-256 for Bitcoin) that transforms an input of arbitrary length into a fixed-length output. Each attempt is one "hash."</p>
         <p style="margin:.4rem 0;"><strong>Hashrate</strong> : The number of hash attempts performed per second by a miner, a pool, or the entire network.</p>
         <p style="margin:.4rem 0;"><strong>Hashprice</strong> : The expected daily revenue per unit of hashrate (commonly per PH/s or TH/s), denominated in BTC or USD. The closest analogue to a "spot price" for hashrate.</p>
@@ -394,6 +399,7 @@
       <div class="ft-col">
         <h5>Resources</h5>
         <ul>
+          <li><a href="/resources/">Resources</a></li>
           <li><a href="/faqs/">FAQs</a></li>
           <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
           <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
@@ -417,7 +423,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=8"></script>
+<script src="/assets/site.js?v=15"></script>
 
 
 <!-- ──────────── ACCESS GATE ──────────── -->
