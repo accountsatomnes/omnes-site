@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local Claude Code settings (launch.json IS tracked; these are per-machine)
+.claude/settings.local.json.bak-*
+
+# Working notes and reports — kept locally, never served from omnes.io
+SEO-OVERHAUL-2026-05-21.md
+
+# Stray copies of other projects that ended up in this folder
+jinu-ios/
+sofiaslist-ios/
+scratchpad/
+SOFIASLIST_WISHLIST.md
+
+# Unreferenced duplicate of omnes-logo-black.svg
+Omnes_logo_black.svg
