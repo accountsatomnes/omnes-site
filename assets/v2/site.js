@@ -12,7 +12,8 @@
    05  Fields          Omnes.fields: "hashrate-wave" (data-driven particle wave, used by
                        partials/network-pays.html), "mark" (the Omnes mark drawn in dots),
                        "accrue" (points gathering along the note's term line, partials/note.html), "swell" (a
-                       particle horizon drawn in the canvas's CSS color)
+                       particle horizon drawn in the canvas's CSS color), "fall" (a stream falling top to
+                       bottom) and "btc" (the ₿ made of falling points; the Mining Note header)
    05b Structure       the structure diagram (partials/structure.html; inert without [data-sx]):
                        links measured from the nodes' dots, a particle flow along the note's
                        line, and nodes that light their links
@@ -23,7 +24,7 @@
                                            a slot gets [data-na] while its figure is unavailable
    [data-live-status] [data-live-dot]      status text and dot for the live figures
    [data-wave-status] [data-wave-dot]      status text and dot for the hashrate history
-   <canvas data-field="hashrate-wave|mark|accrue|swell">
+   <canvas data-field="hashrate-wave|mark|accrue|swell|fall|btc">
    [data-sx] > .sx-n[data-node] > .sx-b > .sx-dot, .sx-desc; [data-sx-cap]
                                            a structure diagram, its nodes and its caption line
    [data-pin="n"] and [data-anno="n"]      a numbered note and the pin it points to
@@ -467,6 +468,64 @@
     });
     f.onResize = function () { build(f.h); };
     build(f.h);
+    loop.add(f);
+    return f;
+  };
+
+  /* The Bitcoin sign in falling points: streams of points flow from the top of the canvas to
+     the bottom through the columns of a ₿ and show only inside its shape, so the sign reads as
+     made of the flow. The sign is a "B" in Inter with the two bars above and below it, drawn to
+     an offscreen mask, so it never depends on a font carrying U+20BF. */
+  fields.btc = function (canvas) {
+    var ink = "#2f6bff";
+    try { var c = window.getComputedStyle(canvas).color; if (c) ink = c; } catch (e) { /* keep the default */ }
+    var rnd = prng(2140), P = [], mask = null, ghost = null, MW = 0, MH = 0;
+    var inside = function (x, y) {
+      var xi = x | 0, yi = y | 0;
+      if (!mask || xi < 0 || yi < 0 || xi >= MW || yi >= MH) return 0;
+      return mask[yi * MW + xi];
+    };
+    var build = function (W, H) {
+      MW = Math.max(1, Math.round(W)); MH = Math.max(1, Math.round(H));
+      var oc = document.createElement("canvas"); oc.width = MW; oc.height = MH;
+      var g = oc.getContext("2d");
+      var size = Math.min(H * 0.64, W * 1.15), cx = W / 2, base = H / 2 + size * 0.36 + H * 0.05;
+      g.fillStyle = "#000"; g.textAlign = "center"; g.textBaseline = "alphabetic";
+      g.font = "600 " + Math.round(size) + "px Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif";
+      var m = g.measureText("B"), bw = m.width, top = base - (m.actualBoundingBoxAscent || size * 0.72);
+      g.fillText("B", cx, base);
+      var left = cx - bw / 2, barW = size * 0.075, ext = size * 0.12;
+      [0.3, 0.56].forEach(function (k) {
+        var x = left + bw * k - barW / 2;
+        g.fillRect(x, top - ext, barW, ext + 2);
+        g.fillRect(x, base - 2, barW, ext + 2);
+      });
+      var d = g.getImageData(0, 0, MW, MH).data, x0 = MW, x1 = 0, area = 0;
+      mask = new Uint8Array(MW * MH);
+      for (var i = 0, j = 0; i < d.length; i += 4, j++) if (d[i + 3] > 110) { mask[j] = 1; area++; var cx2 = j % MW; if (cx2 < x0) x0 = cx2; if (cx2 > x1) x1 = cx2; }
+      // a faint, solid ₿ under the flow so the sign reads at a glance
+      ghost = document.createElement("canvas"); ghost.width = MW; ghost.height = MH;
+      var gg = ghost.getContext("2d"); gg.drawImage(oc, 0, 0); gg.globalCompositeOperation = "source-in"; gg.fillStyle = ink; gg.fillRect(0, 0, MW, MH);
+      // points spread evenly across the sign's columns, so its whole shape fills at one density
+      P = [];
+      var n = Math.round(clamp(area / 18, 1200, 5200));
+      for (var k = 0; k < n && x1 > x0; k++) P.push({ x: x0 + rnd() * (x1 - x0), y0: rnd(), z: Math.pow(rnd(), 1.5), ph: rnd() * 6.2832, sp: 0.8 + rnd() * 0.4 });
+    };
+    var f = new Field(canvas, function (g, t, F) {
+      var H = F.h;
+      if (ghost) { g.globalAlpha = 0.09; g.drawImage(ghost, 0, 0, F.w, F.h); }
+      g.fillStyle = ink;
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i], v = (p.y0 + t * 0.018 * p.sp) % 1, y = v * H, x = p.x + Math.sin(t * 0.6 + p.ph) * 0.8;
+        if (!inside(x, y)) continue;
+        g.globalAlpha = 0.28 + 0.6 * p.z;
+        g.beginPath(); dot(g, x, y, 0.6 + p.z * 1.5); g.fill();
+      }
+      g.globalAlpha = 1;
+    });
+    f.onResize = function () { build(f.w, f.h); };
+    build(f.w, f.h);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { build(f.w, f.h); f.paint(); });
     loop.add(f);
     return f;
   };
