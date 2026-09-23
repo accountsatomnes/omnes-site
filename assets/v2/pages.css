@@ -1,0 +1,430 @@
+/* Omnes inner-page kit. Loaded after site.css on every inner page, never on the homepage.
+   It adds the components inner pages share, in the homepage's language: open on the canvas,
+   type, whitespace and hairlines. The only boxes are form fields, plus the page header's
+   optional light-blue band. Every colour, font and measure comes from site.css tokens.
+   Start each page from _template/index.html, which shows every component below.
+
+   Index
+   K01 Tokens          kit-only: --prose (long-form text), --danger (errors), --field-h, --measure
+   K02 Shell           aria-current in the menu sheet; the first section after the page header
+                       starts closer (.ph + .sec); .part (a second block inside a section)
+   K03 Page header     header.ph (plain canvas) or header.ph.ph-tint (light-blue band), holding
+                       .wrap.ph-grid (.ph-main: .ph-title the h1, .ph-lead, .ph-actions; optional
+                       .ph-art: canvas data-field="mark"), an optional .ph-swell (canvas
+                       data-field="swell", tinted band only) and an optional .wrap.ph-foot row
+                       (breadcrumbs left, .ph-meta right)
+   K04 Breadcrumbs     .crumbs: only in .ph-foot, never above the h1 (that reads as an eyebrow)
+   K05 Section head    .sh: a serif .sh-title (h2) with an optional .sh-side (copy and a link);
+                       .sh-inline puts a title and a link on one line; .sh-sub a smaller serif h3
+   K05b Split          .split: a side column (.split-side, add .sticky to hold it) beside the
+                       main one (.split-main), on the homepage FAQ's columns (1 to 4, 6 to 12)
+   K06 Spec lists      .specs: term and definition rows between hairlines; .specs-grid: open
+                       cells in three columns (.cols-2, .cols-4); .fig for a figure
+   K07 Features        .features: open columns (three; .features-2 or .features-4), each .feature
+                       a small light-blue tile (site.css .mt), a serif h3 and copy
+   K08 Reading         .reading: an optional sticky .toc beside .prose (or .reading-solo);
+                       .prose styles p, h2 (+ .n numbering), h3, h4, lists, a, strong,
+                       .lede, blockquote, .table-wrap tables, .eq, figure, hr, sup refs, .footnotes
+   K09 FAQ             site.css's open .faq accordion as the .split-main of a .split, the
+                       group's .sh-sub in .split-side
+   K10 Search          .filter row: .search field, .chips (.chip, aria-pressed), .search-count,
+                       .empty
+   K11 Forms           .form, .form-row, .form-field (label, .opt, .form-hint, .form-error), .select
+                       (the chevron), .form .check (site.css) and fieldset.checks, .form-actions,
+                       .form-status (.is-ok, .is-error, .is-busy)
+   K12 Articles        .articles: an open list of .article rows (.article-meta, .article-t,
+                       .article-d, .article-go)
+   K13 Risk line       .risk: the short risk line that sits near economic content
+   The closing panel is site.css .closing (18), used exactly as on the homepage.
+*/
+
+/* K01 Tokens ────────────────────────────────────────────────────────── */
+:root {
+  --prose: #2e3339;              /* long-form text: softer than ink, 12.6:1 on the canvas */
+  --danger: #b42318;             /* errors: 6.5:1 on white */
+  --field-h: 52px;               /* the height of a field, a search and a large button */
+  --measure: 700px;              /* the long-form line length, about 72 characters */
+  --ph-top: clamp(64px, 7.4vw, 112px); /* the page header's space under the nav */
+}
+@media (max-width: 599px) { :root { --field-h: 50px; --ph-top: 48px; } }
+
+/* K02 Shell ─────────────────────────────────────────────────────────── */
+.menu > a[aria-current="page"] { background: var(--soft); }
+.menu > a[aria-current="page"], .menu > a[aria-current="page"] + a { box-shadow: none; }
+.menu > a[aria-current="page"]::after { content: ""; margin-left: auto; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(47, 107, 255, .16); }
+/* the first section after the page header starts a little closer to it */
+.ph + .sec { padding-top: calc(var(--sec) * .72); }
+/* a second block inside the same section, after a generous space */
+.part { margin-top: clamp(72px, 7.6vw, 112px); }
+
+/* K03 Page header ───────────────────────────────────────────────────── */
+/* A large display-serif h1, a short lead and optional actions, with generous space. Plain, it
+   sits on the canvas like the homepage hero. With .ph-tint it sits in a light-blue band inset
+   from the viewport (the why-now band's gradient), the nav capsule floating over its top. */
+.ph { position: relative; padding-top: calc(14px + var(--nav-h) + var(--ph-top)); }
+.ph-tint { margin: var(--gut) var(--gut) 0; padding-top: calc(14px + var(--nav-h) + var(--ph-top) - var(--gut)); overflow: hidden; isolation: isolate; border-radius: calc(var(--r-panel) + 6px); background:
+    radial-gradient(60% 55% at 50% 0%, rgba(255, 255, 255, .6) 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(55% 70% at 100% 100%, rgba(47, 107, 255, .12) 0%, rgba(47, 107, 255, 0) 70%),
+    radial-gradient(60% 60% at 0% 100%, rgba(255, 255, 255, .4) 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #e8f3fe 0%, #dcecfd 55%, #cfe4fb 100%); }
+/* inside the inset band, the content still lines up with every other section */
+.ph-tint > .wrap { width: min(var(--wrap), calc(100% - 2 * (var(--edge) - var(--gut)))); }
+.ph-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: end; }
+.ph-main { grid-column: 1 / span 8; min-width: 0; }
+.ph-title { font-family: var(--serif); font-optical-sizing: auto; font-weight: 350; font-size: clamp(42px, 5.3vw, 76px); line-height: 1.06; letter-spacing: -0.016em; color: var(--ink); text-wrap: balance; max-width: 15em; }
+.ph-lead { margin-top: 28px; max-width: 600px; font-size: clamp(17px, 1.38vw, 19.5px); line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.ph-tint .ph-lead { color: #3d5266; }
+.ph-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; margin-top: 38px; }
+.ph-actions .arrow-link { font-size: 16px; white-space: nowrap; }
+/* the dotted Omnes mark was retired by the founder on 2026-09-23 ("get rid of this on all of the pages"); never show it */
+.ph-art { display: none !important; }
+/* the flow: a stream of light-blue points falling from the top of a tinted page header to its
+   foot, on the right (site.js "fall"); the Mining Note page */
+.ph-flow { position: absolute; z-index: -1; top: 0; bottom: 64px; right: calc((100% - min(var(--wrap), 100% - 2 * (var(--edge) - var(--gut)))) / 2); width: min(34%, 440px); color: var(--accent, #2f6bff); pointer-events: none; }
+.ph-flow canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+@media (max-width: 899px) { .ph-flow { display: none; } }
+/* the swell: a quiet particle horizon along the foot of a tinted band (site.js "swell") */
+.ph-swell { position: relative; z-index: -1; height: 140px; margin-top: -24px; color: var(--tint-ink); opacity: .6; pointer-events: none; }
+.ph-swell canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* the foot row: breadcrumbs on the left, the page's facts (date, length) on the right */
+.ph-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 32px; margin-top: clamp(56px, 6vw, 88px); padding-block: 18px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; color: var(--muted); }
+.ph-tint .ph-foot { border-top-color: rgba(23, 79, 123, .13); color: #3d5266; padding-bottom: 22px; }
+.ph-swell + .ph-foot { margin-top: 0; }
+/* a tinted band with no foot row still needs room below its content */
+.ph-tint > .ph-grid:last-child { padding-bottom: clamp(56px, 6vw, 88px); }
+.ph-meta { display: flex; flex-wrap: wrap; align-items: center; font-variant-numeric: tabular-nums; }
+.ph-meta > * + *::before { content: ""; display: inline-block; width: 3px; height: 3px; margin: 0 11px; border-radius: 50%; background: currentColor; opacity: .55; vertical-align: middle; }
+@media (max-width: 1099px) { .ph-main { grid-column: 1 / span 9; } .ph-art { grid-column: 10 / -1; max-width: 176px; } }
+@media (max-width: 899px) {
+  .ph-main { grid-column: 1 / -1; }
+  .ph-art { display: none; }
+  .ph-title { font-size: clamp(40px, 7.6vw, 60px); }
+}
+@media (max-width: 599px) {
+  .ph-title { font-size: clamp(36px, 10.4vw, 44px); line-height: 1.1; }
+  .ph-lead { margin-top: 20px; font-size: 17px; }
+  .ph-actions { margin-top: 30px; gap: 20px 24px; }
+  .ph-actions .btn.lg { height: 50px; padding: 0 22px; }
+  .ph-foot { margin-top: 48px; padding-block: 16px; font-size: 13.5px; }
+  .ph-tint .ph-foot { padding-bottom: 20px; }
+  .ph-swell { height: 104px; margin-top: -16px; }
+}
+
+/* K04 Breadcrumbs ───────────────────────────────────────────────────── */
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; row-gap: 4px; }
+.crumbs li { display: inline-flex; align-items: center; min-width: 0; }
+.crumbs li + li::before { content: ""; flex: none; width: 5px; height: 5px; margin: 0 12px 0 9px; border-top: 1.4px solid currentColor; border-right: 1.4px solid currentColor; transform: rotate(45deg); opacity: .55; }
+.crumbs a { color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.crumbs a:hover { color: var(--tint-ink); text-decoration-color: currentColor; }
+.crumbs [aria-current="page"] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* K05 Section head ──────────────────────────────────────────────────── */
+/* A serif title on the left, and on the right a short piece of copy and a link, top-aligned,
+   as in the homepage's "Institutional by design." */
+.sh { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 22px; align-items: start; margin-bottom: clamp(48px, 5.4vw, 80px); }
+/* the same face, size and weight as the homepage's section headings (site.css .statement-lg) */
+.sh-title { grid-column: 1 / span 7; font-family: var(--serif); font-optical-sizing: auto; font-weight: 300; font-size: clamp(34px, 3.9vw, 56px); line-height: 1.06; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+.sh-side { grid-column: 9 / -1; padding-top: 10px; }
+.sh-side .body { max-width: 400px; }
+.sh-side .body + .arrow-link, .sh-side .body + .btn { margin-top: 20px; }
+/* one line: the title, and a link or control at the far end */
+.sh-inline { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; }
+.sh-inline .sh-title { max-width: 15em; }
+/* a smaller serif heading inside a section (an h3 beside a list, a group title) */
+.sh-sub { font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; font-size: clamp(24px, 2.1vw, 30px); line-height: 1.18; letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
+.sh-sub + .body { margin-top: 14px; max-width: 400px; }
+@media (max-width: 899px) {
+  .sh-title, .sh-side { grid-column: 1 / -1; }
+  .sh-side { padding-top: 0; }
+}
+
+/* K05b Split ───────────────────────────────────────────────────────── */
+/* Two open columns on the homepage FAQ's lines: a side column (a heading, a line of copy, a
+   short list or a link) and the main one (an accordion, a form, a list). Consecutive splits
+   stack with a generous gap. */
+.split { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; }
+.split + .split { margin-top: clamp(64px, 7vw, 104px); }
+.split-side { grid-column: 1 / span 4; min-width: 0; }
+.split-main { grid-column: 6 / span 7; min-width: 0; }
+.split-side > * + * { margin-top: 20px; }
+.split-side .body { max-width: 360px; }
+.split-side > .specs { margin-top: 40px; }
+@media (max-width: 899px) {
+  .split-side, .split-main { grid-column: 1 / -1; }
+  .split-main { margin-top: 36px; }
+}
+
+/* K06 Spec lists ────────────────────────────────────────────────────── */
+/* .specs: a term and its definition on one row, a hairline between rows */
+.specs { border-top: 1px solid var(--line); }
+.specs > div { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: var(--gap); align-items: baseline; padding: 17px 0 18px; border-bottom: 1px solid var(--line); }
+.specs dt { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.specs dd { font-size: 16px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+.specs dd a, .specs-grid dd a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .3); text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.specs dd a:hover, .specs-grid dd a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.specs dd small, .specs-grid dd small { display: block; margin-top: 2px; font-size: 14px; color: var(--muted); }
+/* .specs-grid: open cells in columns, the term above its definition, a hairline above each */
+.specs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); }
+.specs-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.specs-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.specs-grid > div { display: flex; flex-direction: column; gap: 8px; padding: 20px 28px 30px 0; border-top: 1px solid var(--line); }
+.specs-grid dt { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.specs-grid dd { max-width: 340px; font-size: 16px; line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+/* a figure: set larger, in tabular Inter */
+.specs .fig dd, .specs-grid .fig dd { font-size: clamp(24px, 2.2vw, 30px); line-height: 1.15; letter-spacing: -0.02em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.specs .fig dd small, .specs-grid .fig dd small { display: inline; margin-left: 8px; font-size: 14px; letter-spacing: 0; }
+@media (max-width: 1099px) { .specs-grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 899px) { .specs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) {
+  .specs > div { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); column-gap: 16px; padding: 14px 0 15px; }
+  .specs dt { font-size: 14px; }
+  .specs dd { font-size: 15.5px; }
+  .specs-grid, .specs-grid.cols-2, .specs-grid.cols-4 { grid-template-columns: minmax(0, 1fr); }
+  .specs-grid > div { padding: 16px 0 18px; }
+  .specs-grid .fig { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .specs .fig dd, .specs-grid .fig dd { font-size: 22px; }
+}
+
+/* K07 Features ──────────────────────────────────────────────────────── */
+/* Open columns: a hairline above, the small light-blue tile as a marker, a serif heading and
+   two or three lines of copy. .features-2 sets the tile beside the text, as the homepage's
+   principles do. Draw tile icons on a 24 grid: stroke var(--tint-ink) 1.6, one accent detail
+   with stroke="#2f6bff". */
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); }
+.features-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.feature { display: flex; flex-direction: column; align-items: flex-start; padding: 28px 28px 40px 0; border-top: 1px solid var(--line); }
+.feature > .mt { margin-bottom: 28px; }
+.feature h3 { font-family: var(--serif); font-optical-sizing: auto; font-size: clamp(21px, 1.75vw, 24px); line-height: 1.22; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+.feature p { margin-top: 10px; max-width: 420px; font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.feature .arrow-link { margin-top: 18px; font-size: 15px; }
+.features-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 80px); }
+.features-2 .feature, .feature.row { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 22px; align-items: start; padding: 30px 0 42px; }
+.features-2 .feature > .mt, .feature.row > .mt { grid-row: 1 / span 3; margin-bottom: 0; }
+.features-2 .feature h3, .feature.row h3 { padding-top: 5px; }
+.features-2 .feature > :not(.mt), .feature.row > :not(.mt) { grid-column: 2; justify-self: start; }
+@media (max-width: 1099px) { .features-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 899px) {
+  .features, .features-2, .features-4 { grid-template-columns: minmax(0, 1fr); }
+  /* stacked, every feature takes the tile-beside-text layout */
+  .feature { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 20px; align-items: start; padding: 26px 0 34px; }
+  .feature > .mt { grid-row: 1 / span 3; margin-bottom: 0; }
+  .feature h3 { padding-top: 5px; }
+  .feature > :not(.mt) { grid-column: 2; justify-self: start; }
+}
+@media (max-width: 599px) {
+  .feature, .features-2 .feature { column-gap: 16px; padding: 24px 0 30px; }
+  .feature p { font-size: 15.5px; }
+}
+
+/* K08 Reading ───────────────────────────────────────────────────────── */
+/* Long-form for articles and legal pages: Inter at a comfortable measure (--measure) in the
+   softer --prose ink, serif h2s, Inter h3s. The optional table of contents sticks beside it
+   on desktop, as a plain list (no rail), and sits above the text on smaller screens. */
+.reading { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; }
+.toc { grid-column: 1 / span 3; position: sticky; top: calc(var(--nav-h) + 52px); max-height: calc(100vh - var(--nav-h) - 88px); overflow: auto; padding-right: 12px; }
+.toc-t { margin-bottom: 12px; font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.toc ol { display: grid; gap: 1px; }
+.toc a { position: relative; display: block; padding: 6px 0 6px 16px; font-size: 14.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; transition: color .18s ease; }
+.toc a::before { content: ""; position: absolute; left: 0; top: calc(6px + .7em - 2.5px); width: 5px; height: 5px; border-radius: 50%; background: var(--line-strong); transition: background .18s ease, box-shadow .18s ease; }
+.toc a:hover { color: var(--ink); }
+.toc a[aria-current="true"] { color: var(--ink); }
+.toc a[aria-current="true"]::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(47, 107, 255, .16); }
+.toc a:focus-visible { outline-offset: 1px; }
+.prose { grid-column: 5 / span 7; min-width: 0; max-width: var(--measure); }
+.reading-solo .prose { grid-column: 1 / span 8; }
+@media (max-width: 1099px) { .toc { grid-column: 1 / span 4; } .prose { grid-column: 5 / -1; } .reading-solo .prose { grid-column: 1 / span 10; } }
+@media (max-width: 899px) {
+  .toc { grid-column: 1 / -1; position: static; max-height: none; overflow: visible; padding: 0 0 22px; margin-bottom: 40px; border-bottom: 1px solid var(--line); }
+  .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap); }
+  .prose, .reading-solo .prose { grid-column: 1 / -1; }
+}
+@media (max-width: 599px) { .toc ol { grid-template-columns: minmax(0, 1fr); } }
+
+.prose { font-size: 17.5px; line-height: 1.72; color: var(--prose); }
+.prose > * + * { margin-top: 1.15em; }
+.prose > :first-child { margin-top: 0; }
+.prose [id] { scroll-margin-top: calc(var(--nav-h) + 44px); }
+.prose .lede { font-family: var(--serif); font-optical-sizing: auto; font-weight: 300; font-size: clamp(21px, 1.8vw, 24px); line-height: 1.46; letter-spacing: -0.006em; color: var(--ink); }
+.prose h2 { margin-top: 2.3em; font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; font-size: clamp(27px, 2.25vw, 33px); line-height: 1.18; letter-spacing: -0.014em; color: var(--ink); text-wrap: balance; }
+/* legal numbering: a quiet tabular number before a section title */
+.prose h2 .n { display: inline-block; min-width: 2.1em; font-family: var(--font); font-size: .5em; font-weight: 400; letter-spacing: 0; vertical-align: .32em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.prose h3 { margin-top: 2em; font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; }
+.prose h4 { margin-top: 1.7em; font-size: 16.5px; line-height: 1.45; font-weight: 500; color: var(--ink); }
+.prose h2 + *, .prose h3 + *, .prose h4 + * { margin-top: .6em; }
+.prose h2 + * { margin-top: .75em; }
+.prose a { color: var(--tint-ink); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.prose a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.prose strong, .prose b { font-weight: 600; color: var(--ink); }
+.prose ul > li, .prose ol > li { position: relative; }
+.prose ul > li { padding-left: 26px; }
+.prose ul > li::before { content: ""; position: absolute; left: 5px; top: calc(.86em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(47, 107, 255, .12); }
+.prose ul ul > li::before { background: transparent; box-shadow: inset 0 0 0 1.5px #8a939c; }
+.prose ol { counter-reset: li; }
+.prose ol > li { padding-left: 34px; counter-increment: li; }
+.prose ol > li::before { content: counter(li) "."; position: absolute; left: 0; top: 0; min-width: 24px; font-size: .94em; font-weight: 500; color: var(--tint-ink); font-variant-numeric: tabular-nums; }
+.prose li + li { margin-top: .5em; }
+.prose li > ul, .prose li > ol { margin-top: .5em; }
+.prose hr { height: 1px; margin-block: 2.6em; border: 0; background: var(--line); }
+.prose blockquote { margin-block: 2em; padding: 2px 0 2px 26px; border-left: 2px solid var(--accent); font-family: var(--serif); font-optical-sizing: auto; font-weight: 300; font-size: clamp(22px, 2vw, 26px); line-height: 1.4; letter-spacing: -0.008em; color: var(--ink); text-wrap: pretty; }
+.prose blockquote p + p { margin-top: .7em; }
+.prose blockquote footer, .prose blockquote cite { display: block; margin-top: 14px; font-family: var(--font); font-size: 14px; font-style: normal; line-height: 1.5; letter-spacing: 0; color: var(--muted); }
+/* a formula or worked line, set on its own between hairlines */
+.prose .eq { margin-block: 1.8em; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 16.5px; line-height: 1.6; color: var(--ink); }
+.prose .eq + .eq { margin-top: -1px; }
+/* tables: open, hairlines between rows, figures in tabular numerals; wide tables scroll
+   inside .table-wrap (tabindex="0" role="region" aria-label), never the page */
+.table-wrap { margin-block: 2em; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-wrap:focus-visible { outline-offset: 4px; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.5; }
+.prose th { padding: 0 20px 12px 0; border-bottom: 1px solid var(--line-strong); font-size: 13.5px; font-weight: 400; line-height: 1.4; color: var(--muted); text-align: left; vertical-align: bottom; }
+.prose td { padding: 13px 20px 13px 0; border-bottom: 1px solid var(--line); color: var(--ink); vertical-align: top; }
+.prose th:last-child, .prose td:last-child { padding-right: 0; }
+/* a figure column: right-aligned, tabular (Inter's tabular setting also widens hyphens, so keep it to figures) */
+.prose th.r, .prose td.r { text-align: right; font-variant-numeric: tabular-nums; }
+.prose caption { caption-side: bottom; padding-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--muted); text-align: left; }
+.prose figure { margin-block: 2.2em; }
+.prose figure img { width: 100%; height: auto; border-radius: var(--r-card); }
+.prose figcaption { margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+/* footnote references and the notes */
+.prose sup { font-size: .68em; line-height: 0; vertical-align: .6em; }
+.prose sup a { padding: 0 2px; font-weight: 500; text-decoration: none; font-variant-numeric: tabular-nums; }
+.prose .footnotes { margin-top: 3.2em; padding-top: 22px; border-top: 1px solid var(--line); font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+.prose .footnotes h2 { margin: 0 0 12px; font-family: var(--font); font-size: 14.5px; font-weight: 500; letter-spacing: 0; color: var(--ink); }
+.prose .footnotes ol > li { padding-left: 28px; }
+.prose .footnotes ol > li::before { font-size: 1em; }
+.prose .footnotes li:target { color: var(--ink); }
+.prose .footnotes li:target::before { color: var(--accent-strong); }
+.prose .fn-back { margin-left: 6px; text-decoration: none; }
+@media (max-width: 599px) {
+  .prose { font-size: 17px; line-height: 1.68; }
+  .prose h2 { margin-top: 2em; font-size: 26px; }
+  .prose h3 { font-size: 18px; }
+  .prose blockquote { padding-left: 20px; font-size: 21px; }
+  .prose .eq { font-size: 15.5px; }
+  .prose table { font-size: 15px; }
+}
+
+/* K09 FAQ ───────────────────────────────────────────────────────────── */
+/* Groups of questions: each group is a .split, its .sh-sub title in .split-side and site.css's
+   open accordion (div.faq > details > summary + svg, .a answer) as .split-main, exactly the
+   homepage's FAQ columns. Nothing to add here but the gap from a group title to its answers
+   on small screens. */
+.split > .faq.split-main { margin-top: 0; }
+@media (max-width: 899px) { .split > .faq.split-main { margin-top: 24px; } }
+
+/* K10 Search ────────────────────────────────────────────────────────── */
+/* The filter row: a search field (a box: fields are the only boxes), category chips in soft
+   grey that turn light blue when pressed, and a count line read out as it changes. */
+.filter { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; margin-bottom: 36px; }
+.search { position: relative; flex: 1 1 320px; max-width: 480px; }
+.search .ic { position: absolute; left: 19px; top: 50%; width: 18px; height: 18px; margin-top: -9px; fill: none; stroke: var(--muted); stroke-width: 1.7; stroke-linecap: round; pointer-events: none; }
+.search input { width: 100%; height: var(--field-h); padding: 0 20px 0 48px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--paper); font-size: 16px; color: var(--ink); -webkit-appearance: none; appearance: none; transition: border-color .18s ease, box-shadow .18s ease; }
+.search input::placeholder { color: #6b737b; opacity: 1; }
+.search input:hover { border-color: #bfc7cf; }
+.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(47, 107, 255, .14); }
+.search input::-webkit-search-decoration { -webkit-appearance: none; }
+.search input::-webkit-search-cancel-button { -webkit-appearance: none; width: 18px; height: 18px; margin-left: 8px; cursor: pointer; background: center / 18px 18px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23e8ebee'/%3E%3Cpath d='M9 9l6 6M15 9l-6 6' stroke='%235f666e' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; background: var(--soft-2); color: var(--ink); font-size: 14.5px; line-height: 1; white-space: nowrap; transition: background .18s ease, color .18s ease; }
+.chip:hover { background: #dfe3e7; }
+.chip[aria-pressed="true"] { background: var(--tint); color: var(--tint-ink); font-weight: 500; box-shadow: inset 0 0 0 1px rgba(23, 79, 123, .06); }
+.chip:focus-visible { outline-offset: 2px; border-radius: 999px; }
+.search-count { flex-basis: 100%; font-size: 14px; line-height: 1.45; color: var(--muted); font-variant-numeric: tabular-nums; }
+.empty { padding: 28px 0 32px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 16px; color: var(--muted); }
+.empty b { font-weight: 500; color: var(--ink); }
+.empty[hidden], [data-filter-item][hidden] { display: none; }
+@media (max-width: 599px) {
+  .filter { gap: 14px; margin-bottom: 28px; }
+  .search { flex-basis: 100%; max-width: none; }
+  .chip { height: 38px; padding: 0 14px; font-size: 14px; }
+}
+
+/* K11 Forms ─────────────────────────────────────────────────────────── */
+/* Open forms: labels in ink above white fields with a hairline border (the only boxes), hints
+   and optional marks in grey, errors in --danger with the field's border, and a status line
+   under the actions, never a banner. */
+.form { display: grid; gap: 24px; max-width: 640px; }
+.split-main.form { max-width: none; }
+.form fieldset { min-width: 0; border: 0; }
+.form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+.form-field { display: grid; gap: 8px; min-width: 0; }
+.form-field > label, .form legend { font-size: 14.5px; line-height: 1.4; font-weight: 500; color: var(--ink); }
+.form legend { margin-bottom: 12px; }
+.form-field .opt { font-weight: 400; color: var(--muted); }
+.form-hint { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+.form-field input, .form-field select, .form-field textarea { display: block; width: 100%; height: var(--field-h); padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--paper); font-size: 16px; line-height: 1.4; color: var(--ink); -webkit-appearance: none; appearance: none; transition: border-color .18s ease, box-shadow .18s ease; }
+.form-field textarea { height: auto; min-height: 148px; padding: 14px 16px; line-height: 1.55; resize: vertical; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #6b737b; opacity: 1; }
+.form-field input:hover, .form-field select:hover, .form-field textarea:hover { border-color: #bfc7cf; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(47, 107, 255, .14); }
+.form-field input[aria-invalid="true"], .form-field select[aria-invalid="true"], .form-field textarea[aria-invalid="true"] { border-color: var(--danger); }
+.form-field input[aria-invalid="true"]:focus, .form-field select[aria-invalid="true"]:focus, .form-field textarea[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px rgba(180, 35, 24, .12); }
+.form-field input:disabled, .form-field select:disabled, .form-field textarea:disabled { background: var(--soft); color: var(--muted); cursor: not-allowed; }
+.form-error { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; line-height: 1.5; color: var(--danger); }
+.form-error svg { flex: none; width: 16px; height: 16px; margin-top: 2px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.form-error[hidden] { display: none; }
+/* select: the native control with a fine chevron; the empty choice reads as a hint */
+.select { position: relative; }
+.select::after { content: ""; position: absolute; right: 19px; top: 50%; width: 7px; height: 7px; margin-top: -6px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); pointer-events: none; }
+.select select { padding-right: 46px; cursor: pointer; text-overflow: ellipsis; }
+.select select:has(option[value=""]:checked) { color: #6b737b; }
+.select option { color: var(--ink); }
+/* checkboxes: site.css .check (label > input + span), drawn to match the fields */
+.checks { display: grid; gap: 14px; }
+.form .check { grid-template-columns: 20px minmax(0, 1fr); gap: 12px; font-size: 15px; line-height: 1.5; color: var(--prose); }
+.form .check input { display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border: 1px solid #aeb7c0; border-radius: 6px; background: var(--paper); -webkit-appearance: none; appearance: none; cursor: pointer; transition: background .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.form .check input::after { content: ""; width: 5px; height: 10px; margin-top: -2px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) scale(0); transition: transform .15s ease; }
+.form .check input:checked { background: var(--accent-strong); border-color: var(--accent-strong); }
+.form .check input:checked::after { transform: rotate(45deg) scale(1); }
+.form .check input:hover { border-color: #8a939c; }
+.form .check input:checked:hover { border-color: var(--accent-strong); }
+.form .check input:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(47, 107, 255, .2); }
+.form .check input[aria-invalid="true"] { border-color: var(--danger); }
+.form .check a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.form .check a:hover { color: var(--ink); }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding-top: 4px; }
+/* the status line: a dot and one sentence, read out as it changes (role="status") */
+.form-status { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.form-status:empty, .form-status[hidden] { display: none; }
+.form-status::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--line-strong); box-shadow: 0 0 0 3px var(--soft-2); }
+.form-status.is-busy::before { animation: sk 1.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .form-status.is-busy::before { animation: none; } }
+.form-status.is-ok { color: var(--tint-ink); }
+.form-status.is-ok::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(47, 107, 255, .16); }
+.form-status.is-error { color: var(--danger); }
+.form-status.is-error::before { background: var(--danger); box-shadow: 0 0 0 3px rgba(180, 35, 24, .14); }
+@media (max-width: 599px) {
+  .form { gap: 20px; }
+  .form-row { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .form-actions .btn { flex: 1 1 auto; }
+}
+
+/* K12 Articles ──────────────────────────────────────────────────────── */
+/* An open list for resources: each row a hairline above, the kind in grey on the left, the
+   serif title and a short description in the middle, the read link on the right. The whole row
+   is one link. For image-led news, use the homepage's .news block instead. */
+.articles { border-bottom: 1px solid var(--line); }
+.article-a { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; padding: 30px 0 34px; border-top: 1px solid var(--line); color: inherit; }
+.article-meta { grid-column: 1 / span 3; display: flex; flex-direction: column; gap: 2px; padding-top: 7px; font-size: 14px; line-height: 1.45; color: var(--muted); font-variant-numeric: tabular-nums; }
+.article-body { grid-column: 4 / span 6; display: block; min-width: 0; }
+.article-t { font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; font-size: clamp(24px, 2.1vw, 30px); line-height: 1.18; letter-spacing: -0.012em; color: var(--ink); text-wrap: balance; transition: color .2s ease; }
+.article-d { display: block; margin-top: 12px; max-width: 600px; font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.article-go { grid-column: 10 / -1; justify-self: end; display: inline-flex; align-items: center; gap: 8px; padding-top: 7px; font-size: 15px; font-weight: 500; color: var(--tint-ink); white-space: nowrap; }
+.article-go .ar { width: 14px; height: 14px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.article-a:hover .article-t { color: var(--tint-ink); }
+.article-a:hover .article-go { color: var(--ink); }
+.article-a:hover .article-go .ar { transform: translateX(3px); }
+.article-a:focus-visible { outline-offset: 6px; }
+@media (max-width: 1099px) { .article-body { grid-column: 4 / span 7; } .article-go { grid-column: 11 / -1; } .article-go .lbl { display: none; } }
+@media (max-width: 899px) {
+  .article-a { grid-template-columns: minmax(0, 1fr); row-gap: 10px; padding: 26px 0 28px; }
+  .article-meta, .article-body, .article-go { grid-column: 1 / -1; }
+  .article-meta { flex-direction: row; flex-wrap: wrap; padding-top: 0; }
+  .article-meta > * + *::before { content: ""; display: inline-block; width: 3px; height: 3px; margin: 0 10px; border-radius: 50%; background: currentColor; opacity: .55; vertical-align: middle; }
+  .article-go { justify-self: start; margin-top: 6px; padding-top: 0; }
+  .article-go .lbl { display: inline; }
+}
+@media (max-width: 599px) { .article-t { font-size: 23px; } .article-d { font-size: 15.5px; } }
+
+/* K13 Risk line ─────────────────────────────────────────────────────── */
+.risk { max-width: 860px; margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }

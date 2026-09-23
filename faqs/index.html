@@ -1,352 +1,122 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
 <title>Omnes and Mining Note FAQs: structure, eligibility | Omnes</title>
-<meta name="description" content="Answers on Omnes, the Omnes Mining Note (OMN), Luxembourg securitisation structure, eligible investors, custody, fees, and distributions." />
-<link rel="canonical" href="https://omnes.io/faqs/" />
-<meta property="og:title" content="Omnes and Mining Note FAQs: structure, eligibility | Omnes" />
-<meta property="og:description" content="Answers on Omnes, the Omnes Mining Note (OMN), Luxembourg securitisation structure, eligible investors, custody, fees, and distributions." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://omnes.io/faqs/" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@omnesfinance" />
+<meta name="description" content="Answers on Omnes and the Omnes Mining Note (OMN): its Luxembourg securitisation structure, eligible investors, subscription, custody, Costs, reporting and tax, for professional investors.">
+<link rel="canonical" href="https://omnes.io/faqs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Omnes and Mining Note FAQs: structure, eligibility | Omnes">
+<meta property="og:description" content="Answers on Omnes and the Omnes Mining Note (OMN): its Luxembourg securitisation structure, eligible investors, subscription, custody, Costs, reporting and tax, for professional investors.">
+<meta property="og:url" content="https://omnes.io/faqs/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=130">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://omnes.io/#organization",
-  "name": "Omnes",
-  "legalName": "Omnes Securities S.à r.l.",
-  "url": "https://omnes.io",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://omnes.io/omnes-logo-black.svg"
-  },
-  "description": "Omnes is a compute infrastructure investment platform building the financial layer for institutional Bitcoin hashrate and compute-backed products.",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "Luxembourg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Luxembourg City",
-      "addressCountry": "LU"
-    }
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/omnesfinance",
-    "https://x.com/omnesfinance"
-  ]
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<link rel="stylesheet" href="/assets/v2/pages.css">
+<script src="/assets/v2/site.js" defer></script>
+<style>
+/* FAQs page. The header holds the search and, on wide screens, an index of the six groups.
+   Each group is the kit's FAQ split (K09): its title held on the left, the open accordion on
+   the right. Groups keep the real page's anchors (#cat-01 to #cat-06); every question has its
+   own id, and a link to one opens it. */
+
+/* header: the search under the lead, the group index beside the title */
+/* nine columns: the title holds one line at 1440 */
+.faq-ph .ph-main { grid-column: 1 / span 9; }
+.faq-filter { margin: 38px 0 0; }
+.faq-filter .search { flex: 0 1 480px; }
+.faq-filter .search-count { color: #3d5266; }
+.faq-index { grid-column: 10 / -1; align-self: end; min-width: 0; }
+.faq-index .toc-t { color: #3d5266; }
+.faq-index ol { border-top: 1px solid rgba(23, 79, 123, .13); }
+.faq-index a { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 10px 0 11px; border-bottom: 1px solid rgba(23, 79, 123, .13); font-size: 15px; line-height: 1.4; color: var(--ink); transition: color .18s ease, opacity .18s ease; }
+.faq-index a:hover { color: var(--tint-ink); }
+.faq-index a:focus-visible { outline-offset: 2px; }
+.faq-index .c { flex: none; font-size: 14px; color: #3d5266; font-variant-numeric: tabular-nums; }
+.faq-index a.is-empty { opacity: .42; pointer-events: none; }
+@media (max-width: 1099px) { .faq-ph .ph-main { grid-column: 1 / span 7; } .faq-index { grid-column: 9 / -1; } }
+@media (max-width: 899px) { .faq-ph .ph-main { grid-column: 1 / -1; } .faq-index { display: none; } }
+
+/* the groups: a grid, so a group hidden by the search leaves no gap behind */
+.faq-groups { display: grid; row-gap: clamp(56px, 6vw, 88px); }
+.faq-groups > .split + .split { margin-top: 0; }
+.faq-group[hidden] { display: none; }
+/* the group title sits level with its first question */
+.faq-group .split-side { padding-top: 19px; }
+.faq-group .sh-sub { scroll-margin-top: 36px; }
+.faq-group .split-side .arrow-link { font-size: 15px; }
+.faq summary .q { min-width: 0; }
+.faq .a a { color: var(--tint-ink); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.faq .a a:hover { color: var(--ink); text-decoration-color: currentColor; }
+/* search matches */
+.faq mark { padding: 0 .08em; margin: 0 -.02em; border-radius: 4px; background: var(--tint); color: var(--tint-ink); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* nothing matches: the empty line stands alone, without the risk line under it */
+.empty:not([hidden]) + .faq-foot { display: none; }
+.empty a { color: var(--tint-ink); font-weight: 500; text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.empty a:hover { color: var(--ink); }
+/* the risk line, under the answers: the last question's hairline is its rule */
+.faq-foot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
+.faq-foot .risk { grid-column: 6 / -1; margin-top: 28px; padding-top: 0; border-top: 0; }
+@media (max-width: 899px) {
+  .faq-group .split-side { padding-top: 0; }
+  .faq-group .sh-sub { scroll-margin-top: 8px; }
+  .faq-foot .risk { grid-column: 1 / -1; }
 }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://omnes.io/#website",
-  "url": "https://omnes.io",
-  "name": "Omnes",
-  "publisher": {
-    "@id": "https://omnes.io/#organization"
-  },
-  "inLanguage": "en"
-}
-</script>
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://omnes.io/faqs/#webpage",
+  "@id": "https://omnes.io/faqs/#faq",
   "url": "https://omnes.io/faqs/",
-  "name": "FAQs | Omnes",
-  "description": "Frequently asked questions about Omnes, the Omnes Mining Note (OMN), investor onboarding, and tax and reporting.",
-  "isPartOf": {
-    "@id": "https://omnes.io/#website"
-  },
   "inLanguage": "en",
-  "breadcrumb": {
-    "@id": "https://omnes.io/faqs/#breadcrumb"
-  },
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Who is Omnes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Omnes is a compute infrastructure investment platform building the financial layer for a new class of institutional products. We identify yield generating compute assets and structure them into institutional grade financial instruments with full transparency, robust legal architecture, and seamless onchain interoperability. The firm's first product, the Omnes Mining Note (OMN), provides structured exposure to Bitcoin hashrate economics through a tokenized, Luxembourg-issued instrument."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where is Omnes headquartered?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Omnes is headquartered in the Emirate of Abu Dhabi, United Arab Emirates, with operations structured through its affiliated entities in the City of Luxembourg, Luxembourg and the Canton of Zug, Switzerland."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is hashrate and why is it important to Bitcoin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hashrate is the computational power securing the Bitcoin network. It measures how many calculations are performed each second to validate transactions and produce new blocks for the Bitcoin blockchain. A higher hashrate increases network security, stability, and resilience, making it a key indicator of Bitcoin's overall strength and integrity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Omnes Mining Note (OMN)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN is an institutional-grade security that provides direct exposure to yield via the Bitcoin network's computational infrastructure (hashrate). Each OMN is backed by and represents one petahash per second (1 PH/s) of hashrate over a fixed 36-month term. Hashrate for the OMN is aggregated by Omnes from institutional-grade Bitcoin mining facilities, allowing investors to participate in institutional-grade Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does OMN generate returns?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each OMN is backed by one petahash per second (1 PH/s) of Bitcoin hashrate deployed for a fixed 36-month term. During this period, Bitcoin generated through block rewards and network fees accrues to each OMN. At maturity, investors receive the total Bitcoin mined and accrued to the note, net of predefined offering fees and expenses. OMN holders benefit directly from Bitcoin mining rewards and price appreciation, with no caps or performance fees."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is OMN issued?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OMN offering will be carried out by way of a private placement offering through a bankruptcy remote Luxembourg securitisation fund as the issuer, structured under the Luxembourg Securitisation Law of 22 March 2004, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What type of security is OMN?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OMN is a secured zero coupon debt note security, with full and final repayment at the 36-month maturity date of the OMN, in the form of Bitcoin generated and accrued to the OMN, less predefined OMN offering fees and expenses."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is the OMN different from buying Bitcoin mining stocks directly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OMN offers exposure to yield via Bitcoin mining economics with a focus on better risk adjusted returns. Unlike Bitcoin or Bitcoin mining stocks, the OMN converts hashrate into a yield-producing asset that captures both Bitcoin mining rewards and Bitcoin's upside while reducing volatility tied to market sentiment or corporate performance."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it a secured offering and how is investor capital safeguarded?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments. To secure the OMN offering, Omnes is (i) appointing a third party security agent, and (ii) pledging in favour of the noteholders (a) the Bitcoin generated and accruing to each OMN, and (b) the hashrate that will back each OMN. OMN noteholders will have a senior secured creditor status with recourse to the pledged assets through the appointed security agent. To safeguard investor capital, Omnes has appointed (i) an institutional-grade custodian to custody all Bitcoin generated by the hashrate backing each OMN, and (ii) a top-tier auditor for audited financials."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who can invest in OMN?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OMN is for natural or legal persons who are professional investors. Professional investors are natural or legal persons who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount in the OMN of at least USD 100,000. Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by the laws and regulations applicable to them to invest in the OMN. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the minimum investment amount?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "USD 100,000."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I access offering documents and subscribe?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To access offering documents and subscribe, investors must first create an account on the Omnes platform. Once verified, they can download all offering materials, including the Private Placement Memorandum and Subscription Agreement. After reviewing the documentation, investors can complete their subscription and purchase OMN tokens directly through the platform's secure interface."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How often are performance reports issued?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Performance reports are issued quarterly, providing detailed insights into mining output, hashrate allocation, and operational performance. Audited summaries and custodian attestations are published annually to maintain full transparency for investors."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can OMN be transferred or traded after purchase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. After the initial offering and the expiration of the 40 day lock-up period, OMN may be transferred between eligible non-U.S. investors on the Omnes platform through peer to peer transactions or through approved secondary venues that meet the required compliance standards."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is transparency maintained for investors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Transparency is maintained through continuous onchain visibility and independent verification. Each investor receives access to a dedicated OMN dashboard that provides real-time access to OMN performance metrics, including total hashrate, uptime, and Bitcoin mined daily. In addition, Omnes issues weekly performance reports, annual audited summaries, and custodian attestations, ensuring investors can independently verify both operational and financial performance at any time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is OMN treated for tax purposes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tax treatment depends on each investor's jurisdiction. OMN does not constitute a regulated security, and Omnes does not provide tax advice. Investors are responsible for assessing any potential income or capital-gains obligations related to mining rewards or asset appreciation under their local laws. Independent tax counsel should be consulted prior to investment."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will investors receive periodic statements or audited reports?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Investors will have access to periodic reporting that details mining performance, Bitcoin output, and operational metrics. Omnes also engages a Big Four independent auditor to review hashrate allocation, custody balances, and accounting procedures to maintain full institutional transparency."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What documentation is provided for accounting and compliance?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Investors receive subscription documentation, proof of token allocation, and detailed performance statements. Annual audit reports and custodian attestations are also provided to support internal accounting, administration, and compliance requirements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are returns distributed?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "All returns are distributed in Bitcoin to each investor's designated wallet at maturity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the legal structure of the Omnes Mining Note issuer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The OMN is issued by Omnes Securities Fund, a Luxembourg securitisation fund organised under the Luxembourg Securitisation Law of 22 March 2004, as amended. The fund operates a compartmentalised structure, meaning each offering is housed in its own ring-fenced, bankruptcy-remote compartment. Assets, liabilities and recourse are legally segregated between compartments, so creditors of one compartment have no claim against another. The fund is managed by Omnes Securities S.à r.l. as manager. This is the same legal framework used by major European structured product issuers and is recognised by institutional allocators familiar with Luxembourg-domiciled vehicles. Legal counsel for the structure is Arendt & Medernach S.A., and fund administration is handled by Apex Fund Services S.A. Investors receive a senior secured creditor position within the relevant compartment, with recourse to pledged assets through an appointed security agent."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is Bitcoin custodied for the Omnes Mining Note?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "All Bitcoin generated by the hashrate backing each OMN is custodied by Coinbase Luxembourg S.A., a regulated institutional-grade custodian operating under European supervisory standards. Coinbase Luxembourg is appointed solely in a custodian capacity and does not hold a beneficial interest in the assets. Mining proceeds are routed directly from the mining operations into segregated custody accounts attributable to the relevant OMN compartment. The custodian arrangement is structured so that custodied Bitcoin remains the property of the issuer compartment and benefits from bankruptcy-remoteness in the event of custodian insolvency, in line with applicable Luxembourg law. Custodian attestations are published periodically alongside audited financials, allowing investors to independently verify balances held against the hashrate backing their notes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who audits the Omnes Mining Note and what does the audit cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Omnes has appointed a Big Four independent auditor to provide annual audited financial statements for the issuer and each compartment. The audit covers hashrate allocation against subscribed notes, custodian-held Bitcoin balances, accounting procedures and expense recognition in line with the disclosed 3.75% all-in expense ratio. Audited summaries are made available to OMN noteholders annually as part of standard reporting, complementing quarterly performance reports on mining output, uptime and hashrate allocation. The audit is independent from Omnes, the custodian Coinbase Luxembourg, the security agent Apex Corporate Trustees, the fund administrator Apex Fund Services and the tokenisation partner Tokeny. This separation of providers is intended to give institutional investors the same control environment they expect from regulated structured product issuers in Luxembourg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the Omnes Mining Note carry a credit rating?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN Series 1 is not currently rated by a credit rating agency. The note is offered by way of private placement to professional investors under MiFID II and is not listed on a public exchange, which is the typical context in which rated structured notes are issued. Investors are expected to perform their own credit and counterparty analysis using the OMN private placement memorandum, audited financials, custodian attestations and the operational performance reporting Omnes publishes quarterly. The secured nature of the note, the Luxembourg compartmentalised issuer structure, the senior secured creditor status of noteholders, the appointment of an independent security agent and the pledge of both the hashrate and the Bitcoin generated provide the structural credit features institutional allocators typically evaluate in unrated private placements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there secondary market liquidity for the Omnes Mining Note?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN is a 36-month private placement note and is not listed on a regulated exchange, so investors should expect to hold to maturity as the base case. After the initial offering and the expiration of a 40-day lock-up period, OMN may be transferred between eligible non-US, non-Canadian, non-UK retail and non-EEA retail professional investors on the Omnes platform through peer-to-peer transactions or through approved secondary venues that meet the required compliance standards. Any transfer is subject to investor eligibility verification, jurisdictional restrictions and applicable transfer restrictions in the offering documentation. Because the note is tokenised onchain on Base via Tokeny S.A., compliant transfers are technically enforced at the token level. Available liquidity will reflect bilateral demand among eligible professional investors rather than continuous exchange trading."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can the Omnes Mining Note be redeemed before maturity?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN is a fixed 36-month secured zero coupon debt note with full and final repayment at maturity in the form of the Bitcoin generated and accrued to the note, net of predefined offering fees and expenses. The instrument is not open-ended and does not offer scheduled investor-level redemptions before the maturity date. Investors seeking liquidity prior to maturity must rely on the secondary transfer mechanics described in the offering documentation, which permit transfers between eligible professional investors after the 40-day lock-up. Any early redemption or wind-down rights at the issuer level are governed exclusively by the private placement memorandum and the relevant compartment documentation. Investors should size their OMN allocation against the assumption that capital remains committed for the full 36-month tenor."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How should institutional investors think about tax treatment of the Omnes Mining Note?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tax treatment depends on each investor's jurisdiction, entity type and accounting framework. Omnes does not provide tax advice. OMN is structured as a secured zero coupon debt note issued by a Luxembourg securitisation fund, with full and final repayment at maturity paid in Bitcoin, net of predefined fees and expenses. Investors should consult independent tax counsel on the characterisation of the note, the timing and character of any income or gain arising at maturity, the treatment of Bitcoin received as repayment, withholding considerations under their local rules, and any reporting obligations that apply to digital assets received through a regulated custodian. The private placement memorandum, subscription agreement and Luxembourg tax disclosures included in the offering documentation provide the starting point for that analysis."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What KYC and AML checks does Omnes perform on investors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "All OMN investors must complete onboarding through the Omnes platform before accessing offering documentation or subscribing. Onboarding includes identity verification, beneficial ownership verification for legal entities, sanctions and politically exposed person screening, and verification of professional investor status under MiFID II Annex II or the equivalent definition in the investor's country of residence. Eligibility checks confirm the investor is not located in, resident in or organised under the laws of the United States, Canada, the United Kingdom retail segment, the EEA retail segment or other restricted jurisdictions. KYC and AML procedures are performed in line with applicable Luxembourg requirements and CSSF expectations for securitisation vehicles. Ongoing monitoring is applied for the duration of the investment, and compliance with these requirements is enforced at the token level for any secondary transfer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the role of the security agent for the Omnes Mining Note?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Apex Corporate Trustees (UK) Limited has been appointed as security agent for OMN noteholders. The security agent holds, administers and enforces the pledges granted in favour of noteholders on behalf of the noteholder class. Two principal asset categories are pledged into the compartment for the benefit of the security agent: the Bitcoin generated and accruing to each OMN, and the hashrate backing each OMN. In the event of a default, the security agent is empowered to enforce against the pledged assets on a senior secured basis. The use of a third-party security agent separates enforcement authority from the issuer and the manager, providing institutional investors with a recognisable structural protection consistent with secured note offerings in Luxembourg, and ensuring noteholders are represented by an independent professional trustee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are fees disclosed and what is included in the 3.75% all-in expense ratio?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN is offered with a transparent 3.75% all-in annual expense ratio and a 0% performance fee. The all-in expense ratio is designed to capture management costs, fund administration, custody, audit, security agent fees, tokenisation costs and other recurring offering expenses, so investors evaluate a single headline number rather than a stack of separate charges. There are no performance fees and no upside caps applied to the Bitcoin generated by the hashrate backing each note. At maturity, investors receive the total Bitcoin mined and accrued to the note, net of the disclosed offering fees and expenses. Final fee detail, expense allocation methodology, expense caps and any one-off costs are set out in the OMN private placement memorandum and supporting offering documentation, and are tested against the audited financial statements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the Omnes Mining Note compare to a spot Bitcoin ETF or a mining equity?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A spot Bitcoin ETF gives investors exposure to the Bitcoin price alone, with no contribution from mining economics. A listed Bitcoin mining equity gives exposure to Bitcoin price plus corporate operating performance, balance sheet risk, equity issuance and management decisions. OMN is structured differently. It is a secured zero coupon debt note backed by 1 PH/s of contracted hashrate per note over a fixed 36-month term, with Bitcoin block rewards and network fees accruing directly into a ring-fenced Luxembourg compartment and paid to investors at maturity. Investors capture mining yield plus any Bitcoin price appreciation on the mined coins, without operating a mine, without corporate equity risk and without exchange-traded mark-to-market dynamics. The trade-off is reduced liquidity relative to listed ETFs and equities, in exchange for a defined institutional debt structure."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the Omnes Mining Note available to investors outside the European Union?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "OMN is offered by way of private placement to professional investors as defined under Annex II of MiFID II or the equivalent definition in the investor's country of residence. Eligibility requires that the investor is not located in, resident in or organised under the laws of the United States or Canada, is not a UK retail investor, is not an EEA retail investor and is not otherwise restricted from investing under applicable law. Within those parameters, OMN can be made available to qualifying professional investors in additional jurisdictions, subject to local private placement rules, marketing restrictions and reverse solicitation requirements. Family offices, asset managers, hedge funds, RIAs, pension funds and corporate treasurers in eligible jurisdictions can confirm availability for their specific entity through the Omnes investor relations team and the private placement memorandum."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Omnes verify professional investor status?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Eligibility as a professional investor is confirmed during onboarding on the Omnes platform. For natural persons, this requires evidence that the individual meets the criteria under MiFID II Annex II or the equivalent definition in their country of residence, including sufficient sophistication to invest in the securities. For legal persons, this requires confirmation of regulated status, balance sheet thresholds or other professional investor criteria under applicable rules. All investors must commit a minimum of USD 100,000, in line with the documented minimum investment threshold. Eligibility checks are repeated at any transfer event during the lock-up and beyond, including secondary transfers between eligible holders. Documentary evidence supporting professional investor classification is retained as part of the compliance file for the duration of the investment."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is the Omnes Mining Note exposed to Bitcoin price and hashrate economics?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Each OMN is backed by 1 PH/s of contracted Bitcoin hashrate deployed for a fixed 36-month term. Over that period, Bitcoin generated through block rewards and network fees accrues to the relevant compartment and is custodied in Bitcoin form until maturity. As a result, investors carry two related economic exposures. The first is mining output, which depends on global network hashrate, Bitcoin block subsidy schedule, transaction fees and uptime of the contracted facilities. The second is the Bitcoin price applied to the mined coins at maturity, because repayment is made in Bitcoin rather than fiat. There are no caps and no performance fees on the mined Bitcoin. Investors who want fiat-denominated outcomes can hedge their Bitcoin exposure independently after receipt at maturity, subject to their own mandate."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What ESG and energy considerations should institutional investors evaluate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hashrate for OMN is aggregated by Omnes from institutional-grade Bitcoin mining facilities. Institutional allocators with environmental, social and governance mandates should evaluate the energy mix, location and operating practices of the mining facilities supplying the hashrate, alongside the broader debate on Bitcoin network energy use and grid impact. Omnes provides operational reporting on hashrate allocation, uptime and Bitcoin output, which can be combined with facility-level disclosures requested through the investor relations team to support ESG diligence. Because OMN is a contractual exposure to hashrate rather than direct ownership of mining hardware or facilities, investors do not consolidate scope 1 emissions from the operations onto their own balance sheet, but they should consider how their internal ESG framework treats indirect exposure to proof-of-work mining when sizing an allocation."
-      }
-    }
+    {"@type": "Question", "name": "Who is Omnes?", "acceptedAnswer": {"@type": "Answer", "text": "Omnes is a compute infrastructure investment platform building the financial layer for a new class of institutional products. We identify yield generating compute assets and structure them into institutional grade financial instruments with full transparency, robust legal architecture, and seamless onchain interoperability. The firm's first product, the Omnes Mining Note (OMN), provides structured exposure to Bitcoin hashrate economics through a tokenized, Luxembourg-issued instrument."}},
+    {"@type": "Question", "name": "Where is Omnes headquartered?", "acceptedAnswer": {"@type": "Answer", "text": "Omnes is headquartered in the Emirate of Abu Dhabi, United Arab Emirates, with operations structured through its affiliated entities in the City of Luxembourg, Luxembourg and the Canton of Zug, Switzerland."}},
+    {"@type": "Question", "name": "What is hashrate and why is it important to Bitcoin?", "acceptedAnswer": {"@type": "Answer", "text": "Hashrate is the computational power securing the Bitcoin network. It measures how many calculations are performed each second to validate transactions and produce new blocks for the Bitcoin blockchain. A higher hashrate increases network security, stability, and resilience, making it a key indicator of Bitcoin's overall strength and integrity."}},
+    {"@type": "Question", "name": "What is the Omnes Mining Note (OMN)?", "acceptedAnswer": {"@type": "Answer", "text": "OMN is a secured, limited recourse debt note whose returns come from Bitcoin mining. Each note carries a notional hashrate allocation of one petahash per second (1 PH/s) over a 730-day term. The hashrate is supplied under a hashrate purchase agreement by the Hashrate Aggregator, Omnes Technology AG, an Omnes affiliate, which may pay Bitcoin in place of any hashrate it does not deliver, calculated using the Omnes Hashprice Index. Investors gain exposure to Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure."}},
+    {"@type": "Question", "name": "How does OMN generate returns?", "acceptedAnswer": {"@type": "Answer", "text": "Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term. During this period, the Bitcoin mined with that hashrate, together with any Bitcoin paid in place of undelivered hashrate, is held in custody for the issuer's compartment. At maturity, noteholders receive their pro rata share of that Bitcoin, after Costs and any tax liabilities, which rank ahead of noteholders. Costs are 3.75% of invested capital, as set in the Offering Addendum, and there is no performance fee. Returns are not guaranteed, and investors can lose some or all of their investment."}},
+    {"@type": "Question", "name": "How is OMN issued?", "acceptedAnswer": {"@type": "Answer", "text": "The OMN offering will be carried out by way of a private placement offering through a bankruptcy remote Luxembourg securitisation fund as the issuer, structured under the Luxembourg Securitisation Law of 22 March 2004, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform."}},
+    {"@type": "Question", "name": "What type of security is OMN?", "acceptedAnswer": {"@type": "Answer", "text": "The OMN is a secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at the end of its 730-day term by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities."}},
+    {"@type": "Question", "name": "How is the OMN different from buying Bitcoin mining stocks directly?", "acceptedAnswer": {"@type": "Answer", "text": "OMN gives exposure to Bitcoin mining output rather than to a mining company. A mining stock also carries the company's operating performance, balance sheet, equity issuance and management decisions. OMN returns come solely from the Bitcoin mined with the notes' hashrate, or paid in its place, and are paid in Bitcoin at maturity, so their value still moves with the Bitcoin price and with network mining economics."}},
+    {"@type": "Question", "name": "Is it a secured offering and how is investor capital safeguarded?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments. The notes are secured in favour of a third-party security agent, Apex Corporate Trustees (UK) Limited, acting for the noteholders, by a pledge over the issuer's Bitcoin custody accounts and a pledge over its claims under the hashrate purchase agreement and the custody agreement. Only the security agent can enforce that security, and noteholders cannot direct it to unless the management company approves. Recourse is limited to the assets of the relevant compartment, and costs and tax liabilities rank ahead of noteholders. Bitcoin for the notes is held by the custodian, Coinbase Luxembourg S.A., and the issuer's audited financial statements are provided to noteholders once available."}},
+    {"@type": "Question", "name": "Who can invest in OMN?", "acceptedAnswer": {"@type": "Answer", "text": "The OMN is for natural or legal persons who are professional investors. Professional investors are natural or legal persons who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount in the OMN of at least USD 100,000. Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by the laws and regulations applicable to them to invest in the OMN. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation."}},
+    {"@type": "Question", "name": "What is the minimum investment amount?", "acceptedAnswer": {"@type": "Answer", "text": "USD 100,000."}},
+    {"@type": "Question", "name": "How do I access offering documents and subscribe?", "acceptedAnswer": {"@type": "Answer", "text": "To access offering documents and subscribe, investors must first create an account on the Omnes platform. Once verified, they can download all offering materials, including the Private Placement Memorandum and Subscription Agreement. After reviewing the documentation, investors can complete their subscription and purchase OMN tokens directly through the platform's secure interface."}},
+    {"@type": "Question", "name": "How often are performance reports issued?", "acceptedAnswer": {"@type": "Answer", "text": "The issuer makes reports available to noteholders quarterly. Each report sets out the Bitcoin arising from mining with the hashrate supplied and the Bitcoin received in place of undelivered hashrate. The issuer's audited financial statements are provided as soon as they are available."}},
+    {"@type": "Question", "name": "Can OMN be transferred or traded after purchase?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. After the initial offering and the expiration of the 40 day lock-up period, OMN may be transferred between eligible non-U.S. investors on the Omnes platform through peer to peer transactions or through approved secondary venues that meet the required compliance standards."}},
+    {"@type": "Question", "name": "How is transparency maintained for investors?", "acceptedAnswer": {"@type": "Answer", "text": "Noteholders receive quarterly reports from the issuer covering the Bitcoin mined with the hashrate supplied and any Bitcoin received in its place, and the issuer's audited financial statements once available. Reports and notices are posted to the Investor App, the investor dashboard on the tokenisation platform, or sent by email. The Noteholder Register kept by the issuer is the definitive record of ownership."}},
+    {"@type": "Question", "name": "How is OMN treated for tax purposes?", "acceptedAnswer": {"@type": "Answer", "text": "Tax treatment depends on each investor's jurisdiction. Omnes does not provide tax advice. Investors are responsible for assessing any potential income or capital-gains obligations related to mining rewards or asset appreciation under their local laws. Independent tax counsel should be consulted prior to investment."}},
+    {"@type": "Question", "name": "Will investors receive periodic statements or audited reports?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The issuer makes reports available to noteholders quarterly, setting out the Bitcoin arising from mining and any Bitcoin received in place of undelivered hashrate, and provides its audited financial statements as soon as they are available."}},
+    {"@type": "Question", "name": "What documentation is provided for accounting and compliance?", "acceptedAnswer": {"@type": "Answer", "text": "Investors receive their subscription documentation and confirmation of their entry in the Noteholder Register, which is the definitive record of ownership. Quarterly reports and, once available, the issuer's audited financial statements support internal accounting, administration and compliance requirements."}},
+    {"@type": "Question", "name": "How are returns distributed?", "acceptedAnswer": {"@type": "Answer", "text": "All returns are distributed in Bitcoin to each investor's designated wallet at maturity."}},
+    {"@type": "Question", "name": "What is the legal structure of the Omnes Mining Note issuer?", "acceptedAnswer": {"@type": "Answer", "text": "The OMN is issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund, not supervised by the CSSF, organised under the Luxembourg Securitisation Law of 22 March 2004, as amended. The fund operates a compartmentalised structure, meaning each offering is housed in its own ring-fenced, bankruptcy-remote compartment. Assets, liabilities and recourse are legally segregated between compartments, so creditors of one compartment have no claim against another. The fund is managed by Omnes Securities S.à r.l. as its management company. This is the same legal framework used by major European structured product issuers and is recognised by institutional allocators familiar with Luxembourg-domiciled vehicles. Legal counsel for the structure is Arendt & Medernach S.A., and Apex Fund Services S.A. is the corporate service provider. Noteholders are secured creditors of the relevant compartment, with recourse limited to its assets, and the security is enforced on their behalf by the security agent."}},
+    {"@type": "Question", "name": "How is Bitcoin custodied for the Omnes Mining Note?", "acceptedAnswer": {"@type": "Answer", "text": "Bitcoin arising from the notes' hashrate, and any Bitcoin paid in its place, is custodied by Coinbase Luxembourg S.A., a regulated custodian, in a dedicated Bitcoin mining custody account. Coinbase Luxembourg is appointed solely in a custodian capacity and does not hold a beneficial interest in the assets. Mining proceeds are routed directly from the mining operations into segregated custody accounts attributable to the relevant OMN compartment. The Bitcoin is held on behalf of the issuer and pledged to the security agent. If the custodian became insolvent, recovery of the Bitcoin could be delayed, partial or unavailable, as the risk factors in the private placement memorandum explain. The Bitcoin held is reported to noteholders in the issuer's quarterly reports and audited financial statements."}},
+    {"@type": "Question", "name": "Who audits the Omnes Mining Note and what does the audit cover?", "acceptedAnswer": {"@type": "Answer", "text": "The issuer's financial statements will be audited by an independent auditor; the appointment is to be confirmed in the offering documentation. The issuer has no operating history, so no audited statements exist yet. They are provided to noteholders as soon as they are available, alongside the quarterly reports. The other service providers are the custodian Coinbase Luxembourg S.A., the security agent Apex Corporate Trustees (UK) Limited, the corporate service provider Apex Fund Services S.A. and the tokenisation platform Tokeny S.à r.l. The Hashrate Aggregator, Omnes Technology AG, is an Omnes affiliate."}},
+    {"@type": "Question", "name": "Does the Omnes Mining Note carry a credit rating?", "acceptedAnswer": {"@type": "Answer", "text": "OMN Series 1 is not currently rated by a credit rating agency. The note is offered by way of private placement to professional investors under MiFID II and is not listed on a public exchange, which is the typical context in which rated structured notes are issued. Investors are expected to perform their own credit and counterparty analysis on the basis of the OMN private placement memorandum and offering documentation. The structural features to evaluate include the secured and limited recourse nature of the notes, the compartmentalised issuer, the security agent's sole right of enforcement, the ranking of costs and tax liabilities ahead of noteholders, and the notes' dependence on the Hashrate Aggregator, an Omnes affiliate, delivering hashrate or Bitcoin in its place."}},
+    {"@type": "Question", "name": "Is there secondary market liquidity for the Omnes Mining Note?", "acceptedAnswer": {"@type": "Answer", "text": "OMN is a 730-day private placement note and is not listed on a regulated exchange, so investors should expect to hold to maturity as the base case. After the initial offering and the expiration of a 40-day lock-up period, OMN may be transferred between eligible non-US, non-Canadian, non-UK retail and non-EEA retail professional investors on the Omnes platform through peer-to-peer transactions or through approved secondary venues that meet the required compliance standards. Any transfer is subject to investor eligibility verification, jurisdictional restrictions and applicable transfer restrictions in the offering documentation. Because the note is tokenised onchain on Base via Tokeny S.à r.l., compliant transfers are technically enforced at the token level. Available liquidity will reflect bilateral demand among eligible professional investors rather than continuous exchange trading."}},
+    {"@type": "Question", "name": "Can the Omnes Mining Note be redeemed before maturity?", "acceptedAnswer": {"@type": "Answer", "text": "OMN is a 730-day secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at maturity by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities. The management company may compulsorily redeem a noteholder's notes at any time at their current value as it determines, notes that are the subject of a rejected transfer may be redeemed at the lower of their issue price and market value, and all notes are redeemed if an event of default occurs. The instrument is not open-ended and does not offer scheduled investor-level redemptions before the maturity date. Investors seeking liquidity prior to maturity must rely on the secondary transfer mechanics described in the offering documentation, which permit transfers between eligible professional investors after the 40-day lock-up. Any early redemption or wind-down rights at the issuer level are governed exclusively by the private placement memorandum and the relevant compartment documentation. Investors should size their OMN allocation against the assumption that capital remains committed for the full 730-day term."}},
+    {"@type": "Question", "name": "How should institutional investors think about tax treatment of the Omnes Mining Note?", "acceptedAnswer": {"@type": "Answer", "text": "Tax treatment depends on each investor's jurisdiction, entity type and accounting framework. Omnes does not provide tax advice. OMN is structured as a secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at maturity by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities, issued by a Luxembourg securitisation fund. Investors should consult independent tax counsel on the characterisation of the note, the timing and character of any income or gain arising at maturity, the treatment of Bitcoin received as repayment, withholding considerations under their local rules, and any reporting obligations that apply to digital assets received through a regulated custodian. The private placement memorandum, subscription agreement and Luxembourg tax disclosures included in the offering documentation provide the starting point for that analysis."}},
+    {"@type": "Question", "name": "What KYC and AML checks does Omnes perform on investors?", "acceptedAnswer": {"@type": "Answer", "text": "All OMN investors must complete onboarding through the Omnes platform before accessing offering documentation or subscribing. Onboarding includes identity verification, beneficial ownership verification for legal entities, sanctions and politically exposed person screening, and verification of professional investor status under MiFID II Annex II or the equivalent definition in the investor's country of residence. Eligibility checks confirm the investor is not located in, resident in or organised under the laws of the United States, Canada, the United Kingdom retail segment, the EEA retail segment or other restricted jurisdictions. KYC and AML procedures are performed in line with applicable Luxembourg anti-money laundering and counter-terrorist financing requirements. Ongoing monitoring is applied for the duration of the investment, and compliance with these requirements is enforced at the token level for any secondary transfer."}},
+    {"@type": "Question", "name": "What is the role of the security agent for the Omnes Mining Note?", "acceptedAnswer": {"@type": "Answer", "text": "Apex Corporate Trustees (UK) Limited has been appointed as security agent for OMN noteholders. The security agent holds, administers and enforces the pledges granted in favour of noteholders on behalf of the noteholder class. The security consists of a pledge over the issuer's Bitcoin custody accounts and a pledge over its claims under the hashrate purchase agreement and the custody agreement. If an event of default occurs, only the security agent may enforce, and enforcement proceeds are applied in the order set by the priorities of payments, with costs and tax liabilities ahead of noteholders. The security agent alone decides whether and when to enforce. Noteholders cannot enforce the security themselves, or direct the security agent to enforce it, unless the management company approves that enforcement."}},
+    {"@type": "Question", "name": "How are fees disclosed and what do the 3.75% Costs cover?", "acceptedAnswer": {"@type": "Answer", "text": "Costs for Series 1 are 3.75% of the invested capital, as set out in the Offering Addendum, and are taken from the invested capital. They pay the fees, costs and expenses the issuer owes in connection with the notes, including mining pool fees, which the issuer reimburses into the Bitcoin custody account. Tax liabilities are not included and are paid separately from the proceeds. There is no performance fee. At maturity, noteholders receive their pro rata share of the Bitcoin held for the notes, after Costs and any tax liabilities, which rank ahead of noteholders under the priorities of payments. Full detail is in the OMN private placement memorandum and the Offering Addendum."}},
+    {"@type": "Question", "name": "How does the Omnes Mining Note compare to a spot Bitcoin ETF or a mining equity?", "acceptedAnswer": {"@type": "Answer", "text": "A spot Bitcoin ETF gives investors exposure to the Bitcoin price alone, with no contribution from mining economics. A listed Bitcoin mining equity gives exposure to Bitcoin price plus corporate operating performance, balance sheet risk, equity issuance and management decisions. OMN is structured differently. It is a secured, limited recourse, non-interest bearing debt note with a notional 1 PH/s of hashrate per note over a 730-day term. The Bitcoin mined with the notes' hashrate, or paid in its place, is held in custody for the relevant Luxembourg compartment and distributed to noteholders at maturity. Investors are exposed to mining output and to the Bitcoin price, without operating a mine and without corporate equity risk. The trade-off is limited liquidity, with holding to maturity as the base case, and dependence on the Hashrate Aggregator, an Omnes affiliate."}},
+    {"@type": "Question", "name": "Is the Omnes Mining Note available to investors outside the European Union?", "acceptedAnswer": {"@type": "Answer", "text": "OMN is offered by way of private placement to professional investors as defined under Annex II of MiFID II or the equivalent definition in the investor's country of residence. Eligibility requires that the investor is not located in, resident in or organised under the laws of the United States or Canada, is not a UK retail investor, is not an EEA retail investor and is not otherwise restricted from investing under applicable law. Within those parameters, OMN can be made available to qualifying professional investors in additional jurisdictions, subject to local private placement rules, marketing restrictions and reverse solicitation requirements. Family offices, asset managers, hedge funds, RIAs, pension funds and corporate treasurers in eligible jurisdictions can confirm availability for their specific entity through the Omnes investor relations team and the private placement memorandum."}},
+    {"@type": "Question", "name": "How does Omnes verify professional investor status?", "acceptedAnswer": {"@type": "Answer", "text": "Eligibility as a professional investor is confirmed during onboarding on the Omnes platform. For natural persons, this requires evidence that the individual meets the criteria under MiFID II Annex II or the equivalent definition in their country of residence, including sufficient sophistication to invest in the securities. For legal persons, this requires confirmation of regulated status, balance sheet thresholds or other professional investor criteria under applicable rules. All investors must commit a minimum of USD 100,000, in line with the documented minimum investment threshold. Eligibility checks are repeated at any transfer event during the lock-up and beyond, including secondary transfers between eligible holders. Documentary evidence supporting professional investor classification is retained as part of the compliance file for the duration of the investment."}},
+    {"@type": "Question", "name": "How is the Omnes Mining Note exposed to Bitcoin price and hashrate economics?", "acceptedAnswer": {"@type": "Answer", "text": "Each OMN carries a notional 1 PH/s of contracted Bitcoin hashrate over a 730-day term. Over that period, the Bitcoin mined with it, or paid in place of any hashrate not delivered, accrues to the relevant compartment and is custodied in Bitcoin form until maturity. As a result, investors carry two related economic exposures. The first is mining output, which depends on global network hashrate, Bitcoin block subsidy schedule, transaction fees and delivery of the contracted hashrate. The second is the Bitcoin price applied to the mined coins at maturity, because repayment is made in Bitcoin rather than fiat. There is no performance fee. Investors who want fiat-denominated outcomes can hedge their Bitcoin exposure independently after receipt at maturity, subject to their own mandate."}},
+    {"@type": "Question", "name": "What ESG and energy considerations should institutional investors evaluate?", "acceptedAnswer": {"@type": "Answer", "text": "Hashrate for OMN is supplied by the Hashrate Aggregator, Omnes Technology AG, an Omnes affiliate, which has discretion over the miners and pools it sources hashrate from. Institutional allocators with environmental, social and governance mandates should evaluate the energy mix, location and operating practices of the mining facilities supplying the hashrate, alongside the broader debate on Bitcoin network energy use and grid impact. The issuer's quarterly reports cover Bitcoin output, and available information on hashrate sources can be requested through the investor relations team to support ESG diligence. Because OMN is a contractual exposure to hashrate rather than direct ownership of mining hardware or facilities, investors do not consolidate scope 1 emissions from the operations onto their own balance sheet, but they should consider how their internal ESG framework treats indirect exposure to proof-of-work mining when sizing an allocation."}}
   ]
 }
 </script>
@@ -371,416 +141,503 @@
   ]
 }
 </script>
-<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="top">
-  <div class="nav-inner">
-    <a href="/" class="brand" aria-label="Omnes">
-      <img src="/omnes-logo-black.svg" alt="Omnes" />
-    </a>
-
-    <div class="nav-mid">
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Invest
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/omn/"><span class="nav-dd-item-title">Omnes Mining Note</span><span class="nav-dd-item-sub">OMN Series 1</span></a>
-          <a class="nav-dd-item" href="/login/"><span class="nav-dd-item-title">Investor Portal</span><span class="nav-dd-item-sub">Log in to your account</span></a>
-          <a class="nav-dd-item" href="/signup/"><span class="nav-dd-item-title">Sign Up</span><span class="nav-dd-item-sub">Create an investor account</span></a>
-          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener"><span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span><span class="nav-dd-item-sub">Technical docs and gitbook</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          About
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
-          <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
-          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
-          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
-          <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Contact
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/contact/"><span class="nav-dd-item-title">Contact IR</span><span class="nav-dd-item-sub">Speak to the investor relations team</span></a>
-          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow us on LinkedIn</span></a>
-          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow @omnesfinance</span></a>
-        </div>
-      </div>
-    </div>    <div class="nav-right">
-      <a href="/login/" class="nav-login">Log in</a>
-      <a href="/signup/" class="nav-signup">Sign up</a>
-      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/">Mining Note</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/" aria-current="page">FAQs</a>
+      <a class="opt" href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/">Sign up</a>
     </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/" aria-current="page">FAQs</a>
+  <a href="/contact/">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/">Sign up</a>
   </div>
 </nav>
+<!-- /SHELL: nav -->
 
-<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-nav-inner">
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Invest</div>
-      <a href="/omn/">Omnes Mining Note</a>
-      <a href="/login/">Investor Portal</a>
-      <a href="/signup/">Sign Up</a>
-      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">About</div>
-      <a href="/about/">About Omnes</a>
-      <a href="/faqs/">FAQs</a>
-      <a href="/resources/">Resources</a>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
-      <a href="/media-kit/">Media Kit</a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Contact</div>
-      <a href="/contact/">Contact IR</a>
-      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
-      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-cta">
-      <a href="/login/" class="btn btn-ghost">Log in</a>
-      <a href="/signup/" class="btn btn-terra">Sign up</a>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-
-
-<!-- ─── PAGE HERO ─── -->
-<section class="pg-hero">
-  <div class="pg-hero-inner">
-    <h1>Frequently asked questions.</h1>
-    <p class="sub">Answers to common questions about Omnes, the Omnes Mining Note (OMN), investor onboarding, and tax &amp; reporting.</p>
-  </div>
-</section>
-
-<!-- ─── FAQ (sidebar TOC layout) ─── -->
-<section class="legal">
-  <div class="legal-layout">
-    <aside class="legal-toc">
-      <div class="legal-toc-h">Contents</div>
-      <ol>
-        <li><a href="#cat-01"><span class="num">01</span><span>General</span></a></li>
-        <li><a href="#cat-02"><span class="num">02</span><span>About the Omnes Mining Note</span></a></li>
-        <li><a href="#cat-03"><span class="num">03</span><span>Investors</span></a></li>
-        <li><a href="#cat-04"><span class="num">04</span><span>Investment</span></a></li>
-        <li><a href="#cat-05"><span class="num">05</span><span>Tax &amp; Reporting</span></a></li>
-        <li><a href="#cat-06"><span class="num">06</span><span>Institutional Diligence</span></a></li>
-      </ol>
-    </aside>
-    <div class="legal-content">
-      <h2 id="cat-01"><span class="num">01</span>General</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">Who is Omnes?<span class="ico"></span></button>
-        <div class="acc-a"><p>Omnes is a compute infrastructure investment platform building the financial layer for a new class of institutional products. We identify yield generating compute assets and structure them into institutional grade financial instruments with full transparency, robust legal architecture, and seamless onchain interoperability. The firm's first product, <a href="/omn/">the Omnes Mining Note (OMN)</a>, provides structured exposure to Bitcoin hashrate economics through a tokenized, Luxembourg-issued instrument.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Where is Omnes headquartered?<span class="ico"></span></button>
-        <div class="acc-a"><p>Omnes is headquartered in the Emirate of Abu Dhabi, United Arab Emirates, with operations structured through its affiliated entities in the City of Luxembourg, Luxembourg and the Canton of Zug, Switzerland.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What is hashrate and why is it important to Bitcoin?<span class="ico"></span></button>
-        <div class="acc-a"><p>Hashrate is the computational power securing the Bitcoin network. It measures how many calculations are performed each second to validate transactions and produce new blocks for the Bitcoin blockchain. A higher hashrate increases network security, stability, and resilience, making it a key indicator of Bitcoin's overall strength and integrity.</p></div>
-      </div>
-      </div>
-
-      <h2 id="cat-02"><span class="num">02</span>About the Omnes Mining Note</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">What is the Omnes Mining Note (OMN)?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN is an institutional-grade security that provides direct exposure to yield via the Bitcoin network's computational infrastructure (hashrate). Each OMN is backed by and represents one petahash per second (1 PH/s) of hashrate over a fixed 36-month term. Hashrate for the OMN is aggregated by Omnes from institutional-grade Bitcoin mining facilities, allowing investors to participate in institutional-grade Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How does OMN generate returns?<span class="ico"></span></button>
-        <div class="acc-a"><p>Each <a href="/omn/">OMN</a> is backed by one petahash per second (1 PH/s) of Bitcoin hashrate deployed for a fixed 36-month term. During this period, Bitcoin generated through block rewards and network fees accrues to each OMN. At maturity, investors receive the total Bitcoin mined and accrued to the note, net of predefined offering fees and expenses. OMN holders benefit directly from Bitcoin mining rewards and price appreciation, with no caps or performance fees.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is OMN issued?<span class="ico"></span></button>
-        <div class="acc-a"><p>The OMN offering will be carried out by way of a private placement offering through a bankruptcy remote Luxembourg securitisation fund as the issuer, structured under the <a href="/omn/#panel-details">Luxembourg Securitisation Law of 22 March 2004</a>, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What type of security is OMN?<span class="ico"></span></button>
-        <div class="acc-a"><p>The OMN is a secured zero coupon debt note security, with full and final repayment at the 36-month maturity date of the OMN, in the form of Bitcoin generated and accrued to the OMN, less predefined OMN offering fees and expenses.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is the OMN different from buying Bitcoin mining stocks directly?<span class="ico"></span></button>
-        <div class="acc-a"><p>The OMN offers exposure to yield via Bitcoin mining economics with a focus on better risk adjusted returns. Unlike Bitcoin or Bitcoin mining stocks, the OMN converts hashrate into a yield-producing asset that captures both Bitcoin mining rewards and Bitcoin's upside while reducing volatility tied to market sentiment or corporate performance.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Is it a secured offering and how is investor capital safeguarded?<span class="ico"></span></button>
-        <div class="acc-a"><p>Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments.</p><p>To secure the OMN offering, Omnes is (i) appointing a third party security agent, and (ii) pledging in favour of the noteholders (a) the Bitcoin generated and accruing to each OMN, and (b) the hashrate that will back each OMN. OMN noteholders will have a senior secured creditor status with recourse to the pledged assets through the appointed security agent.</p><p>To safeguard investor capital, Omnes has appointed (i) an institutional-grade custodian to custody all Bitcoin generated by the hashrate backing each OMN, and (ii) a top-tier auditor for audited financials.</p></div>
-      </div>
-      </div>
-
-      <h2 id="cat-03"><span class="num">03</span>Investors</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">Who can invest in OMN?<span class="ico"></span></button>
-        <div class="acc-a"><p>The OMN is for natural or legal persons who are professional investors. Professional investors are natural or legal persons who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount in the OMN of at least USD 100,000.</p><p>Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by the laws and regulations applicable to them to invest in the OMN. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What is the minimum investment amount?<span class="ico"></span></button>
-        <div class="acc-a"><p>USD 100,000.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How do I access offering documents and subscribe?<span class="ico"></span></button>
-        <div class="acc-a"><p>To access offering documents and <a href="/omn/#panel-subscription">subscribe</a>, investors must first <a href="/signup/">create an account on the Omnes platform</a>. Once verified, they can download all offering materials, including the Private Placement Memorandum and Subscription Agreement. After reviewing the documentation, investors can complete their subscription and purchase OMN tokens directly through the platform's secure interface.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How often are performance reports issued?<span class="ico"></span></button>
-        <div class="acc-a"><p>Performance reports are issued quarterly, providing detailed insights into mining output, hashrate allocation, and operational performance. Audited summaries and custodian attestations are published annually to maintain full transparency for investors.</p></div>
-      </div>
-      </div>
-
-      <h2 id="cat-04"><span class="num">04</span>Investment</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">Can OMN be transferred or traded after purchase?<span class="ico"></span></button>
-        <div class="acc-a"><p>Yes. After the initial offering and the expiration of the 40 day lock-up period, OMN may be transferred between eligible non-U.S. investors on the Omnes platform through peer to peer transactions or through approved secondary venues that meet the required compliance standards.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is transparency maintained for investors?<span class="ico"></span></button>
-        <div class="acc-a"><p>Transparency is maintained through continuous onchain visibility and independent verification. Each investor receives access to a dedicated OMN dashboard that provides real-time access to OMN performance metrics, including total hashrate, uptime, and Bitcoin mined daily. In addition, Omnes issues weekly performance reports, annual audited summaries, and custodian attestations, ensuring investors can independently verify both operational and financial performance at any time.</p></div>
-      </div>
-      </div>
-
-      <h2 id="cat-05"><span class="num">05</span>Tax &amp; Reporting</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is OMN treated for tax purposes?<span class="ico"></span></button>
-        <div class="acc-a"><p>Tax treatment depends on each investor's jurisdiction. OMN does not constitute a regulated security, and Omnes does not provide tax advice. Investors are responsible for assessing any potential income or capital-gains obligations related to mining rewards or asset appreciation under their local laws. Independent tax counsel should be consulted prior to investment.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Will investors receive periodic statements or audited reports?<span class="ico"></span></button>
-        <div class="acc-a"><p>Yes. Investors will have access to periodic reporting that details mining performance, Bitcoin output, and operational metrics. Omnes also engages a Big Four independent auditor to review hashrate allocation, custody balances, and accounting procedures to maintain full institutional transparency.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What documentation is provided for accounting and compliance?<span class="ico"></span></button>
-        <div class="acc-a"><p>Investors receive subscription documentation, proof of token allocation, and detailed performance statements. Annual audit reports and custodian attestations are also provided to support internal accounting, administration, and compliance requirements.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How are returns distributed?<span class="ico"></span></button>
-        <div class="acc-a"><p>All returns are distributed in Bitcoin to each investor's designated wallet at maturity.</p></div>
-      </div>
-      </div>
-
-      <h2 id="cat-06"><span class="num">06</span>Institutional Diligence</h2>
-      <div class="cb-faq">
-      <div class="acc-item">
-        <button class="acc-q" type="button">What is the legal structure of the Omnes Mining Note issuer?<span class="ico"></span></button>
-        <div class="acc-a"><p>The OMN is issued by Omnes Securities Fund, a Luxembourg securitisation fund organised under the Luxembourg Securitisation Law of 22 March 2004, as amended. The fund operates a compartmentalised structure, meaning each offering is housed in its own ring-fenced, bankruptcy-remote compartment. Assets, liabilities and recourse are legally segregated between compartments, so creditors of one compartment have no claim against another. The fund is managed by Omnes Securities S.à r.l. as manager. This is the same legal framework used by major European structured product issuers and is recognised by institutional allocators familiar with Luxembourg-domiciled vehicles. Legal counsel for the structure is Arendt &amp; Medernach S.A., and fund administration is handled by Apex Fund Services S.A. Investors receive a senior secured creditor position within the relevant compartment, with recourse to pledged assets through an appointed security agent.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is Bitcoin custodied for the Omnes Mining Note?<span class="ico"></span></button>
-        <div class="acc-a"><p>All Bitcoin generated by the hashrate backing each OMN is custodied by Coinbase Luxembourg S.A., a regulated institutional-grade custodian operating under European supervisory standards. Coinbase Luxembourg is appointed solely in a custodian capacity and does not hold a beneficial interest in the assets. Mining proceeds are routed directly from the mining operations into segregated custody accounts attributable to the relevant OMN compartment. The custodian arrangement is structured so that custodied Bitcoin remains the property of the issuer compartment and benefits from bankruptcy-remoteness in the event of custodian insolvency, in line with applicable Luxembourg law. Custodian attestations are published periodically alongside audited financials, allowing investors to independently verify balances held against the hashrate backing their notes.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Who audits the Omnes Mining Note and what does the audit cover?<span class="ico"></span></button>
-        <div class="acc-a"><p>Omnes has appointed a Big Four independent auditor to provide annual audited financial statements for the issuer and each compartment. The audit covers hashrate allocation against subscribed notes, custodian-held Bitcoin balances, accounting procedures and expense recognition in line with the disclosed 3.75% all-in expense ratio. Audited summaries are made available to OMN noteholders annually as part of standard reporting, complementing quarterly performance reports on mining output, uptime and hashrate allocation. The audit is independent from Omnes, the custodian Coinbase Luxembourg, the security agent Apex Corporate Trustees, the fund administrator Apex Fund Services and the tokenisation partner Tokeny. This separation of providers is intended to give institutional investors the same control environment they expect from regulated structured product issuers in Luxembourg.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Does the Omnes Mining Note carry a credit rating?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN Series 1 is not currently rated by a credit rating agency. The note is offered by way of private placement to professional investors under MiFID II and is not listed on a public exchange, which is the typical context in which rated structured notes are issued. Investors are expected to perform their own credit and counterparty analysis using the OMN private placement memorandum, audited financials, custodian attestations and the operational performance reporting Omnes publishes quarterly. The secured nature of the note, the Luxembourg compartmentalised issuer structure, the senior secured creditor status of noteholders, the appointment of an independent security agent and the pledge of both the hashrate and the Bitcoin generated provide the structural credit features institutional allocators typically evaluate in unrated private placements.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Is there secondary market liquidity for the Omnes Mining Note?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN is a 36-month private placement note and is not listed on a regulated exchange, so investors should expect to hold to maturity as the base case. After the initial offering and the expiration of a 40-day lock-up period, OMN may be transferred between eligible non-US, non-Canadian, non-UK retail and non-EEA retail professional investors on the Omnes platform through peer-to-peer transactions or through approved secondary venues that meet the required compliance standards. Any transfer is subject to investor eligibility verification, jurisdictional restrictions and applicable transfer restrictions in the offering documentation. Because the note is tokenised onchain on Base via Tokeny S.A., compliant transfers are technically enforced at the token level. Available liquidity will reflect bilateral demand among eligible professional investors rather than continuous exchange trading.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Can the Omnes Mining Note be redeemed before maturity?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN is a fixed 36-month secured zero coupon debt note with full and final repayment at maturity in the form of the Bitcoin generated and accrued to the note, net of predefined offering fees and expenses. The instrument is not open-ended and does not offer scheduled investor-level redemptions before the maturity date. Investors seeking liquidity prior to maturity must rely on the secondary transfer mechanics described in the offering documentation, which permit transfers between eligible professional investors after the 40-day lock-up. Any early redemption or wind-down rights at the issuer level are governed exclusively by the private placement memorandum and the relevant compartment documentation. Investors should size their OMN allocation against the assumption that capital remains committed for the full 36-month tenor.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How should institutional investors think about tax treatment of the Omnes Mining Note?<span class="ico"></span></button>
-        <div class="acc-a"><p>Tax treatment depends on each investor's jurisdiction, entity type and accounting framework. Omnes does not provide tax advice. OMN is structured as a secured zero coupon debt note issued by a Luxembourg securitisation fund, with full and final repayment at maturity paid in Bitcoin, net of predefined fees and expenses. Investors should consult independent tax counsel on the characterisation of the note, the timing and character of any income or gain arising at maturity, the treatment of Bitcoin received as repayment, withholding considerations under their local rules, and any reporting obligations that apply to digital assets received through a regulated custodian. The private placement memorandum, subscription agreement and Luxembourg tax disclosures included in the offering documentation provide the starting point for that analysis.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What KYC and AML checks does Omnes perform on investors?<span class="ico"></span></button>
-        <div class="acc-a"><p>All OMN investors must complete onboarding through the Omnes platform before accessing offering documentation or subscribing. Onboarding includes identity verification, beneficial ownership verification for legal entities, sanctions and politically exposed person screening, and verification of professional investor status under MiFID II Annex II or the equivalent definition in the investor's country of residence. Eligibility checks confirm the investor is not located in, resident in or organised under the laws of the United States, Canada, the United Kingdom retail segment, the EEA retail segment or other restricted jurisdictions. KYC and AML procedures are performed in line with applicable Luxembourg requirements and CSSF expectations for securitisation vehicles. Ongoing monitoring is applied for the duration of the investment, and compliance with these requirements is enforced at the token level for any secondary transfer.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What is the role of the security agent for the Omnes Mining Note?<span class="ico"></span></button>
-        <div class="acc-a"><p>Apex Corporate Trustees (UK) Limited has been appointed as security agent for OMN noteholders. The security agent holds, administers and enforces the pledges granted in favour of noteholders on behalf of the noteholder class. Two principal asset categories are pledged into the compartment for the benefit of the security agent: the Bitcoin generated and accruing to each OMN, and the hashrate backing each OMN. In the event of a default, the security agent is empowered to enforce against the pledged assets on a senior secured basis. The use of a third-party security agent separates enforcement authority from the issuer and the manager, providing institutional investors with a recognisable structural protection consistent with secured note offerings in Luxembourg, and ensuring noteholders are represented by an independent professional trustee.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How are fees disclosed and what is included in the 3.75% all-in expense ratio?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN is offered with a transparent 3.75% all-in annual expense ratio and a 0% performance fee. The all-in expense ratio is designed to capture management costs, fund administration, custody, audit, security agent fees, tokenisation costs and other recurring offering expenses, so investors evaluate a single headline number rather than a stack of separate charges. There are no performance fees and no upside caps applied to the Bitcoin generated by the hashrate backing each note. At maturity, investors receive the total Bitcoin mined and accrued to the note, net of the disclosed offering fees and expenses. Final fee detail, expense allocation methodology, expense caps and any one-off costs are set out in the OMN private placement memorandum and supporting offering documentation, and are tested against the audited financial statements.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How does the Omnes Mining Note compare to a spot Bitcoin ETF or a mining equity?<span class="ico"></span></button>
-        <div class="acc-a"><p>A spot Bitcoin ETF gives investors exposure to the Bitcoin price alone, with no contribution from mining economics. A listed Bitcoin mining equity gives exposure to Bitcoin price plus corporate operating performance, balance sheet risk, equity issuance and management decisions. OMN is structured differently. It is a secured zero coupon debt note backed by 1 PH/s of contracted hashrate per note over a fixed 36-month term, with Bitcoin block rewards and network fees accruing directly into a ring-fenced Luxembourg compartment and paid to investors at maturity. Investors capture mining yield plus any Bitcoin price appreciation on the mined coins, without operating a mine, without corporate equity risk and without exchange-traded mark-to-market dynamics. The trade-off is reduced liquidity relative to listed ETFs and equities, in exchange for a defined institutional debt structure.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">Is the Omnes Mining Note available to investors outside the European Union?<span class="ico"></span></button>
-        <div class="acc-a"><p>OMN is offered by way of private placement to professional investors as defined under Annex II of MiFID II or the equivalent definition in the investor's country of residence. Eligibility requires that the investor is not located in, resident in or organised under the laws of the United States or Canada, is not a UK retail investor, is not an EEA retail investor and is not otherwise restricted from investing under applicable law. Within those parameters, OMN can be made available to qualifying professional investors in additional jurisdictions, subject to local private placement rules, marketing restrictions and reverse solicitation requirements. Family offices, asset managers, hedge funds, RIAs, pension funds and corporate treasurers in eligible jurisdictions can confirm availability for their specific entity through the Omnes investor relations team and the private placement memorandum.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How does Omnes verify professional investor status?<span class="ico"></span></button>
-        <div class="acc-a"><p>Eligibility as a professional investor is confirmed during onboarding on the Omnes platform. For natural persons, this requires evidence that the individual meets the criteria under MiFID II Annex II or the equivalent definition in their country of residence, including sufficient sophistication to invest in the securities. For legal persons, this requires confirmation of regulated status, balance sheet thresholds or other professional investor criteria under applicable rules. All investors must commit a minimum of USD 100,000, in line with the documented minimum investment threshold. Eligibility checks are repeated at any transfer event during the lock-up and beyond, including secondary transfers between eligible holders. Documentary evidence supporting professional investor classification is retained as part of the compliance file for the duration of the investment.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">How is the Omnes Mining Note exposed to Bitcoin price and hashrate economics?<span class="ico"></span></button>
-        <div class="acc-a"><p>Each OMN is backed by 1 PH/s of contracted Bitcoin hashrate deployed for a fixed 36-month term. Over that period, Bitcoin generated through block rewards and network fees accrues to the relevant compartment and is custodied in Bitcoin form until maturity. As a result, investors carry two related economic exposures. The first is mining output, which depends on global network hashrate, Bitcoin block subsidy schedule, transaction fees and uptime of the contracted facilities. The second is the Bitcoin price applied to the mined coins at maturity, because repayment is made in Bitcoin rather than fiat. There are no caps and no performance fees on the mined Bitcoin. Investors who want fiat-denominated outcomes can hedge their Bitcoin exposure independently after receipt at maturity, subject to their own mandate.</p></div>
-      </div>
-      <div class="acc-item">
-        <button class="acc-q" type="button">What ESG and energy considerations should institutional investors evaluate?<span class="ico"></span></button>
-        <div class="acc-a"><p>Hashrate for OMN is aggregated by Omnes from institutional-grade Bitcoin mining facilities. Institutional allocators with environmental, social and governance mandates should evaluate the energy mix, location and operating practices of the mining facilities supplying the hashrate, alongside the broader debate on Bitcoin network energy use and grid impact. Omnes provides operational reporting on hashrate allocation, uptime and Bitcoin output, which can be combined with facility-level disclosures requested through the investor relations team to support ESG diligence. Because OMN is a contractual exposure to hashrate rather than direct ownership of mining hardware or facilities, investors do not consolidate scope 1 emissions from the operations onto their own balance sheet, but they should consider how their internal ESG framework treats indirect exposure to proof-of-work mining when sizing an allocation.</p></div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CLOSING CTA ─── -->
-<section class="cb-cta cb-cta-white">
-  <div class="cb-cta-inner">
-    <h2>Still have questions?</h2>
-    <p>A member of the Omnes investor relations team will respond within one business day.</p>
-    <a href="/contact/" class="btn btn-terra btn-lg">Contact IR</a>
-  </div>
-</section>
-
-
-<footer>
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
-        <div class="ft-socials">
-          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
-          </a>
+  <!-- Page header: the title and lead, the search (filters every question and answer below,
+       with a live count), and on wide screens an index of the six groups -->
+  <header class="ph ph-tint faq-ph">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title" id="pageTitle">Frequently asked questions.</h1>
+        <p class="ph-lead">Answers to common questions about Omnes, the Omnes Mining Note (OMN), investor onboarding, tax and reporting.</p>
+        <div class="filter faq-filter" data-filter="faqList" data-noun="question">
+          <div class="search" role="search">
+            <label class="vh" for="faqQuery">Search the FAQs</label>
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="M15.6 15.6l4 4"/></svg>
+            <input id="faqQuery" type="search" placeholder="Search questions and answers" autocomplete="off" spellcheck="false" aria-controls="faqList">
+          </div>
+          <p class="search-count" id="faqCount" role="status" aria-live="polite">34 questions</p>
         </div>
       </div>
+      <nav class="faq-index" aria-labelledby="idxTitle">
+        <p class="toc-t" id="idxTitle">On this page</p>
+        <ol>
+          <li><a href="#cat-01" data-group="cat-01"><span>General</span><span class="c"><span data-n>3</span><span class="vh"> questions</span></span></a></li>
+          <li><a href="#cat-02" data-group="cat-02"><span>About the Omnes Mining Note</span><span class="c"><span data-n>6</span><span class="vh"> questions</span></span></a></li>
+          <li><a href="#cat-03" data-group="cat-03"><span>Investors</span><span class="c"><span data-n>4</span><span class="vh"> questions</span></span></a></li>
+          <li><a href="#cat-04" data-group="cat-04"><span>Investment</span><span class="c"><span data-n>2</span><span class="vh"> questions</span></span></a></li>
+          <li><a href="#cat-05" data-group="cat-05"><span>Tax and reporting</span><span class="c"><span data-n>4</span><span class="vh"> questions</span></span></a></li>
+          <li><a href="#cat-06" data-group="cat-06"><span>Institutional diligence</span><span class="c"><span data-n>15</span><span class="vh"> questions</span></span></a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
 
-      <div class="ft-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact us</a></li>
-          <li><a href="/media-kit/">Media Kit</a></li>
-        </ul>
+  <!-- The questions: six groups, each the kit's FAQ split. Text is verbatim from the live FAQ page. -->
+  <section class="sec" aria-label="Questions and answers">
+    <div class="wrap">
+      <div class="faq-groups" id="faqList">
+<!-- GROUPS: generated from the live FAQ page -->
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-01">General</h2>
+            <a class="arrow-link" href="/about/">About Omnes <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="faq split-main">
+            <details id="who-is-omnes" data-filter-item>
+              <summary><span class="q">Who is Omnes?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Omnes is a compute infrastructure investment platform building the financial layer for a new class of institutional products. We identify yield generating compute assets and structure them into institutional grade financial instruments with full transparency, robust legal architecture, and seamless onchain interoperability. The firm's first product, <a href="/omn/">the Omnes Mining Note (OMN)</a>, provides structured exposure to Bitcoin hashrate economics through a tokenized, Luxembourg-issued instrument.</p></div>
+            </details>
+            <details id="headquarters" data-filter-item>
+              <summary><span class="q">Where is Omnes headquartered?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Omnes is headquartered in the Emirate of Abu Dhabi, United Arab Emirates, with operations structured through its affiliated entities in the City of Luxembourg, Luxembourg and the Canton of Zug, Switzerland.</p></div>
+            </details>
+            <details id="what-is-hashrate" data-filter-item>
+              <summary><span class="q">What is hashrate and why is it important to Bitcoin?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Hashrate is the computational power securing the Bitcoin network. It measures how many calculations are performed each second to validate transactions and produce new blocks for the Bitcoin blockchain. A higher hashrate increases network security, stability, and resilience, making it a key indicator of Bitcoin's overall strength and integrity.</p></div>
+            </details>
+          </div>
+        </section>
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-02">About the Omnes Mining Note</h2>
+            <a class="arrow-link" href="/omn/">Explore the Mining Note <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="faq split-main">
+            <details id="what-is-omn" data-filter-item>
+              <summary><span class="q">What is the Omnes Mining Note (OMN)?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN is a secured, limited recourse debt note whose returns come from Bitcoin mining. Each note carries a notional hashrate allocation of one petahash per second (1 PH/s) over a 730-day term. The hashrate is supplied under a hashrate purchase agreement by the Hashrate Aggregator, Omnes Technology AG, an Omnes affiliate, which may pay Bitcoin in place of any hashrate it does not deliver, calculated using the Omnes Hashprice Index. Investors gain exposure to Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure.</p></div>
+            </details>
+            <details id="how-omn-generates-returns" data-filter-item>
+              <summary><span class="q">How does OMN generate returns?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Each <a href="/omn/">OMN</a> carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term. During this period, the Bitcoin mined with that hashrate, together with any Bitcoin paid in place of undelivered hashrate, is held in custody for the issuer's compartment. At maturity, noteholders receive their pro rata share of that Bitcoin, after Costs and any tax liabilities, which rank ahead of noteholders. Costs are 3.75% of invested capital, as set in the Offering Addendum, and there is no performance fee. Returns are not guaranteed, and investors can lose some or all of their investment.</p></div>
+            </details>
+            <details id="how-omn-is-issued" data-filter-item>
+              <summary><span class="q">How is OMN issued?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The OMN offering will be carried out by way of a private placement offering through a bankruptcy remote Luxembourg securitisation fund as the issuer, structured under the <a href="/omn/#terms">Luxembourg Securitisation Law of 22 March 2004</a>, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform.</p></div>
+            </details>
+            <details id="security-type" data-filter-item>
+              <summary><span class="q">What type of security is OMN?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The OMN is a secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at the end of its 730-day term by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities.</p></div>
+            </details>
+            <details id="omn-vs-mining-stocks" data-filter-item>
+              <summary><span class="q">How is the OMN different from buying Bitcoin mining stocks directly?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN gives exposure to Bitcoin mining output rather than to a mining company. A mining stock also carries the company's operating performance, balance sheet, equity issuance and management decisions. OMN returns come solely from the Bitcoin mined with the notes' hashrate, or paid in its place, and are paid in Bitcoin at maturity, so their value still moves with the Bitcoin price and with network mining economics.</p></div>
+            </details>
+            <details id="secured-offering" data-filter-item>
+              <summary><span class="q">Is it a secured offering and how is investor capital safeguarded?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments.</p><p>The notes are secured in favour of a third-party security agent, Apex Corporate Trustees (UK) Limited, acting for the noteholders, by a pledge over the issuer's Bitcoin custody accounts and a pledge over its claims under the hashrate purchase agreement and the custody agreement. Only the security agent can enforce that security, and noteholders cannot direct it to unless the management company approves. Recourse is limited to the assets of the relevant compartment, and costs and tax liabilities rank ahead of noteholders.</p><p>Bitcoin for the notes is held by the custodian, Coinbase Luxembourg S.A., and the issuer's audited financial statements are provided to noteholders once available.</p></div>
+            </details>
+          </div>
+        </section>
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-03">Investors</h2>
+            <a class="arrow-link" href="/signup/">Create an investor account <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="faq split-main">
+            <details id="who-can-invest" data-filter-item>
+              <summary><span class="q">Who can invest in OMN?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The OMN is for natural or legal persons who are professional investors. Professional investors are natural or legal persons who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount in the OMN of at least USD 100,000.</p><p>Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by the laws and regulations applicable to them to invest in the OMN. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation.</p></div>
+            </details>
+            <details id="minimum-investment" data-filter-item>
+              <summary><span class="q">What is the minimum investment amount?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>USD 100,000.</p></div>
+            </details>
+            <details id="offering-documents" data-filter-item>
+              <summary><span class="q">How do I access offering documents and subscribe?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>To access offering documents and <a href="/omn/#subscribe">subscribe</a>, investors must first <a href="/signup/">create an account on the Omnes platform</a>. Once verified, they can download all offering materials, including the Private Placement Memorandum and Subscription Agreement. After reviewing the documentation, investors can complete their subscription and purchase OMN tokens directly through the platform's secure interface.</p></div>
+            </details>
+            <details id="performance-reports" data-filter-item>
+              <summary><span class="q">How often are performance reports issued?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The issuer makes reports available to noteholders quarterly. Each report sets out the Bitcoin arising from mining with the hashrate supplied and the Bitcoin received in place of undelivered hashrate. The issuer's audited financial statements are provided as soon as they are available.</p></div>
+            </details>
+          </div>
+        </section>
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-04">Investment</h2>
+            <a class="arrow-link" href="/login/">Log in to the investor portal <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="faq split-main">
+            <details id="transfers" data-filter-item>
+              <summary><span class="q">Can OMN be transferred or traded after purchase?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Yes. After the initial offering and the expiration of the 40 day lock-up period, OMN may be transferred between eligible non-U.S. investors on the Omnes platform through peer to peer transactions or through approved secondary venues that meet the required compliance standards.</p></div>
+            </details>
+            <details id="transparency" data-filter-item>
+              <summary><span class="q">How is transparency maintained for investors?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Noteholders receive quarterly reports from the issuer covering the Bitcoin mined with the hashrate supplied and any Bitcoin received in its place, and the issuer's audited financial statements once available. Reports and notices are posted to the Investor App, the investor dashboard on the tokenisation platform, or sent by email. The Noteholder Register kept by the issuer is the definitive record of ownership.</p></div>
+            </details>
+          </div>
+        </section>
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-05">Tax and reporting</h2>
+          </div>
+          <div class="faq split-main">
+            <details id="tax-treatment" data-filter-item>
+              <summary><span class="q">How is OMN treated for tax purposes?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Tax treatment depends on each investor's jurisdiction. Omnes does not provide tax advice. Investors are responsible for assessing any potential income or capital-gains obligations related to mining rewards or asset appreciation under their local laws. Independent tax counsel should be consulted prior to investment.</p></div>
+            </details>
+            <details id="statements-and-audited-reports" data-filter-item>
+              <summary><span class="q">Will investors receive periodic statements or audited reports?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Yes. The issuer makes reports available to noteholders quarterly, setting out the Bitcoin arising from mining and any Bitcoin received in place of undelivered hashrate, and provides its audited financial statements as soon as they are available.</p></div>
+            </details>
+            <details id="accounting-documentation" data-filter-item>
+              <summary><span class="q">What documentation is provided for accounting and compliance?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Investors receive their subscription documentation and confirmation of their entry in the Noteholder Register, which is the definitive record of ownership. Quarterly reports and, once available, the issuer's audited financial statements support internal accounting, administration and compliance requirements.</p></div>
+            </details>
+            <details id="distributions" data-filter-item>
+              <summary><span class="q">How are returns distributed?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>All returns are distributed in Bitcoin to each investor's designated wallet at maturity.</p></div>
+            </details>
+          </div>
+        </section>
+        <section class="split faq-group reveal">
+          <div class="split-side sticky">
+            <h2 class="sh-sub" id="cat-06">Institutional diligence</h2>
+            <a class="arrow-link" href="/contact/">Talk to investor relations <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <div class="faq split-main">
+            <details id="legal-structure" data-filter-item>
+              <summary><span class="q">What is the legal structure of the Omnes Mining Note issuer?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The OMN is issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund, not supervised by the CSSF, organised under the Luxembourg Securitisation Law of 22 March 2004, as amended. The fund operates a compartmentalised structure, meaning each offering is housed in its own ring-fenced, bankruptcy-remote compartment. Assets, liabilities and recourse are legally segregated between compartments, so creditors of one compartment have no claim against another. The fund is managed by Omnes Securities S.&agrave;&nbsp;r.l. as its management company. This is the same legal framework used by major European structured product issuers and is recognised by institutional allocators familiar with Luxembourg-domiciled vehicles. Legal counsel for the structure is Arendt &amp; Medernach S.A., and Apex Fund Services S.A. is the corporate service provider. Noteholders are secured creditors of the relevant compartment, with recourse limited to its assets, and the security is enforced on their behalf by the security agent.</p></div>
+            </details>
+            <details id="custody" data-filter-item>
+              <summary><span class="q">How is Bitcoin custodied for the Omnes Mining Note?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Bitcoin arising from the notes' hashrate, and any Bitcoin paid in its place, is custodied by Coinbase Luxembourg S.A., a regulated custodian, in a dedicated Bitcoin mining custody account. Coinbase Luxembourg is appointed solely in a custodian capacity and does not hold a beneficial interest in the assets. Mining proceeds are routed directly from the mining operations into segregated custody accounts attributable to the relevant OMN compartment. The Bitcoin is held on behalf of the issuer and pledged to the security agent. If the custodian became insolvent, recovery of the Bitcoin could be delayed, partial or unavailable, as the risk factors in the private placement memorandum explain. The Bitcoin held is reported to noteholders in the issuer's quarterly reports and audited financial statements.</p></div>
+            </details>
+            <details id="audit" data-filter-item>
+              <summary><span class="q">Who audits the Omnes Mining Note and what does the audit cover?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>The issuer's financial statements will be audited by an independent auditor; the appointment is to be confirmed in the offering documentation. The issuer has no operating history, so no audited statements exist yet. They are provided to noteholders as soon as they are available, alongside the quarterly reports. The other service providers are the custodian Coinbase Luxembourg S.A., the security agent Apex Corporate Trustees (UK) Limited, the corporate service provider Apex Fund Services S.A. and the tokenisation platform Tokeny S.&agrave;&nbsp;r.l. The Hashrate Aggregator, Omnes Technology AG, is an Omnes affiliate.</p></div>
+            </details>
+            <details id="credit-rating" data-filter-item>
+              <summary><span class="q">Does the Omnes Mining Note carry a credit rating?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN Series 1 is not currently rated by a credit rating agency. The note is offered by way of private placement to professional investors under MiFID II and is not listed on a public exchange, which is the typical context in which rated structured notes are issued. Investors are expected to perform their own credit and counterparty analysis on the basis of the OMN private placement memorandum and offering documentation. The structural features to evaluate include the secured and limited recourse nature of the notes, the compartmentalised issuer, the security agent's sole right of enforcement, the ranking of costs and tax liabilities ahead of noteholders, and the notes' dependence on the Hashrate Aggregator, an Omnes affiliate, delivering hashrate or Bitcoin in its place.</p></div>
+            </details>
+            <details id="secondary-liquidity" data-filter-item>
+              <summary><span class="q">Is there secondary market liquidity for the Omnes Mining Note?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN is a 730-day private placement note and is not listed on a regulated exchange, so investors should expect to hold to maturity as the base case. After the initial offering and the expiration of a 40-day lock-up period, OMN may be transferred between eligible non-US, non-Canadian, non-UK retail and non-EEA retail professional investors on the Omnes platform through peer-to-peer transactions or through approved secondary venues that meet the required compliance standards. Any transfer is subject to investor eligibility verification, jurisdictional restrictions and applicable transfer restrictions in the offering documentation. Because the note is tokenised onchain on Base via Tokeny S.&agrave;&nbsp;r.l., compliant transfers are technically enforced at the token level. Available liquidity will reflect bilateral demand among eligible professional investors rather than continuous exchange trading.</p></div>
+            </details>
+            <details id="early-redemption" data-filter-item>
+              <summary><span class="q">Can the Omnes Mining Note be redeemed before maturity?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN is a 730-day secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at maturity by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities. The management company may compulsorily redeem a noteholder's notes at any time at their current value as it determines, notes that are the subject of a rejected transfer may be redeemed at the lower of their issue price and market value, and all notes are redeemed if an event of default occurs. The instrument is not open-ended and does not offer scheduled investor-level redemptions before the maturity date. Investors seeking liquidity prior to maturity must rely on the secondary transfer mechanics described in the offering documentation, which permit transfers between eligible professional investors after the 40-day lock-up. Any early redemption or wind-down rights at the issuer level are governed exclusively by the private placement memorandum and the relevant compartment documentation. Investors should size their OMN allocation against the assumption that capital remains committed for the full 730-day term.</p></div>
+            </details>
+            <details id="institutional-tax" data-filter-item>
+              <summary><span class="q">How should institutional investors think about tax treatment of the Omnes Mining Note?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Tax treatment depends on each investor's jurisdiction, entity type and accounting framework. Omnes does not provide tax advice. OMN is structured as a secured, limited recourse, non-interest bearing debt note, repaid in full and final settlement at maturity by distributing the Bitcoin mined with the notes' hashrate, or paid in its place, after Costs and any tax liabilities, issued by a Luxembourg securitisation fund. Investors should consult independent tax counsel on the characterisation of the note, the timing and character of any income or gain arising at maturity, the treatment of Bitcoin received as repayment, withholding considerations under their local rules, and any reporting obligations that apply to digital assets received through a regulated custodian. The private placement memorandum, subscription agreement and Luxembourg tax disclosures included in the offering documentation provide the starting point for that analysis.</p></div>
+            </details>
+            <details id="kyc-aml" data-filter-item>
+              <summary><span class="q">What KYC and AML checks does Omnes perform on investors?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>All OMN investors must complete onboarding through the Omnes platform before accessing offering documentation or subscribing. Onboarding includes identity verification, beneficial ownership verification for legal entities, sanctions and politically exposed person screening, and verification of professional investor status under MiFID II Annex II or the equivalent definition in the investor's country of residence. Eligibility checks confirm the investor is not located in, resident in or organised under the laws of the United States, Canada, the United Kingdom retail segment, the EEA retail segment or other restricted jurisdictions. KYC and AML procedures are performed in line with applicable Luxembourg anti-money laundering and counter-terrorist financing requirements. Ongoing monitoring is applied for the duration of the investment, and compliance with these requirements is enforced at the token level for any secondary transfer.</p></div>
+            </details>
+            <details id="security-agent" data-filter-item>
+              <summary><span class="q">What is the role of the security agent for the Omnes Mining Note?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Apex Corporate Trustees (UK) Limited has been appointed as security agent for OMN noteholders. The security agent holds, administers and enforces the pledges granted in favour of noteholders on behalf of the noteholder class. The security consists of a pledge over the issuer's Bitcoin custody accounts and a pledge over its claims under the hashrate purchase agreement and the custody agreement. If an event of default occurs, only the security agent may enforce, and enforcement proceeds are applied in the order set by the priorities of payments, with costs and tax liabilities ahead of noteholders. The security agent alone decides whether and when to enforce. Noteholders cannot enforce the security themselves, or direct the security agent to enforce it, unless the management company approves that enforcement.</p></div>
+            </details>
+            <details id="costs" data-filter-item>
+              <summary><span class="q">How are fees disclosed and what do the 3.75% Costs cover?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Costs for Series 1 are 3.75% of the invested capital, as set out in the Offering Addendum, and are taken from the invested capital. They pay the fees, costs and expenses the issuer owes in connection with the notes, including mining pool fees, which the issuer reimburses into the Bitcoin custody account. Tax liabilities are not included and are paid separately from the proceeds. There is no performance fee. At maturity, noteholders receive their pro rata share of the Bitcoin held for the notes, after Costs and any tax liabilities, which rank ahead of noteholders under the priorities of payments. Full detail is in the OMN private placement memorandum and the Offering Addendum.</p></div>
+            </details>
+            <details id="omn-vs-etf-and-equity" data-filter-item>
+              <summary><span class="q">How does the Omnes Mining Note compare to a spot Bitcoin ETF or a mining equity?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>A spot Bitcoin ETF gives investors exposure to the Bitcoin price alone, with no contribution from mining economics. A listed Bitcoin mining equity gives exposure to Bitcoin price plus corporate operating performance, balance sheet risk, equity issuance and management decisions. OMN is structured differently. It is a secured, limited recourse, non-interest bearing debt note with a notional 1 PH/s of hashrate per note over a 730-day term. The Bitcoin mined with the notes' hashrate, or paid in its place, is held in custody for the relevant Luxembourg compartment and distributed to noteholders at maturity. Investors are exposed to mining output and to the Bitcoin price, without operating a mine and without corporate equity risk. The trade-off is limited liquidity, with holding to maturity as the base case, and dependence on the Hashrate Aggregator, an Omnes affiliate.</p></div>
+            </details>
+            <details id="outside-the-eu" data-filter-item>
+              <summary><span class="q">Is the Omnes Mining Note available to investors outside the European Union?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>OMN is offered by way of private placement to professional investors as defined under Annex II of MiFID II or the equivalent definition in the investor's country of residence. Eligibility requires that the investor is not located in, resident in or organised under the laws of the United States or Canada, is not a UK retail investor, is not an EEA retail investor and is not otherwise restricted from investing under applicable law. Within those parameters, OMN can be made available to qualifying professional investors in additional jurisdictions, subject to local private placement rules, marketing restrictions and reverse solicitation requirements. Family offices, asset managers, hedge funds, RIAs, pension funds and corporate treasurers in eligible jurisdictions can confirm availability for their specific entity through the <a href="/contact/">Omnes investor relations team</a> and the private placement memorandum.</p></div>
+            </details>
+            <details id="professional-investor-status" data-filter-item>
+              <summary><span class="q">How does Omnes verify professional investor status?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Eligibility as a professional investor is confirmed during onboarding on the Omnes platform. For natural persons, this requires evidence that the individual meets the criteria under MiFID II Annex II or the equivalent definition in their country of residence, including sufficient sophistication to invest in the securities. For legal persons, this requires confirmation of regulated status, balance sheet thresholds or other professional investor criteria under applicable rules. All investors must commit a minimum of USD 100,000, in line with the documented minimum investment threshold. Eligibility checks are repeated at any transfer event during the lock-up and beyond, including secondary transfers between eligible holders. Documentary evidence supporting professional investor classification is retained as part of the compliance file for the duration of the investment.</p></div>
+            </details>
+            <details id="price-and-hashrate-exposure" data-filter-item>
+              <summary><span class="q">How is the Omnes Mining Note exposed to Bitcoin price and hashrate economics?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Each OMN carries a notional 1 PH/s of contracted Bitcoin hashrate over a 730-day term. Over that period, the Bitcoin mined with it, or paid in place of any hashrate not delivered, accrues to the relevant compartment and is custodied in Bitcoin form until maturity. As a result, investors carry two related economic exposures. The first is mining output, which depends on global network hashrate, Bitcoin block subsidy schedule, transaction fees and delivery of the contracted hashrate. The second is the Bitcoin price applied to the mined coins at maturity, because repayment is made in Bitcoin rather than fiat. There is no performance fee. Investors who want fiat-denominated outcomes can hedge their Bitcoin exposure independently after receipt at maturity, subject to their own mandate.</p></div>
+            </details>
+            <details id="esg-and-energy" data-filter-item>
+              <summary><span class="q">What ESG and energy considerations should institutional investors evaluate?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+              <div class="a"><p>Hashrate for OMN is supplied by the Hashrate Aggregator, Omnes Technology AG, an Omnes affiliate, which has discretion over the miners and pools it sources hashrate from. Institutional allocators with environmental, social and governance mandates should evaluate the energy mix, location and operating practices of the mining facilities supplying the hashrate, alongside the broader debate on Bitcoin network energy use and grid impact. The issuer's quarterly reports cover Bitcoin output, and available information on hashrate sources can be requested through the <a href="/contact/">investor relations team</a> to support ESG diligence. Because OMN is a contractual exposure to hashrate rather than direct ownership of mining hardware or facilities, investors do not consolidate scope 1 emissions from the operations onto their own balance sheet, but they should consider how their internal ESG framework treats indirect exposure to proof-of-work mining when sizing an allocation.</p></div>
+            </details>
+          </div>
+        </section>
+        <!-- /GROUPS -->
       </div>
-
-      <div class="ft-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="/omn/">Omnes Mining Note</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Resources</h5>
-        <ul>
-          <li><a href="/resources/">Resources</a></li>
-          <li><a href="/faqs/">FAQs</a></li>
-          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
-          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="/website-terms/">Website Terms</a></li>
-          <li><a href="/global-privacy-notice/">Global Privacy Notice</a></li>
-          <li><a href="/cookies-policy/">Cookies Policy</a></li>
-        </ul>
+      <p class="empty" data-filter-empty="faqList" hidden>No questions match <b data-query></b>. Try another word, or <a href="/contact/">ask the investor relations team</a>.</p>
+      <div class="faq-foot">
+        <p class="risk">Investments are speculative and involve a high degree of risk. Returns are not guaranteed, and investors can lose some or all of their investment.</p>
       </div>
     </div>
+  </section>
 
-    <p class="ft-disc">
-      This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.
-    </p>
-    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+  <!-- Closing: the homepage panel, with the live FAQ page's closing words -->
+  <section class="sec sec-top-0 closing-sec" aria-labelledby="closeTitle">
+    <div class="wrap">
+      <div class="closing reveal">
+        <div class="closing-in">
+          <h2 class="statement-lg" id="closeTitle">Still have questions?</h2>
+          <p class="body">A member of the Omnes investor relations team will respond within one business day.</p>
+          <div class="btn-row">
+            <a class="btn lg btn-dark" href="/contact/">Contact investor relations</a>
+            <a class="btn lg btn-paper" href="/signup/">Create an investor account</a>
+          </div>
+          <p class="fine">OMN Series 1 is offered by private placement to professional investors. It is not offered to US persons.</p>
+        </div>
+        <div class="closing-field"><canvas data-field="swell" aria-hidden="true"></canvas></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
+      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
+    </div>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
+    </div>
   </div>
 </footer>
+<!-- /SHELL: footer -->
 
-
-<script src="/assets/site.js?v=15"></script>
-
-<!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
-  <div class="gate-modal">
-    <div class="gate-header">
-      <p class="gate-slabel">Terms of Access</p>
-      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
     </div>
-    <div class="gate-body" id="gateBody">
-      <h2 class="gate-h2">1. Acceptance of terms</h2>
-      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
-      <ul class="gate-ul">
-        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
-        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
-        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
-      </ul>
-      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
-
-      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
-      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-      <p class="gate-p">In particular:</p>
-      <ul class="gate-ul">
-        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
-      </ul>
-      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
-
-      <h2 class="gate-h2">3. Access at your initiative</h2>
-      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
-      <ol class="gate-ol">
-        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
-        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
-        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
-      </ol>
-
-      <h2 class="gate-h2">4. Validity</h2>
-      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-
-      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
-      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-
-      <div class="gate-notice" id="gateNotice">
-        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
-        <ul class="gate-ul">
-          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
-          <li>You access the website entirely at your own risk and initiative.</li>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
         </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="gate-footer">
-      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
     </div>
   </div>
-</div>
+</dialog>
 
+<!-- Page script: the FAQ search and question links.
+     1. Search: every word typed (two letters or more) must appear in a question or its answer.
+        Groups with no match hide, the index and the count update, matches are marked, and a
+        question whose match is only in its answer opens so the match shows (it closes again
+        when the search moves on, unless the reader toggled it). Enter moves to the first match.
+     2. A link to a question's id (for example #custody) opens that question. -->
+<script>
+(function () {
+  "use strict";
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var list = document.getElementById("faqList");
+  var input = document.getElementById("faqQuery");
+  var count = document.getElementById("faqCount");
+  var empty = document.querySelector('[data-filter-empty="faqList"]');
+  if (!list || !input) return;
+  var groups = $$(".faq-group", list);
+  var items = $$("details[data-filter-item]", list);
+  var total = items.length;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* lower case, accents and curly quotes folded, one character for one, so match positions
+     in the folded text are positions in the real text */
+  var fold = function (s) {
+    var out = "", low = s.toLowerCase();
+    for (var i = 0; i < low.length; i++) {
+      var c = low.charAt(i);
+      if (c === "’" || c === "‘") c = "'";
+      else if (c.charCodeAt(0) > 127 && c.normalize) { var b = c.normalize("NFD").charAt(0); if (b.length === 1) c = b; }
+      out += c;
+    }
+    return out;
+  };
+  /* _auto: opened by the search. A toggle the search did not ask for is the reader's own. */
+  items.forEach(function (d) {
+    d._q = fold(d.querySelector(".q").textContent);
+    d._t = fold(d.textContent);
+    d.addEventListener("toggle", function () {
+      if (d._want !== undefined && d.open === d._want) { d._want = undefined; return; }
+      d._want = undefined; d._auto = false;
+    });
+  });
+  var setOpen = function (d, open) { if (d.open === open) return; d._want = open; d.open = open; };
+
+  /* marks: wrap each match in <mark>, merging overlaps, inside the question and the answer */
+  var unmark = function () {
+    $$("mark", list).forEach(function (m) { var p = m.parentNode; p.replaceChild(document.createTextNode(m.textContent), m); p.normalize(); });
+  };
+  var markIn = function (root, terms) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [], n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function (node) {
+      var text = node.nodeValue, f = fold(text), rs = [];
+      terms.forEach(function (t) { var i = 0; while ((i = f.indexOf(t, i)) > -1) { rs.push([i, i + t.length]); i += t.length; } });
+      if (!rs.length) return;
+      rs.sort(function (a, b) { return a[0] - b[0]; });
+      var merged = [rs[0]];
+      /* overlapping matches, or matches only a space apart ("custody account"), become one mark */
+      rs.slice(1).forEach(function (r) { var last = merged[merged.length - 1]; if (r[0] <= last[1] || (r[0] - last[1] === 1 && /\s/.test(text.charAt(last[1])))) last[1] = Math.max(last[1], r[1]); else merged.push(r); });
+      var frag = document.createDocumentFragment(), pos = 0;
+      merged.forEach(function (r) {
+        if (r[0] > pos) frag.appendChild(document.createTextNode(text.slice(pos, r[0])));
+        var m = document.createElement("mark"); m.textContent = text.slice(r[0], r[1]); frag.appendChild(m);
+        pos = r[1];
+      });
+      if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  };
+
+  var plural = function (k) { return k + " question" + (k === 1 ? "" : "s"); };
+  var run = function () {
+    var raw = input.value.trim();
+    var terms = fold(raw).split(/\s+/).filter(function (t) { return t.length > 1; });
+    var shown = 0;
+    unmark();
+    items.forEach(function (d) {
+      var ok = terms.every(function (t) { return d._t.indexOf(t) > -1; });
+      d.hidden = !ok;
+      if (!ok) { if (d._auto) { setOpen(d, false); d._auto = false; } return; }
+      shown++;
+      if (!terms.length) { if (d._auto) { setOpen(d, false); d._auto = false; } return; }
+      markIn(d.querySelector(".q"), terms);
+      markIn(d.querySelector(".a"), terms);
+      var inQuestion = terms.every(function (t) { return d._q.indexOf(t) > -1; });
+      if (!inQuestion && !d.open) { setOpen(d, true); d._auto = true; }
+      else if (inQuestion && d._auto) { setOpen(d, false); d._auto = false; }
+    });
+    groups.forEach(function (g) {
+      var k = $$("details[data-filter-item]:not([hidden])", g).length;
+      g.hidden = k === 0;
+      var link = document.querySelector('.faq-index a[data-group="' + g.querySelector("h2").id + '"]');
+      if (link) {
+        link.querySelector("[data-n]").textContent = k;
+        link.classList.toggle("is-empty", k === 0);
+        if (k === 0) { link.setAttribute("tabindex", "-1"); link.setAttribute("aria-disabled", "true"); }
+        else { link.removeAttribute("tabindex"); link.removeAttribute("aria-disabled"); }
+      }
+    });
+    count.textContent = shown === total ? plural(total) : shown + " of " + plural(total);
+    if (empty) {
+      empty.hidden = shown > 0;
+      var q = empty.querySelector("[data-query]");
+      if (q) q.textContent = "“" + raw + "”";
+    }
+  };
+  var timer = null;
+  input.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(run, 90); });
+  input.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    clearTimeout(timer); run();
+    var first = items.filter(function (d) { return !d.hidden; })[0];
+    if (!first) return;
+    first.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    first.querySelector("summary").focus({ preventScroll: true });
+  });
+  if (input.value) run();
+
+  /* a link to a question opens it */
+  var openFromHash = function () {
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var d = id && document.getElementById(id);
+    if (!d || d.tagName !== "DETAILS") return;
+    if (d.hidden) { input.value = ""; run(); }
+    d.open = true;
+    requestAnimationFrame(function () { d.scrollIntoView({ block: "start" }); });
+  };
+  window.addEventListener("hashchange", openFromHash);
+  openFromHash();
+})();
+</script>
 </body>
 </html>

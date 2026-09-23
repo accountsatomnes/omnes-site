@@ -1,72 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
 <title>Contact Omnes: investor, partner, press enquiries | Omnes</title>
-<meta name="description" content="Reach the Omnes team for institutional investor onboarding, structuring partnerships, or press enquiries about tokenized compute notes." />
-<link rel="canonical" href="https://omnes.io/contact/" />
-<meta property="og:title" content="Contact Omnes: investor, partner, press enquiries | Omnes" />
-<meta property="og:description" content="Reach the Omnes team for institutional investor onboarding, structuring partnerships, or press enquiries about tokenized compute notes." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://omnes.io/contact/" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@omnesfinance" />
+<meta name="description" content="Contact Omnes. Investor relations for OMN Series 1 enquiries and subscriptions, and the general and legal teams, by email or through the contact form.">
+<link rel="canonical" href="https://omnes.io/contact/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Contact Omnes: investor, partner, press enquiries | Omnes">
+<meta property="og:description" content="Contact Omnes. Investor relations for OMN Series 1 enquiries and subscriptions, and the general and legal teams, by email or through the contact form.">
+<meta property="og:url" content="https://omnes.io/contact/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=130">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://omnes.io/#organization",
-  "name": "Omnes",
-  "legalName": "Omnes Securities S.à r.l.",
-  "url": "https://omnes.io",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://omnes.io/omnes-logo-black.svg"
-  },
-  "description": "Omnes is a compute infrastructure investment platform building the financial layer for institutional Bitcoin hashrate and compute-backed products.",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "Luxembourg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Luxembourg City",
-      "addressCountry": "LU"
-    }
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/omnesfinance",
-    "https://x.com/omnesfinance"
-  ]
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<link rel="stylesheet" href="/assets/v2/pages.css">
+<script src="/assets/v2/site.js" defer></script>
+<style>
+/* Contact. The light-blue band holds the title and the four direct routes (the three inboxes
+   and the social accounts) as open columns; the form sits open on the canvas below, beside its
+   heading and the private placement line. Fields are the only boxes. */
+
+/* the routes: open columns under a hairline, the address set larger, in ink */
+.ct-routes { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); margin-top: clamp(52px, 5.6vw, 80px); }
+.ct-routes > div { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; padding: 20px 24px 4px 0; border-top: 1px solid rgba(23, 79, 123, .15); }
+.ct-routes dt { font-size: 14px; line-height: 1.45; color: #3d5266; }
+.ct-routes dd { min-width: 0; }
+.ct-go { display: flex; flex-wrap: wrap; gap: 2px 22px; }
+.ct-go a { display: inline-flex; align-items: center; gap: 7px; font-size: clamp(19px, 1.5vw, 21px); line-height: 1.35; letter-spacing: -0.012em; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: rgba(23, 79, 123, .28); text-underline-offset: 5px; transition: color .18s ease, text-decoration-color .18s ease; }
+.ct-go a:hover { color: var(--tint-ink); text-decoration-color: currentColor; }
+.ct-go .ar { width: 13px; height: 13px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.ct-go a:hover .ar { transform: translate(2px, -2px); }
+.ct-routes .ct-d { max-width: 290px; font-size: 14.5px; line-height: 1.55; color: #3d5266; text-wrap: pretty; }
+.ct-d a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .3); text-underline-offset: 3px; }
+.ct-d a:hover { color: var(--ink); text-decoration-color: currentColor; }
+/* the band ends on its particle horizon, just under the routes */
+.ct-band .ph-swell { margin-top: -8px; }
+
+/* two fields on a row keep their labels and boxes level when one of them shows an error */
+.form-row .form-field { align-content: start; }
+/* the form's side: the heading and the private placement line */
+.ct-side .body { max-width: 340px; }
+.form-status a { color: inherit; text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.form-status a:hover { color: var(--ink); text-decoration-color: currentColor; }
+@media (max-width: 1099px) {
+  .ct-routes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ct-routes > div { padding-bottom: 26px; }
 }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://omnes.io/#website",
-  "url": "https://omnes.io",
-  "name": "Omnes",
-  "publisher": {
-    "@id": "https://omnes.io/#organization"
-  },
-  "inLanguage": "en"
+@media (max-width: 599px) {
+  .ct-routes { grid-template-columns: minmax(0, 1fr); margin-top: 44px; }
+  .ct-routes > div { padding: 16px 0 20px; gap: 6px; }
+  .ct-routes .ct-d { max-width: none; font-size: 14px; }
+  .ct-go a { font-size: 19px; }
 }
-</script>
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "@id": "https://omnes.io/contact/#webpage",
   "url": "https://omnes.io/contact/",
-  "name": "Contact Omnes Investor Relations",
-  "description": "Contact the Omnes investor relations team. Responses within one business day.",
+  "name": "Contact Omnes: investor, partner, press enquiries | Omnes",
+  "description": "Contact Omnes. Investor relations for OMN Series 1 enquiries and subscriptions, and the general and legal teams, by email or through the contact form.",
   "isPartOf": {
     "@id": "https://omnes.io/#website"
   },
@@ -100,134 +105,119 @@
   ]
 }
 </script>
-<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="top">
-  <div class="nav-inner">
-    <a href="/" class="brand" aria-label="Omnes">
-      <img src="/omnes-logo-black.svg" alt="Omnes" />
-    </a>
-
-    <div class="nav-mid">
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Invest
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/omn/"><span class="nav-dd-item-title">Omnes Mining Note</span><span class="nav-dd-item-sub">OMN Series 1</span></a>
-          <a class="nav-dd-item" href="/login/"><span class="nav-dd-item-title">Investor Portal</span><span class="nav-dd-item-sub">Log in to your account</span></a>
-          <a class="nav-dd-item" href="/signup/"><span class="nav-dd-item-title">Sign Up</span><span class="nav-dd-item-sub">Create an investor account</span></a>
-          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener"><span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span><span class="nav-dd-item-sub">Technical docs and gitbook</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          About
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
-          <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
-          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
-          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
-          <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Contact
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/contact/"><span class="nav-dd-item-title">Contact IR</span><span class="nav-dd-item-sub">Speak to the investor relations team</span></a>
-          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow us on LinkedIn</span></a>
-          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow @omnesfinance</span></a>
-        </div>
-      </div>
-    </div>    <div class="nav-right">
-      <a href="/login/" class="nav-login">Log in</a>
-      <a href="/signup/" class="nav-signup">Sign up</a>
-      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/">Mining Note</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/">FAQs</a>
+      <a class="opt" href="/contact/" aria-current="page">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/">Sign up</a>
     </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/">FAQs</a>
+  <a href="/contact/" aria-current="page">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/">Sign up</a>
   </div>
 </nav>
+<!-- /SHELL: nav -->
 
-<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-nav-inner">
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Invest</div>
-      <a href="/omn/">Omnes Mining Note</a>
-      <a href="/login/">Investor Portal</a>
-      <a href="/signup/">Sign Up</a>
-      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
+<main id="main">
+
+  <!-- Page header: the title and lead, then the direct routes in open columns, on the light-blue
+       band with a particle horizon at its foot -->
+  <header class="ph ph-tint ct-band">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title" id="pageTitle">Get in touch.</h1>
+        <p class="ph-lead">For investment enquiries, subscription requests, media, and general questions, the Omnes team is here.</p>
+      </div>
+      <h2 class="vh" id="routesTitle">Contact details</h2>
+      <dl class="ct-routes">
+        <div>
+          <dt>Investor relations</dt>
+          <dd class="ct-go"><a href="mailto:ir@omnes.io">ir@omnes.io</a></dd>
+          <dd class="ct-d">For all investment enquiries and subscription requests related to <a href="/omn/">OMN&nbsp;Series&nbsp;1</a>.</dd>
+        </div>
+        <div>
+          <dt>General</dt>
+          <dd class="ct-go"><a href="mailto:info@omnes.io">info@omnes.io</a></dd>
+          <dd class="ct-d">For media, partnerships, and general enquiries.</dd>
+        </div>
+        <div>
+          <dt>Legal</dt>
+          <dd class="ct-go"><a href="mailto:legal@omnes.io">legal@omnes.io</a></dd>
+          <dd class="ct-d">For legal and compliance matters.</dd>
+        </div>
+        <div>
+          <dt>Follow</dt>
+          <dd class="ct-go">
+            <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn<svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="vh">(opens in a new tab)</span></a>
+            <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X<svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="vh">(opens in a new tab)</span></a>
+          </dd>
+          <dd class="ct-d">@omnesfinance on X and LinkedIn.</dd>
+        </div>
+      </dl>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">About</div>
-      <a href="/about/">About Omnes</a>
-      <a href="/faqs/">FAQs</a>
-      <a href="/resources/">Resources</a>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
-      <a href="/media-kit/">Media Kit</a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Contact</div>
-      <a href="/contact/">Contact IR</a>
-      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
-      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-cta">
-      <a href="/login/" class="btn btn-ghost">Log in</a>
-      <a href="/signup/" class="btn btn-terra">Sign up</a>
-    </div>
-  </div>
-</div>
+    <div class="ph-swell" aria-hidden="true"><canvas data-field="swell"></canvas></div>
+  </header>
 
-
-
-<!-- ──────────── PAGE HERO ──────────── -->
-<section class="cb-page-hero center">
-  <h1>Get in touch.</h1>
-  <p class="sub">For investment enquiries, subscription requests, media, and general questions, the Omnes team is here.</p>
-</section>
-
-<!-- ──────────── CONTACT (form + details) ──────────── -->
-<section class="cb-section">
-  <div class="cb-wrap">
-    <div class="ct-grid">
-
-      <div>
-        <h2 class="ct-form-h">Send a message</h2>
-        <form class="cb-form" id="contactForm" action="https://formspree.io/f/mgonglpj" method="POST" style="margin-top:0;">
-          <div class="cb-form-row">
-            <div class="cb-field">
-              <label for="cf-first">First name</label>
-              <input type="text" id="cf-first" name="first_name" placeholder="Jane" autocomplete="given-name" required />
-            </div>
-            <div class="cb-field">
-              <label for="cf-last">Last name</label>
-              <input type="text" id="cf-last" name="last_name" placeholder="Smith" autocomplete="family-name" required />
-            </div>
+  <!-- The form: its heading and the private placement line held on the left, the real fields
+       and subject options on the right. The form does not send: it checks the fields, then says
+       plainly that it could not send and gives the investor relations address. -->
+  <section class="sec" aria-labelledby="formTitle">
+    <div class="wrap split">
+      <div class="split-side sticky ct-side">
+        <h2 class="sh-title" id="formTitle">Send a message.</h2>
+      </div>
+      <form class="form split-main" id="contactForm" action="#" method="post" novalidate aria-labelledby="formTitle">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cfFirst">First name</label>
+            <input id="cfFirst" name="first_name" type="text" autocomplete="given-name" placeholder="Jane" required>
+            <p class="form-error" id="cfFirstErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
           </div>
-          <div class="cb-field">
-            <label for="cf-email">Email address</label>
-            <input type="email" id="cf-email" name="email" placeholder="you@fund.com" autocomplete="email" required />
+          <div class="form-field">
+            <label for="cfLast">Last name</label>
+            <input id="cfLast" name="last_name" type="text" autocomplete="family-name" placeholder="Smith" required>
+            <p class="form-error" id="cfLastErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
           </div>
-          <div class="cb-field">
-            <label for="cf-org">Organisation</label>
-            <input type="text" id="cf-org" name="organisation" placeholder="Fund / Family Office / Bank" autocomplete="organization" />
-          </div>
-          <div class="cb-field">
-            <label for="cf-subject">Subject</label>
-            <select id="cf-subject" name="subject">
-              <option value="">Select a topic…</option>
+        </div>
+        <div class="form-field">
+          <label for="cfEmail">Email address</label>
+          <input id="cfEmail" name="email" type="email" autocomplete="email" placeholder="you@fund.com" required>
+          <p class="form-error" id="cfEmailErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
+        </div>
+        <div class="form-field">
+          <label for="cfOrg">Organisation <span class="opt">(optional)</span></label>
+          <input id="cfOrg" name="organisation" type="text" autocomplete="organization" placeholder="Fund, family office or bank">
+        </div>
+        <div class="form-field">
+          <label for="cfSubject">Subject <span class="opt">(optional)</span></label>
+          <div class="select">
+            <select id="cfSubject" name="subject">
+              <option value="">Select a topic</option>
               <option>Investment enquiry</option>
               <option>KYC / Onboarding</option>
               <option>Media / Press</option>
@@ -235,222 +225,157 @@
               <option>General question</option>
             </select>
           </div>
-          <div class="cb-field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
-          </div>
-          <button type="submit" class="cb-form-submit" id="cfSubmit">Send Message</button>
-          <div id="cfStatus" role="status" aria-live="polite" style="display:none;margin-top:16px;padding:14px 18px;font-size:14px;border-radius:14px"></div>
-        </form>
-        <script>
-          (function(){
-            var form = document.getElementById('contactForm');
-            if (!form) return;
-            var btn = document.getElementById('cfSubmit');
-            var status = document.getElementById('cfStatus');
-            function showStatus(ok, msg){
-              status.textContent = msg;
-              status.style.display = 'block';
-              status.style.background = ok ? 'rgba(90,122,94,0.10)' : 'rgba(14,14,10,0.06)';
-              status.style.border = '1px solid ' + (ok ? 'rgba(90,122,94,0.35)' : 'rgba(14,14,10,0.28)');
-              status.style.color = ok ? 'var(--teal)' : 'var(--ink)';
-            }
-            form.addEventListener('submit', function(e){
-              e.preventDefault();
-              btn.disabled = true;
-              var originalText = btn.textContent;
-              btn.textContent = 'Sending…';
-              status.style.display = 'none';
-              fetch(form.action, {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: new FormData(form)
-              })
-              .then(function(res){
-                if (res.ok) {
-                  form.reset();
-                  showStatus(true, '✓ Message sent. We will be in touch shortly.');
-                } else {
-                  return res.json().then(function(data){
-                    var msg = (data && data.errors && data.errors.map(function(x){return x.message;}).join(', ')) || 'Could not send. Please email ir@omnes.io directly.';
-                    showStatus(false, msg);
-                  }).catch(function(){
-                    showStatus(false, 'Could not send. Please email ir@omnes.io directly.');
-                  });
-                }
-              })
-              .catch(function(){
-                showStatus(false, 'Network error. Please email ir@omnes.io directly.');
-              })
-              .finally(function(){
-                btn.disabled = false;
-                btn.textContent = originalText;
-              });
-            });
-          })();
-        </script>
-      </div>
-
-      <aside>
-        <div class="ct-block">
-          <h3>Contact details</h3>
-          <div class="ct-detail">
-            <div class="role">Investor Relations</div>
-            <div class="desc">For all investment enquiries and subscription requests related to <a href="/omn/">OMN Series 1</a>.</div>
-            <a href="mailto:ir@omnes.io">ir@omnes.io</a>
-          </div>
-          <div class="ct-detail">
-            <div class="role">General</div>
-            <div class="desc">For media, partnerships, and general enquiries.</div>
-            <a href="mailto:info@omnes.io">info@omnes.io</a>
-          </div>
-          <div class="ct-detail">
-            <div class="role">Legal</div>
-            <div class="desc">For legal and compliance matters.</div>
-            <a href="mailto:legal@omnes.io">legal@omnes.io</a>
-          </div>
         </div>
-
-        <div class="ct-block">
-          <h3>Follow</h3>
-          <div class="ct-social">
-            <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
-              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
-            </a>
-          </div>
+        <div class="form-field">
+          <label for="cfMessage">Message</label>
+          <textarea id="cfMessage" name="message" rows="5" placeholder="Tell us how we can help" required></textarea>
+          <p class="form-error" id="cfMessageErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
         </div>
-      </aside>
-
+        <div class="form-actions">
+          <button class="btn lg btn-dark" type="submit">Send message</button>
+        </div>
+        <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-
-<footer>
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
-        <div class="ft-socials">
-          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
-          </a>
-        </div>
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-
-      <div class="ft-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact us</a></li>
-          <li><a href="/media-kit/">Media Kit</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="/omn/">Omnes Mining Note</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Resources</h5>
-        <ul>
-          <li><a href="/resources/">Resources</a></li>
-          <li><a href="/faqs/">FAQs</a></li>
-          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
-          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="/website-terms/">Website Terms</a></li>
-          <li><a href="/global-privacy-notice/">Global Privacy Notice</a></li>
-          <li><a href="/cookies-policy/">Cookies Policy</a></li>
-        </ul>
-      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
     </div>
-
-    <p class="ft-disc">
-      This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.
-    </p>
-    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
+    </div>
   </div>
 </footer>
+<!-- /SHELL: footer -->
 
-
-<script src="/assets/site.js?v=15"></script>
-
-<!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
-  <div class="gate-modal">
-    <div class="gate-header">
-      <p class="gate-slabel">Terms of Access</p>
-      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
     </div>
-    <div class="gate-body" id="gateBody">
-      <h2 class="gate-h2">1. Acceptance of terms</h2>
-      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
-      <ul class="gate-ul">
-        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
-        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
-        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
-      </ul>
-      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
-
-      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
-      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-      <p class="gate-p">In particular:</p>
-      <ul class="gate-ul">
-        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
-      </ul>
-      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
-
-      <h2 class="gate-h2">3. Access at your initiative</h2>
-      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
-      <ol class="gate-ol">
-        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
-        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
-        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
-      </ol>
-
-      <h2 class="gate-h2">4. Validity</h2>
-      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-
-      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
-      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-
-      <div class="gate-notice" id="gateNotice">
-        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
-        <ul class="gate-ul">
-          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
-          <li>You access the website entirely at your own risk and initiative.</li>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
         </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="gate-footer">
-      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
     </div>
   </div>
-</div>
+</dialog>
 
+<!-- Page script: the contact form checks its required fields and marks any it cannot accept
+     (aria-invalid, with the message tied by aria-describedby). It never sends and never reports
+     a success: once the fields are complete it says it could not send, and gives the address. -->
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+  var status = document.getElementById("cfStatus");
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var checks = {
+    cfFirst: function (v) { return v ? "" : "Enter your first name."; },
+    cfLast: function (v) { return v ? "" : "Enter your last name."; },
+    cfEmail: function (v) { return !v ? "Enter your email address." : EMAIL.test(v) ? "" : "Enter an email address like name@company.com."; },
+    cfMessage: function (v) { return v ? "" : "Enter a message."; }
+  };
+  var show = function (el, msg) {
+    var err = document.getElementById(el.id + "Err");
+    if (!err) return;
+    if (msg) {
+      err.querySelector("span").textContent = msg;
+      err.hidden = false;
+      el.setAttribute("aria-invalid", "true");
+      el.setAttribute("aria-describedby", err.id);
+    } else {
+      err.hidden = true;
+      el.removeAttribute("aria-invalid");
+      el.removeAttribute("aria-describedby");
+    }
+  };
+  var say = function (kind, html) {
+    status.className = "form-status" + (kind ? " is-" + kind : "");
+    status.innerHTML = html;
+  };
+  Object.keys(checks).forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("input", function () { if (el.getAttribute("aria-invalid") === "true") show(el, checks[id](el.value.trim())); });
+    el.addEventListener("blur", function () { if (el.value.trim()) show(el, checks[id](el.value.trim())); });
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = null;
+    Object.keys(checks).forEach(function (id) {
+      var el = document.getElementById(id), msg = checks[id](el.value.trim());
+      show(el, msg);
+      if (msg && !first) first = el;
+    });
+    if (first) {
+      say("error", "Check the highlighted fields, then send again.");
+      first.focus();
+      return;
+    }
+    say("", '<span>Could not send. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.</span>');
+  });
+})();
+</script>
 </body>
 </html>

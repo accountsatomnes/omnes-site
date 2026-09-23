@@ -1,79 +1,150 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
 <title>Omnes Mining Note (OMN): tokenized Bitcoin hashrate | Omnes</title>
-<meta name="description" content="OMN is a tokenized debt security backed by 1 PH/s of Bitcoin mining hashrate, 36-month tenor, distributions in Bitcoin at maturity." />
-<link rel="canonical" href="https://omnes.io/omn/" />
-<meta property="og:title" content="Omnes Mining Note (OMN): tokenized Bitcoin hashrate | Omnes" />
-<meta property="og:description" content="OMN is a tokenized debt security backed by 1 PH/s of Bitcoin mining hashrate, 36-month tenor, distributions in Bitcoin at maturity." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://omnes.io/omn/" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@omnesfinance" />
+<meta name="description" content="OMN is a tokenized, secured debt note with a notional 1 PH/s of Bitcoin mining hashrate per note, 730-day term, distributions in Bitcoin at maturity.">
+<link rel="canonical" href="https://omnes.io/omn/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Omnes Mining Note (OMN): tokenized Bitcoin hashrate | Omnes">
+<meta property="og:description" content="OMN is a tokenized, secured debt note with a notional 1 PH/s of Bitcoin mining hashrate per note, 730-day term, distributions in Bitcoin at maturity.">
+<meta property="og:url" content="https://omnes.io/omn/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=130">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://omnes.io/#organization",
-  "name": "Omnes",
-  "legalName": "Omnes Securities S.à r.l.",
-  "url": "https://omnes.io",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://omnes.io/omnes-logo-black.svg",
-    "contentUrl": "https://omnes.io/omnes-logo-black.svg"
-  },
-  "description": "Omnes is a compute infrastructure investment platform building the financial layer for institutional Bitcoin hashrate and compute-backed products. The firm structures yield-generating compute assets into institutional-grade tokenized financial instruments under Luxembourg law.",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "Luxembourg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Luxembourg City",
-      "addressCountry": "LU"
-    }
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/omnesfinance",
-    "https://x.com/omnesfinance"
-  ]
+<link rel="preconnect" href="https://mempool.space" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<link rel="stylesheet" href="/assets/v2/pages.css">
+<script src="/assets/v2/site.js" defer></script>
+<style>
+/* Mining Note page: only what site.css and the kit (pages.css) do not already cover.
+   1 Header foot: breadcrumbs, then the page's own contents as plain links
+   2 The note: the overview beside Tranche 1 ends in a link, not a button
+   3 Structure: the details as a two-column term sheet
+   4 Security: the parked section opened up, no cards: hairlines on the soft band
+   5 Onchain: status pills under each capability
+   6 Subscription: three steps on one line, the note's timeline language
+   7 Disclaimer: quiet, on a hairline */
+
+/* 1 */
+.ph-foot .crumbs { margin-right: auto; }
+.jump ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; }
+.jump a { color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.jump a:hover { color: var(--tint-ink); text-decoration-color: currentColor; }
+
+/* 2 */
+.spec-intro .body { max-width: 480px; }
+.spec-intro .arrow-link { flex: none; white-space: nowrap; }
+
+/* 3 */
+.det-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 12px; align-items: end; margin-bottom: 30px; }
+.det-head .sh-sub { grid-column: 1 / span 7; }
+.det-head .body { grid-column: 9 / -1; max-width: 400px; }
+@media (max-width: 899px) { .det-head .sh-sub, .det-head .body { grid-column: 1 / -1; } }
+.det { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: clamp(32px, 5vw, 80px); border-top: 0; }
+.det > div:nth-child(6n + 1) { border-top: 1px solid var(--line); }
+@media (max-width: 899px) {
+  .det { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; border-top: 1px solid var(--line); }
+  .det > div:nth-child(6n + 1) { border-top: 0; }
 }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://omnes.io/#website",
-  "url": "https://omnes.io",
-  "name": "Omnes",
-  "publisher": {
-    "@id": "https://omnes.io/#organization"
-  },
-  "inLanguage": "en"
+
+/* 4 */
+#security .guard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(40px, 6vw, 96px); row-gap: 0; }
+#security .guard-lead, #security .guard { border-radius: 0; background: none; box-shadow: none; border-top: 1px solid var(--line-strong); }
+#security .guard-lead { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 22px; align-content: start; padding: 30px 0 0; }
+#security .guard-lead > * { grid-column: 2; }
+#security .guard-lead > .mt { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+#security .guard-lead > h3 { grid-row: 1; padding-top: 4px; }
+#security h3 { font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
+#security .guard-lead h3 { font-size: clamp(24px, 2vw, 28px); line-height: 1.2; }
+#security .guard-lead > p { font-size: 16px; }
+#security .pledged { gap: 0; margin-top: 24px; border-top: 1px solid var(--line-strong); }
+#security .pledged li { min-height: 0; padding: 14px 0; border-radius: 0; background: none; border-bottom: 1px solid var(--line-strong); font-size: 16px; }
+#security .guard-lead .guard-note { margin-top: 0; padding-top: 20px; }
+#security .guards { grid-auto-rows: auto; gap: 0; }
+#security .guard { column-gap: 22px; padding: 30px 0 34px; }
+#security .guard h3 { padding-top: 5px; font-size: clamp(21px, 1.75vw, 24px); line-height: 1.22; }
+#security .guard p { margin-top: 10px; font-size: 16px; line-height: 1.6; }
+@media (max-width: 1099px) {
+  #security .guard-grid { grid-template-columns: minmax(0, 1fr); }
+  #security .guard-lead { padding-bottom: 48px; }
+  #security .guards { grid-template-columns: minmax(0, 1fr); }
+  #security .guard { grid-template-columns: 40px minmax(0, 1fr); column-gap: 22px; }
 }
-</script>
+@media (max-width: 599px) {
+  #security .guard-lead { column-gap: 16px; padding: 24px 0 40px; }
+  #security .guard { column-gap: 16px; padding: 24px 0 28px; }
+  #security .guard-lead > p, #security .guard p, #security .pledged li { font-size: 15.5px; }
+}
+
+/* 5 */
+.features .feature > p { margin-bottom: 20px; }
+.features .tag { margin-top: auto; }
+.tag { display: inline-flex; align-items: center; gap: 8px; height: 28px; margin-top: 20px; padding: 0 12px; border-radius: 999px; font-size: 13.5px; font-weight: 500; line-height: 1; white-space: nowrap; }
+.tag.soon { background: var(--soft-2); color: #41474e; }
+.tag.chain { background: var(--tint); color: var(--tint-ink); }
+.tag.chain::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.docs .tag { height: 24px; margin: 0 0 0 10px; padding: 0 10px; font-size: 12.5px; vertical-align: 2px; }
+
+/* 6 */
+.steps { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); border-top: 1px solid var(--line-strong); }
+.steps li { position: relative; padding: 34px 40px 0 0; }
+.steps li::before { content: ""; position: absolute; left: 0; top: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 1.5px #8a939c; }
+.steps li:last-child::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(47, 107, 255, .16); }
+.steps h3 { font-family: var(--serif); font-optical-sizing: auto; font-size: clamp(22px, 1.9vw, 26px); line-height: 1.2; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+.steps .n { margin-right: 12px; font-family: var(--font); font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--tint-ink); font-variant-numeric: tabular-nums; vertical-align: 3px; }
+.steps p { margin-top: 12px; max-width: 400px; font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.docs-sec { margin-top: clamp(64px, 6.4vw, 96px); }
+.docs-foot { margin-top: 16px; }
+.docs-foot a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.docs-foot a:hover { color: var(--ink); }
+@media (max-width: 899px) {
+  .steps { grid-template-columns: minmax(0, 1fr); border-top: 0; margin-left: 5px; border-left: 1px solid var(--line-strong); }
+  .steps li { padding: 0 0 40px 30px; }
+  .steps li:last-child { padding-bottom: 4px; }
+  .steps li::before { left: -6px; top: 8px; }
+}
+@media (max-width: 599px) {
+  .steps li { padding: 0 0 32px 24px; }
+  .steps p { font-size: 15.5px; }
+  .docs .tag { margin: 0 0 0 8px; }
+}
+
+/* fees rows: on phones the term sits above its explanation */
+@media (max-width: 599px) { .fees-list > div { grid-template-columns: minmax(0, 1fr); row-gap: 4px; } }
+
+/* 7 */
+.disc { padding-top: 26px; border-top: 1px solid var(--line); }
+.disc-body { max-width: 720px; font-size: 15px; line-height: 1.65; color: var(--muted); }
+.disc-body p + p { margin-top: 1em; }
+.disc-body a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.disc-body a:hover { color: var(--ink); }
+@media (max-width: 899px) { .disc .disc-body { margin-top: 18px; } }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://omnes.io/omn/#webpage",
   "url": "https://omnes.io/omn/",
-  "name": "Omnes Mining Note (OMN) | Omnes",
-  "description": "A tokenized Bitcoin hashrate-backed security offering structured exposure to Bitcoin yield through institutional-scale mining data centers.",
+  "name": "Omnes Mining Note (OMN): tokenized Bitcoin hashrate | Omnes",
+  "description": "OMN is a tokenized, secured debt note with a notional 1 PH/s of Bitcoin mining hashrate per note, 730-day term, distributions in Bitcoin at maturity.",
   "isPartOf": {
     "@id": "https://omnes.io/#website"
   },
-  "primaryImageOfPage": {
-    "@type": "ImageObject",
-    "url": "https://omnes.io/bitcoin.png"
+  "about": {
+    "@id": "https://omnes.io/omn/#product"
   },
   "inLanguage": "en",
   "breadcrumb": {
@@ -89,10 +160,15 @@
   "name": "Omnes Mining Note",
   "alternateName": "OMN Series 1",
   "url": "https://omnes.io/omn/",
-  "description": "The Omnes Mining Note (OMN) is a tokenized Bitcoin hashrate-backed debt note security. Each OMN is backed by one petahash per second (1 PH/s) of Bitcoin hashrate for a fixed 36-month tenor, with all Bitcoin generated by the underlying hashrate paid to investors in Bitcoin at maturity, net of a 3.75% all-in expense ratio and zero performance fee. Issued by Omnes Securities Fund, a Luxembourg securitisation fund with segregated compartments under the Luxembourg Securitisation Law of 22 March 2004.",
+  "description": "The Omnes Mining Note (OMN) is a tokenized, secured, limited recourse debt note. Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term, with the Bitcoin mined with the notes' hashrate, or paid in its place, distributed to noteholders in Bitcoin at maturity. Tranche 1 of OMN Series 1 is US$50,000,000, with first issue expected on 1 November 2026. The minimum investment is US$100,000. Costs are 3.75% of invested capital, Costs and any tax liabilities rank ahead of noteholders, and there is no performance fee. Issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund, not supervised by the CSSF, with segregated compartments under the Luxembourg Securitisation Law of 22 March 2004, as amended.",
   "category": "Tokenized debt note security; Bitcoin hashrate-backed structured product",
   "provider": {
-    "@id": "https://omnes.io/#organization"
+    "@type": "Organization",
+    "name": "Omnes Securities Fund",
+    "description": "A Luxembourg unregulated securitisation fund, not supervised by the CSSF, managed by Omnes Securities S.à r.l.",
+    "parentOrganization": {
+      "@id": "https://omnes.io/#organization"
+    }
   },
   "areaServed": [
     {
@@ -106,9 +182,9 @@
   ],
   "audience": {
     "@type": "PeopleAudience",
-    "audienceType": "Professional investors (MiFID II Annex II); non-U.S., non-Canadian, non-restricted persons; minimum investment USD 100,000"
+    "audienceType": "Professional investors (MiFID II Annex II); non-U.S., non-Canadian, non-restricted persons; minimum investment US$100,000"
   },
-  "feesAndCommissionsSpecification": "3.75% all-in expense ratio over the 36-month tenor, covering management, custody, administration, pool, legal, compliance and audit. 0% performance fee. Minimum investment USD 100,000.",
+  "feesAndCommissionsSpecification": "Costs of 3.75% of invested capital, as set in the Offering Addendum, which the issuer uses to pay all fees, costs and expenses it owes in connection with the notes, including mining fees. Tax liabilities are not included in Costs. Costs and any tax liabilities rank ahead of noteholders. No performance fee. Minimum investment US$100,000.",
   "termsOfService": "https://omnes.io/website-terms/"
 }
 </script>
@@ -127,578 +203,632 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Invest",
-      "item": "https://omnes.io/omn/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Omnes Mining Note",
+      "name": "Mining Note",
       "item": "https://omnes.io/omn/"
     }
   ]
 }
 </script>
-<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="top">
-  <div class="nav-inner">
-    <a href="/" class="brand" aria-label="Omnes">
-      <img src="/omnes-logo-black.svg" alt="Omnes" />
-    </a>
-
-    <div class="nav-mid">
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Invest
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/omn/"><span class="nav-dd-item-title">Omnes Mining Note</span><span class="nav-dd-item-sub">OMN Series 1</span></a>
-          <a class="nav-dd-item" href="/login/"><span class="nav-dd-item-title">Investor Portal</span><span class="nav-dd-item-sub">Log in to your account</span></a>
-          <a class="nav-dd-item" href="/signup/"><span class="nav-dd-item-title">Sign Up</span><span class="nav-dd-item-sub">Create an investor account</span></a>
-          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener"><span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span><span class="nav-dd-item-sub">Technical docs and gitbook</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          About
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
-          <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
-          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
-          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
-          <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Contact
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/contact/"><span class="nav-dd-item-title">Contact IR</span><span class="nav-dd-item-sub">Speak to the investor relations team</span></a>
-          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow us on LinkedIn</span></a>
-          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow @omnesfinance</span></a>
-        </div>
-      </div>
-    </div>    <div class="nav-right">
-      <a href="/login/" class="nav-login">Log in</a>
-      <a href="/signup/" class="nav-signup">Sign up</a>
-      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-nav-inner">
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Invest</div>
-      <a href="/omn/">Omnes Mining Note</a>
-      <a href="/login/">Investor Portal</a>
-      <a href="/signup/">Sign Up</a>
-      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">About</div>
-      <a href="/about/">About Omnes</a>
-      <a href="/faqs/">FAQs</a>
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/" aria-current="page">Mining Note</a>
       <a href="/resources/">Resources</a>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
-      <a href="/media-kit/">Media Kit</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/">FAQs</a>
+      <a class="opt" href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/">Sign up</a>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Contact</div>
-      <a href="/contact/">Contact IR</a>
-      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
-      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-cta">
-      <a href="/login/" class="btn btn-ghost">Log in</a>
-      <a href="/signup/" class="btn btn-terra">Sign up</a>
-    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
-</div>
-
-
-
-<!-- ─── PRODUCT HERO (split: copy left, datacenter image right) ─── -->
-<section class="omn-hero">
-  <div class="omn-hero-copy">
-    <div class="omn-hero-copy-inner">
-      <h1 class="omn-hero-title">Bitcoin hashrate,<br>as a security.</h1>
-      <p class="omn-hero-lead">The Omnes Mining Note is a tokenized debt security backed by productive Bitcoin mining hashrate, structured under Luxembourg securitisation law.</p>
-      <div class="omn-hero-ctas">
-        <a href="#contact" class="btn btn-terra btn-lg">Express interest</a>
-        <a href="#panel-documents" class="btn btn-ghost btn-lg">View offering docs</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="omn-hero-visual">
-    <aside class="omn-hero-panel" aria-label="OMN key figures">
-      <div class="omn-hero-panel-top">
-        <span class="omn-hero-panel-tag">OMN · Series 1</span>
-        <span class="omn-hero-panel-badge">Coming soon</span>
-      </div>
-      <div class="omn-hero-panel-rows">
-        <div class="omn-hero-panel-row is-hero"><span>Backing per note</span><span>1 PH/s</span></div>
-        <div class="omn-hero-panel-row"><span>Tenor</span><span>36 months</span></div>
-        <div class="omn-hero-panel-row"><span>Minimum investment</span><span>US$100,000</span></div>
-        <div class="omn-hero-panel-row"><span>Expense ratio</span><span>3.75% all-in</span></div>
-        <div class="omn-hero-panel-row"><span>Performance fee</span><span>0%</span></div>
-        <div class="omn-hero-panel-row"><span>Distribution</span><span>Bitcoin at maturity</span></div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<!-- ─── TRUST STRIP ─── -->
-<section class="omn-trust">
-  <div class="omn-trust-inner">
-    <span class="omn-trust-lbl">Structured with</span>
-    <div class="omn-trust-names">
-      <span>Arendt &amp; Medernach</span>
-      <span>Apex Fund Services</span>
-      <span>Coinbase Luxembourg</span>
-      <span>Tokeny</span>
-      <span>Base</span>
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHY OMN 3-CARDS ─── -->
-<section class="omn-why">
-  <div class="omn-why-inner">
-    <div class="omn-why-head">
-      <span class="omn-why-eyebrow">Why OMN</span>
-      <h2 class="omn-why-h">Institutional-grade Bitcoin hashrate exposure.</h2>
-    </div>
-    <div class="omn-why-grid">
-      <div class="omn-why-card">
-        <h3>Regulated structure</h3>
-        <p>Issued through a Luxembourg securitisation fund with segregated, ring-fenced compartments under EU securities law. Noteholders hold senior secured creditor status through an independent security agent.</p>
-      </div>
-      <div class="omn-why-card">
-        <h3>Institutional custody</h3>
-        <p>Bitcoin generated by the underlying hashrate is custodied with Coinbase Luxembourg. Hashrate and yield are attested onchain. Audited by a Big Four firm; security agent is Apex Corporate Trustees.</p>
-      </div>
-      <div class="omn-why-card">
-        <h3>Bitcoin at maturity</h3>
-        <p>Fixed 36-month term. All mined Bitcoin accrues to the note and pays out at maturity in Bitcoin, net of a flat 3.75% all-in expense ratio. Zero performance fee. No caps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── STICKY TABS ─── -->
-<nav class="omn-tabs-bar">
-  <div class="omn-tabs-inner">
-    <button class="omn-tab active" data-tab="overview">Overview</button>
-    <button class="omn-tab" data-tab="documents">Documents</button>
-    <button class="omn-tab" data-tab="details">Details</button>
-    <button class="omn-tab" data-tab="fees">Fees &amp; Expenses</button>
-    <button class="omn-tab" data-tab="defi">DeFi Features</button>
-    <button class="omn-tab" data-tab="subscription">Subscription Process</button>
-    <button class="omn-tab" data-tab="faqs">FAQs</button>
-    <button class="omn-tab" data-tab="disclaimer">Disclaimer</button>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/" aria-current="page">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/">FAQs</a>
+  <a href="/contact/">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/">Sign up</a>
   </div>
 </nav>
+<!-- /SHELL: nav -->
 
-<!-- ─── OVERVIEW ─── -->
-<section class="omn-panel active" id="panel-overview">
-  <div class="omn-panel-inner">
-    <div class="ov-head">
-      <div class="ov-head-l">
-        <h2 class="ov-h">The OMN seeks superior risk-adjusted returns relative to Bitcoin spot, with uncapped upside participation.</h2>
+<main id="main">
+
+  <!-- Page header: the light-blue band, the Omnes mark, and a foot row with the page's contents -->
+  <header class="ph ph-tint">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title" id="pageTitle">Bitcoin hashrate, as a security.</h1>
+        <p class="ph-lead">The Omnes Mining Note is a tokenized debt security backed by productive Bitcoin mining hashrate, structured under Luxembourg securitisation law.</p>
+        <div class="ph-actions">
+          <a class="btn lg btn-dark" href="#contact">Express interest</a>
+          <a class="arrow-link" href="#documents">Offering documentation <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
-      <div class="ov-head-r">
-        <p>The Omnes Mining Note (OMN) is issued by <a href="/about/">Omnes</a> to give professional investors structured exposure to Bitcoin mining returns through institutional-scale Bitcoin mining data centers, packaged as a tokenized financial product.</p>
-        <p>The OMN converts Bitcoin hashrate into an investable financial instrument with full DeFi composability, offering transparent and compliant access to native mining-generated returns without the burden of owning, operating and maintaining physical mining hardware.</p>
-        <p>Each OMN is backed by a fixed one petahash per second (1 PH/s) of Bitcoin hashrate for the duration of the 36-month tenor. Ownership is recorded in book-entry form and mirrored onchain under the ERC-3643 standard.</p>
+      <div class="ph-flow" aria-hidden="true"><canvas data-field="fall"></canvas></div>
+    </div>
+    <div class="wrap ph-foot">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Mining Note</span></li>
+        </ol>
+      </nav>
+      <nav class="jump" aria-label="On this page">
+        <ul>
+          <li><a href="#terms">Terms</a></li>
+          <li><a href="#structure">Structure</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#fees">Fees</a></li>
+          <li><a href="#subscribe">Subscribe</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- The note: the statement set as one annotated serif line, the note's life on a single term
+       line, and the Series 1 terms as an open specification (from partials/note.html) -->
+  <section class="sec" id="note" aria-labelledby="noteTitle">
+    <div class="wrap">
+      <div class="eqn-wrap reveal">
+        <h2 class="eqn" id="noteTitle">
+          <span class="eqn-c"><span class="eqn-w">One petahash per second,</span><span class="eqn-l" aria-hidden="true">1 PH/s of hashrate per note, notional</span></span>
+          <span class="eqn-c"><span class="eqn-w">for 730 days,</span><span class="eqn-l" aria-hidden="true">From commencement to maturity</span></span>
+          <span class="eqn-c"><span class="eqn-w">paid in Bitcoin.</span><span class="eqn-l" aria-hidden="true">At maturity, after Costs and tax</span></span>
+        </h2>
       </div>
-    </div>
 
-    <div class="ov-terms">
-      <div class="ov-term"><span class="ov-term-k">Target raise</span><span class="ov-term-v ov-term-terra">US$50,000,000</span></div>
-      <div class="ov-term"><span class="ov-term-k">Token price</span><span class="ov-term-v">Available upon request</span></div>
-      <div class="ov-term"><span class="ov-term-k">Minimum investment</span><span class="ov-term-v">US$100,000</span></div>
-      <div class="ov-term"><span class="ov-term-k">OMN backing</span><span class="ov-term-v">1 PH/s of Bitcoin hashrate</span></div>
-      <div class="ov-term"><span class="ov-term-k">Tenor</span><span class="ov-term-v">36 months</span></div>
-      <div class="ov-term"><span class="ov-term-k">Eligible investors</span><span class="ov-term-v">Professional investors (MiFID II), non-U.S. and non-restricted persons</span></div>
-      <div class="ov-term"><span class="ov-term-k">Asset class</span><span class="ov-term-v">Bitcoin hashrate</span></div>
-      <div class="ov-term"><span class="ov-term-k">Distributions at maturity</span><span class="ov-term-v">Bitcoin</span></div>
-    </div>
-  </div>
-</section>
+      <figure class="life reveal">
+        <figcaption class="vh">The life of a note: from commencement, expected 1 November 2026, to maturity 730 days later, with a report to noteholders every quarter.</figcaption>
+        <p class="life-accrue">Bitcoin mined, or paid in place of undelivered hashrate, accrues in custody</p>
+        <p class="life-paid">Paid in Bitcoin at maturity</p>
+        <div class="life-track" aria-hidden="true">
+          <canvas class="life-field" data-field="accrue"></canvas>
+          <span class="life-q" style="--q:1"></span><span class="life-q" style="--q:2"></span><span class="life-q" style="--q:3"></span><span class="life-q" style="--q:4"></span>
+          <span class="life-q" style="--q:5"></span><span class="life-q" style="--q:6"></span><span class="life-q" style="--q:7"></span><span class="life-q" style="--q:8"></span>
+          <span class="life-end life-start"></span><span class="life-end life-stop"></span>
+        </div>
+        <p class="life-from"><b>Commencement</b>Expected 1 November 2026</p>
+        <p class="life-key"><i aria-hidden="true"></i>A report to noteholders every quarter, eight in all</p>
+        <p class="life-to"><b>Maturity</b>730 days later</p>
+      </figure>
 
-<!-- ─── DOCUMENTS ─── -->
-<section class="omn-panel" id="panel-documents">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Documents.</h2>
-    <p class="docs-intro">Create or log in to your account in order to access the OMN private placement memorandum, the subscription agreement and other offering documentation.</p>
-
-    <div class="docs-card">
-      <span class="docs-soon">Coming Soon</span>
-      <h3>Offering Documentation</h3>
-      <p>Private placement memorandum, subscription agreement and related materials.</p>
-      <a href="/login/" class="btn btn-terra">Log in to access</a>
-    </div>
-
-    <p class="docs-foot">Don't have an account? <a href="/contact/">Contact IR</a> to request access to offering documentation.</p>
-  </div>
-</section>
-
-<!-- ─── DETAILS ─── -->
-<section class="omn-panel" id="panel-details">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Details.</h2>
-    <p class="cb-sub">The structure, parties, and terms behind the Omnes Mining Note.</p>
-    <div class="ov-terms">
-      <div class="ov-term"><span class="ov-term-k">ISIN</span><span class="ov-term-v">TBC</span></div>
-      <div class="ov-term"><span class="ov-term-k">Issuer</span><span class="ov-term-v">Omnes Securities Fund</span></div>
-      <div class="ov-term"><span class="ov-term-k">Management</span><span class="ov-term-v">Omnes Securities S.à r.l.</span></div>
-      <div class="ov-term"><span class="ov-term-k">Administrator</span><span class="ov-term-v">Apex Fund Services S.A.</span></div>
-      <div class="ov-term"><span class="ov-term-k">Attorney</span><span class="ov-term-v">Arendt &amp; Medernach S.A.</span></div>
-      <div class="ov-term"><span class="ov-term-k">Auditor</span><span class="ov-term-v">Big Four Auditor</span></div>
-      <div class="ov-term"><span class="ov-term-k">Bitcoin custodian</span><span class="ov-term-v">Coinbase Luxembourg S.A.</span></div>
-      <div class="ov-term"><span class="ov-term-k">Security agent</span><span class="ov-term-v">Apex Corporate Trustees (UK) Limited</span></div>
-      <div class="ov-term"><span class="ov-term-k">Tokenization platform</span><span class="ov-term-v">Tokeny S.A.</span></div>
-      <div class="ov-term"><span class="ov-term-k">Blockchain</span><span class="ov-term-v">Base</span></div>
-      <div class="ov-term"><span class="ov-term-k">Tradability</span><span class="ov-term-v">Between whitelisted professional investors</span></div>
-      <div class="ov-term"><span class="ov-term-k">Instrument type</span><span class="ov-term-v">Debt Note Security</span></div>
-      <div class="ov-term"><span class="ov-term-k">Offering type</span><span class="ov-term-v">Private Placement</span></div>
-      <div class="ov-term"><span class="ov-term-k">Legal structure</span><span class="ov-term-v">Luxembourg Securitisation Fund (with compartments)</span></div>
-      <div class="ov-term"><span class="ov-term-k">Domicile</span><span class="ov-term-v">Luxembourg</span></div>
-      <div class="ov-term"><span class="ov-term-k">Investment currency</span><span class="ov-term-v">USD bank wire, USDT, USDC, BTC</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FEES & EXPENSES ─── -->
-<section class="omn-panel" id="panel-fees">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Fees &amp; Expenses.</h2>
-    <p class="cb-sub">A single, transparent expense ratio, and no performance fee.</p>
-
-    <div class="cb-2up">
-      <div class="cb-card">
-        <h3>3.75% all-in expense ratio</h3>
-        <p>Total over the 36-month tenor. A flat rate covering all management, custody, administration, and operational costs.</p>
-      </div>
-      <div class="cb-card">
-        <h3>0% performance fee</h3>
-        <p>Zero performance fee. Investors retain all upside above the expense ratio.</p>
+      <div class="spec reveal" id="terms">
+        <h3 class="vh">Series 1 terms</h3>
+        <dl class="spec-lead">
+          <div><dt>Tranche 1, OMN Series 1</dt><dd>US$50,000,000</dd></div>
+        </dl>
+        <div class="spec-intro">
+          <p class="body">Exposure to Bitcoin mining output through hashrate supplied under a hashrate purchase agreement, without the burden of owning, operating and maintaining physical mining hardware.</p>
+          <a class="arrow-link" href="#structure">How it is built <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <dl class="spec-list">
+          <div class="fig"><dt>Minimum investment</dt><dd>US$100,000</dd></div>
+          <div class="fig"><dt>Costs</dt><dd>3.75%<small>of invested capital</small></dd></div>
+          <div class="fig"><dt>Performance fee</dt><dd>None</dd></div>
+          <div><dt>Tenor</dt><dd>24 months</dd></div>
+          <div><dt>Eligible investors</dt><dd>Professional investors (MiFID II), non-U.S. and non-restricted persons</dd></div>
+          <div><dt>OMN backing</dt><dd>1 PH/s of Bitcoin hashrate</dd></div>
+        </dl>
+        <p class="fine spec-risk">Returns are not guaranteed, and investors can lose some or all of their investment.</p>
       </div>
     </div>
+  </section>
 
-    <div class="cb-prose" style="margin-top: 24px;">
-      <p>The 3.75% expense ratio covers fund administration, custody, tokenization, mining operations management, legal and compliance costs, and audit fees, all bundled into a single, transparent figure.</p>
-      <p>* Expense Ratio includes the management fee, custody charges by the custodian, pool fees paid to the mining pool, and expenses related to the fund administrator and auditor.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── DEFI FEATURES ─── -->
-<section class="omn-panel" id="panel-defi">
-  <div class="omn-panel-inner">
-    <div class="defi-head">
-      <div>
-        <h2 class="defi-title">Onchain capabilities for your tokenized assets.</h2>
+  <!-- How it is built: the structure diagram on the open canvas (from partials/structure.html;
+       links and flow drawn by site.js), then the details as a two-column term sheet -->
+  <section class="sec sec-top-0" id="structure" aria-labelledby="structTitle">
+    <div class="wrap">
+      <div class="grid sx-head reveal">
+        <h2 class="sx-title span-7" id="structTitle">An institutional structure, in tokenized form.</h2>
+        <div class="span-4 start-9 sx-intro">
+          <p class="body">The notes are issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund not supervised by the CSSF, from a segregated, ring-fenced compartment. Ownership is recorded in its Noteholder Register, which is definitive, and mirrored onchain on Base.</p>
+        </div>
       </div>
-      <p class="defi-head-note">OMN is built for onchain utility, with more integrations on the way.</p>
-    </div>
+      <figure class="sx reveal" aria-labelledby="sxTitle">
+        <figcaption class="vh" id="sxTitle">How the Omnes Mining Note is built. Select a party to hear its role.</figcaption>
+        <ul class="vh">
+          <li>Omnes Technology AG, the Hashrate Aggregator and an Omnes affiliate, delivers 1 PH/s of hashrate per note to the issuer under the hashrate purchase agreement, or pays Bitcoin in its place.</li>
+          <li>Omnes Securities Fund, the issuer, issues the notes from a segregated, ring-fenced compartment. Its management company is Omnes Securities S.&agrave; r.l.</li>
+          <li>The Bitcoin mined, or paid in place of hashrate, is held in custody with Coinbase Luxembourg S.A.</li>
+          <li>Investors subscribe for and hold the notes, and are paid in Bitcoin at maturity.</li>
+          <li>Apex Corporate Trustees (UK) Limited, the security agent, holds the pledges for noteholders.</li>
+          <li>The issuer keeps the Noteholder Register, which is definitive, mirrored onchain as an ERC-3643 token on Base via Tokeny S.&agrave; r.l., which also provides the investor dashboard.</li>
+        </ul>
+        <div class="sx-map" data-sx>
+          <svg class="sx-links" aria-hidden="true" focusable="false"></svg>
+          <canvas class="sx-flow" aria-hidden="true"></canvas>
+          <div class="sx-n main" data-node="agg" data-t="br" data-lvl="0" style="--x:0%;--y:212px">
+            <button class="sx-b" type="button" aria-describedby="sxd-agg"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Omnes Technology AG</span><span class="sx-role">Hashrate Aggregator, an Omnes affiliate</span></button>
+            <p class="sx-desc" id="sxd-agg">Supplies 1 PH/s of hashrate per note under the hashrate purchase agreement, or pays Bitcoin in place of hashrate it does not deliver.</p>
+          </div>
+          <span class="sx-lbl flow" aria-hidden="true" style="--x:16.667%;--y:212px">1 PH/s per note</span>
+          <div class="sx-n main" data-node="iss" data-t="br" data-lvl="0" style="--x:33.333%;--y:212px">
+            <button class="sx-b" type="button" aria-describedby="sxd-iss"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Omnes Securities Fund</span><span class="sx-role">Issuer, from a ring-fenced compartment</span></button>
+            <p class="sx-desc" id="sxd-iss">Issues the notes from a segregated, ring-fenced compartment. A Luxembourg unregulated securitisation fund, not supervised by the CSSF.</p>
+          </div>
+          <div class="sx-n" data-node="mgt" data-t="br" data-lvl="1" style="--x:0%;--y:40px">
+            <button class="sx-b" type="button" aria-describedby="sxd-mgt"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Omnes Securities S.&agrave;&nbsp;r.l.</span><span class="sx-role">Management company</span></button>
+            <p class="sx-desc" id="sxd-mgt">Manages the issuer, Omnes Securities Fund.</p>
+          </div>
+          <div class="sx-n" data-node="reg" data-t="br" data-lvl="1" style="--x:33.333%;--y:392px">
+            <button class="sx-b" type="button" aria-describedby="sxd-reg"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Noteholder Register</span><span class="sx-role">Kept by the issuer, and definitive</span></button>
+            <p class="sx-desc" id="sxd-reg">Kept by the issuer as the definitive record of who owns the notes.</p>
+          </div>
+          <div class="sx-n" data-node="tok" data-t="br" data-lvl="2" style="--x:66.667%;--y:392px">
+            <button class="sx-b" type="button" aria-describedby="sxd-tok"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Tokeny S.&agrave;&nbsp;r.l.</span><span class="sx-role">ERC-3643 token on Base</span></button>
+            <p class="sx-desc" id="sxd-tok">Mirrors the register onchain as an ERC-3643 token on Base, and provides the investor dashboard.</p>
+          </div>
+          <span class="sx-lbl flow" aria-hidden="true" style="--x:50%;--y:212px">Bitcoin mined, or paid in place, into custody</span>
+          <div class="sx-n main" data-node="cus" data-t="br" data-lvl="0" style="--x:66.667%;--y:212px">
+            <button class="sx-b" type="button" aria-describedby="sxd-cus"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Coinbase Luxembourg S.A.</span><span class="sx-role">Custodian</span></button>
+            <p class="sx-desc" id="sxd-cus">Holds the Bitcoin mined with the notes&rsquo; hashrate, and any Bitcoin paid in its place, in a dedicated custody account.</p>
+          </div>
+          <div class="sx-n" data-node="agt" data-t="br" data-lvl="1" style="--x:66.667%;--y:40px">
+            <button class="sx-b" type="button" aria-describedby="sxd-agt"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Apex Corporate Trustees (UK)&nbsp;Limited</span><span class="sx-role">Security agent</span></button>
+            <p class="sx-desc" id="sxd-agt">Holds the pledges over the issuer&rsquo;s Bitcoin custody accounts and its claims under the hashrate purchase and custody agreements, for noteholders.</p>
+          </div>
+          <span class="sx-lbl flow" aria-hidden="true" style="--x:83.333%;--y:212px">Paid in Bitcoin at maturity</span>
+          <div class="sx-n main" data-node="inv" data-t="bl" data-lvl="0" style="--x:100%;--y:212px">
+            <button class="sx-b" type="button" aria-describedby="sxd-inv"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Investors</span><span class="sx-role">Noteholders</span></button>
+            <p class="sx-desc" id="sxd-inv">Professional investors subscribe for the notes and are paid in Bitcoin at maturity, after Costs and tax.</p>
+          </div>
+          <span class="sx-lbl side v" aria-hidden="true" style="--x:33.333%;--y:128px">Manages the issuer</span>
+          <span class="sx-lbl side v" aria-hidden="true" style="--x:33.333%;--y:334px">Keeps the register</span>
+          <span class="sx-lbl side" aria-hidden="true" style="--x:50%;--y:392px">Mirrored onchain</span>
+          <span class="sx-lbl side v" aria-hidden="true" style="--x:66.667%;--y:150px">Pledges held for noteholders</span>
+        </div>
+        <p class="sx-cap" aria-hidden="true" data-sx-cap>Point to a party to see its role.</p>
+      </figure>
 
-    <div class="defi-grid">
-      <div class="defi-cell">
-        <div class="defi-cell-top">
-          <div class="defi-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div>
-          <div>
-            <h3>Onchain Representation</h3>
-            <p class="defi-sub">OMN is issued onchain, with initial deployment on Base.</p>
+      <div class="part reveal" id="details">
+        <div class="det-head">
+          <h3 class="sh-sub" id="detTitle">The note in detail.</h3>
+          <p class="body">The structure, parties and terms behind the Omnes Mining Note.</p>
+        </div>
+        <dl class="specs det" aria-labelledby="detTitle">
+          <div><dt>Instrument type</dt><dd>Debt note security</dd></div>
+          <div><dt>Offering type</dt><dd>Private placement</dd></div>
+          <div><dt>Legal structure</dt><dd>Luxembourg unregulated securitisation fund, with compartments</dd></div>
+          <div><dt>Domicile</dt><dd>Luxembourg</dd></div>
+          <div><dt>Investment currency</dt><dd>USD bank wire, USDT, USDC, BTC</dd></div>
+          <div><dt>Token price</dt><dd>Available upon request</dd></div>
+          <div><dt>Blockchain</dt><dd>Base</dd></div>
+          <div><dt>Tradability</dt><dd>Between whitelisted professional investors</dd></div>
+          <div><dt>ISIN</dt><dd>To be confirmed</dd></div>
+          <div><dt>Corporate service provider</dt><dd>Apex Fund Services S.A.</dd></div>
+          <div><dt>Legal counsel</dt><dd>Arendt &amp; Medernach S.A.</dd></div>
+          <div><dt>Auditor</dt><dd>To be confirmed</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security: the pledge beside the other protections, open on the soft band
+       (from partials/security.html, its cards removed) -->
+  <section class="sec-slab" id="security" aria-labelledby="secTitle">
+    <div class="slab slab-soft">
+      <div class="wrap">
+        <div class="grid sec-head sec-head-end reveal">
+          <h2 class="statement-lg span-8" id="secTitle">The notes are secured by a pledge held for noteholders by an <span class="hl">independent security agent</span>.</h2>
+          <div class="span-3 start-10 head-action">
+            <a class="arrow-link" href="/faqs/#secured-offering">Read the security questions <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
-        <span class="defi-chain"><i></i>Base</span>
+        <div class="guard-grid reveal">
+          <article class="guard-lead">
+            <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.8l6.6 2.6v5c0 4.2-2.8 7.3-6.6 8.8-3.8-1.5-6.6-4.6-6.6-8.8v-5z"/><path d="M9.2 11.9l2 2 3.7-3.9" stroke="#2f6bff"/></svg></span>
+            <h3>Pledges held by the security agent</h3>
+            <p>The notes are secured in favour of Apex Corporate Trustees (UK) Limited, acting for noteholders, by pledges over:</p>
+            <ul class="pledged">
+              <li><span class="pk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 12.4l3.6 3.6 7.4-7.8"/></svg></span>The issuer's Bitcoin custody accounts</li>
+              <li><span class="pk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 12.4l3.6 3.6 7.4-7.8"/></svg></span>The issuer's claims under the hashrate purchase agreement</li>
+              <li><span class="pk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 12.4l3.6 3.6 7.4-7.8"/></svg></span>The issuer's claims under the custody agreement</li>
+            </ul>
+            <p class="guard-note">Only the security agent can enforce the security, and noteholders cannot direct it to unless the management company approves.</p>
+          </article>
+          <ul class="guards">
+            <li class="guard">
+              <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15" rx="3.6"/><circle cx="12" cy="12" r="3" fill="#2f6bff" stroke="none"/></svg></span>
+              <div><h3>Custody at Coinbase Luxembourg</h3><p>Bitcoin from the notes' hashrate, and any Bitcoin paid in its place, is held by Coinbase Luxembourg S.A., a regulated custodian, in a dedicated custody account.</p></div>
+            </li>
+            <li class="guard">
+              <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="4.2"/><rect x="8.3" y="8.3" width="7.4" height="7.4" rx="2" fill="#2f6bff" stroke="none"/></svg></span>
+              <div><h3>A ring-fenced compartment</h3><p>Each offering sits in its own segregated, ring-fenced and limited recourse compartment under the Luxembourg Securitisation Law of 22 March 2004, as amended.</p></div>
+            </li>
+            <li class="guard">
+              <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="3.2" rx="1.6" fill="#174f7b" stroke="none" opacity=".28"/><rect x="4.5" y="10.4" width="10.5" height="3.2" rx="1.6" fill="#174f7b" stroke="none" opacity=".5"/><rect x="4.5" y="15.8" width="6" height="3.2" rx="1.6" fill="#2f6bff" stroke="none"/></svg></span>
+              <div><h3>Limited recourse and ranking</h3><p>Recourse is limited to the assets of the relevant compartment, and Costs and any tax liabilities rank ahead of noteholders.</p></div>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="defi-cell">
-        <div class="defi-cell-top">
-          <div class="defi-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9a3 3 0 0 0-3-2 3 3 0 0 0 0 6 3 3 0 0 1 0 6 3 3 0 0 1-3-2M12 5v2M12 17v2"/></svg></div>
-          <div>
-            <h3>Supported Settlement Assets</h3>
-            <p class="defi-sub">Multiple currencies accepted</p>
+  <!-- Fees and expenses: what Costs pay for and how they rank, as open rows -->
+  <section class="sec sec-top-0" id="fees" aria-labelledby="feesTitle">
+    <div class="wrap split reveal">
+      <div class="split-side">
+        <h2 class="sh-title" id="feesTitle">Fees and expenses.</h2>
+        <p class="body">Costs set in the Offering Addendum, and no performance fee.</p>
+      </div>
+      <dl class="specs split-main fees-list">
+        <div><dt>Costs</dt><dd>3.75% of invested capital<small>Set in the Offering Addendum and taken from the invested capital. The issuer uses Costs to pay all fees, costs and expenses it owes in connection with the notes.</small></dd></div>
+        <div><dt>Performance fee</dt><dd>None<small>No performance fee is charged on the Bitcoin distributed at maturity.</small></dd></div>
+        <div><dt>Mining fees</dt><dd>Reimbursed out of the Costs<small>Fees charged for mining with the notes&rsquo; hashrate are reimbursed by the issuer into the Bitcoin custody account, from a reserve funded out of the Costs.</small></dd></div>
+        <div><dt>Tax liabilities</dt><dd>Not included in Costs, and paid separately</dd></div>
+        <div><dt>Ranking</dt><dd>Costs and any tax liabilities rank ahead of noteholders in the priorities of payments</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- What the network pays: the live figures on the left, a year of hashrate on the right
+       (from partials/network-pays.html) -->
+  <section class="sec sec-top-0 pays" id="network" aria-labelledby="netTitle">
+    <div class="wrap grid">
+      <div class="span-5 pays-copy reveal">
+        <h2 class="statement-lg" id="netTitle">What the network pays.</h2>
+        <p class="body pays-intro">Every block pays the miner that found it: newly issued Bitcoin plus the fees inside it. This is the last day of it, read live from the public chain.</p>
+        <div class="big">
+          <b class="big-v num" data-live="paidUsd"><span class="sk"></span></b>
+          <span class="big-k">Paid to miners in the last 144 blocks, about one day, at today's Bitcoin price</span>
+        </div>
+        <dl class="minis">
+          <div><dt>Paid in the last 144 blocks</dt><dd class="num" data-live="paid"><span class="sk"></span></dd></div>
+          <div><dt>Network hashrate, three-day estimate</dt><dd class="num" data-live="hashrate"><span class="sk"></span></dd></div>
+          <div><dt>Omnes Hashprice Index, per PH/s a day</dt><dd class="num" data-live="hashprice"><span class="sk"></span></dd></div>
+          <div><dt>Bitcoin price</dt><dd class="num" data-live="price"><span class="sk"></span></dd></div>
+        </dl>
+        <p class="live-line">
+          <span class="src"><span class="dot wait" data-live-dot aria-hidden="true"></span><span data-live-status aria-live="polite">Connecting to mempool.space</span></span>
+          <span>Block <span data-live="height"><span class="sk w3"></span></span></span>
+          <span>Next adjustment <span data-live="adjustment"><span class="sk w3"></span></span></span>
+        </p>
+        <p class="fine">The Omnes Hashprice Index is our own measure of what one petahash per second earns in a day: 144 &times; (block subsidy + average fees per block over the last 144 blocks) &divide; network hashrate in PH/s, at the current Bitcoin price, read live from public chain data.</p>
+        <p class="fine">Network figures are estimates from public chain data, not a forecast of what any note will pay.</p>
+      </div>
+      <figure class="span-7 field-panel reveal">
+        <div class="field">
+          <canvas data-field="hashrate-wave" aria-hidden="true"></canvas>
+          <p class="field-now"><span>Now</span><b class="num" data-live="hashrateText"><span class="sk"></span></b><span>network hashrate</span></p>
+          <p class="field-ago" aria-hidden="true">12 months ago</p>
+        </div>
+        <figcaption class="field-cap"><span class="dot wait" data-wave-dot aria-hidden="true"></span><span data-wave-status>Network hashrate history, loading from mempool.space</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Onchain capabilities: four open columns, the two not yet live marked "Coming soon" -->
+  <section class="sec sec-top-0" id="onchain" aria-labelledby="onchainTitle">
+    <div class="wrap">
+      <div class="sh reveal">
+        <h2 class="sh-title" id="onchainTitle">Onchain capabilities for your tokenized assets.</h2>
+        <div class="sh-side">
+          <p class="body">OMN is built for onchain utility, with more integrations on the way.</p>
+        </div>
+      </div>
+      <ul class="features features-4 reveal">
+        <li class="feature">
+          <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.6l7.4 3.7L12 12 4.6 8.3z"/><path d="M4.6 12l7.4 3.7 7.4-3.7"/><path d="M4.6 15.7l7.4 3.7 7.4-3.7" stroke="#2f6bff"/></svg></span>
+          <h3>Onchain representation</h3>
+          <p>OMN ownership is mirrored onchain, with initial deployment on Base.</p>
+          <span class="tag chain">Base</span>
+        </li>
+        <li class="feature">
+          <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9.2" cy="12" r="5.2"/><path d="M12.8 7.3A5.2 5.2 0 1 1 12.8 16.7" stroke="#2f6bff"/></svg></span>
+          <h3>Supported settlement assets</h3>
+          <p>Subscriptions are accepted in USD, USDC, USDT and BTC. Secondary transfers are supported in USDC, and USDT.</p>
+        </li>
+        <li class="feature">
+          <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6.4" cy="12" r="2.4"/><circle cx="17.6" cy="6.6" r="2.4"/><circle cx="17.6" cy="17.4" r="2.4"/><path d="M8.6 10.9l6.8-3.2M8.6 13.1l6.8 3.2" stroke="#2f6bff"/></svg></span>
+          <h3>Cross chain interoperability</h3>
+          <p>Enable seamless movement of OMN across supported blockchain networks.</p>
+          <span class="tag soon">Coming soon</span>
+        </li>
+        <li class="feature">
+          <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5.2" y="10.4" width="13.6" height="9.4" rx="2.6"/><path d="M8.4 10.4V8.2a3.6 3.6 0 0 1 7.2 0v2.2"/><path d="M12 14.1v2.1" stroke="#2f6bff"/></svg></span>
+          <h3>DeFi collateralization</h3>
+          <p>Access liquidity by borrowing against OMN while maintaining your underlying exposure. Use OMN as collateral, subject to platform terms and liquidation risk.</p>
+          <span class="tag soon">Coming soon</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Subscription: three steps on one line, then the offering documentation as an open row -->
+  <section class="sec sec-top-0" id="subscribe" aria-labelledby="subTitle">
+    <div class="wrap">
+      <div class="sh reveal">
+        <h2 class="sh-title" id="subTitle">Subscription process.</h2>
+        <div class="sh-side">
+          <p class="body">Designed for efficiency and compliance: once your identity and accreditation are verified, you can invest in offerings without repeating the onboarding process.</p>
+          <a class="btn btn-dark" href="/signup/">Create an investor account</a>
+        </div>
+      </div>
+      <ol class="steps reveal">
+        <li>
+          <h3><span class="n" aria-hidden="true">01</span>Create an account or log in</h3>
+          <p>Begin by creating an account and verifying your identity. Complete your investor profile, accreditation status, and compliance requirements to gain access to the Omnes offering.</p>
+        </li>
+        <li>
+          <h3><span class="n" aria-hidden="true">02</span>Choose your investment</h3>
+          <p>Browse the Omnes Mining Note and specify your investment amount. Once selected, you will be guided through the subscription and funding workflow directly within your dashboard.</p>
+        </li>
+        <li>
+          <h3><span class="n" aria-hidden="true">03</span>Review and sign</h3>
+          <p>Electronically review and sign all subscription documents. You may then fund your investment via USD wire transfer, USDC, USDT or BTC and hold them securely within your account.</p>
+        </li>
+      </ol>
+      <div class="docs-sec reveal" id="documents">
+        <a class="docs" href="/login/">
+          <span class="docs-t">Offering documentation<span class="tag soon">Coming soon</span></span>
+          <span class="docs-d">Private placement memorandum, subscription agreement and related materials</span>
+          <span class="docs-go">Log in to access <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <p class="fine docs-foot">Don&rsquo;t have an account? <a href="#contact">Contact investor relations</a> to request access to offering documentation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs: the heading held on the left, the real page's five questions (verbatim) on the right -->
+  <section class="sec sec-top-0" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap split">
+      <div class="split-side sticky reveal">
+        <h2 class="sh-title" id="faqTitle">FAQs</h2>
+        <p><a class="arrow-link" href="/faqs/">All FAQs <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+      </div>
+      <div class="faq split-main reveal">
+        <details>
+          <summary>What is the OMN (Omnes Mining Note)?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>OMN is a secured, limited recourse debt note whose returns come from Bitcoin mining. Each note carries a notional hashrate allocation of one petahash per second (1 PH/s) over a 730-day term. The hashrate is supplied under a hashrate purchase agreement by the Hashrate Aggregator, Omnes Technology AG, an Omnes affiliate, which may pay Bitcoin in place of any hashrate it does not deliver, calculated using the Omnes Hashprice Index. Investors gain exposure to Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure.</p></div>
+        </details>
+        <details>
+          <summary>How does OMN generate returns for investors?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term. During this period, the Bitcoin mined with that hashrate, together with any Bitcoin paid in place of undelivered hashrate, is held in custody for the issuer's compartment. At maturity, noteholders receive their pro rata share of that Bitcoin, after Costs and any tax liabilities, which rank ahead of noteholders. Costs are 3.75% of invested capital, as set in the Offering Addendum, and there is no performance fee. Returns are not guaranteed, and investors can lose some or all of their investment.</p></div>
+        </details>
+        <details>
+          <summary>How is the OMN issued?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>The OMN offering will be carried out by way of a private placement offering through a bankruptcy-remote Luxembourg securitisation fund as the issuer, structured under the Luxembourg Securitisation Law of 22 March 2004, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform.</p></div>
+        </details>
+        <details>
+          <summary>Who can invest in the OMN?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>The OMN is for natural or legal persons who are professional investors who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount of at least US$100,000. Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by applicable laws and regulations. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation.</p></div>
+        </details>
+        <details>
+          <summary>Is it a secured offering and how is investor capital safeguarded?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments.</p><p>The notes are secured in favour of a third-party security agent, Apex Corporate Trustees (UK) Limited, acting for the noteholders, by a pledge over the issuer's Bitcoin custody accounts and a pledge over its claims under the hashrate purchase agreement and the custody agreement. Only the security agent can enforce that security, and noteholders cannot direct it to unless the management company approves. Recourse is limited to the assets of the relevant compartment, and costs and tax liabilities rank ahead of noteholders.</p><p>Bitcoin for the notes is held by the custodian, Coinbase Luxembourg S.A., and the issuer's audited financial statements are provided to noteholders once available.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer: verbatim from the real page, quiet, on a hairline -->
+  <section class="sec sec-top-0" id="disclaimer" aria-labelledby="discTitle">
+    <div class="wrap split disc reveal">
+      <div class="split-side"><h2 class="sh-sub" id="discTitle">Disclaimer</h2></div>
+      <div class="split-main disc-body">
+        <p>The information on this page is provided for general informational purposes only and is qualified in its entirety by the <a href="/website-terms/">Website Terms.</a> It does not constitute investment, financial, legal, tax, or other advice, nor an offer to sell or a solicitation of an offer to buy any securities.</p>
+        <p>Prospective investors should not rely on any content presented on this page for making investment decisions, as it may be incomplete, condensed, subject to change, or not tailored to individual circumstances. Instead, any investment consideration must be based solely on a thorough review of the <a href="/website-terms/">Website Terms</a> and the 'Offering Documentation' of the 'Investment Product' (in each case, as defined in the Website Terms), which supersede all information on this website.</p>
+        <p>No investment should be made without first obtaining and carefully reviewing these documents, along with independent advice from qualified professional advisors. For access to the Investment Product Offering Documentation, please create or log in to your account on the Omnes platform or <a href="/contact/">contact us directly.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact: the investor relations details beside the form. The form opens the visitor's own
+       email app with the message addressed to investor relations; nothing is sent from this page. -->
+  <section class="sec sec-top-0" id="contact" aria-labelledby="contactTitle">
+    <div class="wrap split">
+      <div class="split-side reveal">
+        <h2 class="sh-title" id="contactTitle">Get in touch with Omnes.</h2>
+        <p class="body">Complete the form and a member of the Omnes investor relations team will respond within one business day to discuss the OMN and your priorities.</p>
+        <dl class="specs">
+          <div><dt>Investor relations</dt><dd><a href="mailto:ir@omnes.io">ir@omnes.io</a></dd></div>
+          <div><dt>General</dt><dd><a href="mailto:info@omnes.io">info@omnes.io</a></dd></div>
+        </dl>
+      </div>
+      <form class="form split-main reveal" id="irForm" action="mailto:ir@omnes.io" method="post" novalidate aria-labelledby="formTitle">
+        <h3 class="vh" id="formTitle">Send a message to investor relations</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fFirst">First name</label>
+            <input id="fFirst" name="first_name" type="text" autocomplete="given-name" placeholder="Jane" required aria-describedby="fFirstErr">
+            <p class="form-error" id="fFirstErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Enter your first name.</p>
+          </div>
+          <div class="form-field">
+            <label for="fLast">Last name</label>
+            <input id="fLast" name="last_name" type="text" autocomplete="family-name" placeholder="Smith" required aria-describedby="fLastErr">
+            <p class="form-error" id="fLastErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Enter your last name.</p>
           </div>
         </div>
-        <p class="defi-desc">Subscriptions are accepted in USD, USDC, USDT and BTC. Secondary transfers are supported in USDC, and USDT.</p>
-      </div>
-
-      <div class="defi-cell is-soon">
-        <span class="defi-badge">Coming Soon</span>
-        <div class="defi-cell-top">
-          <div class="defi-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.5 10.5l7-4M8.5 13.5l7 4"/></svg></div>
-          <div>
-            <h3>Cross Chain Interoperability</h3>
-            <p class="defi-sub">Move OMN across supported networks</p>
+        <div class="form-field">
+          <label for="fEmail">Email address</label>
+          <input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@fund.com" required aria-describedby="fEmailErr">
+          <p class="form-error" id="fEmailErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Enter an email address like name@company.com.</p>
+        </div>
+        <div class="form-field">
+          <label for="fOrg">Organisation <span class="opt">(optional)</span></label>
+          <input id="fOrg" name="organisation" type="text" autocomplete="organization" placeholder="Fund, family office or bank">
+        </div>
+        <div class="form-field">
+          <label for="fSubject">Subject</label>
+          <div class="select">
+            <select id="fSubject" name="subject" required aria-describedby="fSubjectErr">
+              <option value="">Select a topic</option>
+              <option>OMN, investment enquiry</option>
+              <option>KYC / Onboarding</option>
+              <option>Documentation request</option>
+              <option>Partnership</option>
+              <option>General question</option>
+            </select>
           </div>
+          <p class="form-error" id="fSubjectErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Choose a topic.</p>
         </div>
-        <p class="defi-desc">Enable seamless movement of OMN across supported blockchain networks.</p>
-      </div>
-
-      <div class="defi-cell is-soon">
-        <span class="defi-badge">Coming Soon</span>
-        <div class="defi-cell-top">
-          <div class="defi-ico"><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-12V5l8-3 8 3v5c0 7.5-8 12-8 12z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div>
-            <h3>DeFi Collateralization</h3>
-            <p class="defi-sub">Borrow against your OMN holdings</p>
-          </div>
+        <div class="form-field">
+          <label for="fMessage">Message</label>
+          <textarea id="fMessage" name="message" rows="5" placeholder="Tell us how we can help" required aria-describedby="fMessageHint fMessageErr"></textarea>
+          <p class="form-hint" id="fMessageHint">Please do not include account numbers or other sensitive details.</p>
+          <p class="form-error" id="fMessageErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Enter a message.</p>
         </div>
-        <p class="defi-desc">Access liquidity by borrowing against OMN while maintaining your underlying exposure. Use OMN as collateral, subject to platform terms and liquidation risk.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SUBSCRIPTION PROCESS ─── -->
-<section class="omn-panel" id="panel-subscription">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Subscription Process.</h2>
-    <p class="cb-sub">The Omnes subscription process is designed for efficiency and compliance. Once your identity and accreditation are verified, you can seamlessly invest in offerings without needing to repeat the onboarding process.</p>
-
-    <div class="cb-steps">
-      <div class="cb-step">
-        <div class="n">01</div>
-        <h4>Create Account / Log In</h4>
-        <p>Begin by creating an account and verifying your identity. Complete your investor profile, accreditation status, and compliance requirements to gain access to the Omnes offering.</p>
-      </div>
-      <div class="cb-step">
-        <div class="n">02</div>
-        <h4>Choose Your Investment</h4>
-        <p>Browse the Omnes Mining Note and specify your investment amount. Once selected, you will be guided through the subscription and funding workflow directly within your dashboard.</p>
-      </div>
-      <div class="cb-step">
-        <div class="n">03</div>
-        <h4>Review and Sign</h4>
-        <p>Electronically review and sign all subscription documents. You may then fund your investment via USD wire transfer, USDC, USDT or BTC and hold them securely within your account.</p>
-      </div>
-    </div>
-
-    <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
-      <a href="#contact" class="btn btn-terra">Express interest</a>
-      <a href="/faqs/" class="btn btn-ghost">Read FAQs</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FAQs ─── -->
-<section class="omn-panel" id="panel-faqs">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Frequently asked.</h2>
-    <p class="cb-sub">These are the most-asked. For the full set, see the <a href="/faqs/#cat-02">OMN-specific FAQs</a> or <a href="/faqs/">all FAQs</a>.</p>
-
-    <div class="cb-faq">
-      <div class="acc-item"><button class="acc-q" type="button">What is the OMN (Omnes Mining Note)?<span class="ico"></span></button><div class="acc-a"><p>OMN is an institutional-grade security that provides direct exposure to yield via the Bitcoin network's computational infrastructure (hashrate). Each OMN is backed by and represents one petahash per second (1 PH/s) of hashrate over a fixed 36-month term. Hashrate for the OMN is aggregated by Omnes from institutional-grade Bitcoin mining facilities, allowing investors to participate in institutional-grade Bitcoin mining economics without the burden and risks of owning, operating and maintaining physical Bitcoin mining hardware and related infrastructure.</p></div></div>
-      <div class="acc-item"><button class="acc-q" type="button">How does OMN generate returns for investors?<span class="ico"></span></button><div class="acc-a"><p>Each OMN is backed by one petahash per second (1 PH/s) of Bitcoin hashrate deployed for a fixed 36-month term. During this period, Bitcoin generated through block rewards and network fees accrues to each OMN. At maturity, investors receive the total Bitcoin mined and accrued to the note, net of predefined offering fees and expenses. OMN holders benefit directly from Bitcoin mining rewards and price appreciation, with no caps or performance fees.</p></div></div>
-      <div class="acc-item"><button class="acc-q" type="button">How is the OMN issued?<span class="ico"></span></button><div class="acc-a"><p>The OMN offering will be carried out by way of a private placement offering through a bankruptcy-remote Luxembourg securitisation fund as the issuer, structured under the Luxembourg Securitisation Law of 22 March 2004, as amended. The OMN tokens will be accessible for subscriptions through the Omnes portal powered by our partner tokenization platform.</p></div></div>
-      <div class="acc-item"><button class="acc-q" type="button">Who can invest in the OMN?<span class="ico"></span></button><div class="acc-a"><p>The OMN is for natural or legal persons who are professional investors who (i) qualify as professional investors under Annex II to Directive 2014/65/EU in the European Union, (ii) have sufficient sophistication to invest in the Securities in accordance with the laws of their country of residence, and (iii) invest a minimum amount of at least US$100,000. Only natural or legal person professional investors who are (i) not from restricted jurisdictions, (ii) non-U.S., (iii) non-Canadian, and (iv) not restricted by applicable laws and regulations. For more information, please refer to the OMN private placement memorandum, the subscription agreement and other offering documentation.</p></div></div>
-      <div class="acc-item"><button class="acc-q" type="button">Is it a secured offering and how is investor capital safeguarded?<span class="ico"></span></button><div class="acc-a"><p>Yes, the OMN offering is a secured offering. In accordance with the Luxembourg Securitisation Law of 22 March 2004, as amended, the Luxembourg securitisation fund issuer will have segregated, ring-fenced and limited recourse compartments for each of the issuer's offerings, protecting investors from any overspill of risks, liabilities and recourse between compartments.</p><p>To secure the OMN offering, Omnes is (i) appointing a third-party security agent, and (ii) pledging in favour of the noteholders (a) the Bitcoin generated and accruing to each OMN, and (b) the hashrate that will back each OMN. OMN noteholders will have a senior secured creditor status with recourse to the pledged assets through the appointed security agent.</p><p>To safeguard investor capital, Omnes has appointed (i) an institutional-grade custodian to custody all Bitcoin generated by the hashrate backing each OMN, and (ii) a top-tier auditor for audited financials.</p></div></div>
-    </div>
-
-    <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
-      <a href="/faqs/" class="btn btn-terra">All FAQs</a>
-      <a href="/contact/" class="btn btn-ghost">Contact IR</a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── DISCLAIMER ─── -->
-<section class="omn-panel" id="panel-disclaimer">
-  <div class="omn-panel-inner">
-    <h2 class="cb-h2">Disclaimer.</h2>
-    <div class="cb-prose">
-      <p>The information on this page is provided for general informational purposes only and is qualified in its entirety by the <a href="/website-terms/">Website Terms.</a> It does not constitute investment, financial, legal, tax, or other advice, nor an offer to sell or a solicitation of an offer to buy any securities.</p>
-      <p>Prospective investors should not rely on any content presented on this page for making investment decisions, as it may be incomplete, condensed, subject to change, or not tailored to individual circumstances. Instead, any investment consideration must be based solely on a thorough review of the <a href="/website-terms/">Website Terms</a> and the 'Offering Documentation' of the 'Investment Product' (in each case, as defined in the Website Terms), which supersede all information on this website.</p>
-      <p>No investment should be made without first obtaining and carefully reviewing these documents, along with independent advice from qualified professional advisors. For access to the Investment Product Offering Documentation, please create or log in to your account on the Omnes platform or <a href="/contact/">contact us directly.</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT FORM (always visible at bottom) ─── -->
-<section class="cb-cta" id="contact">
-  <div class="cb-form-wrap">
-    <h2>Get in touch with Omnes.</h2>
-    <p>Complete the form and a member of the Omnes investor relations team will respond within one business day to discuss the OMN and your priorities.</p>
-    <form class="cb-form" onsubmit="event.preventDefault(); alert('Form not yet wired. Email ir@omnes.io directly.');">
-      <div class="cb-form-row">
-        <div class="cb-field">
-          <label for="cf-first">First name</label>
-          <input type="text" id="cf-first" placeholder="Jane" />
+        <fieldset class="checks">
+          <legend class="vh">Consent</legend>
+          <label class="check"><input type="checkbox" id="fConsent" name="consent" required aria-describedby="fConsentErr"><span>I agree that Omnes may use these details to reply, as set out in the <a href="/global-privacy-notice/">Global Privacy Notice</a>.</span></label>
+          <p class="form-error" id="fConsentErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg>Tick the box so we can reply.</p>
+        </fieldset>
+        <div class="form-actions">
+          <button class="btn lg btn-dark" type="submit">Send message</button>
         </div>
-        <div class="cb-field">
-          <label for="cf-last">Last name</label>
-          <input type="text" id="cf-last" placeholder="Smith" />
-        </div>
-      </div>
-      <div class="cb-field">
-        <label for="cf-email">Email address</label>
-        <input type="email" id="cf-email" placeholder="you@fund.com" />
-      </div>
-      <div class="cb-field">
-        <label for="cf-org">Organisation</label>
-        <input type="text" id="cf-org" placeholder="Fund / Family Office / Bank" />
-      </div>
-      <div class="cb-field">
-        <label for="cf-subject">Subject</label>
-        <select id="cf-subject">
-          <option value="">Select a topic…</option>
-          <option>OMN, investment enquiry</option>
-          <option>KYC / Onboarding</option>
-          <option>Documentation request</option>
-          <option>Partnership</option>
-          <option>General question</option>
-        </select>
-      </div>
-      <div class="cb-field">
-        <label for="cf-message">Message</label>
-        <textarea id="cf-message" rows="5" placeholder="Tell us how we can help…"></textarea>
-      </div>
-      <button type="submit" class="cb-form-submit">Send message</button>
-    </form>
-  </div>
-</section>
-
-
-<footer>
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
-        <div class="ft-socials">
-          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="ft-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact us</a></li>
-          <li><a href="/media-kit/">Media Kit</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="/omn/">Omnes Mining Note</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Resources</h5>
-        <ul>
-          <li><a href="/resources/">Resources</a></li>
-          <li><a href="/faqs/">FAQs</a></li>
-          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
-          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="/website-terms/">Website Terms</a></li>
-          <li><a href="/global-privacy-notice/">Global Privacy Notice</a></li>
-          <li><a href="/cookies-policy/">Cookies Policy</a></li>
-        </ul>
-      </div>
+        <p class="form-status" id="fStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
+  </section>
+</main>
 
-    <p class="ft-disc">
-      This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.
-    </p>
-    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
+      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
+    </div>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
+    </div>
   </div>
 </footer>
+<!-- /SHELL: footer -->
 
-
-<script src="/assets/site.js?v=15"></script>
-
-<!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
-  <div class="gate-modal">
-    <div class="gate-header">
-      <p class="gate-slabel">Terms of Access</p>
-      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
     </div>
-    <div class="gate-body" id="gateBody">
-      <h2 class="gate-h2">1. Acceptance of terms</h2>
-      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
-      <ul class="gate-ul">
-        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
-        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
-        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
-      </ul>
-      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
-
-      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
-      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-      <p class="gate-p">In particular:</p>
-      <ul class="gate-ul">
-        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
-      </ul>
-      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
-
-      <h2 class="gate-h2">3. Access at your initiative</h2>
-      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
-      <ol class="gate-ol">
-        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
-        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
-        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
-      </ol>
-
-      <h2 class="gate-h2">4. Validity</h2>
-      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-
-      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
-      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-
-      <div class="gate-notice" id="gateNotice">
-        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
-        <ul class="gate-ul">
-          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
-          <li>You access the website entirely at your own risk and initiative.</li>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
         </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="gate-footer">
-      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
     </div>
   </div>
-</div>
+</dialog>
 
+<!-- Page script: the contact form. It checks each field, marks and describes the ones that need
+     attention, and on a valid message opens the visitor's email app addressed to investor
+     relations, saying so in the status line. -->
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("irForm");
+  if (!form) return;
+  var status = document.getElementById("fStatus");
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var fields = [
+    { el: form.querySelector("#fFirst"), err: "fFirstErr", ok: function (v) { return v.trim().length > 0; } },
+    { el: form.querySelector("#fLast"), err: "fLastErr", ok: function (v) { return v.trim().length > 0; } },
+    { el: form.querySelector("#fEmail"), err: "fEmailErr", ok: function (v) { return EMAIL.test(v.trim()); } },
+    { el: form.querySelector("#fSubject"), err: "fSubjectErr", ok: function (v) { return v !== ""; } },
+    { el: form.querySelector("#fMessage"), err: "fMessageErr", ok: function (v) { return v.trim().length > 0; } },
+    { el: form.querySelector("#fConsent"), err: "fConsentErr", check: true }
+  ];
+  var valid = function (f) { return f.check ? f.el.checked : f.ok(f.el.value); };
+  var mark = function (f, bad) {
+    var e = document.getElementById(f.err);
+    if (bad) f.el.setAttribute("aria-invalid", "true"); else f.el.removeAttribute("aria-invalid");
+    if (e) e.hidden = !bad;
+  };
+  var say = function (text, kind) {
+    status.className = "form-status" + (kind ? " is-" + kind : "");
+    status.textContent = text;
+  };
+  fields.forEach(function (f) {
+    var ev = f.check || f.el.tagName === "SELECT" ? "change" : "input";
+    f.el.addEventListener(ev, function () { if (f.el.getAttribute("aria-invalid") === "true" && valid(f)) mark(f, false); });
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = null;
+    fields.forEach(function (f) { var bad = !valid(f); mark(f, bad); if (bad && !first) first = f.el; });
+    if (first) {
+      say("Check the highlighted fields, then send again.", "error");
+      first.focus();
+      return;
+    }
+    var v = function (id) { return form.querySelector(id).value.trim(); };
+    var org = v("#fOrg");
+    var body = v("#fMessage") + "\n\n" + v("#fFirst") + " " + v("#fLast") + (org ? "\n" + org : "") + "\n" + v("#fEmail");
+    say("Your email app is opening with this message to ir@omnes.io. If it does not, write to ir@omnes.io directly.", "ok");
+    window.location.href = "mailto:ir@omnes.io?subject=" + encodeURIComponent(v("#fSubject")) + "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
 </body>
 </html>

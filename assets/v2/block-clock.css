@@ -1,0 +1,170 @@
+/* Omnes block clock. Self-contained: reads the page's tokens when they exist (--ink, --muted,
+   --line, --line-strong, --soft, --tint, --tint-ink, --accent), with its own fallbacks, and
+   depends on no other stylesheet. Set --bc-surface to the colour behind the dial and --bc-max to
+   cap its width. The script sets --bc-R (dial radius) and --bc-core (centre radius), both
+   unitless pixels, so the type scales with the dial.
+
+   Index   stage and dial . the present . the block being read . focus . centre readout .
+           loading . failure . caption and status . small screens . reduced motion             */
+
+.block-clock {
+  --bc-ink: var(--ink, #17191c);
+  --bc-muted: var(--muted, #5f666e);
+  --bc-line: var(--line, #e5e8eb);
+  --bc-line-strong: var(--line-strong, #d2d8de);
+  --bc-soft: var(--soft, #f6f7f8);
+  --bc-tint: var(--tint, #dbeeff);
+  --bc-tint-ink: var(--tint-ink, #174f7b);
+  --bc-accent: var(--accent, #2f6bff);
+  --bc-bg: var(--bc-surface, #ffffff);
+  --bc-R: 270;
+  --bc-core: 150;
+  color-scheme: light;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: var(--bc-max, 640px);
+  margin: 0 auto;
+  padding: 0;
+  color: var(--bc-ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.block-clock *, .block-clock *::before, .block-clock *::after { box-sizing: border-box; }
+
+/* ── the stage: canvas marks under a vector dial, the readout on top ── */
+.bc-stage { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+.bc-canvas, .bc-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bc-canvas { z-index: 1; }
+.bc-hit { position: absolute; z-index: 3; border-radius: 50%; outline: none; cursor: default; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.bc-svg { z-index: 2; overflow: visible; pointer-events: none; color: var(--bc-accent); shape-rendering: geometricPrecision; }
+
+.bc-ring { fill: none; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.bc-ring-dial { stroke: var(--bc-line-strong); }
+.bc-ring-band, .bc-ring-hash { stroke: var(--bc-line); }
+.bc-tick { fill: none; stroke: var(--bc-line-strong); stroke-width: 1; stroke-linecap: round; }
+.bc-tick-mid { stroke: #b3bac1; stroke: color-mix(in srgb, var(--bc-muted) 40%, var(--bc-line-strong)); }
+.bc-tick-major { stroke: #8d959d; stroke: color-mix(in srgb, var(--bc-muted) 72%, var(--bc-line-strong)); stroke-width: 1.25; }
+.bc-hours text { fill: var(--bc-muted); font-weight: 400; letter-spacing: 0.01em; transition: opacity .25s ease; }
+.bc-hours text.is-hidden { opacity: 0; }
+.bc-arc { fill: none; stroke: none; }
+
+/* the present: an accent index across the dial ring, a bead on the ring, and the time */
+.bc-now { transition: opacity .3s ease; }
+.bc-now-hand { stroke: var(--bc-accent); stroke-width: 1.5; stroke-linecap: round; }
+.bc-now-dot { fill: var(--bc-accent); stroke: var(--bc-bg); stroke-width: 1.5; }
+.bc-now-t { fill: var(--bc-tint-ink); font-weight: 500; letter-spacing: 0.01em; }
+.bc-now.is-quiet .bc-now-t { opacity: 0; }
+
+/* the block being read, marked on the dial */
+.bc-pk { opacity: 0; transition: opacity .15s ease; }
+.bc-pk.is-on { opacity: 1; }
+.bc-pk-tick { stroke: var(--bc-ink); stroke-width: 1.25; stroke-linecap: round; }
+.bc-pk-t { fill: var(--bc-ink); font-weight: 500; letter-spacing: 0.01em; }
+
+/* keyboard focus: a fine accent ring on a soft light-blue halo, just outside the dial */
+.bc-focus { fill: none; stroke: var(--bc-accent); stroke-width: 1.5; opacity: 0; transition: opacity .15s ease; }
+.bc-focus-halo { stroke: var(--bc-tint); stroke-width: 6; }
+.bc-hit:focus-visible ~ .bc-svg .bc-focus { opacity: 1; }
+
+/* ── the centre readout ── */
+.bc-core {
+  position: absolute; z-index: 4; left: 50%; top: 50%;
+  width: calc(var(--bc-core) * 2px); transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  pointer-events: none;
+}
+.bc-k { font-size: max(11.5px, calc(9.5px + var(--bc-R) * 0.0135px)); line-height: 1.3; color: var(--bc-muted); }
+.bc-h {
+  position: relative; display: grid; margin-top: calc(var(--bc-R) * 0.008px);
+  font-size: max(27px, calc(var(--bc-R) * 0.168px)); line-height: 1.04; font-weight: 500; letter-spacing: -0.025em;
+  color: var(--bc-ink); white-space: nowrap;
+}
+.bc-hv { grid-area: 1 / 1; display: block; }
+.bc-hv.bc-in { animation: bc-in .72s cubic-bezier(.2, .75, .2, 1) both; }
+.bc-hv.bc-out { animation: bc-out .5s cubic-bezier(.4, 0, .6, 1) both; }
+@keyframes bc-in { from { opacity: 0; transform: translateY(.42em); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes bc-out { to { opacity: 0; transform: translateY(-.42em); filter: blur(3px); } }
+.bc-s { margin-top: calc(var(--bc-R) * 0.02px); font-size: max(12px, calc(9px + var(--bc-R) * 0.018px)); line-height: 1.35; color: var(--bc-ink); white-space: nowrap; }
+.bc-comp {
+  display: grid; grid-template-columns: auto auto; column-gap: calc(var(--bc-R) * 0.075px);
+  margin-top: calc(var(--bc-R) * 0.058px); padding-top: calc(var(--bc-R) * 0.045px);
+  border-top: 1px solid var(--bc-line);
+}
+.bc-c { display: grid; justify-items: center; row-gap: 1px; min-width: 0; }
+.bc-c + .bc-c { position: relative; }
+.bc-c + .bc-c::before { content: ""; position: absolute; left: calc(var(--bc-R) * -0.0375px); top: 2px; bottom: 2px; width: 1px; background: var(--bc-line); }
+.bc-cl { font-size: max(11px, calc(8.5px + var(--bc-R) * 0.011px)); line-height: 1.3; color: var(--bc-muted); }
+.bc-cv { font-size: max(12px, calc(9.5px + var(--bc-R) * 0.0165px)); line-height: 1.35; color: var(--bc-ink); font-weight: 500; white-space: nowrap; }
+.bc-cu { font-size: max(11px, calc(8.5px + var(--bc-R) * 0.012px)); line-height: 1.3; color: var(--bc-muted); white-space: nowrap; }
+.bc-fail { display: none; font-size: max(15px, calc(var(--bc-R) * 0.07px)); color: var(--bc-muted); }
+
+.block-clock.is-picking .bc-k { color: var(--bc-tint-ink); }
+
+/* loading: slim rounded bars in place of the words, sized to the lines they hold */
+.block-clock.is-loading .bc-k,
+.block-clock.is-loading .bc-hv,
+.block-clock.is-loading .bc-s,
+.block-clock.is-loading .bc-cl,
+.block-clock.is-loading .bc-cv,
+.block-clock.is-loading .bc-cu { position: relative; color: transparent; }
+.block-clock.is-loading .bc-k::before,
+.block-clock.is-loading .bc-hv::before,
+.block-clock.is-loading .bc-s::before,
+.block-clock.is-loading .bc-cl::before,
+.block-clock.is-loading .bc-cv::before,
+.block-clock.is-loading .bc-cu::before {
+  content: ""; position: absolute; inset: 22% 0; border-radius: 999px;
+  background: linear-gradient(90deg, #eef0f2 0%, #f7f8f9 50%, #eef0f2 100%) 0 0 / 200% 100%;
+  animation: bc-shine 1.6s ease-in-out infinite;
+}
+.block-clock.is-loading .bc-hv::before { inset: 16% 0; border-radius: 12px; }
+.block-clock.is-loading .bc-k { width: 7em; }
+.block-clock.is-loading .bc-hv { width: 4.4em; }
+.block-clock.is-loading .bc-s { width: 11em; margin-top: calc(var(--bc-R) * 0.03px); }
+.block-clock.is-loading .bc-cv { width: 6em; }
+.block-clock.is-loading .bc-cl, .block-clock.is-loading .bc-cu { width: 4em; }
+.block-clock.is-loading .bc-c { row-gap: 4px; }
+@keyframes bc-shine { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+
+/* failure: a calm word in the middle, the dial left standing */
+.block-clock.is-down .bc-k, .block-clock.is-down .bc-h, .block-clock.is-down .bc-s, .block-clock.is-down .bc-comp { display: none; }
+.block-clock.is-down .bc-fail { display: block; }
+
+/* the readout fades in once, when the first data lands */
+.block-clock .bc-core > * { transition: opacity .5s ease; }
+
+/* ── caption: two keyed items and a live status line ── */
+.bc-cap {
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  margin-top: 6px; font-size: 13px; line-height: 1.45; color: var(--bc-muted); text-align: center;
+}
+.bc-keys { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; }
+.bc-key { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.bc-g { flex: none; width: 14px; height: 14px; overflow: visible; }
+.bc-key-hash .bc-g { width: 18px; }
+.bc-g path { fill: none; stroke: var(--bc-ink); stroke-width: 1.25; stroke-linecap: round; opacity: .75; }
+.bc-g .bc-g-fill { fill: var(--bc-tint); stroke: none; opacity: 1; }
+.bc-g .bc-g-line { stroke: var(--bc-accent); stroke-width: 1.4; opacity: 1; }
+.bc-status { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; }
+.bc-dot { position: relative; flex: none; width: 6px; height: 6px; border-radius: 50%; background: #b9c0c7; }
+.block-clock[data-status="live"] .bc-dot { background: var(--bc-accent); }
+.block-clock[data-status="live"] .bc-dot::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; background: var(--bc-accent); opacity: 0; animation: bc-live 2.8s ease-out infinite; }
+.block-clock[data-status="stale"] .bc-dot { background: #8d959d; }
+@keyframes bc-live { 0% { transform: scale(.6); opacity: .35; } 70%, 100% { transform: scale(2); opacity: 0; } }
+
+.bc-vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 520px) {
+  .bc-cap { font-size: 12.5px; gap: 6px; }
+  .bc-keys { gap: 3px 16px; }
+  .bc-status { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block-clock *, .block-clock *::before, .block-clock *::after { animation: none !important; transition: none !important; }
+}

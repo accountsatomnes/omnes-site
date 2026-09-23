@@ -1,76 +1,133 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
 <title>Global privacy notice (GDPR) | Omnes</title>
-<meta name="description" content="How Omnes Securities collects, processes, retains, and protects personal data of website visitors and investors under GDPR." />
-<link rel="canonical" href="https://omnes.io/global-privacy-notice/" />
-<meta property="og:title" content="Global privacy notice (GDPR) | Omnes" />
-<meta property="og:description" content="How Omnes Securities collects, processes, retains, and protects personal data of website visitors and investors under GDPR." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://omnes.io/global-privacy-notice/" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@omnesfinance" />
+<meta name="description" content="The Omnes global privacy notice: the personal information the Omnes Group collects, how it is used, shared, transferred, secured and retained, and the rights you have over it.">
+<link rel="canonical" href="https://omnes.io/global-privacy-notice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Global privacy notice (GDPR) | Omnes">
+<meta property="og:description" content="The Omnes global privacy notice: the personal information the Omnes Group collects, how it is used, shared, transferred, secured and retained, and the rights you have over it.">
+<meta property="og:url" content="https://omnes.io/global-privacy-notice/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=130">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://omnes.io/#organization",
-  "name": "Omnes",
-  "legalName": "Omnes Securities S.à r.l.",
-  "url": "https://omnes.io",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://omnes.io/omnes-logo-black.svg"
-  },
-  "description": "Omnes is a compute infrastructure investment platform building the financial layer for institutional Bitcoin hashrate and compute-backed products.",
-  "foundingLocation": {
-    "@type": "Place",
-    "name": "Luxembourg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Luxembourg City",
-      "addressCountry": "LU"
-    }
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/omnesfinance",
-    "https://x.com/omnesfinance"
-  ]
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<link rel="stylesheet" href="/assets/v2/pages.css">
+<script src="/assets/v2/site.js" defer></script>
+<style>
+/* Legal documents: the kit's long-form reading (pages.css K08), numbered. Page-only additions:
+   the three legal documents in the header's foot row, numbers in the contents list, a contents
+   list that folds away below 900px, open tables that restack below 600px, and the footnote. */
+.lg-docs ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 26px; }
+.lg-docs a { display: inline-flex; align-items: center; gap: 9px; padding: 4px 0; color: inherit; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .18s ease, text-decoration-color .18s ease; }
+.lg-docs a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.lg-docs a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+.lg-docs a[aria-current="page"]:hover { text-decoration-color: transparent; }
+.lg-docs a[aria-current="page"]::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(47, 107, 255, .16); }
+.foot-cols a[aria-current="page"] { color: #fff; }
+
+/* contents: a column wider than an article's, so long section titles keep to one line; rows a
+   touch closer, so a long list still fits a laptop screen; the section number in place of the
+   kit's dot */
+@media (min-width: 1100px) { .toc { grid-column: 1 / span 4; padding-right: 40px; } }
+.toc a { display: grid; grid-template-columns: 30px minmax(0, 1fr); padding: 5px 0; }
+.toc a::before { display: none; }
+.toc .n { font-size: 13px; line-height: 1.55; color: #8a939c; font-variant-numeric: tabular-nums; transition: color .18s ease; }
+.toc a:hover .n { color: var(--muted); }
+.toc a[aria-current="true"] .n { color: var(--accent-strong); }
+.toc-btn { display: none; }
+
+/* sections: set as a document rather than an article. Smaller serif titles, closer together,
+   each after a hairline, since most sections are a paragraph or two */
+.prose h2 { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: baseline; margin-top: 54px; padding-top: 28px; border-top: 1px solid var(--line); font-size: clamp(24px, 1.95vw, 28px); line-height: 1.22; }
+.prose > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+/* the number sits on the title's first baseline; a long title wraps under its own first word */
+.prose h2 .n { min-width: 0; font-size: 13.5px; vertical-align: baseline; }
+.prose h2 + * { margin-top: .7em; }
+
+/* the footnote, where the source sets it: under its section's text */
+.prose .fn { margin-top: 1.6em; padding-top: 14px; background: linear-gradient(var(--line-strong), var(--line-strong)) left top / 44px 1px no-repeat; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+.prose .fn sup { margin-right: 2px; }
+.prose .fn:target { color: var(--ink); }
+
+/* tables: fixed columns, lettered items one to a line */
+.lg-table { table-layout: fixed; }
+.lg-table.cols-3 th:nth-child(1) { width: 36%; }
+.lg-table.cols-3 th:nth-child(2) { width: 27%; }
+.lg-table.cols-2 th:nth-child(1) { width: 30%; }
+.lg-table td { overflow-wrap: break-word; }
+.lg-table td { color: var(--prose); }
+.lg-table td:first-child { color: var(--ink); }
+.lg-table tbody tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 899px) {
+  /* the contents fold into one row that opens the list (only once the script has run) */
+  .toc.is-js { padding: 0; margin-bottom: 44px; border-bottom: 1px solid var(--line); }
+  .toc.is-js .toc-t { display: none; }
+  .toc.is-js .toc-btn { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; border-top: 1px solid var(--line); font-size: 15.5px; color: var(--ink); text-align: left; }
+  .toc-btn .c { margin-left: auto; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .toc-btn svg { flex: none; width: 16px; height: 16px; fill: none; stroke: var(--muted); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+  .toc-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .toc-btn:focus-visible { outline-offset: -2px; }
+  .toc.is-js ol { padding: 4px 0 20px; }
+  .toc.is-js.is-closed ol { display: none; }
 }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://omnes.io/#website",
-  "url": "https://omnes.io",
-  "name": "Omnes",
-  "publisher": {
-    "@id": "https://omnes.io/#organization"
-  },
-  "inLanguage": "en"
+@media (max-width: 599px) {
+  /* the three documents as a short list, the current one marked, their names aligned */
+  .lg-docs ul { flex-direction: column; align-items: flex-start; gap: 0; }
+  .lg-docs a { padding: 3px 0; }
+  .lg-docs a:not([aria-current]) { padding-left: 15px; }
+  .prose h2 { margin-top: 44px; padding-top: 22px; font-size: 23px; }
+  /* each row of a table becomes a short block: the first cell as its title, then each other
+     cell under its column heading */
+  .lg-table, .lg-table tbody, .lg-table tr, .lg-table td { display: block; width: auto; }
+  .lg-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .lg-table { border-top: 1px solid var(--line-strong); }
+  .lg-table tr { padding: 16px 0 18px; border-bottom: 1px solid var(--line); }
+  .lg-table td { padding: 0; border: 0; }
+  .lg-table td:first-child { font-weight: 500; }
+  .lg-table td + td { margin-top: 10px; }
+  .lg-table td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 2px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 }
-</script>
+@media (prefers-reduced-motion: reduce) { .toc-btn svg, .toc .n { transition: none; } }
+/* printed, the document alone */
+@media print {
+  .skip, .nav, .menu, .lg-docs, .toc, .foot, .gate { display: none !important; }
+  body, html { background: #fff; }
+  .ph-tint { margin: 0; padding-top: 0; background: none; border-radius: 0; }
+  .ph-foot { margin-top: 16px; }
+  .sec { padding: 24px 0 0; }
+  .reading { display: block; }
+  .prose { max-width: none; }
+  .prose h2 { break-after: avoid; }
+  .table-wrap { overflow: visible; }
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://omnes.io/global-privacy-notice/#webpage",
   "url": "https://omnes.io/global-privacy-notice/",
-  "name": "Global Privacy Notice | Omnes",
-  "description": "The Omnes global privacy notice describing how Omnes collects, uses, and protects personal data.",
+  "name": "Global privacy notice (GDPR) | Omnes",
+  "description": "The Omnes global privacy notice: the personal information the Omnes Group collects, how it is used, shared, transferred, secured and retained, and the rights you have over it.",
   "isPartOf": {
     "@id": "https://omnes.io/#website"
   },
   "inLanguage": "en",
+  "dateModified": "2026-03-26",
   "breadcrumb": {
     "@id": "https://omnes.io/global-privacy-notice/#breadcrumb"
   },
@@ -99,177 +156,154 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Legal",
-      "item": "https://omnes.io/website-terms/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Global Privacy Notice",
+      "name": "Global privacy notice",
       "item": "https://omnes.io/global-privacy-notice/"
     }
   ]
 }
 </script>
-<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav class="top">
-  <div class="nav-inner">
-    <a href="/" class="brand" aria-label="Omnes">
-      <img src="/omnes-logo-black.svg" alt="Omnes" />
-    </a>
-
-    <div class="nav-mid">
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Invest
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/omn/"><span class="nav-dd-item-title">Omnes Mining Note</span><span class="nav-dd-item-sub">OMN Series 1</span></a>
-          <a class="nav-dd-item" href="/login/"><span class="nav-dd-item-title">Investor Portal</span><span class="nav-dd-item-sub">Log in to your account</span></a>
-          <a class="nav-dd-item" href="/signup/"><span class="nav-dd-item-title">Sign Up</span><span class="nav-dd-item-sub">Create an investor account</span></a>
-          <a class="nav-dd-item" href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener"><span class="nav-dd-item-title">Documentation <span class="ext">↗</span></span><span class="nav-dd-item-sub">Technical docs and gitbook</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          About
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/about/"><span class="nav-dd-item-title">About Omnes</span><span class="nav-dd-item-sub">Mission, team, and key facts</span></a>
-          <a class="nav-dd-item" href="/faqs/"><span class="nav-dd-item-title">FAQs</span><span class="nav-dd-item-sub">Common questions answered</span></a>
-          <a class="nav-dd-item" href="/resources/"><span class="nav-dd-item-title">Resources</span><span class="nav-dd-item-sub">Explainers, research, and glossary</span></a>
-          <a class="nav-dd-item" href="https://insights.omnes.io" target="_blank" rel="noopener"><span class="nav-dd-item-title">Insights <span class="ext">↗</span></span><span class="nav-dd-item-sub">Research, news, and analysis</span></a>
-          <a class="nav-dd-item" href="/media-kit/"><span class="nav-dd-item-title">Media Kit</span><span class="nav-dd-item-sub">Brand assets and press info</span></a>
-        </div>
-      </div>
-
-      <div class="nav-dd">
-        <button class="nav-dd-toggle" type="button">
-          Contact
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="nav-dd-menu">
-          <a class="nav-dd-item" href="/contact/"><span class="nav-dd-item-title">Contact IR</span><span class="nav-dd-item-sub">Speak to the investor relations team</span></a>
-          <a class="nav-dd-item" href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">LinkedIn <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow us on LinkedIn</span></a>
-          <a class="nav-dd-item" href="https://x.com/omnesfinance" target="_blank" rel="noopener"><span class="nav-dd-item-title">X (Twitter) <span class="ext">↗</span></span><span class="nav-dd-item-sub">Follow @omnesfinance</span></a>
-        </div>
-      </div>
-    </div>    <div class="nav-right">
-      <a href="/login/" class="nav-login">Log in</a>
-      <a href="/signup/" class="nav-signup">Sign up</a>
-      <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/">Mining Note</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/">FAQs</a>
+      <a class="opt" href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/">Sign up</a>
     </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/">FAQs</a>
+  <a href="/contact/">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/">Sign up</a>
   </div>
 </nav>
+<!-- /SHELL: nav -->
 
-<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-nav-inner">
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Invest</div>
-      <a href="/omn/">Omnes Mining Note</a>
-      <a href="/login/">Investor Portal</a>
-      <a href="/signup/">Sign Up</a>
-      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
+<main id="main">
+
+  <!-- Page header: the document's title, then a hairline row with the three legal documents (the
+       real page's "Legal and compliance" rail) and the date this one was last updated -->
+  <header class="ph ph-tint">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title" id="pageTitle">Global privacy notice.</h1>
+      </div>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">About</div>
-      <a href="/about/">About Omnes</a>
-      <a href="/faqs/">FAQs</a>
-      <a href="/resources/">Resources</a>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
-      <a href="/media-kit/">Media Kit</a>
+    <div class="wrap ph-foot">
+      <nav class="lg-docs" aria-label="Legal and compliance">
+        <ul>
+          <li><a href="/website-terms/">Website terms of use</a></li>
+          <li><a href="/global-privacy-notice/" aria-current="page">Global privacy notice</a></li>
+          <li><a href="/cookies-policy/">Cookies policy</a></li>
+        </ul>
+      </nav>
+      <p class="ph-meta"><span>Last updated: <time datetime="2026-03-26">26 March 2026</time></span></p>
     </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Contact</div>
-      <a href="/contact/">Contact IR</a>
-      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
-      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-cta">
-      <a href="/login/" class="btn btn-ghost">Log in</a>
-      <a href="/signup/" class="btn btn-terra">Sign up</a>
-    </div>
-  </div>
-</div>
+  </header>
 
-
-
-<section class="legal lgl">
-  <div class="lgl-grid">
-
-    <nav class="lgl-rail" aria-label="Legal and compliance">
-      <p class="lgl-rail-label">Legal and compliance</p>
-
-      <p class="lgl-group">Terms of use</p>
-      <ul class="lgl-docs">
-        <li><a class="lgl-doc-link" href="/website-terms/">Website terms of use</a></li>
-      </ul>
-
-      <p class="lgl-group">Data and privacy</p>
-      <ul class="lgl-docs">
-        <li class="is-current"><a class="lgl-doc-link" href="/global-privacy-notice/" aria-current="page">Global privacy notice</a></li>
-        <li><a class="lgl-doc-link" href="/cookies-policy/">Cookies policy</a></li>
-      </ul>
-    </nav>
-
-    <div class="lgl-main">
-      <header class="lgl-head">
-        <h1>Global privacy notice.</h1>
-        <p class="lgl-updated">Last updated: <time datetime="2026-03-26">26 March 2026</time></p>
-      </header>
-
-      <div class="lgl-body legal-content">
-        <!-- BEGIN document body -->
-      <h2 id="sec-01"><span class="num">01</span>Important information and who we are</h2>
-<p>Omnes and it’s affiliates<sup>1</sup> (“we”, “us”, “our”, or “Omnes Group”) collect, use and share personal information when you use any service that it offers. This global privacy notice has been created to cover how we collect, use and disclose personal information and is relevant to our website visitors and users of our services. This global privacy notice describes the types of personal information we collect, the purposes for processing that personal information, the third parties we share your personal information with and the security measures we have implemented to keep your personal data secure. It also sets out the rights and choices of individuals and how to contact us about the information contained in this global privacy notice, wherever you are in the world.</p><p>Where any entity within the Omnes Group acts as a controller, the controller will be deemed to be the Omnes Group entity listed on the terms and conditions that you enter into when using an Omnes Group service.</p><p>This global privacy notice sets out some core content and, where applicable, can be read in conjunction with any supplemental privacy notices as required by country specific law. This is where certain country specific information, such as individuals’ rights can be found. In the absence of any country specific information, this global privacy notice will apply.</p><p>Our global privacy notice, and any associated country-specific privacy notices will be reviewed from time to time to take account of new obligations and technology, changes to our operations and practices and to make sure it remains appropriate to the changing global environment.</p><p style='font-size: 13px; color: var(--hint);'><sup>1</sup> Omnes and it’s affiliates refers to the companies that are directly or indirectly owned or controlled by Omnes Holdings Ltd.</p>
-<h2 id="sec-02"><span class="num">02</span>Data protection principles</h2>
-<p>The Omnes Group seek to comply with all data protection laws that are applicable around the world. Where possible, we have adopted the core principles set out in the GDPR to inform how we collect and use your personal information. The principles are as follows:</p><ul>
-        <li>used lawfully, fairly and in a transparent way;</li>
-        <li>collected only for valid purposes that we have clearly explained to you and not used in any way that is incompatible with those purposes;</li>
-        <li>relevant to the purposes we have told you about and limited only to those purposes;</li>
-        <li>accurate and kept up to date;</li>
-        <li>kept only as long as necessary for the purposes we have told you about; and</li>
-        <li>kept securely.</li>
-      </ul>
-<h2 id="sec-03"><span class="num">03</span>Kinds of personal information we collect</h2>
-<p>Personal information or personal data means any information about a living individual from which that person can be identified, even without any linkage to their name. It does not include data where the identity of the individual has been completely and permanently removed (which is called anonymous or anonymised data). The types of personal information we collect include the following categories:</p><ul>
-        <li>Identity and Profile</li>
-        <li>Contact</li>
-        <li>Financial</li>
-        <li>Usage</li>
-        <li>Transaction</li>
-        <li>Marketing and Communications</li>
-        <li>Technical</li>
-      </ul><p>Examples of these categories are set out in the table below in section 10.</p>
-<h2 id="sec-04"><span class="num">04</span>How is your personal information collected</h2>
-<p>We collect information from you where you fill in forms on our website or by corresponding with us by phone, email or otherwise. It includes information you provide when you register to use our website, when you report a problem with our site or when you contact us to discuss any aspect of your account with us. When you visit our website, access our services, engage with our emails and online ads, we may collect information by automated means. For more information on how we collect your data, please refer to the Cookies Policy on our website.</p><p>We obtain most of the customer personal information shared with us directly through account applications or other submission forms, and from maintaining records of customer information provided in the course of our ongoing customer service. We may also obtain information from other sources to meet certain regulatory requirements.</p><p>On occasion, we will ask for other information voluntarily (for example, through market research, surveys or special financial promotion offers) to enable us to improve our service or consider the wider needs of our customers.</p><h3>Information we receive from other sources</h3><p>On occasion, we will collect your personal information indirectly and through a third party. Examples of this include our use of blockchain analytics services to perform KYT (know your transaction), as well as credit reference agencies to perform KYC (know your client), KYB (know your business), and AML (anti-money laundering) checks.</p>
-<h2 id="sec-05"><span class="num">05</span>How do we use your personal information</h2>
-<p>We will only use your personal information when applicable data protection law permits us to, including by identifying any necessary lawful bases for processing (i.e. a legally permissible reason for processing your personal information). Please check the relevant country-specific notices below to ensure that there are no differences in your specific jurisdiction.</p><p>The table below contains the purposes we plan to use your personal information, the types of data applicable to this purpose and the applicable lawful basis for our processing activities:</p><table>
-        <thead><tr><th>Purpose</th><th>Type of Data</th><th>Lawful basis for processing including basis of legitimate interest</th></tr></thead>
-        <tbody>
-        <tr><td>To register you as a new client</td><td>(a) Identity and profile (b) Contact</td><td>Performance of a contract with you</td></tr>
-        <tr><td>To process your transaction including (a) manage payments, fees and charges and (b) collect and recover money owed to us</td><td>(a) Identity and profile (b) Contact (c) Financial (d) Transaction (e) Marketing and Communications</td><td>(a) Performance of a contract with you (b) Necessary for our legitimate interests (to recover debts due to us)</td></tr>
-        <tr><td>To manage our relationship with you, including (a) notifying you about changes to our terms or privacy policy and (b) asking you to leave a review or take a survey</td><td>(a) Identity and profile (b) Contact (c) Marketing and Communications</td><td>(a) Performance of a contract with you (b) Necessary to comply with a legal obligation (c) Necessary for our legitimate interests (to keep our records updated and study how customers use our products/services)</td></tr>
-        <tr><td>To enable you to partake in a prize draw, competition or complete a survey</td><td>(a) Identity and profile (b) Contact (c) Usage (d) Marketing and Communications</td><td>(a) Performance of a contract with you (b) Necessary for our legitimate interests (to study how customers use our products/services, to develop them and grow our business)</td></tr>
-        <tr><td>To administer and protect our business and this website (troubleshooting, data analysis, testing, system maintenance, support, reporting, hosting)</td><td>(a) Identity and profile (b) Contact (c) Technical</td><td>(a) Necessary for our legitimate interests (running our business, IT services, network security, fraud prevention, business reorganisation) (b) Necessary to comply with a legal obligation</td></tr>
-        <tr><td>To deliver relevant website content and advertisements and measure their effectiveness</td><td>(a) Identity and profile (b) Contact (c) Usage (d) Marketing and Communications (e) Technical</td><td>Necessary for our legitimate interests (to study how customers use our products/services, develop them, grow our business and inform our marketing strategy)</td></tr>
-        <tr><td>To use data analytics to improve our website, products/services, marketing, customer relationships and experiences</td><td>(a) Technical (b) Usage</td><td>Necessary for our legitimate interests (to define customer types, keep our website updated, develop our business and inform our marketing strategy)</td></tr>
-        <tr><td>To make suggestions and recommendations to you about goods or services that may interest you</td><td>(a) Identity and profile (b) Contact (c) Technical (d) Usage</td><td>Necessary for our legitimate interests (to develop our products/services and grow our business)</td></tr>
-        <tr><td>If we are under a duty to disclose or share your personal information to comply with any legal obligation, enforce our terms, or protect rights, property, or safety (including fraud protection and credit risk reduction)</td><td>(a) Identity and profile (b) Contact (c) Financial (d) Transaction (e) Marketing and Communications</td><td>Necessary to comply with a legal obligation</td></tr>
-        <tr><td>In the event of M&amp;A activity (reorganisation, selling/buying any business or assets, joint venture, assignment, transfer or other disposition)</td><td>(a) Identity and profile (b) Transaction</td><td>Necessary for our legitimate interests (where it is necessary for the sale of the business or shares to disclose the data to a potential buyer)</td></tr>
-        </tbody>
-      </table>
-<h2 id="sec-06"><span class="num">06</span>Disclosures of personal information</h2>
-<p>We share your personal information with our trusted third parties as part of the operation of our global business. Your personal data will be shared with the following categories of recipients:</p><ul>
+  <!-- The document, word for word from the real page: numbered sections beside a sticky
+       contents list (folded into one row below 900px) -->
+  <section class="sec" aria-label="Global privacy notice">
+    <div class="wrap reading">
+      <nav class="toc" aria-labelledby="tocTitle">
+        <p class="toc-t" id="tocTitle">On this page</p>
+        <button class="toc-btn" type="button" aria-expanded="true" aria-controls="tocList">On this page<span class="vh">,</span><span class="c">13 sections</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></button>
+        <ol id="tocList">
+          <li><a href="#sec-01"><span class="n">01</span><span class="t">Important information and who we are</span></a></li>
+          <li><a href="#sec-02"><span class="n">02</span><span class="t">Data protection principles</span></a></li>
+          <li><a href="#sec-03"><span class="n">03</span><span class="t">Kinds of personal information we collect</span></a></li>
+          <li><a href="#sec-04"><span class="n">04</span><span class="t">How is your personal information collected</span></a></li>
+          <li><a href="#sec-05"><span class="n">05</span><span class="t">How do we use your personal information</span></a></li>
+          <li><a href="#sec-06"><span class="n">06</span><span class="t">Disclosures of personal information</span></a></li>
+          <li><a href="#sec-07"><span class="n">07</span><span class="t">Security</span></a></li>
+          <li><a href="#sec-08"><span class="n">08</span><span class="t">International transfers</span></a></li>
+          <li><a href="#sec-09"><span class="n">09</span><span class="t">How long we keep your personal information</span></a></li>
+          <li><a href="#sec-10"><span class="n">10</span><span class="t">Types of personal information: examples</span></a></li>
+          <li><a href="#sec-11"><span class="n">11</span><span class="t">Your rights</span></a></li>
+          <li><a href="#sec-12"><span class="n">12</span><span class="t">How to contact us</span></a></li>
+          <li><a href="#sec-13"><span class="n">13</span><span class="t">Changes to our privacy notices</span></a></li>
+        </ol>
+      </nav>
+      <div class="prose">
+        <h2 id="sec-01"><span class="n">01</span>Important information and who we are</h2>
+        <p>Omnes and it’s affiliates<sup><a href="#fn1" id="fnref1"><span class="vh">Note </span>1</a></sup> (“we”, “us”, “our”, or “Omnes Group”) collect, use and share personal information when you use any service that it offers. This global privacy notice has been created to cover how we collect, use and disclose personal information and is relevant to our website visitors and users of our services. This global privacy notice describes the types of personal information we collect, the purposes for processing that personal information, the third parties we share your personal information with and the security measures we have implemented to keep your personal data secure. It also sets out the rights and choices of individuals and how to contact us about the information contained in this global privacy notice, wherever you are in the world.</p>
+        <p>Where any entity within the Omnes Group acts as a controller, the controller will be deemed to be the Omnes Group entity listed on the terms and conditions that you enter into when using an Omnes Group service.</p>
+        <p>This global privacy notice sets out some core content and, where applicable, can be read in conjunction with any supplemental privacy notices as required by country specific law. This is where certain country specific information, such as individuals’ rights can be found. In the absence of any country specific information, this global privacy notice will apply.</p>
+        <p>Our global privacy notice, and any associated country-specific privacy notices will be reviewed from time to time to take account of new obligations and technology, changes to our operations and practices and to make sure it remains appropriate to the changing global environment.</p>
+        <p class="fn" id="fn1"><sup>1</sup> Omnes and it’s affiliates refers to the companies that are directly or indirectly owned or controlled by Omnes Holdings Ltd. <a class="fn-back" href="#fnref1" aria-label="Back to note 1 in the text">&uarr;</a></p>
+        <h2 id="sec-02"><span class="n">02</span>Data protection principles</h2>
+        <p>The Omnes Group seek to comply with all data protection laws that are applicable around the world. Where possible, we have adopted the core principles set out in the GDPR to inform how we collect and use your personal information. The principles are as follows:</p>
+        <ul>
+          <li>used lawfully, fairly and in a transparent way;</li>
+          <li>collected only for valid purposes that we have clearly explained to you and not used in any way that is incompatible with those purposes;</li>
+          <li>relevant to the purposes we have told you about and limited only to those purposes;</li>
+          <li>accurate and kept up to date;</li>
+          <li>kept only as long as necessary for the purposes we have told you about; and</li>
+          <li>kept securely.</li>
+        </ul>
+        <h2 id="sec-03"><span class="n">03</span>Kinds of personal information we collect</h2>
+        <p>Personal information or personal data means any information about a living individual from which that person can be identified, even without any linkage to their name. It does not include data where the identity of the individual has been completely and permanently removed (which is called anonymous or anonymised data). The types of personal information we collect include the following categories:</p>
+        <ul>
+          <li>Identity and Profile</li>
+          <li>Contact</li>
+          <li>Financial</li>
+          <li>Usage</li>
+          <li>Transaction</li>
+          <li>Marketing and Communications</li>
+          <li>Technical</li>
+        </ul>
+        <p>Examples of these categories are set out in the table below in <a href="#sec-10">section 10</a>.</p>
+        <h2 id="sec-04"><span class="n">04</span>How is your personal information collected</h2>
+        <p>We collect information from you where you fill in forms on our website or by corresponding with us by phone, email or otherwise. It includes information you provide when you register to use our website, when you report a problem with our site or when you contact us to discuss any aspect of your account with us. When you visit our website, access our services, engage with our emails and online ads, we may collect information by automated means. For more information on how we collect your data, please refer to the Cookies Policy on our website.</p>
+        <p>We obtain most of the customer personal information shared with us directly through account applications or other submission forms, and from maintaining records of customer information provided in the course of our ongoing customer service. We may also obtain information from other sources to meet certain regulatory requirements.</p>
+        <p>On occasion, we will ask for other information voluntarily (for example, through market research, surveys or special financial promotion offers) to enable us to improve our service or consider the wider needs of our customers.</p>
+        <h3>Information we receive from other sources</h3>
+        <p>On occasion, we will collect your personal information indirectly and through a third party. Examples of this include our use of blockchain analytics services to perform KYT (know your transaction), as well as credit reference agencies to perform KYC (know your client), KYB (know your business), and AML (anti-money laundering) checks.</p>
+        <h2 id="sec-05"><span class="n">05</span>How do we use your personal information</h2>
+        <p>We will only use your personal information when applicable data protection law permits us to, including by identifying any necessary lawful bases for processing (i.e. a legally permissible reason for processing your personal information). Please check the relevant country-specific notices below to ensure that there are no differences in your specific jurisdiction.</p>
+        <p>The table below contains the purposes we plan to use your personal information, the types of data applicable to this purpose and the applicable lawful basis for our processing activities:</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Purposes, types of data and lawful bases for processing">
+          <table class="lg-table cols-3" role="table">
+            <thead role="rowgroup">
+              <tr role="row"><th role="columnheader" scope="col">Purpose</th><th role="columnheader" scope="col">Type of Data</th><th role="columnheader" scope="col">Lawful basis for processing including basis of legitimate interest</th></tr>
+            </thead>
+            <tbody role="rowgroup"><tr role="row"><td role="cell">To register you as a new client</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Performance of a contract with you</td></tr>
+            <tr role="row"><td role="cell">To process your transaction including (a) manage payments, fees and charges and (b) collect and recover money owed to us</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Financial <br>(d) Transaction <br>(e) Marketing and Communications</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">(a) Performance of a contract with you <br>(b) Necessary for our legitimate interests (to recover debts due to us)</td></tr>
+            <tr role="row"><td role="cell">To manage our relationship with you, including (a) notifying you about changes to our terms or privacy policy and (b) asking you to leave a review or take a survey</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Marketing and Communications</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">(a) Performance of a contract with you <br>(b) Necessary to comply with a legal obligation <br>(c) Necessary for our legitimate interests (to keep our records updated and study how customers use our products/services)</td></tr>
+            <tr role="row"><td role="cell">To enable you to partake in a prize draw, competition or complete a survey</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Usage <br>(d) Marketing and Communications</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">(a) Performance of a contract with you <br>(b) Necessary for our legitimate interests (to study how customers use our products/services, to develop them and grow our business)</td></tr>
+            <tr role="row"><td role="cell">To administer and protect our business and this website (troubleshooting, data analysis, testing, system maintenance, support, reporting, hosting)</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Technical</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">(a) Necessary for our legitimate interests (running our business, IT services, network security, fraud prevention, business reorganisation) <br>(b) Necessary to comply with a legal obligation</td></tr>
+            <tr role="row"><td role="cell">To deliver relevant website content and advertisements and measure their effectiveness</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Usage <br>(d) Marketing and Communications <br>(e) Technical</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Necessary for our legitimate interests (to study how customers use our products/services, develop them, grow our business and inform our marketing strategy)</td></tr>
+            <tr role="row"><td role="cell">To use data analytics to improve our website, products/services, marketing, customer relationships and experiences</td><td role="cell" data-label="Type of Data">(a) Technical <br>(b) Usage</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Necessary for our legitimate interests (to define customer types, keep our website updated, develop our business and inform our marketing strategy)</td></tr>
+            <tr role="row"><td role="cell">To make suggestions and recommendations to you about goods or services that may interest you</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Technical <br>(d) Usage</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Necessary for our legitimate interests (to develop our products/services and grow our business)</td></tr>
+            <tr role="row"><td role="cell">If we are under a duty to disclose or share your personal information to comply with any legal obligation, enforce our terms, or protect rights, property, or safety (including fraud protection and credit risk reduction)</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Contact <br>(c) Financial <br>(d) Transaction <br>(e) Marketing and Communications</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Necessary to comply with a legal obligation</td></tr>
+            <tr role="row"><td role="cell">In the event of M&amp;A activity (reorganisation, selling/buying any business or assets, joint venture, assignment, transfer or other disposition)</td><td role="cell" data-label="Type of Data">(a) Identity and profile <br>(b) Transaction</td><td role="cell" data-label="Lawful basis for processing including basis of legitimate interest">Necessary for our legitimate interests (where it is necessary for the sale of the business or shares to disclose the data to a potential buyer)</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <h2 id="sec-06"><span class="n">06</span>Disclosures of personal information</h2>
+        <p>We share your personal information with our trusted third parties as part of the operation of our global business. Your personal data will be shared with the following categories of recipients:</p>
+        <ul>
         <li>other companies within the Omnes Group of companies who provide financial and other services;</li>
         <li>service providers and specialist advisers who have been contracted to provide us with administrative, financial, insurance or other similar or related services;</li>
         <li>introducing brokers with whom we have a mutual relationships;</li>
@@ -281,28 +315,38 @@
         <li>advertisers and advertising networks that require data to select and serve relevant adverts to you and others (we do not disclose information about identifiable individuals to our advertisers, but we will provide them with aggregate information);</li>
         <li>analytics and search engine providers that assist us in the improvement and optimisation of our site; and</li>
         <li>credit reference agencies for the purpose of assessing your credit score where this is a condition of us entering into a contract with you.</li>
-      </ul>
-<h2 id="sec-07"><span class="num">07</span>Security</h2>
-<p>Protecting your personal information and your privacy is very important to us. At a global level, we have set high standards for data security. We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed, altered or disclosed in an unauthorised manner. In addition, we limit access to your personal information to those employees and third parties who have a business need to know. They will only process your personal information on our instructions and they are subject to a duty of confidentiality.</p>
-<h2 id="sec-08"><span class="num">08</span>International transfers</h2>
-<p>The Omnes Group is an international business that has operations and service providers around the world.</p><p>Where we transfer your personal information outside of the jurisdiction in which the relevant controller (pursuant to this global privacy notice) is incorporated in (“Jurisdiction”), as well as to processors located outside of the Jurisdiction who are engaged on our behalf. Where we transfer your information outside of the Jurisdiction, we will ensure that the transfer is lawful and that there are appropriate security and contractual arrangements in place to safeguard such transfers.</p><p>If we transfer your personal data to another country that doesn’t offer a standard of data protection equivalent to the Jurisdiction from which your personal data is transferred from, we will ensure that your personal data is sufficiently protected through mechanisms such as (where applicable), (i) approved Standard Contractual Clauses; (ii) the UK Approved Addendum; (iii) Binding Corporate Rules; (iv) standard data protection clauses, certification or an approved code of conduct adopted by a supervisory authority within the Jurisdiction; or (v) a contractual framework deemed to provide an adequate level of protection for personal data.</p><p>To the extent applicable, please see any country-specific notices for additional details in relation to our international transfers and our appropriate safeguards in place.</p>
-<h2 id="sec-09"><span class="num">09</span>How long we keep your personal information</h2>
-<p>We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.</p><p>To determine the appropriate retention period for personal data, we consider the amount, nature, and sensitivity of the personal data, the potential risk of harm from unauthorised use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means, and the applicable legal requirements.</p><p>To receive additional details around our retention periods, please contact us using the details in section 12 below.</p>
-<h2 id="sec-10"><span class="num">10</span>Types of personal information: examples</h2>
-<p>We may collect, use, store, transfer and otherwise process different kinds of personal information about you, which we have grouped together as follows:</p><table>
-        <thead><tr><th>Type of personal information</th><th>Definition</th></tr></thead>
-        <tbody>
-        <tr><td>Identity and Profile</td><td>Identity Data includes name, username or similar identifier, online account profile information, marital status, title, date of birth and gender.</td></tr>
-        <tr><td>Contact</td><td>Contact Data includes billing address, delivery address, location, country, email address and telephone numbers.</td></tr>
-        <tr><td>Financial</td><td>Financial Data includes bank account and payment card details.</td></tr>
-        <tr><td>Usage</td><td>Usage Data includes information about how you use our websites, mobile applications, Wi-Fi and similar electronic services.</td></tr>
-        <tr><td>Transaction</td><td>Transaction Data includes details about payments to and from you and other payment details of products/services you have purchased from us.</td></tr>
-        <tr><td>Marketing and Communications</td><td>Marketing and Communications Data includes your marketing and communication preferences.</td></tr>
-        <tr><td>Technical</td><td>Technical Data includes information collected when you access our websites or mobile applications, your IP address, login data, browser type and version, time zone setting and location and country, browser plug-in types and versions, operating system and platform, and other technology on the devices you use.</td></tr>
+        </ul>
+        <h2 id="sec-07"><span class="n">07</span>Security</h2>
+        <p>Protecting your personal information and your privacy is very important to us. At a global level, we have set high standards for data security. We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed, altered or disclosed in an unauthorised manner. In addition, we limit access to your personal information to those employees and third parties who have a business need to know. They will only process your personal information on our instructions and they are subject to a duty of confidentiality.</p>
+        <h2 id="sec-08"><span class="n">08</span>International transfers</h2>
+        <p>The Omnes Group is an international business that has operations and service providers around the world.</p>
+        <p>Where we transfer your personal information outside of the jurisdiction in which the relevant controller (pursuant to this global privacy notice) is incorporated in (“Jurisdiction”), as well as to processors located outside of the Jurisdiction who are engaged on our behalf. Where we transfer your information outside of the Jurisdiction, we will ensure that the transfer is lawful and that there are appropriate security and contractual arrangements in place to safeguard such transfers.</p>
+        <p>If we transfer your personal data to another country that doesn’t offer a standard of data protection equivalent to the Jurisdiction from which your personal data is transferred from, we will ensure that your personal data is sufficiently protected through mechanisms such as (where applicable), (i) approved Standard Contractual Clauses; (ii) the UK Approved Addendum; (iii) Binding Corporate Rules; (iv) standard data protection clauses, certification or an approved code of conduct adopted by a supervisory authority within the Jurisdiction; or (v) a contractual framework deemed to provide an adequate level of protection for personal data.</p>
+        <p>To the extent applicable, please see any country-specific notices for additional details in relation to our international transfers and our appropriate safeguards in place.</p>
+        <h2 id="sec-09"><span class="n">09</span>How long we keep your personal information</h2>
+        <p>We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.</p>
+        <p>To determine the appropriate retention period for personal data, we consider the amount, nature, and sensitivity of the personal data, the potential risk of harm from unauthorised use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means, and the applicable legal requirements.</p>
+        <p>To receive additional details around our retention periods, please contact us using the details in <a href="#sec-12">section 12</a> below.</p>
+        <h2 id="sec-10"><span class="n">10</span>Types of personal information: examples</h2>
+        <p>We may collect, use, store, transfer and otherwise process different kinds of personal information about you, which we have grouped together as follows:</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Types of personal information and their definitions">
+        <table class="lg-table cols-2" role="table">
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">Type of personal information</th><th role="columnheader" scope="col">Definition</th></tr>
+          </thead>
+          <tbody role="rowgroup"><tr role="row"><td role="cell">Identity and Profile</td><td role="cell">Identity Data includes name, username or similar identifier, online account profile information, marital status, title, date of birth and gender.</td></tr>
+          <tr role="row"><td role="cell">Contact</td><td role="cell">Contact Data includes billing address, delivery address, location, country, email address and telephone numbers.</td></tr>
+          <tr role="row"><td role="cell">Financial</td><td role="cell">Financial Data includes bank account and payment card details.</td></tr>
+          <tr role="row"><td role="cell">Usage</td><td role="cell">Usage Data includes information about how you use our websites, mobile applications, Wi-Fi and similar electronic services.</td></tr>
+          <tr role="row"><td role="cell">Transaction</td><td role="cell">Transaction Data includes details about payments to and from you and other payment details of products/services you have purchased from us.</td></tr>
+          <tr role="row"><td role="cell">Marketing and Communications</td><td role="cell">Marketing and Communications Data includes your marketing and communication preferences.</td></tr>
+          <tr role="row"><td role="cell">Technical</td><td role="cell">Technical Data includes information collected when you access our websites or mobile applications, your IP address, login data, browser type and version, time zone setting and location and country, browser plug-in types and versions, operating system and platform, and other technology on the devices you use.</td></tr>
         </tbody>
-      </table>
-<h2 id="sec-11"><span class="num">11</span>Your rights</h2>
-<p>Under certain circumstances, you have rights under data protection laws in relation to your personal data. These may include:</p><ul>
+        </table>
+        </div>
+        <h2 id="sec-11"><span class="n">11</span>Your rights</h2>
+        <p>Under certain circumstances, you have rights under data protection laws in relation to your personal data. These may include:</p>
+        <ul>
         <li>the right to be informed;</li>
         <li>the right of access;</li>
         <li>the right to rectification;</li>
@@ -311,142 +355,133 @@
         <li>the right to data portability;</li>
         <li>the right to object; and</li>
         <li>rights in relation to automated decision making and profiling.</li>
-      </ul><p>You can exercise your rights by contacting us using the details set out in section 12 below.</p><p>If you have concerns in relation with how we deal with your data, you have a right to complain to your local data protection authority, or to the data protection regulator in the country where you live or work.</p>
-<h2 id="sec-12"><span class="num">12</span>How to contact us</h2>
-<p>If you have questions or comments about our privacy practices, or if you would like help exercising your privacy rights, you can contact us via one of the methods set out below:</p><p><a href="mailto:legal@omnes.io">legal@omnes.io</a></p>
-<h2 id="sec-13"><span class="num">13</span>Changes to our privacy notices</h2>
-<p>Any changes we make to our global privacy notice in the future will be posted on this page and, where appropriate, notified to you by e-mail. Please check back frequently to see any updates or changes to our global privacy notice.</p>
-
-        <!-- END document body -->
+        </ul>
+        <p>You can exercise your rights by contacting us using the details set out in <a href="#sec-12">section 12</a> below.</p>
+        <p>If you have concerns in relation with how we deal with your data, you have a right to complain to your local data protection authority, or to the data protection regulator in the country where you live or work.</p>
+        <h2 id="sec-12"><span class="n">12</span>How to contact us</h2>
+        <p>If you have questions or comments about our privacy practices, or if you would like help exercising your privacy rights, you can contact us via one of the methods set out below:</p>
+        <p><a href="mailto:legal@omnes.io">legal@omnes.io</a></p>
+        <h2 id="sec-13"><span class="n">13</span>Changes to our privacy notices</h2>
+        <p>Any changes we make to our global privacy notice in the future will be posted on this page and, where appropriate, notified to you by e-mail. Please check back frequently to see any updates or changes to our global privacy notice.</p>
       </div>
     </div>
+  </section>
+</main>
 
-  </div>
-</section>
-
-
-<footer>
-  <div class="ft-inner">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="/" class="logo" aria-label="Omnes"><img src="/omnes-logo-white.svg" alt="Omnes" /></a>
-        <div class="ft-socials">
-          <a href="https://x.com/omnesfinance" target="_blank" rel="noopener" aria-label="X (Twitter)">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.86 3.38-1.86 3.61 0 4.27 2.38 4.27 5.47v6.28zM5.34 7.43a2.07 2.07 0 11-.01-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.55v11.45z"/></svg>
-          </a>
-        </div>
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-
-      <div class="ft-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/contact/">Contact us</a></li>
-          <li><a href="/media-kit/">Media Kit</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="/omn/">Omnes Mining Note</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Resources</h5>
-        <ul>
-          <li><a href="/resources/">Resources</a></li>
-          <li><a href="/faqs/">FAQs</a></li>
-          <li><a href="https://insights.omnes.io" target="_blank" rel="noopener" class="ext">Insights</a></li>
-          <li><a href="https://omnes.gitbook.io/omnes-docs/security" target="_blank" rel="noopener" class="ext">Security</a></li>
-        </ul>
-      </div>
-
-      <div class="ft-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="/website-terms/">Website Terms</a></li>
-          <li><a href="/global-privacy-notice/">Global Privacy Notice</a></li>
-          <li><a href="/cookies-policy/">Cookies Policy</a></li>
-        </ul>
-      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/" aria-current="page">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
     </div>
-
-    <p class="ft-disc">
-      This website and the information contained in it is subject to our <a href="/website-terms/">Website Terms.</a> This website and the information contained in it, does not take into account any prospective investors' individual investment objectives, financial situation or investment needs. Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax accounting or regulatory issues. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment products' objectives will be achieved or that investors will receive any return of capital.
-    </p>
-    <p class="ft-copy">Copyright Omnes 2024 – 2026, All rights reserved.</p>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
+    </div>
   </div>
 </footer>
+<!-- /SHELL: footer -->
 
-
-<script src="/assets/site.js?v=15"></script>
-
-<!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
-  <div class="gate-modal">
-    <div class="gate-header">
-      <p class="gate-slabel">Terms of Access</p>
-      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
     </div>
-    <div class="gate-body" id="gateBody">
-      <h2 class="gate-h2">1. Acceptance of terms</h2>
-      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
-      <ul class="gate-ul">
-        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
-        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
-        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
-      </ul>
-      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
-
-      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
-      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-      <p class="gate-p">In particular:</p>
-      <ul class="gate-ul">
-        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
-      </ul>
-      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
-
-      <h2 class="gate-h2">3. Access at your initiative</h2>
-      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
-      <ol class="gate-ol">
-        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
-        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
-        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
-      </ol>
-
-      <h2 class="gate-h2">4. Validity</h2>
-      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-
-      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
-      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-
-      <div class="gate-notice" id="gateNotice">
-        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
-        <ul class="gate-ul">
-          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
-          <li>You access the website entirely at your own risk and initiative.</li>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
         </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="gate-footer">
-      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
     </div>
   </div>
-</div>
+</dialog>
 
+<script>
+/* Legal pages: the kit's contents script (marks the section being read, here also near the end
+   of the document), plus the fold that closes the contents list into one row below 900px. */
+(function () {
+  "use strict";
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  var toc = document.querySelector(".toc");
+  if (!toc) return;
+  var links = $$('a[href^="#"]', toc), heads = [];
+  links.forEach(function (a) { var h = document.getElementById(a.getAttribute("href").slice(1)); if (h) heads.push([h, a]); });
+  var busy = false, prose = document.querySelector(".prose");
+  var mark = function () {
+    busy = false;
+    /* the reading line sits near the top of the screen, and moves down once the document's end
+       is in view, so the last short sections can still be marked */
+    var end = prose ? Math.max(0, window.innerHeight - prose.getBoundingClientRect().bottom) : 0;
+    var line = window.innerHeight * 0.28 + end, cur = null;
+    heads.forEach(function (p) { if (p[0].getBoundingClientRect().top <= line) cur = p[1]; });
+    links.forEach(function (a) { if (a === cur) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+  };
+  window.addEventListener("scroll", function () { if (!busy) { busy = true; requestAnimationFrame(mark); } }, { passive: true });
+  mark();
+
+  /* below 900px the list starts closed; choosing a section closes it again before the jump */
+  var btn = toc.querySelector(".toc-btn"), small = window.matchMedia("(max-width: 899px)");
+  if (!btn) return;
+  var set = function (open) { toc.classList.toggle("is-closed", !open); btn.setAttribute("aria-expanded", open ? "true" : "false"); };
+  toc.classList.add("is-js");
+  set(false);
+  btn.addEventListener("click", function () { set(toc.classList.contains("is-closed")); });
+  links.forEach(function (a) { a.addEventListener("click", function () { if (small.matches) set(false); }); });
+})();
+</script>
 </body>
 </html>

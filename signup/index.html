@@ -1,158 +1,269 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
 <title>Open an Omnes investor account | Omnes</title>
-<meta name="description" content="Register for access to Omnes institutional compute investment products including the Omnes Mining Note. Onboarding opens at launch." />
-<link rel="canonical" href="https://omnes.io/signup/" />
-<meta property="og:title" content="Open an Omnes investor account | Omnes" />
-<meta property="og:description" content="Register for access to Omnes institutional compute investment products including the Omnes Mining Note. Onboarding opens at launch." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://omnes.io/signup/" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@omnesfinance" />
-<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Create an Omnes investor account. Enter your email to join the priority list for the Omnes Mining Note. The investor portal is available to professional investors only.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://omnes.io/signup/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Open an Omnes investor account | Omnes">
+<meta property="og:description" content="Create an Omnes investor account. Enter your email to join the priority list for the Omnes Mining Note. The investor portal is available to professional investors only.">
+<meta property="og:url" content="https://omnes.io/signup/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/style.css?v=130">
-<script>(function(){try{var agreed=false;try{agreed=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(agreed){document.documentElement.classList.add('omnes-agreed');return;}document.documentElement.classList.add('omnes-gate-pending');document.addEventListener('DOMContentLoaded',function(){var g=document.getElementById('accessGate');if(g){g.removeAttribute('hidden');g.style.display='flex';}var b=document.getElementById('btnAgree');if(!b)return;b.disabled=false;b.classList.add('enabled');b.addEventListener('click',function(){try{localStorage.setItem('omnes_access_agreed','1');}catch(e){}document.documentElement.classList.add('omnes-agreed');document.documentElement.classList.remove('omnes-gate-pending');if(g){g.style.display='none';g.setAttribute('hidden','');}});});}catch(e){}})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css">
+<link rel="stylesheet" href="/assets/v2/pages.css">
+<script src="/assets/v2/site.js" defer></script>
+<style>
+/* Sign up (and its twin, Log in). One calm light-blue band fills the first screen: the title,
+   the lead and the email request on the left, the Omnes mark in dots on the right, and the
+   real page's small print and links along its foot. The field is the only box. */
+.ph-tint.auth { display: flex; flex-direction: column; min-height: calc(100svh - 2 * var(--gut)); margin-bottom: var(--gut); padding-top: calc(14px + var(--nav-h) + clamp(32px, 4vw, 56px) - var(--gut)); }
+/* centred a little above the middle of the band, where the eye rests */
+.auth > .ph-grid { flex: 1 0 auto; align-items: center; align-content: center; padding-block: clamp(24px, 3vw, 40px) clamp(64px, 8vw, 112px); }
+.auth .ph-main { grid-column: 1 / span 7; }
+.auth .ph-art { grid-column: 9 / -1; align-self: center; justify-self: center; max-width: 288px; margin: 0; }
+/* the request: the email field and the button on one line */
+.auth-form { gap: 12px; max-width: 540px; margin-top: 40px; }
+.auth-row { display: flex; gap: 10px; }
+.auth-row input { flex: 1 1 auto; min-width: 0; }
+.auth-row .btn { flex: none; height: var(--field-h); }
+.auth-form .form-status { margin-top: 4px; color: #3d5266; }
+.auth-form .form-status:not(.is-error)::before { background: #7fa6cc; box-shadow: 0 0 0 3px rgba(23, 79, 123, .1); }
+.form-status a { color: inherit; text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; }
+.form-status a:hover { color: var(--ink); text-decoration-color: currentColor; }
+/* the way across to the other page */
+.auth-alt { margin-top: 32px; font-size: 15.5px; line-height: 1.5; color: #3d5266; }
+.auth-alt .arrow-link { margin-left: 4px; }
+/* the foot: the small print on the left, the page's links on the right */
+.auth .ph-foot { margin-top: 0; align-items: flex-start; gap: 12px 48px; }
+.auth-legal { max-width: 600px; font-size: 13.5px; line-height: 1.6; text-wrap: pretty; }
+.auth-legal a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .3); text-underline-offset: 3px; }
+.auth-legal a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.auth-links { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 13.5px; line-height: 1.6; }
+.auth-links a { color: #3d5266; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.auth-links a:hover { color: var(--ink); text-decoration-color: currentColor; }
+/* this page's pill in the nav carries a fine ring */
+.nav-end .pill[aria-current="page"] { box-shadow: inset 0 0 0 1.5px rgba(23, 79, 123, .3); }
+.menu-actions a[aria-current="page"] { box-shadow: inset 0 0 0 1.5px rgba(23, 79, 123, .3); }
+@media (max-width: 1099px) { .auth .ph-main { grid-column: 1 / span 8; } .auth .ph-art { grid-column: 10 / -1; max-width: 200px; } }
+/* without the mark, the band holds only its content: no full-screen height to fill */
+@media (max-width: 899px) {
+  .ph-tint.auth { min-height: 0; }
+  .auth > .ph-grid { padding-block: 40px 88px; }
+  .auth .ph-main { grid-column: 1 / -1; }
+}
+@media (max-width: 599px) {
+  .auth > .ph-grid { padding-block: 24px 48px; }
+  .auth-form { margin-top: 32px; }
+  .auth-row { flex-direction: column; }
+  .auth-row .btn { width: 100%; }
+  .auth-alt { margin-top: 26px; }
+  .auth-links { gap: 4px 18px; }
+}
+</style>
 </head>
-<body class="auth">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-
-<nav class="auth-nav">
-  <a href="/" class="brand" aria-label="Omnes"><img src="/omnes-logo-black.svg" alt="Omnes" /></a>
-  <div class="auth-nav-right">
-    <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-      <span></span><span></span><span></span>
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/">Mining Note</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/">FAQs</a>
+      <a class="opt" href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/" aria-current="page">Sign up</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/">FAQs</a>
+  <a href="/contact/">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/" aria-current="page">Sign up</a>
+  </div>
 </nav>
+<!-- /SHELL: nav -->
 
-<!-- ──────────── MOBILE NAV DRAWER ──────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <div class="mobile-nav-inner">
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Invest</div>
-      <a href="/omn/">Omnes Mining Note</a>
-      <a href="/login/">Investor Portal</a>
-      <a href="/signup/">Sign Up</a>
-      <a href="https://omnes.gitbook.io/omnes-docs" target="_blank" rel="noopener">Documentation <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">About</div>
-      <a href="/about/">About Omnes</a>
-      <a href="/faqs/">FAQs</a>
-      <a href="/resources/">Resources</a>
-      <a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights <span class="ext">↗</span></a>
-      <a href="/media-kit/">Media Kit</a>
-    </div>
-    <div class="mobile-nav-section">
-      <div class="mobile-nav-h">Contact</div>
-      <a href="/contact/">Contact IR</a>
-      <a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn <span class="ext">↗</span></a>
-      <a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X (Twitter) <span class="ext">↗</span></a>
-    </div>
-    <div class="mobile-nav-cta">
-      <a href="/login/" class="btn btn-ghost">Log in</a>
-      <a href="/signup/" class="btn btn-terra">Sign up</a>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-<main class="auth-main">
-  <div class="auth-card">
-    <a href="/" class="auth-mark" aria-label="Omnes home"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M249.999 165.274C242.559 213.252 200.621 249.999 150 249.999C99.3789 249.999 57.442 213.252 50.002 165.274H80.8965C87.9473 196.575 116.209 219.974 150 219.975C183.791 219.975 212.053 196.575 219.104 165.274H249.999ZM150 50C200.625 50 242.566 86.7527 250.001 134.736H219.105C212.059 103.43 183.796 80.0234 150 80.0234C116.204 80.0236 87.941 103.43 80.8945 134.736H50C57.435 86.7529 99.3747 50.0001 150 50Z"/></svg></a>
-    <h1>Create your account</h1>
-    <p class="auth-sub">Enter your email to join the priority list for the Omnes Mining Note</p>
-    <form class="auth-form" id="authForm" action="https://formspree.io/f/mgonglpj" method="POST">
-      <input type="hidden" name="subject" value="Investor account request" />
-      <label class="sr-only" for="authEmail">Email address</label>
-      <input class="auth-input" id="authEmail" type="email" name="email" placeholder="name@example.com" autocomplete="email" required />
-      <button class="auth-submit" type="submit">Continue</button>
-    </form>
-    <p class="auth-status" id="authStatus" role="status" aria-live="polite" hidden></p>
-    <p class="auth-alt">Already registered? <a href="/login/">Log in</a></p>
-  </div>
-</main>
-
-<div class="auth-legal">
-  <div class="auth-legal-disc">By continuing, you agree to our <a href="/website-terms/">Website Terms</a> and <a href="/global-privacy-notice/">Privacy Notice</a>. The Omnes investor portal is available to professional investors only.</div>
-  <div class="auth-legal-links">
-    <a href="/global-privacy-notice/">Privacy Notice</a>
-    <a href="/website-terms/">Website Terms</a>
-    <a href="/cookies-policy/">Cookies</a>
-    <a href="/contact/">Contact IR</a>
-  </div>
-</div>
-
-
-<!-- ──────────── ACCESS GATE ──────────── -->
-<div class="gate-overlay" id="accessGate" data-nosnippet hidden aria-hidden="true">
-  <div class="gate-modal">
-    <div class="gate-header">
-      <p class="gate-slabel">Terms of Access</p>
-      <p class="gate-title" role="heading" aria-level="2"><strong>Welcome to the<br><span>Omnes Website.</span></strong></p>
-      <p class="gate-intro">This website <a href="https://www.omnes.io" class="gate-link">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong class="gate-strong">Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-scroll-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
-    </div>
-    <div class="gate-body" id="gateBody">
-      <h2 class="gate-h2">1. Acceptance of terms</h2>
-      <p class="gate-p">By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
-      <ul class="gate-ul">
-        <li>the <a href="/website-terms/" class="gate-link" target="_blank" rel="noopener">Website Terms</a></li>
-        <li>the <a href="/global-privacy-notice/" class="gate-link" target="_blank" rel="noopener">Global Privacy Notice</a></li>
-        <li>the <a href="/cookies-policy/" class="gate-link" target="_blank" rel="noopener">Cookies Policy</a></li>
-      </ul>
-      <p class="gate-p">You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
-
-      <h2 class="gate-h2">2. Geographical / jurisdiction restrictions</h2>
-      <p class="gate-p">The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-      <p class="gate-p">The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-      <p class="gate-p">In particular:</p>
-      <ul class="gate-ul">
-        <li><strong class="gate-strong">United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-        <li><strong class="gate-strong">United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-        <li><strong class="gate-strong">European Economic Area ("<span class="gate-strong">EEA</span>"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
-      </ul>
-      <p class="gate-p">Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
-
-      <h2 class="gate-h2">3. Access at your initiative</h2>
-      <p class="gate-p">By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-      <p class="gate-p">Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
-      <ol class="gate-ol">
-        <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-        <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-        <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
-        <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
-        <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
-      </ol>
-
-      <h2 class="gate-h2">4. Validity</h2>
-      <p class="gate-p">If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-
-      <h2 class="gate-h2">5. Governing law and jurisdiction</h2>
-      <p class="gate-p">These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-
-      <div class="gate-notice" id="gateNotice">
-        <p class="gate-notice-label">By clicking "I Agree" you acknowledge that:</p>
-        <ul class="gate-ul">
-          <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-          <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
-          <li>You access the website entirely at your own risk and initiative.</li>
-        </ul>
+  <!-- The whole page is one light-blue band: the title, the lead and the email request, the way
+       across to Log in, the Omnes mark in dots (wide screens only), and the small print. The form
+       does not send: it checks the address, then says plainly that it could not send the request
+       and gives the investor relations address. -->
+  <section class="ph ph-tint auth" aria-labelledby="pageTitle">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title" id="pageTitle">Create your account.</h1>
+        <p class="ph-lead">Enter your email to join the priority list for the Omnes Mining Note.</p>
+        <form class="form auth-form" id="authForm" action="#" method="post" novalidate aria-label="Request an account">
+          <input type="hidden" name="subject" value="Investor account request">
+          <div class="form-field">
+            <label for="authEmail">Email address</label>
+            <div class="auth-row">
+              <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+              <button class="btn lg btn-dark" type="submit">Continue</button>
+            </div>
+            <p class="form-error" id="authEmailErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
+          </div>
+          <p class="form-status" id="authStatus" role="status" aria-live="polite"></p>
+        </form>
+        <p class="auth-alt">Already registered? <a class="arrow-link" href="/login/">Log in <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>
     </div>
-    <div class="gate-footer">
-      <button class="gate-btn-agree" id="btnAgree" disabled>I Agree</button>
+    <div class="wrap ph-foot">
+      <p class="auth-legal">By continuing, you agree to our <a href="/website-terms/">Website Terms</a> and <a href="/global-privacy-notice/">Privacy Notice</a>. The Omnes investor portal is available to professional investors only.</p>
+      <p class="auth-links"><a href="/global-privacy-notice/">Privacy notice</a><a href="/website-terms/">Website terms</a><a href="/cookies-policy/">Cookies</a><a href="/contact/">Contact IR</a></p>
+    </div>
+  </section>
+</main>
+
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
+      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
+    </div>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
     </div>
   </div>
-</div>
+</footer>
+<!-- /SHELL: footer -->
 
-<script src="/assets/site.js?v=15"></script>
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+    </div>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
+        </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Page script: the request form checks the address and marks it if it cannot accept it
+     (aria-invalid, with the message tied by aria-describedby). It never sends and never reports
+     a success: with a valid address it says it could not send the request, and gives the address
+     to write to instead. -->
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("authForm");
+  if (!form) return;
+  var input = document.getElementById("authEmail"), err = document.getElementById("authEmailErr");
+  var status = document.getElementById("authStatus");
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var check = function (v) { return !v ? "Enter your email address." : EMAIL.test(v) ? "" : "Enter an email address like name@company.com."; };
+  var show = function (msg) {
+    if (msg) {
+      err.querySelector("span").textContent = msg;
+      err.hidden = false;
+      input.setAttribute("aria-invalid", "true");
+      input.setAttribute("aria-describedby", err.id);
+    } else {
+      err.hidden = true;
+      input.removeAttribute("aria-invalid");
+      input.removeAttribute("aria-describedby");
+    }
+  };
+  input.addEventListener("input", function () {
+    if (input.getAttribute("aria-invalid") === "true") show(check(input.value.trim()));
+    if (status.textContent) status.textContent = "";
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = check(input.value.trim());
+    show(msg);
+    if (msg) { status.textContent = ""; input.focus(); return; }
+    status.innerHTML = '<span>Could not send your request. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.</span>';
+  });
+})();
+</script>
 </body>
 </html>
