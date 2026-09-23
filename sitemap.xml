@@ -17,6 +17,14 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Omnes Hashprice Index: live and daily, from public chain data -->
+  <url>
+    <loc>https://omnes.io/hashprice/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- FAQs -->
   <url>
     <loc>https://omnes.io/faqs/</loc>

@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
+<title>Omnes Hashprice Index: Bitcoin hashprice per PH/s per day | Omnes</title>
+<meta name="description" content="What one petahash per second of Bitcoin hashrate earns in a day, in US dollars and in Bitcoin: the Omnes Hashprice Index, live and daily, from public chain data.">
+<link rel="canonical" href="https://omnes.io/hashprice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omnes">
+<meta property="og:title" content="Omnes Hashprice Index: Bitcoin hashprice per PH/s per day | Omnes">
+<meta property="og:description" content="What one petahash per second of Bitcoin hashrate earns in a day, in US dollars and in Bitcoin: the Omnes Hashprice Index, live and daily, from public chain data.">
+<meta property="og:url" content="https://omnes.io/hashprice/">
+<meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1151">
+<meta property="og:image:alt" content="Aerial view of a data centre campus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@omnesfinance">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://mempool.space" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/pages.css?v=2">
+<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/hashprice.js?v=1" defer></script>
+<style>
+/* Omnes Hashprice Index page: only what site.css and the kit (pages.css) do not already cover.
+   The live figures come from site.js (Omnes.live, [data-live] slots); the extras, the history
+   chart, the changes and the CSV from /assets/v2/hashprice.js ([data-hx] slots).
+   1 Header: the live figure on the right of the tinted band; the live status in the foot row
+   2 Inputs: the four inputs as open figures, then today's worked calculation on a hairline
+   3 History: the controls, the readout, the chart (SVG, drawn by hashprice.js), its caption and
+     the range's figures
+   4 Method: the formula as a serif fraction, and two open term lists
+   5 Small screens */
+
+/* 1 */
+.hx-ph .ph-main { grid-column: 1 / span 7; }
+.hx-now { grid-column: 9 / -1; min-width: 0; }
+.hx-now-k { font-size: 14px; line-height: 1.45; color: #3d5266; }
+.hx-now-v { display: block; margin-top: 12px; font-size: clamp(64px, 6.9vw, 100px); line-height: .92; font-weight: 400; letter-spacing: -0.045em; white-space: nowrap; color: var(--ink); }
+.hx-now-v .sk { width: 3.1em; height: .62em; }
+.hx-now-v[data-na] { font-size: 32px; letter-spacing: -0.01em; line-height: 1.2; color: #3d5266; }
+.ph-tint .sk { background: rgba(23, 79, 123, .1); }
+.hx-now-btc { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(23, 79, 123, .13); font-size: 14.5px; line-height: 1.45; color: #3d5266; }
+.hx-now-btc b { font-size: 21px; font-weight: 400; letter-spacing: -0.015em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hx-now-btc b[data-na] { font-size: 16px; color: #3d5266; }
+.hx-chg { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.hx-chg > div { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 13px 0 11px; border-radius: 999px; background: rgba(255, 255, 255, .66); box-shadow: inset 0 0 0 1px rgba(23, 79, 123, .07); font-size: 14px; line-height: 1; }
+.hx-chg[hidden], .hx-chg > div[hidden] { display: none; }
+.hx-chg dt { order: 2; color: #3d5266; }
+.hx-chg dd { order: 1; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hx-chg dd[data-na] { font-weight: 400; color: #3d5266; }
+.hx-chg .tri { width: 9px; height: 9px; fill: currentColor; }
+.hx-chg [data-dir="up"] dd { color: var(--tint-ink); }
+.hx-chg [data-dir="down"] .tri { transform: rotate(180deg); }
+.hx-chg-note { margin-top: 12px; max-width: 380px; font-size: 13px; line-height: 1.5; color: #3d5266; text-wrap: pretty; }
+.ph-foot .crumbs { margin-right: auto; }
+.hx-live { display: inline-flex; align-items: center; gap: 9px; font-variant-numeric: tabular-nums; }
+
+/* 2 */
+.hx-in .fig dd { white-space: normal; }
+.hx-in .fig dd > .num { display: block; white-space: nowrap; }
+.hx-in .fig dd small { display: inline; margin-left: 6px; font-size: 14px; letter-spacing: 0; color: var(--muted); }
+.hx-in .fig dd .sk { width: 3.4em; height: .56em; }
+.hx-in .fig dd > [data-na] { font-size: 17px; letter-spacing: 0; color: var(--muted); }
+.hx-in .fig dd > .hx-sub { display: block; margin-top: 8px; max-width: 240px; font-size: 13.5px; line-height: 1.45; letter-spacing: 0; color: var(--muted); }
+.hx-in .fig dd > .hx-sub .num { white-space: nowrap; }
+.hx-work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 8px; align-items: baseline; margin-top: 8px; padding: 22px 0 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hx-work-k { grid-column: 1 / span 3; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
+.hx-work-f { grid-column: 4 / -1; font-size: clamp(18px, 1.55vw, 21px); line-height: 1.5; letter-spacing: -0.01em; color: var(--ink); font-variant-numeric: tabular-nums; text-wrap: balance; }
+.hx-work-f .op { margin: 0 .12em; color: var(--muted); }
+.hx-work-f b { font-weight: 500; }
+.hx-work-f[data-na] { font-size: 16px; color: var(--muted); }
+
+/* 3 */
+.hx-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-bottom: 30px; }
+.hx-bar .chips { gap: 6px; }
+.hx-bar .chip { height: 38px; padding: 0 15px; font-variant-numeric: tabular-nums; }
+.hx-bar .chip:disabled { opacity: .45; cursor: default; }
+.hx-bar .hx-csv { margin-left: auto; }
+.btn .dl { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.hx-read { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; min-height: 40px; font-variant-numeric: tabular-nums; }
+.hx-read-d { font-size: 14.5px; color: var(--muted); }
+.hx-read-v { font-size: clamp(24px, 2.1vw, 30px); line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+.hx-read-u { font-size: 14.5px; color: var(--muted); }
+.hx-read-o { font-size: 15px; color: var(--ink); }
+.hx-read-a { font-size: 14.5px; color: var(--muted); }
+.hx-plot { position: relative; height: clamp(320px, 33vw, 470px); margin-top: 18px; touch-action: pan-y; cursor: crosshair; border-radius: 4px; -webkit-user-select: none; user-select: none; }
+.hx-plot:focus-visible { outline-offset: 8px; border-radius: 10px; }
+.hx-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hx-plot text { font-family: var(--font); font-size: 12px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.hx-grid line { stroke: var(--line); stroke-width: 1; }
+.hx-grid line.b, .hx-time line { stroke: var(--line-strong); }
+.hx-halv line { stroke: #a9c3f5; stroke-width: 1; }
+.hx-halv text { fill: var(--tint-ink); font-weight: 500; }
+.hx-area { fill: url(#hxFill); }
+/* the daily index in blue (3.2:1 on the canvas), the 7-day average over it in navy */
+.hx-day { fill: none; stroke: #5b8af0; stroke-width: 1; stroke-linejoin: round; }
+.hx-line { fill: none; stroke: var(--tint-ink); stroke-width: 1.9; stroke-linejoin: round; stroke-linecap: round; }
+.hx-cur line { stroke: rgba(23, 25, 28, .3); stroke-width: 1; opacity: 0; }
+.hx-cur.on line { opacity: 1; }
+.hx-cur circle { fill: var(--accent); stroke: #fff; stroke-width: 2.5; }
+.hx-msg { position: absolute; inset: 0; display: none; place-items: center; padding: 24px; font-size: 14.5px; line-height: 1.5; color: var(--muted); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-strong); }
+.is-wait .hx-msg, .is-down .hx-msg { display: grid; }
+.is-wait .hx-msg { animation: sk 1.6s ease-in-out infinite; }
+.is-wait .hx-read, .is-down .hx-read { visibility: hidden; }
+.hx-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; margin-top: 16px; font-size: 13.5px; line-height: 1.5; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hx-cap .src { color: var(--ink); }
+.hx-cap .key { display: inline-flex; align-items: center; gap: 8px; }
+.hx-cap .key i { display: block; width: 16px; height: 2px; border-radius: 2px; }
+.hx-cap .k-day { background: #5b8af0; }
+.hx-cap .k-avg { height: 3px; background: var(--tint-ink); }
+.hx-note { max-width: 760px; margin-top: 8px; font-size: 13.5px; line-height: 1.55; color: var(--muted); text-wrap: pretty; }
+.hx-stats { margin-top: 44px; }
+.hx-stats .fig dd { white-space: normal; text-wrap: balance; }
+.hx-stats .fig dd small { display: block; margin: 4px 0 0; font-size: 13.5px; letter-spacing: 0; white-space: normal; color: var(--muted); }
+.hx-stats dd .sk { width: 3.4em; height: .56em; }
+
+/* 4 */
+.hx-eq { margin: 0; padding: clamp(40px, 4.4vw, 64px) 0 clamp(34px, 3.6vw, 48px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hx-f { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 22px; font-family: var(--serif); font-optical-sizing: auto; font-weight: 300; font-size: clamp(26px, 2.7vw, 40px); line-height: 1.2; letter-spacing: -0.014em; color: var(--ink); text-align: center; }
+.hx-f .op { color: var(--tint-ink); }
+.hx-tail { white-space: nowrap; }
+.hx-br { display: none; }
+.hx-tail .op { margin-right: .28em; }
+.hx-frac { display: inline-flex; flex-direction: column; align-items: stretch; }
+.hx-frac > span { display: block; padding: 0 8px; text-wrap: balance; }
+.hx-frac > span + span { margin-top: 10px; padding-top: 10px; border-top: 1.5px solid currentColor; }
+.hx-eq figcaption { max-width: 640px; margin: 26px auto 0; font-size: 15px; line-height: 1.6; color: var(--muted); text-align: center; text-wrap: pretty; }
+.hx-lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(40px, 6vw, 96px); row-gap: 56px; margin-top: clamp(64px, 6.6vw, 96px); }
+.hx-lists .sh-sub { margin-bottom: 22px; }
+.hx-lists .specs > div { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.hx-lists .specs dd { font-size: 15.5px; line-height: 1.6; color: var(--prose); }
+.hx-omn { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 20px; align-items: baseline; margin-top: clamp(64px, 6.6vw, 96px); padding-top: 28px; border-top: 1px solid var(--line-strong); }
+.hx-omn .sh-sub { grid-column: 1 / span 5; }
+.hx-omn .hx-omn-b { grid-column: 7 / -1; }
+.hx-omn .body { max-width: 560px; color: var(--prose); }
+.hx-omn .arrow-link { margin-top: 18px; }
+.hx-omn .risk { margin-top: 28px; }
+.closing .body a { color: var(--tint-ink); text-decoration: underline; text-decoration-color: rgba(23, 79, 123, .35); text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
+.closing .body a:hover { color: var(--ink); text-decoration-color: currentColor; }
+
+/* 5 */
+@media (max-width: 1099px) {
+  .hx-ph .ph-main { grid-column: 1 / span 7; }
+  .hx-now { grid-column: 8 / -1; }
+  .hx-lists { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 899px) {
+  .hx-ph .ph-main, .hx-now { grid-column: 1 / -1; }
+  .hx-now { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(23, 79, 123, .13); }
+  .hx-work-k, .hx-work-f { grid-column: 1 / -1; }
+  .hx-bar .hx-csv { margin-left: 0; }
+  .hx-omn .sh-sub, .hx-omn .hx-omn-b { grid-column: 1 / -1; }
+}
+/* below 900px the formula stacks: the name, the fraction at full width, then the price */
+@media (max-width: 899px) {
+  .hx-f { justify-content: flex-start; gap: 6px 14px; font-size: clamp(24px, 3.6vw, 30px); text-align: left; }
+  .hx-br { display: block; flex-basis: 100%; height: 0; }
+  .hx-frac { max-width: 100%; margin: 4px 0; }
+  .hx-frac > span { padding: 0; text-align: left; }
+  .hx-eq figcaption { margin-left: 0; text-align: left; }
+}
+@media (max-width: 599px) {
+  .hx-now-v { font-size: clamp(56px, 17vw, 72px); }
+  .hx-bar { gap: 12px; margin-bottom: 24px; }
+  .hx-bar .chip { height: 36px; padding: 0 12px; font-size: 14px; }
+  .hx-plot { height: 300px; margin-top: 12px; }
+  .hx-lists .specs > div { grid-template-columns: minmax(0, 1fr); row-gap: 4px; }
+  .hx-f { font-size: 24px; }
+  .specs-grid.cols-4.hx-in, .specs-grid.cols-4.hx-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+  .specs-grid .fig.hx-f2 { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 6px; padding: 16px 0 20px; }
+  .hx-cap .src { flex-basis: 100%; }
+  .hx-in .fig dd > .num { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { .is-wait .hx-msg { animation: none; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://omnes.io/hashprice/#webpage",
+  "url": "https://omnes.io/hashprice/",
+  "name": "Omnes Hashprice Index: Bitcoin hashprice per PH/s per day | Omnes",
+  "description": "What one petahash per second of Bitcoin hashrate earns in a day, in US dollars and in Bitcoin: the Omnes Hashprice Index, live and daily, from public chain data.",
+  "isPartOf": {
+    "@id": "https://omnes.io/#website"
+  },
+  "about": {
+    "@id": "https://omnes.io/hashprice/#dataset"
+  },
+  "inLanguage": "en",
+  "breadcrumb": {
+    "@id": "https://omnes.io/hashprice/#breadcrumb"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://omnes.io/hashprice/#dataset",
+  "name": "Omnes Hashprice Index",
+  "description": "The Omnes Hashprice Index estimates what one petahash per second (1 PH/s) of Bitcoin hashrate earns in a day. It is calculated as 144 × (block subsidy + average fees per block) ÷ network hashrate in PH/s × Bitcoin price, in US dollars per PH/s per day, with a Bitcoin per PH/s per day equivalent that leaves out the price. Omnes calculates it from public Bitcoin chain data read through mempool.space: live, from the last 144 blocks and the network hashrate estimated over the last 1,008 blocks, and as a daily series, one value per UTC day.",
+  "url": "https://omnes.io/hashprice/",
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://omnes.io/#organization",
+    "name": "Omnes",
+    "url": "https://omnes.io/"
+  },
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "keywords": ["Bitcoin hashprice", "hashprice index", "Bitcoin mining revenue", "network hashrate", "PH/s"],
+  "measurementTechnique": "144 × (block subsidy + average fees per block) ÷ network hashrate in PH/s × Bitcoin price, from public Bitcoin chain data",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Omnes Hashprice Index in US dollars",
+      "unitText": "USD per PH/s per day"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Omnes Hashprice Index in Bitcoin",
+      "unitText": "BTC per PH/s per day"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Average reward per block, block subsidy plus fees",
+      "unitText": "BTC"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Network hashrate",
+      "unitText": "EH/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Bitcoin price",
+      "unitText": "USD"
+    }
+  ],
+  "temporalCoverage": "2010-07-19/.."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://omnes.io/hashprice/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://omnes.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Omnes Hashprice Index",
+      "item": "https://omnes.io/hashprice/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://omnes.io/hashprice/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the Omnes Hashprice Index measure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It estimates what one petahash per second (1 PH/s) of Bitcoin hashrate earns in a day: the block subsidy and fees the network pays to miners, shared across the network's hashrate and valued at the Bitcoin price. It is quoted in US dollars per PH/s per day, and in Bitcoin per PH/s per day when the price is left out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is it calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As 144 × (block subsidy + average fees per block) ÷ network hashrate in PH/s × Bitcoin price. The live value averages subsidy and fees over the last 144 blocks, and uses mempool.space's estimate of the network hashrate over the last 1,008 blocks, about seven days, with the current Bitcoin price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the data come from, and how often is it updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From public Bitcoin chain data and the Bitcoin price, read through the public API of mempool.space. The live value is recalculated at most once a minute while this page is open. The history holds one value for each UTC day, added once the day has closed, and can be downloaded as a CSV file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does it relate to the Omnes Mining Note?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bitcoin paid in place of undelivered hashrate for the Omnes Mining Note is calculated using the Omnes Hashprice Index. Network figures are estimates from public chain data, not a forecast of what any note will pay."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SHELL: nav, one floating capsule -->
+<header class="nav">
+  <div class="nav-bar">
+    <a class="nav-logo" href="/" aria-label="Omnes, home"><img src="/omnes-logo-black.svg" alt="" width="83" height="19"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/omn/">Mining Note</a>
+      <a href="/resources/">Resources</a>
+      <a href="/about/">About</a>
+      <a class="opt" href="/faqs/">FAQs</a>
+      <a class="opt" href="/contact/">Contact</a>
+    </nav>
+    <div class="nav-end">
+      <a class="pill" href="/login/">Log in</a>
+      <a class="pill pill-accent" href="/signup/">Sign up</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu" hidden>
+  <a href="/omn/">Mining Note</a>
+  <a href="/resources/">Resources</a>
+  <a href="/about/">About</a>
+  <a href="/faqs/">FAQs</a>
+  <a href="/contact/">Contact</a>
+  <div class="menu-actions">
+    <a class="btn btn-light" href="/login/">Log in</a>
+    <a class="btn btn-accent" href="/signup/">Sign up</a>
+  </div>
+</nav>
+<!-- /SHELL: nav -->
+
+<main id="main">
+
+  <!-- Page header: the name and what it measures on the left, the live figure on the right, in
+       the light-blue band; breadcrumbs and the live status in the foot row -->
+  <header class="ph ph-tint hx-ph">
+    <div class="wrap ph-grid">
+      <div class="ph-main">
+        <h1 class="ph-title">Omnes Hashprice Index.</h1>
+        <p class="ph-lead">What one petahash per second of Bitcoin hashrate earns in a day, calculated from public chain data, in US dollars and in Bitcoin.</p>
+      </div>
+      <div class="hx-now" role="group" aria-label="The index now">
+        <p class="hx-now-k">Now, per PH/s per day</p>
+        <b class="hx-now-v num" data-live="hashprice"><span class="sk"></span></b>
+        <p class="hx-now-btc"><b data-hx="btc"><span class="sk"></span></b><span>BTC per PH/s per day</span></p>
+        <dl class="hx-chg">
+          <div><dt>1 day</dt><dd data-hx="chg1"><span class="sk w3"></span></dd></div>
+          <div><dt>30 days</dt><dd data-hx="chg30"><span class="sk w3"></span></dd></div>
+        </dl>
+        <p class="hx-chg-note" data-hx="chgNote">Changes compare daily values of the index.</p>
+      </div>
+    </div>
+    <div class="wrap ph-foot">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><span aria-current="page">Omnes Hashprice Index</span></li>
+        </ol>
+      </nav>
+      <p class="hx-live"><span class="dot wait" data-live-dot aria-hidden="true"></span><span data-live-status aria-live="polite">Connecting to mempool.space</span></p>
+    </div>
+  </header>
+
+  <!-- Today's inputs: the four inputs behind the live figure, then the worked calculation -->
+  <section class="sec" id="today" aria-labelledby="todayTitle">
+    <div class="wrap">
+      <div class="sh reveal">
+        <h2 class="sh-title" id="todayTitle">What goes into today's figure.</h2>
+        <div class="sh-side">
+          <p class="body">Four public inputs, read live from the Bitcoin chain through mempool.space and recalculated at most once a minute while this page is open.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <dl class="specs-grid cols-4 hx-in">
+          <div class="fig hx-f2"><dt>Block subsidy</dt><dd><span class="num" data-hx="subsidy"><span class="sk"></span></span><span class="hx-sub">Per block, set by the protocol</span></dd></div>
+          <div class="fig hx-f2"><dt>Average fees per block</dt><dd><span class="num" data-hx="fees"><span class="sk"></span></span><span class="hx-sub">Over the last 144 blocks</span></dd></div>
+          <div class="fig hx-f2"><dt>Network hashrate</dt><dd><span class="num" data-live="hashrate"><span class="sk"></span></span><span class="hx-sub num" data-hx="phSub">Seven-day estimate</span></dd></div>
+          <div class="fig hx-f2"><dt>Bitcoin price</dt><dd><span class="num" data-live="price"><span class="sk"></span></span><span class="hx-sub">Now, in US dollars</span></dd></div>
+        </dl>
+        <p class="hx-work"><span class="hx-work-k">Today's calculation, US dollars per PH/s per day</span><span class="hx-work-f" data-hx="work"><span class="sk"></span></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- History: the daily index as a chart, with ranges, a unit toggle, a readout and a CSV -->
+  <section class="sec sec-top-0" id="history" aria-labelledby="historyTitle">
+    <div class="wrap">
+      <div class="sh reveal">
+        <h2 class="sh-title" id="historyTitle">The index, day by day.</h2>
+        <div class="sh-side">
+          <p class="body">One value for each day since 2010, from that day's blocks, that day's hashrate estimate and that day's average Bitcoin price.</p>
+        </div>
+      </div>
+      <div class="hx-chart is-wait reveal" data-hx-chart>
+        <div class="hx-bar">
+          <div class="chips" role="group" aria-label="Range">
+            <button class="chip" type="button" data-hx-range="3m" aria-pressed="false"><span aria-hidden="true">3M</span><span class="vh">3 months</span></button>
+            <button class="chip" type="button" data-hx-range="6m" aria-pressed="false"><span aria-hidden="true">6M</span><span class="vh">6 months</span></button>
+            <button class="chip" type="button" data-hx-range="1y" aria-pressed="true"><span aria-hidden="true">1Y</span><span class="vh">1 year</span></button>
+            <button class="chip" type="button" data-hx-range="2y" aria-pressed="false"><span aria-hidden="true">2Y</span><span class="vh">2 years</span></button>
+            <button class="chip" type="button" data-hx-range="3y" aria-pressed="false"><span aria-hidden="true">3Y</span><span class="vh">3 years</span></button>
+            <button class="chip" type="button" data-hx-range="all" aria-pressed="false">All</button>
+          </div>
+          <div class="chips" role="group" aria-label="Unit">
+            <button class="chip" type="button" data-hx-unit="usd" aria-pressed="true">US$</button>
+            <button class="chip" type="button" data-hx-unit="btc" aria-pressed="false">BTC</button>
+          </div>
+          <button class="btn btn-light hx-csv" type="button" data-hx-csv disabled><svg class="dl" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7 11l5 5 5-5M5 19.5h14"/></svg>Download CSV</button>
+        </div>
+        <p class="hx-read" aria-hidden="true"><span class="hx-read-d" data-hx="readDate"></span><span><span class="hx-read-v" data-hx="readValue"></span> <span class="hx-read-u">per PH/s per day</span></span><span class="hx-read-o" data-hx="readOther"></span><span class="hx-read-a" data-hx="readAvg"></span></p>
+        <div class="hx-plot" tabindex="-1">
+          <svg aria-hidden="true" focusable="false"></svg>
+          <p class="hx-msg" role="status">Loading the daily history from mempool.space</p>
+        </div>
+        <p class="vh" id="hxSummary"></p>
+        <p class="hx-cap"><span class="src" data-hx="caption">Daily values of the index</span><span class="key"><i class="k-day" aria-hidden="true"></i>Daily</span><span class="key"><i class="k-avg" aria-hidden="true"></i>7-day average</span><span>Source: mempool.space</span></p>
+        <p class="hx-note">Each day's hashrate is estimated from that day's blocks alone, so daily values move more than the live figure, which uses the last 1,008 blocks; the 7-day average is shown to make the trend easier to read. <span data-hx="csvNote"></span></p>
+        <dl class="specs-grid cols-4 hx-stats" aria-label="Over the range shown">
+          <div class="fig hx-f2"><dt>High</dt><dd data-hx="hi"><span class="sk"></span></dd></div>
+          <div class="fig hx-f2"><dt>Low</dt><dd data-hx="lo"><span class="sk"></span></dd></div>
+          <div class="fig hx-f2"><dt>Average</dt><dd data-hx="avg"><span class="sk"></span></dd></div>
+          <div class="fig hx-f2"><dt>Change</dt><dd data-hx="chg"><span class="sk"></span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method: the formula, the inputs and their windows, how often it updates, its use in the
+       Mining Note, and the risk line -->
+  <section class="sec sec-top-0" id="method" aria-labelledby="methodTitle">
+    <div class="wrap">
+      <div class="sh reveal">
+        <h2 class="sh-title" id="methodTitle">How the index is calculated.</h2>
+        <div class="sh-side">
+          <p class="body">One formula and four inputs, all from public Bitcoin chain data. The index is an estimate of what the network pays per unit of hashrate, not a forecast.</p>
+        </div>
+      </div>
+      <figure class="hx-eq reveal">
+        <div class="hx-f" role="math" aria-label="Hashprice equals 144 times the sum of the block subsidy and the average fees per block, divided by the network hashrate in PH/s, times the Bitcoin price">
+          <span aria-hidden="true">Hashprice</span>
+          <span class="op" aria-hidden="true">=</span>
+          <span class="hx-br" aria-hidden="true"></span>
+          <span class="hx-frac" aria-hidden="true"><span>144 &times; (block subsidy + average fees per block)</span><span>network hashrate in PH/s</span></span>
+          <span class="hx-br" aria-hidden="true"></span>
+          <span class="hx-tail" aria-hidden="true"><span class="op">&times;</span> Bitcoin price</span>
+        </div>
+        <figcaption>In US dollars per PH/s per day. Leave out the Bitcoin price and the same formula gives Bitcoin per PH/s per day.</figcaption>
+      </figure>
+
+      <div class="hx-lists reveal">
+        <div>
+          <h3 class="sh-sub">The inputs</h3>
+          <dl class="specs">
+            <div><dt>144</dt><dd>The number of blocks the Bitcoin protocol targets in a day, one about every ten minutes.</dd></div>
+            <div><dt>Block subsidy</dt><dd>The new Bitcoin created with each block, set by the protocol and halved every 210,000 blocks. It has been 3.125 BTC since the halving of 20 April 2024.</dd></div>
+            <div><dt>Average fees per block</dt><dd>The transaction fees paid to miners, averaged per block.</dd></div>
+            <div><dt>Network hashrate</dt><dd>The computing power securing Bitcoin, estimated from the difficulty and the pace of recent blocks, in PH/s. One EH/s is 1,000 PH/s.</dd></div>
+            <div><dt>Bitcoin price</dt><dd>The price of one Bitcoin in US dollars.</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 class="sh-sub">Windows and updates</h3>
+          <dl class="specs">
+            <div><dt>Live value</dt><dd>Subsidy and fees averaged over the last 144 blocks, about one day; the network hashrate as mempool.space estimates it over the last 1,008 blocks, about seven days; and the current Bitcoin price. Recalculated at most once a minute while this page is open.</dd></div>
+            <div><dt>Daily values</dt><dd>One value for each UTC day: that day's average reward per block, subsidy plus fees; mempool.space's hashrate estimate for that day; and the average of that day's Bitcoin prices. A day is added once it has closed. Where the price source has no point for a day, as in the earlier years when it is weekly, the price is interpolated between the nearest points either side.</dd></div>
+            <div><dt>Source</dt><dd>Public Bitcoin chain data and the Bitcoin price, read through the public API of mempool.space.</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="hx-omn reveal">
+        <h3 class="sh-sub">In the Omnes Mining Note</h3>
+        <div class="hx-omn-b">
+          <p class="body">Bitcoin paid in place of undelivered hashrate for the Omnes Mining Note is calculated using the Omnes Hashprice Index.</p>
+          <a class="arrow-link" href="/omn/">About the Omnes Mining Note <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="risk">Network figures are estimates from public chain data, not a forecast of what any note will pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs: answered only from this page -->
+  <section class="sec sec-top-0" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap split">
+      <div class="split-side sticky reveal">
+        <h2 class="sh-title" id="faqTitle">FAQs</h2>
+        <p><a class="arrow-link" href="/faqs/">All FAQs <svg class="ar r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+      </div>
+      <div class="faq split-main reveal">
+        <details>
+          <summary>What does the Omnes Hashprice Index measure?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>It estimates what one petahash per second (1 PH/s) of Bitcoin hashrate earns in a day: the block subsidy and fees the network pays to miners, shared across the network's hashrate and valued at the Bitcoin price. It is quoted in US dollars per PH/s per day, and in Bitcoin per PH/s per day when the price is left out.</p></div>
+        </details>
+        <details>
+          <summary>How is it calculated?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>As 144 × (block subsidy + average fees per block) ÷ network hashrate in PH/s × Bitcoin price. The live value averages subsidy and fees over the last 144 blocks, and uses mempool.space's estimate of the network hashrate over the last 1,008 blocks, about seven days, with the current Bitcoin price.</p></div>
+        </details>
+        <details>
+          <summary>Where does the data come from, and how often is it updated?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>From public Bitcoin chain data and the Bitcoin price, read through the public API of mempool.space. The live value is recalculated at most once a minute while this page is open. The history holds one value for each UTC day, added once the day has closed, and can be downloaded as a CSV file.</p></div>
+        </details>
+        <details>
+          <summary>How does it relate to the Omnes Mining Note?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
+          <div class="a"><p>Bitcoin paid in place of undelivered hashrate for the Omnes Mining Note is calculated using the Omnes Hashprice Index. Network figures are estimates from public chain data, not a forecast of what any note will pay.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing: the site's call to action, in the closing panel -->
+  <section class="sec sec-top-0 closing-sec" aria-labelledby="closeTitle">
+    <div class="wrap">
+      <div class="closing reveal">
+        <div class="closing-in">
+          <h2 class="statement-lg" id="closeTitle">Considering an allocation?</h2>
+          <p class="body">Speak with the Omnes investor relations team about the <a href="/omn/">Omnes Mining Note</a> or review the <a href="/faqs/">FAQs</a> for institutional diligence questions.</p>
+          <div class="btn-row">
+            <a class="btn lg btn-dark" href="/contact/">Contact IR</a>
+            <a class="btn lg btn-paper" href="/omn/">Explore the Mining Note</a>
+          </div>
+          <p class="fine">OMN Series 1 is offered by private placement to professional investors. It is not offered to US persons.</p>
+        </div>
+        <div class="closing-field"><canvas data-field="swell" aria-hidden="true"></canvas></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SHELL: footer -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-cols">
+      <div class="foot-lead">
+        <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
+        <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
+      </div>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/" aria-current="page">Omnes Hashprice Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
+      <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
+      <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
+    </div>
+    <div class="foot-legal">
+      <p>This website and the information on it are subject to our Website Terms. It does not take into account any prospective investor's individual investment objectives, financial situation or needs, and it is not legal, tax, investment or accounting advice. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an investment product's objectives will be achieved or that investors will receive any return of capital. Omnes products are not offered to US persons.</p>
+      <p>Copyright Omnes 2024 to 2026. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- /SHELL: footer -->
+
+<dialog class="gate" id="gate" aria-labelledby="gateTitle" aria-describedby="gateIntro" data-nosnippet>
+  <div class="gate-body">
+    <div class="gate-head">
+      <img src="/omnes-logo-black.svg" alt="Omnes">
+      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+    </div>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
+      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+      <div class="gate-terms">
+        <h3>Terms of Access</h3>
+        <h4>1. Acceptance of terms</h4>
+        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <ul>
+          <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
+          <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
+          <li>the <a href="/cookies-policy/" target="_blank" rel="noopener">Cookies Policy</a></li>
+        </ul>
+        <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
+        <h4>2. Geographical / jurisdiction restrictions</h4>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
+        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
+        <p>In particular:</p>
+        <ul>
+          <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
+          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+        </ul>
+        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <h4>3. Access at your initiative</h4>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
+        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <ol>
+          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
+          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
+          <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
+        </ol>
+        <h4>4. Validity</h4>
+        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <h4>5. Governing law and jurisdiction</h4>
+        <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
+        <div class="gate-notice">
+          <p>By clicking "I Agree" you acknowledge that:</p>
+          <ul>
+            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>You access the website entirely at your own risk and initiative.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="gate-actions">
+      <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+    </div>
+  </div>
+</dialog>
+</body>
+</html>
