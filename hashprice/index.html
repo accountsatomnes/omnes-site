@@ -69,7 +69,7 @@
 .hx-in .fig dd small { display: inline; margin-left: 6px; font-size: 14px; letter-spacing: 0; color: var(--muted); }
 .hx-in .fig dd .sk { width: 3.4em; height: .56em; }
 .hx-in .fig dd > [data-na] { font-size: 17px; letter-spacing: 0; color: var(--muted); }
-.hx-in .fig dd > .hx-sub { display: block; margin-top: 8px; max-width: 240px; font-size: 13.5px; line-height: 1.45; letter-spacing: 0; color: var(--muted); }
+.hx-in .fig dd > .hx-sub { display: block; margin-top: 8px; max-width: 240px; font-size: 13.5px; line-height: 1.45; letter-spacing: 0; white-space: normal; font-variant-numeric: tabular-nums; color: var(--muted); }
 .hx-in .fig dd > .hx-sub .num { white-space: nowrap; }
 .hx-work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 8px; align-items: baseline; margin-top: 8px; padding: 22px 0 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .hx-work-k { grid-column: 1 / span 3; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
@@ -394,7 +394,7 @@
         <dl class="specs-grid cols-4 hx-in">
           <div class="fig hx-f2"><dt>Block subsidy</dt><dd><span class="num" data-hx="subsidy"><span class="sk"></span></span><span class="hx-sub">Per block, set by the protocol</span></dd></div>
           <div class="fig hx-f2"><dt>Average fees per block</dt><dd><span class="num" data-hx="fees"><span class="sk"></span></span><span class="hx-sub">Over the last 144 blocks</span></dd></div>
-          <div class="fig hx-f2"><dt>Network hashrate</dt><dd><span class="num" data-live="hashrate"><span class="sk"></span></span><span class="hx-sub num" data-hx="phSub">Seven-day estimate</span></dd></div>
+          <div class="fig hx-f2"><dt>Network hashrate</dt><dd><span class="num" data-live="hashrate"><span class="sk"></span></span><span class="hx-sub" data-hx="phSub">Seven-day estimate</span></dd></div>
           <div class="fig hx-f2"><dt>Bitcoin price</dt><dd><span class="num" data-live="price"><span class="sk"></span></span><span class="hx-sub">Now, in US dollars</span></dd></div>
         </dl>
         <p class="hx-work"><span class="hx-work-k">Today's calculation, US dollars per PH/s per day</span><span class="hx-work-f" data-hx="work"><span class="sk"></span></span></p>
