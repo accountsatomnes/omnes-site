@@ -130,6 +130,7 @@
             <label for="authEmail">Email address</label>
             <div class="auth-row">
               <input id="authEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
               <button class="btn lg btn-dark" type="submit">Continue</button>
             </div>
             <p class="form-error" id="authEmailErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
@@ -228,9 +229,10 @@
 </dialog>
 
 <!-- Page script: the request form checks the address and marks it if it cannot accept it
-     (aria-invalid, with the message tied by aria-describedby). It never sends and never reports
-     a success: with a valid address it says it could not send the request, and gives the address
-     to write to instead. -->
+     (aria-invalid, with the message tied by aria-describedby), then sends it to the Omnes team
+     through Formspree (formspree.io/f/mgonglpj, the endpoint the site has always used). While it
+     sends, the button is disabled and the status reads Sending; on success it confirms, and if
+     the request fails it gives the investor relations address instead. _gotcha is a honeypot. -->
 <script>
 (function () {
   "use strict";
@@ -239,6 +241,16 @@
   var input = document.getElementById("authEmail"), err = document.getElementById("authEmailErr");
   var status = document.getElementById("authStatus");
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var ENDPOINT = "https://formspree.io/f/mgonglpj";
+  var btn = form.querySelector('button[type="submit"]');
+  var busy = false;
+  /* posts the form to Formspree, which emails it to the Omnes team */
+  var send = function (extra) {
+    var data = new FormData(form);
+    Object.keys(extra).forEach(function (k) { data.set(k, extra[k]); });
+    return fetch(ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); });
+  };
   var check = function (v) { return !v ? "Enter your email address." : EMAIL.test(v) ? "" : "Enter an email address like name@company.com."; };
   var show = function (msg) {
     if (msg) {
@@ -254,14 +266,28 @@
   };
   input.addEventListener("input", function () {
     if (input.getAttribute("aria-invalid") === "true") show(check(input.value.trim()));
-    if (status.textContent) status.textContent = "";
+    if (status.textContent && !busy) { status.textContent = ""; status.className = "form-status"; }
   });
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var msg = check(input.value.trim());
     show(msg);
     if (msg) { status.textContent = ""; input.focus(); return; }
-    status.innerHTML = '<span>Could not send your request. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.</span>';
+    if (busy) return;
+    busy = true; btn.disabled = true;
+    status.className = "form-status is-busy"; status.textContent = "Sending";
+    var email = input.value.trim();
+    send({ email: email, _subject: "Investor portal access request: " + email, _replyto: email, form: "Investor portal (login)" })
+      .then(function () {
+        status.className = "form-status is-ok";
+        status.innerHTML = "<span>Thank you. Your request has reached the Omnes team, and we will reply to " + email.replace(/[<>&"]/g, "") + ".</span>";
+        input.value = "";
+      })
+      .catch(function () {
+        status.className = "form-status is-error";
+        status.innerHTML = "<span>" + 'Could not send just now. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.' + "</span>";
+      })
+      .then(function () { busy = false; btn.disabled = false; });
   });
 })();
 </script>

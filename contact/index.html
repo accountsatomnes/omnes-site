@@ -229,6 +229,7 @@
         <div class="form-field">
           <label for="cfMessage">Message</label>
           <textarea id="cfMessage" name="message" rows="5" placeholder="Tell us how we can help" required></textarea>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <p class="form-error" id="cfMessageErr" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.8v5M12 16.2v.1"/></svg><span></span></p>
         </div>
         <div class="form-actions">
@@ -322,8 +323,11 @@
 </dialog>
 
 <!-- Page script: the contact form checks its required fields and marks any it cannot accept
-     (aria-invalid, with the message tied by aria-describedby). It never sends and never reports
-     a success: once the fields are complete it says it could not send, and gives the address. -->
+     (aria-invalid, with the message tied by aria-describedby), then sends it to the Omnes team
+     through Formspree (formspree.io/f/mgonglpj, the endpoint the site has always used). While it
+     sends, the button is disabled and the status reads Sending; on success it confirms and clears
+     the form, and if the request fails it gives the investor relations address. _gotcha is a
+     honeypot. -->
 <script>
 (function () {
   "use strict";
@@ -331,6 +335,16 @@
   if (!form) return;
   var status = document.getElementById("cfStatus");
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var ENDPOINT = "https://formspree.io/f/mgonglpj";
+  var btn = form.querySelector('button[type="submit"]');
+  var busy = false;
+  /* posts the form to Formspree, which emails it to the Omnes team */
+  var send = function (extra) {
+    var data = new FormData(form);
+    Object.keys(extra).forEach(function (k) { data.set(k, extra[k]); });
+    return fetch(ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); });
+  };
   var checks = {
     cfFirst: function (v) { return v ? "" : "Enter your first name."; },
     cfLast: function (v) { return v ? "" : "Enter your last name."; },
@@ -373,7 +387,19 @@
       first.focus();
       return;
     }
-    say("", '<span>Could not send. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.</span>');
+    if (busy) return;
+    busy = true; btn.disabled = true;
+    say("busy", "Sending");
+    var email = document.getElementById("cfEmail").value.trim();
+    var name = (document.getElementById("cfFirst").value.trim() + " " + document.getElementById("cfLast").value.trim()).trim();
+    var topic = document.getElementById("cfSubject").value;
+    send({ _subject: "Website message" + (topic ? ", " + topic : "") + ": " + name, _replyto: email, form: "Contact" })
+      .then(function () {
+        say("ok", "<span>Thank you. Your message has reached the Omnes team, and we will reply to " + email.replace(/[<>&"]/g, "") + ".</span>");
+        form.reset();
+      })
+      .catch(function () { say("error", "<span>" + 'Could not send just now. Please email <a href="mailto:ir@omnes.io">ir@omnes.io</a> directly.' + "</span>"); })
+      .then(function () { busy = false; btn.disabled = false; });
   });
 })();
 </script>
