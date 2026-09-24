@@ -517,11 +517,18 @@
   /* start ─────────────────────────────────────────────────────────────── */
   /* site.js calls every subscriber after each poll. A very fast first failure (offline) can
      resolve before this file subscribes, so if the status dot already reads down, or nothing
-     has arrived 15 seconds in (site.js gives up at 12), mark the extras Unavailable. */
+     has arrived 15 seconds in (site.js gives up at 12), mark the extras Unavailable. site.js only
+     polls while the page is visible, so in a background tab the 15 seconds start when it is shown. */
   var heard = false;
   if (O.live && O.live.subscribe) O.live.subscribe(function (s) { heard = true; liveExtras(s); });
   var dotDown = $("[data-live-dot]");
   if (!heard && dotDown && dotDown.classList.contains("down")) liveExtras({});
-  setTimeout(function () { if (!heard) liveExtras({}); }, 15000);
+  var giveUp = function () { setTimeout(function () { if (!heard) liveExtras({}); }, 15000); };
+  if (!doc.hidden) giveUp();
+  else doc.addEventListener("visibilitychange", function shown() {
+    if (doc.hidden) return;
+    doc.removeEventListener("visibilitychange", shown);
+    giveUp();
+  });
   loadHistory();
 })();
