@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
-<title>Hashrate-backed securities: a definitive guide to the emerging asset class | Omnes</title>
+<title>Hashrate-backed securities: a definitive guide | Omnes</title>
 <meta name="description" content="A definitive guide to hashrate-backed securities: legal structures, tokenization rationale, lifecycle, comparisons to MBS and reserve-backed notes, and risk factors for institutional investors.">
 <link rel="canonical" href="https://omnes.io/resources/hashrate-backed-securities/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Omnes">
-<meta property="og:title" content="Hashrate-backed securities: a definitive guide to the emerging asset class | Omnes">
+<meta property="og:title" content="Hashrate-backed securities: a definitive guide | Omnes">
 <meta property="og:description" content="A definitive guide to hashrate-backed securities: legal structures, tokenization rationale, lifecycle, comparisons to MBS and reserve-backed notes, and risk factors for institutional investors.">
 <meta property="og:url" content="https://omnes.io/resources/hashrate-backed-securities/">
 <meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
@@ -20,12 +20,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <style>
 /* Resource articles: one template for every long-form resource (the page header band with
    breadcrumbs and reading time, contents beside the text, related resources, the closing
@@ -42,7 +44,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "@id": "https://omnes.io/resources/hashrate-backed-securities/#article",
-  "headline": "Hashrate-backed securities: a definitive guide to the emerging asset class",
+  "headline": "Hashrate-backed securities: a definitive guide",
   "description": "A definitive guide to hashrate-backed securities: legal structures, tokenization rationale, lifecycle, comparisons to MBS and reserve-backed notes, and risk factors for institutional investors.",
   "url": "https://omnes.io/resources/hashrate-backed-securities/",
   "mainEntityOfPage": {
@@ -97,6 +99,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule (Resources is current: the articles live under it) -->
@@ -182,7 +186,7 @@
           <h2 id="comparisons"><span class="n">2</span>How hashrate-backed securities compare to established asset classes</h2>
           <h3>2.1 Versus mortgage-backed securities (MBS)</h3>
           <p>An MBS pools residential or commercial mortgage cashflows and issues notes against them. Investors receive a stream of interest and principal as borrowers pay down their loans. Hashrate-backed securities share the core structural mechanic of pooling productive cashflow-generating assets inside a bankruptcy-remote vehicle, but the underlying collateral differs in three important ways.</p>
-          <p>First, the cashflow is denominated in a commodity (Bitcoin), not a fiat currency, exposing the investor to commodity price as well as production volume. Second, the production volume itself is governed by an algorithmic schedule (the Bitcoin issuance curve and halving cycle) rather than by borrower behaviour. Third, there is no credit risk in the traditional sense: there are no borrowers who can default. The principal risk is operational and market-driven rather than credit-driven.</p>
+          <p>First, the cashflow is denominated in a commodity (Bitcoin), not a fiat currency, exposing the investor to commodity price as well as production volume. Second, the production volume itself is governed by an algorithmic schedule (the Bitcoin issuance curve and halving cycle) rather than by borrower behaviour. Third, there is no pool of borrowers who can default; the credit and counterparty exposure is to the hashrate supplier, the custodian and the issuer's compartment, alongside operational and market risk.</p>
           <h3>2.2 Versus oil and gas reserve-backed notes</h3>
           <p>Reserve-backed lending in the energy industry advances capital against a defined volume of proven, producible reserves. The instrument is sized against an engineering report and repaid from production revenue over time. The analogy to hashrate-backed securities is precise. A petahash of contracted hashrate is the digital equivalent of a proven reserve: a quantified, productive resource with a measurable output curve and a finite useful life.</p>
           <p>Both instruments share the same three-variable economic profile: production rate, commodity price, and operating cost. Both are exposed to price volatility of the underlying commodity. Both rely on operational due diligence (in mining, on facility uptime and power agreements; in energy, on wellhead and pipeline performance). The principal divergence is settlement: oil and gas notes settle in cash; hashrate-backed securities can settle either in cash or in the underlying commodity (Bitcoin) itself.</p>
@@ -201,12 +205,12 @@
           <p>Investors typically qualify as professional investors under Annex II to Directive 2014/65/EU (MiFID II). Distribution is by private placement. The vehicle is tax-neutral at the issuer level, which is important for institutional acceptance.</p>
           <h3>3.2 Cayman Islands SPV</h3>
           <p>Cayman remains a default jurisdiction for offshore structured finance. Issuers can incorporate an exempted company as an orphan SPV, with shares held by a charitable trust to achieve bankruptcy remoteness from the sponsor. Notes are typically issued under English-law deeds and listed on the Cayman Islands Stock Exchange or another offshore venue.</p>
-          <p>Cayman structures are flexible and well understood by global institutional buyers, but they lack the segregated compartment feature of Luxembourg, which means each series typically requires a new SPV. They are common for issuers targeting Asian and US institutional buyers who do not require an EU regulatory wrapper.</p>
+          <p>Cayman structures are flexible and well understood by global institutional buyers, and segregated portfolio companies are available, though many issuers still use a separate SPV for each series. They are common for issuers targeting Asian and US institutional buyers who do not require an EU regulatory wrapper.</p>
           <h3>3.3 US Regulation D private placement</h3>
           <p>Issuers targeting US investors typically rely on Rule 506(b) or Rule 506(c) of Regulation D under the Securities Act of 1933. These exemptions permit private placement to accredited investors and (in the case of 506(b)) up to 35 sophisticated non-accredited investors. The issuer is usually a Delaware LLC or statutory trust, with the security defined under state law (commonly Delaware) as a note or trust certificate.</p>
           <p>The SEC's evolving guidance on digital asset securities means that US-domiciled hashrate-backed instruments often combine a traditional securities wrapper with a tokenized record-keeping layer, rather than issuing native onchain tokens directly. The token, in this construct, serves as a digital certificate of ownership rather than as the security itself.</p>
-          <h3>3.4 EU MiFID II compliant vehicles</h3>
-          <p>Beyond Luxembourg, issuers can use Irish ICAV structures, Maltese securitisation vehicles, or Liechtenstein TVTG token issuers. All operate within the MiFID II framework for professional investors and can be passported across the European Economic Area. The choice depends on investor preferences, listing venues, and the desired regulatory perimeter for the token itself (including alignment with the EU Markets in Crypto-Assets Regulation, or MiCA, for non-security tokens).</p>
+          <h3>3.4 Other EU securitisation vehicles</h3>
+          <p>Beyond Luxembourg, issuers use Irish section 110 companies or other EU securitisation vehicles, placed with professional investors under each country's private placement rules. The choice depends on investor preferences, listing venues, and the desired regulatory perimeter for the token itself (including alignment with the EU Markets in Crypto-Assets Regulation, or MiCA, for non-security tokens).</p>
 
           <h2 id="tokenization"><span class="n">4</span>The tokenization layer and why it matters</h2>
           <p>Tokenization is not what makes a hashrate-backed security a security. The security is created by the underlying legal structure, the contractual claim on cashflows, and the regulatory regime under which it is offered. Tokenization is a recording and transfer mechanism that runs alongside (or in place of) a traditional securities registry.</p>
@@ -232,11 +236,11 @@
           <li><strong>Reinvestment compartments.</strong> Mined Bitcoin is automatically converted into additional hashrate exposure or otherwise reinvested inside the compartment, with a single principal repayment at maturity. This pattern is less common and is more suited to wealth-preservation mandates than to yield mandates.</li>
           </ul>
           <h3>5.4 Secondary trading</h3>
-          <p>A defining feature of tokenized hashrate-backed securities is their potential for secondary liquidity. Because the token itself is the legal record of ownership and can be transferred onchain twenty-four hours a day, secondary trading can occur on permissioned trading venues, through onchain order books with whitelisted participants, or via bilateral OTC transfers settled on the same ledger.</p>
-          <p>In practice, secondary markets for hashrate-backed securities are still nascent. Liquidity depends on the size of the issuance, the breadth of the investor base, and the existence of compliant trading venues. Most issuances in 2025 and early 2026 have been sized as illiquid private placements with limited secondary expectations, similar to a private credit fund interest. Over time, as issuance sizes grow and infrastructure matures, secondary liquidity is expected to improve.</p>
+          <p>A defining feature of tokenized hashrate-backed securities is their potential for secondary liquidity. Because transfers can be recorded onchain twenty-four hours a day and reflected in the issuer's register, secondary trading can occur on permissioned trading venues, through onchain order books with whitelisted participants, or via bilateral OTC transfers settled on the same ledger.</p>
+          <p>In practice, secondary markets for hashrate-backed securities are still nascent. Liquidity depends on the size of the issuance, the breadth of the investor base, and the existence of compliant trading venues. Investors should expect limited secondary liquidity, similar to a private credit fund interest. Over time, as issuance sizes grow and infrastructure matures, secondary liquidity is expected to improve.</p>
           <h3>5.5 Maturity and unwind</h3>
           <p>At maturity, the issuer redeems each note in accordance with the offering documentation. For a Bitcoin-settled instrument, the custodian transfers the accrued Bitcoin to each noteholder's designated wallet. For a cash-settled instrument, the custodian liquidates the position on or before the maturity date and distributes proceeds in fiat or stablecoin. The token is then burned, and the compartment is wound up.</p>
-          <p>If the issuer has contracted hashrate beyond the maturity date (for example, by purchasing a 48-month hashrate package to back a 36-month note), the residual capacity is sold or rolled into a subsequent series. Disposal of physical mining equipment, if owned, is handled by the operator under the terms of the underlying procurement agreements.</p>
+          <p>If the issuer has contracted hashrate beyond the maturity date (for example, by purchasing a 30-month hashrate package to back a 24-month note), the residual capacity is sold or rolled into a subsequent series. Disposal of physical mining equipment, if owned, is handled by the operator under the terms of the underlying procurement agreements.</p>
 
           <h2 id="risks"><span class="n">6</span>Risk factors institutional investors should consider</h2>
           <p>Hashrate-backed securities carry a defined set of risks. The most material categories are below.</p>
@@ -253,7 +257,7 @@
           <h3>6.6 Legal and regulatory risk</h3>
           <p>Securities laws, digital asset regulations, and tax treatment of mining revenue all continue to evolve. Material changes in any of these regimes during the tenor of a note could affect distributions, transferability, or eligibility of holders. Issuers typically address this with broad covenants and provisions for compartment reorganisation if required.</p>
           <h3>6.7 Smart contract and tokenization layer risk</h3>
-          <p>Where the security is recorded as a token, vulnerabilities in the token contract or the underlying blockchain create operational risk. Mitigation includes use of audited, widely deployed token standards (such as ERC-3643), formal verification of custom logic, multisig administrative controls, and the maintenance of a parallel traditional securities register that can serve as a fallback record of ownership.</p>
+          <p>Where the security is recorded as a token, vulnerabilities in the token contract or the underlying blockchain create operational risk. Mitigation includes use of audited, widely deployed token standards (such as ERC-3643), formal verification of custom logic, multisig administrative controls, and, as for OMN, keeping the issuer's register as the definitive record of ownership, with the token as its mirror.</p>
           <h3>6.8 Liquidity risk</h3>
           <p>Secondary markets for hashrate-backed securities are still developing. Investors should assume the instrument is held to maturity and size positions accordingly. Some structures provide for early redemption windows or sponsor-arranged liquidity at defined valuation methodologies, but these are not universal.</p>
 
@@ -263,12 +267,12 @@
           <p>For a detailed product description, see the <a href="/omn/">OMN product page</a>. For general questions on the asset class, see the <a href="/faqs/">FAQs</a>. For investor enquiries, contact <a href="/contact/">Investor Relations</a>.</p>
 
           <h2 id="outlook"><span class="n">8</span>Where the asset class goes from here</h2>
-          <p>Hashrate-backed securities are early in their development. Issuance to date has been measured in the low billions of US dollars across all issuers globally, a fraction of the size of more established alternative credit markets. Several developments are likely to shape the next phase.</p>
+          <p>Hashrate-backed securities are early in their development. Issuance to date is small next to established alternative credit markets. Several developments are likely to shape the next phase.</p>
           <p><strong>Standardisation of attestations.</strong> Common formats for hashrate, uptime, custody, and NAV attestations will let investors compare offerings on a like-for-like basis, reducing diligence cost and enabling index construction.</p>
           <p><strong>Secondary market infrastructure.</strong> Compliant onchain trading venues, with built-in eligibility checks and atomic delivery-versus-payment, will reduce liquidity risk and broaden the investor base.</p>
           <p><strong>Rating coverage.</strong> Engagement with credit rating agencies will, in time, produce structural ratings methodologies for hashrate-backed compartments, opening the asset class to investors with rating-driven mandates.</p>
-          <p><strong>Maturity diversity.</strong> Today, most issuances cluster around 36 months. As production data and pricing curves develop, both shorter (12-month) and longer (60-month) tenors become viable, allowing investors to construct duration-matched portfolios.</p>
-          <p>For institutional investors evaluating compute-linked exposure, the question is no longer whether productive Bitcoin mining capacity can be structured into a recognisable security. The structures exist, the operational track record is accumulating, and the legal regimes are clear. The question is which implementations meet a given mandate's risk, regulatory, and reporting requirements, and how the asset class fits within a broader allocation framework.</p>
+          <p><strong>Maturity diversity.</strong> Tenors are still few. As production data and pricing curves develop, both shorter (12-month) and longer (60-month) tenors become viable, allowing investors to construct duration-matched portfolios.</p>
+          <p>For institutional investors evaluating compute-linked exposure, the question is no longer whether productive Bitcoin mining capacity can be structured into a recognisable security. The structures exist, the operational track record is accumulating, and the legal frameworks are established, though they continue to evolve. The question is which implementations meet a given mandate's risk, regulatory, and reporting requirements, and how the asset class fits within a broader allocation framework.</p>
           <p class="risk">This article is for information purposes only and does not constitute an offer, solicitation, or recommendation to invest. Any investment in a hashrate-backed security is made solely on the basis of the relevant offering documentation. Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results.</p>
         </div>
       </div>
@@ -371,15 +375,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -387,42 +390,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -446,5 +446,6 @@
   mark();
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

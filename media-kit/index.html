@@ -20,10 +20,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <style>
 /* Media kit: page-only styles. Everything else comes from site.css and pages.css.
@@ -61,6 +63,11 @@
 .logo-dl:hover { background: var(--tint-3); }
 .logo-dl:hover svg { transform: translateY(2px); }
 .logo-dl:focus-visible { border-radius: 999px; }
+.logo-stage > img.is-mark { height: clamp(56px, 5vw, 72px); }
+.logo-dls { flex: none; display: flex; gap: 8px; }
+.logo-all-row { margin-top: 20px; }
+.logo-all { height: 44px; padding: 0 18px; }
+.logo-all-meta { margin-left: 4px; font-weight: 400; color: var(--muted); }
 /* clearspace: the logo on white, inside a light-blue zone as deep as the logomark is tall (the
    mark spans the logo's full height). Three measures, each x: the zone above, the zone to the
    left, and the mark itself */
@@ -142,7 +149,7 @@
   .face-glyph { font-size: 84px; }
 }
 </style>
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -186,6 +193,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule -->
@@ -255,35 +264,44 @@
     </div>
   </header>
 
-  <!-- Logos: each on the surface it is made for, with its download, and the clearspace rule
-       drawn beside them -->
+  <!-- Logos: each on the surface it is made for, with SVG and PNG downloads, the clearspace rule,
+       the logomark on its own, and every file in one ZIP. The files live in /media-kit/files/:
+       tight-cropped SVGs and transparent PNGs (logo 1600 x 348, logomark 1024 x 1024). The site's
+       own header and footer keep using /omnes-logo-black.svg and /omnes-logo-white.svg. -->
   <section class="sec" id="logos" aria-labelledby="logosTitle">
     <div class="wrap">
       <div class="sh reveal">
         <h2 class="sh-title" id="logosTitle">Logo assets.</h2>
         <div class="sh-side">
-          <p class="body">SVG files, scalable to any size. Maintain minimum clearspace equal to the height of the logomark on all sides.</p>
+          <p class="body">SVG for print and the web, PNG for documents and social media, all on transparent backgrounds. Keep a clear zone equal to the height of the logomark on all sides.</p>
+          <p class="logo-all-row"><a class="logo-dl logo-all" href="/media-kit/files/omnes-logo-pack.zip" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>Download all files<span class="logo-all-meta">ZIP, 105 KB</span></a></p>
         </div>
       </div>
       <ul class="logos reveal">
         <li class="logo">
-          <div class="logo-stage stage-light"><img src="/omnes-logo-black.svg" alt="Omnes logo, black" width="1024" height="234"></div>
+          <div class="logo-stage stage-light"><img src="/media-kit/files/omnes-logo-black.svg" alt="Omnes logo, black"></div>
           <div class="logo-meta">
             <div>
-              <h3 class="logo-name">omnes-logo-black.svg</h3>
+              <h3 class="logo-name">Logo, black</h3>
               <p class="logo-use">Primary logo for light backgrounds.</p>
             </div>
-            <a class="logo-dl" href="/omnes-logo-black.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>Download SVG<span class="vh">, black logo</span></a>
+            <div class="logo-dls">
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-black.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, black logo</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-black.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, black logo, 1600 by 348 pixels</span></a>
+            </div>
           </div>
         </li>
         <li class="logo">
-          <div class="logo-stage stage-dark"><img src="/omnes-logo-white.svg" alt="Omnes logo, white" width="1024" height="234"></div>
+          <div class="logo-stage stage-dark"><img src="/media-kit/files/omnes-logo-white.svg" alt="Omnes logo, white"></div>
           <div class="logo-meta">
             <div>
-              <h3 class="logo-name">omnes-logo-white.svg</h3>
+              <h3 class="logo-name">Logo, white</h3>
               <p class="logo-use">Reverse logo for dark backgrounds.</p>
             </div>
-            <a class="logo-dl" href="/omnes-logo-white.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>Download SVG<span class="vh">, white logo</span></a>
+            <div class="logo-dls">
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-white.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, white logo</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-white.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, white logo, 1600 by 348 pixels</span></a>
+            </div>
           </div>
         </li>
         <li class="logo">
@@ -296,6 +314,32 @@
             <div>
               <h3 class="logo-name">Clearspace</h3>
               <p class="logo-use">Keep a clear zone of x on all sides, where x is the height of the logomark.</p>
+            </div>
+          </div>
+        </li>
+        <li class="logo">
+          <div class="logo-stage stage-light"><img class="is-mark" src="/media-kit/files/omnes-mark-black.svg" alt="Omnes logomark, black"></div>
+          <div class="logo-meta">
+            <div>
+              <h3 class="logo-name">Logomark, black</h3>
+              <p class="logo-use">For avatars, app icons and small spaces.</p>
+            </div>
+            <div class="logo-dls">
+              <a class="logo-dl" href="/media-kit/files/omnes-mark-black.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, black logomark</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-mark-black.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, black logomark, 1024 by 1024 pixels</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="logo">
+          <div class="logo-stage stage-dark"><img class="is-mark" src="/media-kit/files/omnes-mark-white.svg" alt="Omnes logomark, white"></div>
+          <div class="logo-meta">
+            <div>
+              <h3 class="logo-name">Logomark, white</h3>
+              <p class="logo-use">For avatars and small spaces on dark backgrounds.</p>
+            </div>
+            <div class="logo-dls">
+              <a class="logo-dl" href="/media-kit/files/omnes-mark-white.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, white logomark</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-mark-white.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, white logomark, 1024 by 1024 pixels</span></a>
             </div>
           </div>
         </li>
@@ -316,9 +360,9 @@
           <p class="body">A base palette for surfaces, type and borders.</p>
         </div>
         <ul class="swatches split-main">
-          <li class="sw"><span class="sw-chip c-ink" aria-hidden="true"></span><span class="sw-name">Ink</span><button class="sw-hex" type="button" data-copy="#17191c" aria-label="Copy the Ink hex code, #17191c"><span>#17191c</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">Headlines, body text and the primary button</span></li>
+          <li class="sw"><span class="sw-chip c-ink" aria-hidden="true"></span><span class="sw-name">Ink</span><button class="sw-hex" type="button" data-copy="#17191c" aria-label="Copy the Ink hex code, #17191c"><span>#17191c</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">Headlines, primary text and the primary button</span></li>
           <li class="sw"><span class="sw-chip is-light c-canvas" aria-hidden="true"></span><span class="sw-name">Canvas</span><button class="sw-hex" type="button" data-copy="#f9fafb" aria-label="Copy the Canvas hex code, #f9fafb"><span>#f9fafb</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">The page background</span></li>
-          <li class="sw"><span class="sw-chip is-light c-soft" aria-hidden="true"></span><span class="sw-name">Soft grey</span><button class="sw-hex" type="button" data-copy="#f2f4f6" aria-label="Copy the Soft grey hex code, #f2f4f6"><span>#f2f4f6</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">Recessed surfaces and secondary pills</span></li>
+          <li class="sw"><span class="sw-chip is-light c-soft" aria-hidden="true"></span><span class="sw-name">Soft grey</span><button class="sw-hex" type="button" data-copy="#f2f4f6" aria-label="Copy the Soft grey hex code, #f2f4f6"><span>#f2f4f6</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">Recessed surfaces and hover states</span></li>
           <li class="sw"><span class="sw-chip is-light c-white" aria-hidden="true"></span><span class="sw-name">White</span><button class="sw-hex" type="button" data-copy="#ffffff" aria-label="Copy the White hex code, #ffffff"><span>#ffffff</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.4"/><path d="M15.5 5.5v-.4a1.6 1.6 0 0 0-1.6-1.6H6.1a1.6 1.6 0 0 0-1.6 1.6v7.8a1.6 1.6 0 0 0 1.6 1.6h.4"/></svg></button><span class="sw-use">Raised surfaces, fields and the navigation</span></li>
         </ul>
       </div>
@@ -352,7 +396,7 @@
           <p class="face-glyph" aria-hidden="true">Aa</p>
           <div class="face-text">
             <h3 class="face-name">Source Serif 4</h3>
-            <p class="face-use">Display headings at weight 300, plain and never italic, and editorial copy. Adds warmth and a considered, institutional voice.</p>
+            <p class="face-use">Display headings at weights 300 to 350, plain and never italic, and editorial copy. Adds warmth and a considered, institutional voice.</p>
             <p class="face-set" aria-hidden="true">The financial layer for compute.</p>
           </div>
         </li>
@@ -360,7 +404,7 @@
           <p class="face-glyph" aria-hidden="true">Aa</p>
           <div class="face-text">
             <h3 class="face-name">Inter</h3>
-            <p class="face-use">Interface text, navigation, buttons, labels and numeric data, in weights 400 and 500, with tabular figures for numbers.</p>
+            <p class="face-use">Interface text, navigation, buttons, labels and numeric data, in weights 400 and 500, with 600 for emphasis and tabular figures for numbers.</p>
             <p class="face-set" aria-hidden="true">Omnes turns productive compute into <span class="nw">institutional-grade</span>, tokenized securities.</p>
             <p class="face-num num" aria-hidden="true">0123456789</p>
           </div>
@@ -412,15 +456,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -428,42 +471,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -495,5 +535,6 @@
   });
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

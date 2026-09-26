@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
-<title>Glossary: hashrate, Bitcoin mining and hashrate-backed securities | Omnes</title>
+<title>Hashrate glossary: Bitcoin mining terms | Omnes</title>
 <meta name="description" content="The hashrate glossary: 50 terms in Bitcoin hashrate, mining and hashrate-backed securities, each with a plain definition, its finance analogue and why it matters to institutional investors.">
 <link rel="canonical" href="https://omnes.io/resources/glossary/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Omnes">
-<meta property="og:title" content="Glossary: hashrate, Bitcoin mining and hashrate-backed securities | Omnes">
+<meta property="og:title" content="Hashrate glossary: Bitcoin mining terms | Omnes">
 <meta property="og:description" content="The hashrate glossary: 50 terms in Bitcoin hashrate, mining and hashrate-backed securities, each with a plain definition, its finance analogue and why it matters to institutional investors.">
 <meta property="og:url" content="https://omnes.io/resources/glossary/">
 <meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
@@ -20,12 +20,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <style>
 /* Glossary. The search field, its live count and the A to Z index share one column that holds
    while the terms scroll (above the terms below 900px). Each letter is a large serif initial;
@@ -125,7 +127,7 @@
   "hasDefinedTerm": [
     {"@type": "DefinedTerm", "name": "ASIC", "description": "An application-specific integrated circuit is a piece of computer hardware designed and manufactured to perform a single function, in this case running the SHA-256 hashing algorithm that secures the Bitcoin network.", "url": "https://omnes.io/resources/glossary/#asic"},
     {"@type": "DefinedTerm", "name": "ASIC efficiency (J/TH)", "description": "ASIC efficiency measures how many joules of electricity an ASIC consumes to produce one terahash per second of computational work.", "url": "https://omnes.io/resources/glossary/#asic-efficiency"},
-    {"@type": "DefinedTerm", "name": "Base (L2)", "description": "Base is an Ethereum Layer 2 network built by Coinbase on the OP Stack, used by Omnes as the settlement venue for the tokenized Omnes Mining Note.", "url": "https://omnes.io/resources/glossary/#base-l2"},
+    {"@type": "DefinedTerm", "name": "Base (L2)", "description": "Base is an Ethereum Layer 2 network built on the OP Stack, on which OMN ownership is mirrored.", "url": "https://omnes.io/resources/glossary/#base-l2"},
     {"@type": "DefinedTerm", "name": "Bitcoin custody", "description": "Bitcoin custody is the safekeeping of private keys controlling Bitcoin on behalf of a third party, typically by a regulated financial institution.", "url": "https://omnes.io/resources/glossary/#bitcoin-custody"},
     {"@type": "DefinedTerm", "name": "Bitcoin halving", "description": "The Bitcoin halving is a programmed event that occurs every 210,000 blocks (roughly every four years) and cuts the block subsidy in half.", "url": "https://omnes.io/resources/glossary/#bitcoin-halving"},
     {"@type": "DefinedTerm", "name": "Block fee", "description": "A block fee is the sum of transaction fees that users pay to have their transactions included in a Bitcoin block, paid to the miner that produces that block.", "url": "https://omnes.io/resources/glossary/#block-fee"},
@@ -165,9 +167,9 @@
     {"@type": "DefinedTerm", "name": "Reserve-backed token", "description": "A reserve-backed token is a digital asset whose units are claims on a defined pool of offchain reserves held by a custodian and verifiable through attestations.", "url": "https://omnes.io/resources/glossary/#reserve-backed-token"},
     {"@type": "DefinedTerm", "name": "Securitisation vehicle", "description": "A securitisation vehicle is a legal entity whose sole purpose is to acquire, hold and refinance assets by issuing securities whose returns are linked to those assets.", "url": "https://omnes.io/resources/glossary/#securitisation-vehicle"},
     {"@type": "DefinedTerm", "name": "Security agent", "description": "A security agent is an independent third party appointed to hold and enforce security interests granted to noteholders, ensuring impartial administration of collateral.", "url": "https://omnes.io/resources/glossary/#security-agent"},
-    {"@type": "DefinedTerm", "name": "Settlement layer", "description": "A settlement layer is the blockchain on which the final, authoritative record of asset ownership and transfers is maintained.", "url": "https://omnes.io/resources/glossary/#settlement-layer"},
+    {"@type": "DefinedTerm", "name": "Settlement layer", "description": "A settlement layer is the blockchain on which transfers of a tokenized asset are recorded.", "url": "https://omnes.io/resources/glossary/#settlement-layer"},
     {"@type": "DefinedTerm", "name": "Subsidy halving", "description": "The subsidy halving is the periodic 50% reduction in the Bitcoin block subsidy, hardcoded to occur every 210,000 blocks (roughly every four years).", "url": "https://omnes.io/resources/glossary/#subsidy-halving"},
-    {"@type": "DefinedTerm", "name": "Tokenization platform", "description": "A tokenization platform is a regulated technology provider that issues, manages and transfers blockchain-based representations of traditional financial instruments.", "url": "https://omnes.io/resources/glossary/#tokenization-platform"},
+    {"@type": "DefinedTerm", "name": "Tokenization platform", "description": "A tokenization platform is a technology provider that issues, manages and transfers blockchain-based representations of traditional financial instruments.", "url": "https://omnes.io/resources/glossary/#tokenization-platform"},
     {"@type": "DefinedTerm", "name": "Tokenized debt security", "description": "A tokenized debt security is a debt instrument whose ownership is recorded in the issuer's register and mirrored on a public blockchain, where the token can carry transfer restrictions.", "url": "https://omnes.io/resources/glossary/#tokenized-debt-security"},
     {"@type": "DefinedTerm", "name": "Treasury bond comparison", "description": "A treasury bond comparison frames a hashrate-backed note alongside a sovereign bond by measuring tenor, denomination, distribution profile and underlying risk against the same fixed-income benchmark.", "url": "https://omnes.io/resources/glossary/#treasury-bond-comparison"},
     {"@type": "DefinedTerm", "name": "Uptime", "description": "Uptime is the percentage of a measurement period during which a mining facility's hashrate is actively contributing to the Bitcoin network.", "url": "https://omnes.io/resources/glossary/#uptime"},
@@ -205,6 +207,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule -->
@@ -325,7 +329,7 @@
           </article>
           <article class="gl-term" id="asic-efficiency" aria-labelledby="t-asic-efficiency">
             <div class="gl-head"><h3 class="gl-name" id="t-asic-efficiency">ASIC efficiency (J/TH)</h3><a class="gl-link" href="#asic-efficiency" data-term="ASIC efficiency (J/TH)" aria-label="Link to ASIC efficiency (J/TH)"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">ASIC efficiency measures how many joules of electricity an ASIC consumes to produce one terahash per second of computational work. Lower numbers are better, with current top-tier machines operating in the 14 to 18 J/TH range. Efficiency directly translates into the marginal cost of producing one terahash and is the single most important specification when evaluating a Bitcoin miner.</p>
+            <p class="gl-def">ASIC efficiency measures how many joules of electricity an ASIC consumes to produce one terahash per second of computational work. Lower numbers are better: current top-tier machines are rated below 15 J/TH, and hydro-cooled models near 12 J/TH (manufacturer specifications). Efficiency directly translates into the marginal cost of producing one terahash and is the single most important specification when evaluating a Bitcoin miner.</p>
             <dl class="gl-notes">
               <div><dt>In finance terms</dt><dd class="gl-x">J/TH is the fuel-burn rate of a mining machine, equivalent to specific fuel consumption for a jet engine or heat rate for a power plant.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Fleet efficiency is the dominant driver of unit economics, and a one-J/TH improvement can materially change the breakeven hashprice of a portfolio.</dd></div>
@@ -340,9 +344,9 @@
           </div>
           <article class="gl-term" id="base-l2" aria-labelledby="t-base-l2">
             <div class="gl-head"><h3 class="gl-name" id="t-base-l2">Base (L2)</h3><a class="gl-link" href="#base-l2" data-term="Base (L2)" aria-label="Link to Base (L2)"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">Base is an Ethereum Layer 2 network built by Coinbase on the OP Stack, used by Omnes as the settlement venue for the tokenized Omnes Mining Note. Layer 2 networks inherit Ethereum's security while offering significantly lower transaction costs and higher throughput. Base is the network on which OMN ownership is mirrored and transfers between whitelisted investors are recorded.</p>
+            <p class="gl-def">Base is an Ethereum Layer 2 network built on the OP Stack, on which OMN ownership is mirrored. Layer 2 networks inherit Ethereum's security while offering significantly lower transaction costs and higher throughput. Transfers of OMN between whitelisted investors are recorded on Base, and the issuer's Noteholder Register remains the definitive record of title.</p>
             <dl class="gl-notes">
-              <div><dt>In finance terms</dt><dd class="gl-x">Base functions as the central securities depository for OMN, where ownership records are maintained, transfers are settled, and corporate actions are executed.</dd></div>
+              <div><dt>In finance terms</dt><dd class="gl-x">Base carries the onchain mirror of the issuer's Noteholder Register; the register, not the chain, is the record of title.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Choice of settlement layer determines counterparty risk, finality, and the regulatory posture of the entire offering.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#settlement-layer">Settlement layer</a>, <a href="#tokenization-platform">Tokenization platform</a>, <a href="#whitelisted-transfer">Whitelisted transfer</a>, <a href="#omn">OMN</a></dd></div>
             </dl>
@@ -457,7 +461,7 @@
           </div>
           <article class="gl-term" id="eh-s" aria-labelledby="t-eh-s">
             <div class="gl-head"><h3 class="gl-name" id="t-eh-s">EH/s</h3><a class="gl-link" href="#eh-s" data-term="EH/s" aria-label="Link to EH/s"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">Exahash per second (EH/s) is a unit of computational power equal to one quintillion (10 to the 18) hashes per second. The Bitcoin network as a whole operates at several hundred EH/s, and the largest single mining facilities are measured in the single-digit EH/s. EH/s is the standard unit for discussing network-wide and large-fleet hashrate.</p>
+            <p class="gl-def">Exahash per second (EH/s) is a unit of computational power equal to one quintillion (10 to the 18) hashes per second. The Bitcoin network as a whole operates at close to 1,000 EH/s, and the largest single mining facilities are measured in the single-digit EH/s. EH/s is the standard unit for discussing network-wide and large-fleet hashrate.</p>
             <dl class="gl-notes">
               <div><dt>In finance terms</dt><dd class="gl-x">EH/s is to Bitcoin mining what million barrels per day is to oil production, the macro unit of total productive capacity.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">EH/s is the right resolution for sizing a hashrate-backed product against total network share and for assessing dilution risk over a fixed tenor.</dd></div>
@@ -535,7 +539,7 @@
             <p class="gl-def">A hashrate-backed security is a financial instrument whose return is contractually backed by a defined amount of Bitcoin mining hashrate over a fixed term. The Omnes Mining Note is one example, with each note carrying a notional allocation of one petahash per second of hashrate over 730 days. The structure delivers Bitcoin-denominated yield without requiring investors to own or operate mining infrastructure.</p>
             <dl class="gl-notes">
               <div><dt>In finance terms</dt><dd class="gl-x">A hashrate-backed security is an asset-backed note in which the underlying productive asset is computational capacity rather than receivables, real estate, or commodities inventory.</dd></div>
-              <div><dt>Why it matters to institutions</dt><dd class="gl-x">Hashrate-backed securities are the first instrument that allows mandates with strict legal-form requirements to access Bitcoin mining economics directly.</dd></div>
+              <div><dt>Why it matters to institutions</dt><dd class="gl-x">Hashrate-backed securities allow mandates with strict legal-form requirements to access Bitcoin mining economics directly.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#mining-note">Mining note</a>, <a href="#tokenized-debt-security">Tokenized debt security</a>, <a href="#hashrate">Hashrate</a>, <a href="#omn">OMN</a></dd></div>
             </dl>
           </article>
@@ -565,7 +569,7 @@
           </div>
           <article class="gl-term" id="j-th" aria-labelledby="t-j-th">
             <div class="gl-head"><h3 class="gl-name" id="t-j-th">J/TH</h3><a class="gl-link" href="#j-th" data-term="J/TH" aria-label="Link to J/TH"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">J/TH (joules per terahash) is the standard efficiency metric for Bitcoin ASIC miners, measuring electricity consumed for each terahash per second of hashing power produced. Best-in-class machines in 2026 operate in the 14 to 18 J/TH range. Lower is better, and the trend over a decade has been a steady decline from above 100 J/TH to under 20.</p>
+            <p class="gl-def">J/TH (joules per terahash) is the standard efficiency metric for Bitcoin ASIC miners, measuring electricity consumed for each terahash per second of hashing power produced. The newest machines are rated below 15 J/TH, and hydro-cooled models near 12 J/TH (manufacturer specifications). Lower is better, and the trend over a decade has been a steady decline from above 100 J/TH to below 15.</p>
             <dl class="gl-notes">
               <div><dt>In finance terms</dt><dd class="gl-x">J/TH is the specific energy consumption of a mining machine, equivalent to grams of CO2 per kilometre for a vehicle or pounds of fuel per kilowatt-hour for a generator.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">J/TH is the single most predictive specification when comparing fleet quality between competing mining counterparties.</dd></div>
@@ -606,7 +610,7 @@
             <div class="gl-head"><h3 class="gl-name" id="t-mifid-ii-professional">MiFID II professional investor</h3><a class="gl-link" href="#mifid-ii-professional" data-term="MiFID II professional investor" aria-label="Link to MiFID II professional investor"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
             <p class="gl-def">A MiFID II professional investor is a client who meets the experience, knowledge and balance-sheet criteria set out in Annex II of EU Directive 2014/65/EU, allowing them to access private placements. The category covers regulated financial institutions, large undertakings meeting size tests, and certain elective opt-ups. MiFID II professional status is the standard eligibility threshold for institutional crypto offerings sold in the European Union.</p>
             <dl class="gl-notes">
-              <div><dt>In finance terms</dt><dd class="gl-x">MiFID II professional status is the European equivalent of US qualified purchaser status, the gatekeeper for sophisticated-investor private placements.</dd></div>
+              <div><dt>In finance terms</dt><dd class="gl-x">MiFID II professional status is the European gatekeeper for sophisticated-investor private placements, broadly comparable to US categories such as accredited investor or qualified purchaser, though the tests differ.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Eligibility under MiFID II is the front gate for OMN and any other Luxembourg-issued hashrate-backed product in Europe.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#professional-investor">Professional investor</a>, <a href="#omn">OMN</a>, <a href="#whitelisted-transfer">Whitelisted transfer</a>, <a href="#tokenized-debt-security">Tokenized debt security</a></dd></div>
             </dl>
@@ -712,7 +716,7 @@
           </div>
           <article class="gl-term" id="ph-s" aria-labelledby="t-ph-s">
             <div class="gl-head"><h3 class="gl-name" id="t-ph-s">PH/s</h3><a class="gl-link" href="#ph-s" data-term="PH/s" aria-label="Link to PH/s"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">Petahash per second (PH/s) is a unit of computational power equal to one quadrillion (10 to the 15) hashes per second. One PH/s is the notional hashrate allocation per Omnes Mining Note, roughly the output of five current-generation mining machines. Petahash is the natural scale at which institutional structured products are denominated.</p>
+            <p class="gl-def">Petahash per second (PH/s) is a unit of computational power equal to one quadrillion (10 to the 15) hashes per second. One PH/s is the notional hashrate allocation per Omnes Mining Note, roughly the output of a handful of current-generation mining machines. Petahash is the natural scale at which institutional structured products are denominated.</p>
             <dl class="gl-notes">
               <div><dt>In finance terms</dt><dd class="gl-x">PH/s is the unit denomination of an OMN, the productive-asset analogue to a megawatt-hour in a power-backed structured note.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">PH/s is the right unit at which institutional ticket sizes (US$100,000 minimum and above) can be cleanly mapped to a defined productive asset.</dd></div>
@@ -723,7 +727,7 @@
             <div class="gl-head"><h3 class="gl-name" id="t-professional-investor">Professional investor</h3><a class="gl-link" href="#professional-investor" data-term="Professional investor" aria-label="Link to Professional investor"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
             <p class="gl-def">A professional investor is an individual or institution that meets the regulatory criteria of experience, expertise and financial capacity required to access non-public offerings under local law. In the European Union, the test is set out in MiFID II Annex II. Equivalent regimes exist in the United Kingdom, Switzerland, Singapore, Hong Kong, and the Cayman Islands.</p>
             <dl class="gl-notes">
-              <div><dt>In finance terms</dt><dd class="gl-x">Professional investor is the global umbrella for the sophisticated-investor classification, equivalent to qualified purchaser and accredited investor regimes in the United States.</dd></div>
+              <div><dt>In finance terms</dt><dd class="gl-x">Professional investor is the global umbrella for the sophisticated-investor classification, broadly comparable to US categories such as accredited investor or qualified purchaser, though the tests differ.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Professional-investor classification is the gating control for OMN eligibility and for almost all institutional crypto offerings.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#mifid-ii-professional">MiFID II professional</a>, <a href="#omn">OMN</a>, <a href="#whitelisted-transfer">Whitelisted transfer</a>, <a href="#tokenized-debt-security">Tokenized debt security</a></dd></div>
             </dl>
@@ -778,9 +782,9 @@
           </article>
           <article class="gl-term" id="settlement-layer" aria-labelledby="t-settlement-layer">
             <div class="gl-head"><h3 class="gl-name" id="t-settlement-layer">Settlement layer</h3><a class="gl-link" href="#settlement-layer" data-term="Settlement layer" aria-label="Link to Settlement layer"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">A settlement layer is the blockchain on which the final, authoritative record of asset ownership and transfers is maintained. For OMN, Base serves as the settlement layer. The choice determines latency, cost, jurisdictional exposure, and the security model on which the security ultimately depends.</p>
+            <p class="gl-def">A settlement layer is the blockchain on which transfers of a tokenized asset are recorded. For OMN, Base carries the onchain mirror; the issuer's Noteholder Register remains definitive. The choice determines latency, cost, jurisdictional exposure, and the security model of the onchain record.</p>
             <dl class="gl-notes">
-              <div><dt>In finance terms</dt><dd class="gl-x">A settlement layer is the digital-asset equivalent of a central securities depository, with the same load-bearing role in the integrity of the post-trade lifecycle.</dd></div>
+              <div><dt>In finance terms</dt><dd class="gl-x">A settlement layer is the digital-asset counterpart of post-trade settlement infrastructure; for OMN it records transfers, while title rests with the issuer's register.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Settlement layer choice is examined by every institutional buyer, depositary and auditor of a tokenized security.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#base-l2">Base</a>, <a href="#tokenization-platform">Tokenization platform</a>, <a href="#whitelisted-transfer">Whitelisted transfer</a>, <a href="#onchain-attestation">Onchain attestation</a></dd></div>
             </dl>
@@ -802,9 +806,9 @@
           </div>
           <article class="gl-term" id="tokenization-platform" aria-labelledby="t-tokenization-platform">
             <div class="gl-head"><h3 class="gl-name" id="t-tokenization-platform">Tokenization platform</h3><a class="gl-link" href="#tokenization-platform" data-term="Tokenization platform" aria-label="Link to Tokenization platform"><svg class="ln" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 13.8a3.6 3.6 0 0 0 5.1 0l3.2-3.2a3.6 3.6 0 0 0-5.1-5.1l-.9.9"/><path d="M13.8 10.2a3.6 3.6 0 0 0-5.1 0l-3.2 3.2a3.6 3.6 0 0 0 5.1 5.1l.9-.9"/></svg><svg class="ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 12.4l3.6 3.6 7.4-7.6"/></svg></a></div>
-            <p class="gl-def">A tokenization platform is a regulated technology provider that issues, manages and transfers blockchain-based representations of traditional financial instruments. Platforms typically provide whitelisting, transfer restrictions, corporate actions, and integration with custodians and registrars. Omnes uses Tokeny as the tokenization platform for OMN.</p>
+            <p class="gl-def">A tokenization platform is a technology provider that issues, manages and transfers blockchain-based representations of traditional financial instruments. Platforms typically provide whitelisting, transfer restrictions, corporate actions, and integration with custodians and registrars. Omnes uses Tokeny as the tokenization platform for OMN.</p>
             <dl class="gl-notes">
-              <div><dt>In finance terms</dt><dd class="gl-x">A tokenization platform is the digital-asset equivalent of a transfer agent, registrar, and depositary participant rolled into a single regulated service provider.</dd></div>
+              <div><dt>In finance terms</dt><dd class="gl-x">A tokenization platform is the digital-asset equivalent of a transfer agent and depositary participant rolled into a single service provider.</dd></div>
               <div><dt>Why it matters to institutions</dt><dd class="gl-x">Platform quality determines whether transfer restrictions and corporate actions are enforced reliably enough to satisfy regulators, depositaries and auditors.</dd></div>
               <div class="gl-rel"><dt>Related</dt><dd><a href="#whitelisted-transfer">Whitelisted transfer</a>, <a href="#settlement-layer">Settlement layer</a>, <a href="#base-l2">Base</a>, <a href="#tokenized-debt-security">Tokenized debt security</a></dd></div>
             </dl>
@@ -917,15 +921,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -933,42 +936,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -1077,5 +1077,6 @@
   spy();
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

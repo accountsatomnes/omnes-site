@@ -434,7 +434,10 @@
       });
     });
 
-    /* pointer: the nearest day to the pointer; leaving returns to the latest day */
+    /* pointer: the nearest day to the pointer. A mouse leaving the plot returns to the latest
+       day. On a touch screen a tap (or a sideways drag) keeps its day after the finger lifts,
+       until the next tap on the plot or a tap outside it; if the browser takes the touch over to
+       scroll the page, the readout goes back to what it showed before the touch. */
     var fromPointer = function (e) {
       if (!st.geo) return;
       var rc = plot.getBoundingClientRect(), g = st.geo;
@@ -444,9 +447,32 @@
       st.active = true;
       cursor(lo, false);
     };
+    var isMouse = function (e) { return !e.pointerType || e.pointerType === "mouse"; };
+    var latest = function () { st.active = false; if (st.view) cursor(st.view.length - 1, false); };
+    var before = null, tap = null;
     plot.addEventListener("pointermove", fromPointer);
-    plot.addEventListener("pointerdown", fromPointer);
-    plot.addEventListener("pointerleave", function () { st.active = false; if (st.view && doc.activeElement !== plot) cursor(st.view.length - 1, false); });
+    plot.addEventListener("pointerdown", function (e) {
+      before = isMouse(e) ? null : { i: st.i, active: st.active };
+      fromPointer(e);
+    });
+    plot.addEventListener("pointerup", function () { before = null; });
+    plot.addEventListener("pointercancel", function (e) {
+      if (isMouse(e) || !before || !st.view) return;
+      st.active = before.active; cursor(before.i, false); before = null;
+    });
+    plot.addEventListener("pointerleave", function (e) { if (isMouse(e) && doc.activeElement !== plot) latest(); });
+    /* a tap outside the plot returns to the latest day; a scroll that starts outside it does not */
+    doc.addEventListener("pointerdown", function (e) {
+      tap = !isMouse(e) && st.active && !plot.contains(e.target) ? { x: e.clientX, y: e.clientY, at: Date.now() } : null;
+    });
+    doc.addEventListener("pointercancel", function () { tap = null; });
+    doc.addEventListener("pointerup", function (e) {
+      if (!tap) return;
+      var moved = Math.abs(e.clientX - tap.x) + Math.abs(e.clientY - tap.y), quick = Date.now() - tap.at < 700;
+      tap = null;
+      if (moved >= 12 || !quick || !st.active) return;
+      if (doc.activeElement === plot) plot.blur(); else latest();
+    });
     plot.addEventListener("focus", function () { st.active = true; cursor(st.i, false); });
     plot.addEventListener("blur", function () { st.active = false; if (st.view) cursor(st.view.length - 1, false); });
     plot.addEventListener("keydown", function (e) {

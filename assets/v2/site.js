@@ -86,7 +86,19 @@
       else if (focusBack) menuBtn.focus();
     };
     menuBtn.addEventListener("click", function () { setMenu(menu.hidden); });
-    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && !menu.hidden) setMenu(false, true); });
+    /* while the sheet is open, Tab and Shift+Tab cycle through the menu button and the sheet's
+       links (the page behind sits under the sheet), and Escape closes it and returns focus to
+       the menu button */
+    doc.addEventListener("keydown", function (e) {
+      if (menu.hidden) return;
+      if (e.key === "Escape" || e.key === "Esc") { e.preventDefault(); setMenu(false, true); return; }
+      if (e.key !== "Tab" || e.altKey || e.ctrlKey || e.metaKey) return;
+      var items = [menuBtn].concat($$("a[href], button:not([disabled]), input:not([disabled])", menu)).filter(function (el) { return el.getClientRects().length > 0; });
+      if (!items.length) return;
+      var at = items.indexOf(doc.activeElement), n = items.length;
+      e.preventDefault();
+      items[at === -1 ? (e.shiftKey ? n - 1 : 0) : (at + (e.shiftKey ? n - 1 : 1)) % n].focus();
+    });
     doc.addEventListener("click", function (e) { if (!menu.hidden && !menu.contains(e.target) && !menuBtn.contains(e.target)) setMenu(false); });
     window.addEventListener("resize", function () { if (window.innerWidth >= 900 && !menu.hidden) setMenu(false); });
   }
@@ -94,9 +106,15 @@
   /* access gate: the Terms of Access, shown until the visitor clicks "I Agree", then not again in
      this browser. Agreement persists in localStorage under the live site's key
      "omnes_access_agreed"; the earlier session flag "omnes_gate" is honoured too. As on the live
-     gate, "I Agree" ships disabled in the markup and is enabled here once the script runs. It
-     cannot be dismissed with Escape; "Leave" leaves the site. ?gate=1 shows it again for review.
-     The head script has already set html.omnes-agreed or html.omnes-gate-pending before paint. */
+     gate, "I Agree" ships disabled in the markup and is enabled only once the visitor has scrolled
+     to the end of the terms (at once if they fit without scrolling); #gateLock says so until then.
+     It cannot be dismissed with Escape. "Leave" closes the gate and leaves the site: it tries to
+     close the tab (browsers allow that only for tabs a script opened), then goes to a blank page.
+     ?gate=1 shows it again for review.
+     The head script has already set html.omnes-agreed or html.omnes-gate-pending before paint.
+     The three documents the gate asks visitors to read (Website Terms, Global Privacy Notice,
+     Cookies Policy) stay readable before agreeing: the gate does not open on them by itself and
+     nothing is recorded as agreed there; ?gate=1 still shows it on them. */
   var local = {
     get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* storage blocked */ } }
@@ -104,16 +122,27 @@
   var gate = $("#gate");
   var gateForced = /[?&]gate=1(&|$)/.test(window.location.search);
   var gateAgreed = !gateForced && !!(local.get("omnes_access_agreed") || store.get("omnes_gate"));
+  var gateSkip = !gateForced && /^\/(website-terms|global-privacy-notice|cookies-policy)(\/(index\.html)?)?$/.test(window.location.pathname);
   if (gateAgreed || !gate) { root.classList.add("omnes-agreed"); root.classList.remove("omnes-gate-pending"); }
+  else if (gateSkip) root.classList.remove("omnes-gate-pending");
   if (gate && typeof gate.showModal === "function") {
-    var agreeBtn = $("#btnAgree"), leave = $("#gateLeave"), agreedNow = false;
+    var agreeBtn = $("#btnAgree"), leave = $("#gateLeave"), agreedNow = false, leaving = false;
+    var gateScrollEl = $("#gateScroll"), gateLock = $("#gateLock");
     var openGate = function () { if (!gate.open) gate.showModal(); root.classList.add("omnes-gate-open"); };
     gate.addEventListener("cancel", function (e) { e.preventDefault(); });
     gate.addEventListener("keydown", function (e) { if (e.key === "Escape" || e.key === "Esc") e.preventDefault(); });
     /* some browsers close a modal on a repeated Escape regardless; reopen it until agreed */
-    gate.addEventListener("close", function () { if (!agreedNow && !gateAgreed) openGate(); });
-    if (agreeBtn) {
+    gate.addEventListener("close", function () { if (!agreedNow && !gateAgreed && !leaving) openGate(); });
+    /* "I Agree" unlocks at the end of the terms, and stays unlocked */
+    var atEnd = function () { return !gateScrollEl || gateScrollEl.scrollTop + gateScrollEl.clientHeight >= gateScrollEl.scrollHeight - 12; };
+    var unlock = function () {
+      if (!agreeBtn || !agreeBtn.disabled || !gate.open || !atEnd()) return;
       agreeBtn.disabled = false;
+      if (gateLock) gateLock.textContent = "";
+    };
+    if (gateScrollEl) gateScrollEl.addEventListener("scroll", unlock, { passive: true });
+    window.addEventListener("resize", unlock);
+    if (agreeBtn) {
       agreeBtn.addEventListener("click", function () {
         agreedNow = true;
         local.set("omnes_access_agreed", "1");
@@ -123,8 +152,17 @@
         gate.close();
       });
     }
-    if (leave) leave.addEventListener("click", function () { window.location.href = "about:blank"; });
-    if (!gateAgreed) { openGate(); var gateScroll = $("#gateScroll"); if (gateScroll) gateScroll.scrollTop = 0; }
+    if (leave) leave.addEventListener("click", function () {
+      leaving = true;
+      if (gate.open) gate.close();
+      try { window.close(); } catch (e) { /* not a script-opened tab */ }
+      setTimeout(function () { window.location.replace("about:blank"); }, 120);
+    });
+    if (!gateAgreed && !gateSkip) {
+      openGate();
+      if (gateScrollEl) gateScrollEl.scrollTop = 0;
+      requestAnimationFrame(unlock);
+    }
   } else root.classList.remove("omnes-gate-pending");
 
   /* product annotations: pointing at or focusing a numbered note lights its pin */
@@ -675,7 +713,7 @@
           if (!text) return;
           if (state === "ok") {
             var from = new Date(rows[0].timestamp * 1000), to = new Date(rows[rows.length - 1].timestamp * 1000);
-            var d = function (x) { return x.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }); };
+            var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; var d = function (x) { return x.getUTCDate() + " " + MON[x.getUTCMonth()] + " " + x.getUTCFullYear(); };
             text.textContent = "Network hashrate, daily, " + d(from) + " to " + d(to) + ". Source: mempool.space";
           } else if (state === "down") text.textContent = "Network hashrate history: Unavailable";
           else text.textContent = "Network hashrate history, loading from mempool.space";

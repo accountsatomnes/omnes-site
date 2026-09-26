@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
-<title>Institutional Bitcoin hashrate investing: a framework for allocators | Omnes</title>
+<title>Institutional Bitcoin hashrate investing | Omnes</title>
 <meta name="description" content="A practical framework for institutional Bitcoin hashrate investing. Compare direct mining, mining equity, ETFs, hashrate derivatives, and tokenized hashrate-backed securities across capital intensity, custody, regulation, and exposure quality.">
 <link rel="canonical" href="https://omnes.io/resources/institutional-bitcoin-hashrate-investing/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Omnes">
-<meta property="og:title" content="Institutional Bitcoin hashrate investing: a framework for allocators | Omnes">
+<meta property="og:title" content="Institutional Bitcoin hashrate investing | Omnes">
 <meta property="og:description" content="A practical framework for institutional Bitcoin hashrate investing. Compare direct mining, mining equity, ETFs, hashrate derivatives, and tokenized hashrate-backed securities across capital intensity, custody, regulation, and exposure quality.">
 <meta property="og:url" content="https://omnes.io/resources/institutional-bitcoin-hashrate-investing/">
 <meta property="og:image" content="https://omnes.io/hero-datacenter.jpg">
@@ -20,12 +20,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <style>
 /* Resource articles: one template for every long-form resource (the page header band with
    breadcrumbs and reading time, contents beside the text, related resources, the closing
@@ -46,7 +48,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "@id": "https://omnes.io/resources/institutional-bitcoin-hashrate-investing/#article",
-  "headline": "Institutional Bitcoin hashrate investing: a framework for allocators",
+  "headline": "Institutional Bitcoin hashrate investing",
   "description": "A practical framework for institutional Bitcoin hashrate investing. Compare direct mining, mining equity, ETFs, hashrate derivatives, and tokenized hashrate-backed securities across capital intensity, custody, regulation, and exposure quality.",
   "url": "https://omnes.io/resources/institutional-bitcoin-hashrate-investing/",
   "mainEntityOfPage": {
@@ -152,6 +154,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule (Resources is current: the articles live under it) -->
@@ -233,7 +237,7 @@
         </nav>
         <div class="prose">
           <p class="lede">Bitcoin has crossed the threshold of institutional acceptability. Spot ETFs have crystallised the price exposure question. The harder question, and the one that still divides allocators, is how to access the cash flows that produce Bitcoin in the first place. That is hashrate.</p>
-          <p>This guide is written for the people who actually decide where institutional capital goes: family offices, asset managers, hedge funds, RIAs, pension funds, sovereign wealth analysts, corporate treasurers, and the professional crypto investors who operate inside regulated mandates. It compares investment paths against the criteria allocators use, names the structural trade-offs honestly, and explains why a tokenized hashrate-backed debt security has emerged as a credible institutional answer.</p>
+          <p>This guide is written for the people who actually decide where institutional capital goes: family offices, asset managers, hedge funds, pension funds, sovereign wealth analysts, corporate treasurers, and the professional crypto investors who operate inside regulated mandates. It compares investment paths against the criteria allocators use, names the structural trade-offs honestly, and explains why a tokenized hashrate-backed debt security has emerged as a credible institutional answer.</p>
 
           <h2 id="why-hashrate">Why hashrate, and why now</h2>
           <p>Hashrate is the productive engine of the Bitcoin network. It is the computational work that secures the chain, validates transactions, and earns block rewards plus network fees. Every Bitcoin that exists today was produced by hashrate. Every Bitcoin that will exist before the 2140 supply cap will be produced by hashrate. As a category, it is the source of new Bitcoin entering circulation, and it sits underneath all of the financial products that wrap Bitcoin downstream.</p>
@@ -243,7 +247,7 @@
           <h2 id="what-allocators-need">What institutional-grade hashrate exposure actually requires</h2>
           <p>Before evaluating paths, it is worth setting out what allocators mean when they say "institutional-grade." The phrase gets overused. In practice, an institutional-grade hashrate exposure satisfies a specific set of criteria, and those criteria are non-negotiable for committees evaluating new categories.</p>
           <p>A genuinely institutional structure separates economic exposure from operational obligation. The investor should not need to own hardware, lease power, hire staff, or manage facilities. The instrument should be issued through a bankruptcy-remote vehicle with assets segregated from issuer risk. Ownership should be recorded in a recognised legal form, typically book-entry with onchain mirroring under an established standard such as ERC-3643. The custodian holding the underlying Bitcoin should be a regulated institutional custodian, not an exchange wallet. The accounts should be independently audited. The legal opinion should come from a top-tier securitisation counsel. The reporting should reconcile production to custody balances, not rely on investor decks.</p>
-          <p>The instrument should also be eligible for the investor categories that allocators actually represent. That means MiFID II professional investor eligibility in Europe, qualified purchaser or accredited investor frameworks where relevant, and jurisdictional exclusions that protect against unintended retail distribution. It should accept settlement in the currencies institutional desks already operate in, including USD, USDC, USDT, and Bitcoin.</p>
+          <p>The instrument should also be eligible for the investor categories that allocators actually represent. That means MiFID II professional investor eligibility in Europe, the equivalent professional investor definition in the investor's country of residence, and jurisdictional exclusions that protect against unintended retail distribution. It should accept settlement in the currencies institutional desks already operate in, including USD, USDC, USDT, and Bitcoin.</p>
           <p>Finally, the instrument should be honest about what it is. A hashrate-backed instrument is not a Bitcoin ETF. It does not track the spot price one-for-one. It captures a different return stream, the cash flows produced by mining, which are correlated to but not identical to spot. Conflating the two leads to misaligned expectations on both sides. The institutional version of hashrate exposure preserves the distinction and prices it transparently.</p>
 
           <h2 id="the-five-paths">The five paths to Bitcoin hashrate exposure</h2>
@@ -251,7 +255,7 @@
           <h3 id="path-direct">Direct mining ownership</h3>
           <p>The most literal path is to own the mining infrastructure itself. Buy ASICs, secure power purchase agreements, lease or build a facility, hire technicians, manage uptime, sell mined Bitcoin through OTC desks, and report quarterly P&amp;L. Some family offices and corporate treasurers have done exactly this, and a handful have done it well. The economics, when execution is excellent, can be compelling. The operational burden is substantial. The exposure is concentrated in a single facility, a single jurisdiction, and a single management team. The accounting treatment is unfamiliar to most CFOs. It is the highest-touch and highest-risk way to participate.</p>
           <h3 id="path-equity">Listed mining equity</h3>
-          <p>The most liquid path is to buy shares in publicly listed Bitcoin mining companies. This is the path of choice for many discretionary mandates because it is familiar, exchange-traded, and analyst-covered. The trade-off is that listed miners carry equity-specific factors that have little to do with hashrate itself. Dilution from at-the-market share issuance, capital structure leverage, management decisions about HODL versus sell, exposure to non-mining ventures, and equity beta to broader markets all enter the return stream. Listed miners can outperform spot Bitcoin in upcycles and underperform sharply in downcycles. They are equity proxies for mining, not pure hashrate exposure.</p>
+          <p>The most liquid path is to buy shares in publicly listed Bitcoin mining companies. This is the path of choice for many discretionary mandates because it is familiar, exchange-traded, and analyst-covered. The trade-off is that listed miners carry equity-specific factors that have little to do with hashrate itself. Dilution from at-the-market share issuance, capital structure leverage, management decisions about holding or selling mined Bitcoin, exposure to non-mining ventures, and equity beta to broader markets all enter the return stream. Listed miners can outperform spot Bitcoin in upcycles and underperform sharply in downcycles. They are equity proxies for mining, not pure hashrate exposure.</p>
           <h3 id="path-etf">Spot Bitcoin ETFs and proxies</h3>
           <p>The most accessible path is to buy spot Bitcoin ETFs or the small handful of mining-themed ETFs and tracker products. These are deep, liquid, and operationally trivial for any allocator. They are also, by design, the wrong instrument for hashrate exposure. A spot Bitcoin ETF gives price exposure to the existing Bitcoin supply. It does not give exposure to the cash flows of producing new Bitcoin. Mining-themed ETFs are equity baskets, with all the equity factors described above, plus index construction noise. They are a way to be roughly Bitcoin-correlated, not a way to express a view on hashrate.</p>
           <h3 id="path-derivatives">Hashrate derivatives and hashprice swaps</h3>
@@ -270,13 +274,13 @@
                 <tr><th scope="row">Regulatory profile</th><td>Operating business. Energy, environmental, local permitting.</td><td>Listed equity rules. Standard market regulation.</td><td>Fund or ETF rules. Highly familiar.</td><td>OTC derivatives. ISDA, margining, credit frameworks.</td><td>Securitisation security. Luxembourg Law of 22 March 2004. Offered to MiFID II professionals.</td></tr>
                 <tr><th scope="row">Exposure quality</th><td>Pure mining economics, single-asset concentration.</td><td>Equity proxy. Dilution and capital structure noise.</td><td>Spot price or thematic basket. Not hashrate.</td><td>Synthetic. Tracks hashprice index.</td><td>Secured, limited recourse debt claim on the issuer's compartment, repaid in the Bitcoin mined with a notional hashrate allocation or paid in its place.</td></tr>
                 <tr><th scope="row">Custody</th><td>Self-custody or counterparty risk on operator wallets.</td><td>DTC or equivalent registry. Standard.</td><td>Fund custodian. Standard.</td><td>Bilateral. Negotiated per trade.</td><td>MiCA-authorised custodian: Zodia Custody (Europe) S.A. for OMN. Pledged to noteholders via security agent.</td></tr>
-                <tr><th scope="row">Accounting treatment</th><td>Operating subsidiary. Complex consolidation.</td><td>Listed equity. Standard.</td><td>Fund or ETF. Standard.</td><td>Derivative. Mark-to-market complexity.</td><td>Debt security held to maturity. Familiar fixed-income treatment.</td></tr>
+                <tr><th scope="row">Accounting treatment</th><td>Operating subsidiary. Complex consolidation.</td><td>Listed equity. Standard.</td><td>Fund or ETF. Standard.</td><td>Derivative. Mark-to-market complexity.</td><td>Debt security with variable, Bitcoin-linked repayment. Classification depends on the investor's accounting framework; take accounting advice.</td></tr>
                 <tr><th scope="row">Tax implications</th><td>Operating income. Multi-jurisdictional. Highly bespoke.</td><td>Capital gains on equity. Familiar.</td><td>Fund or ETF wrapper. Standard.</td><td>Derivative income or capital, jurisdiction-specific.</td><td>Securitisation note. Luxembourg tax-neutral compartment. Investor-level treatment depends on domicile.</td></tr>
                 <tr><th scope="row">Liquidity</th><td>Illiquid. Bilateral sale of hardware or business.</td><td>Daily exchange liquidity.</td><td>Intraday liquidity.</td><td>Limited. OTC bilateral.</td><td>Transferable between whitelisted professional investors onchain. Held to maturity for full economic profile.</td></tr>
               </tbody>
             </table>
           </div>
-          <p>Read across the table, the picture clarifies. ETFs and proxies are familiar but capture the wrong exposure. Direct mining captures the right exposure but at unacceptable operational cost. Listed equities introduce factors that have nothing to do with hashrate. Derivatives are precise but operationally inaccessible. A tokenized hashrate-backed security collapses the operational, custody, and accounting complexity into a single instrument that institutional desks already know how to onboard, while preserving the underlying exposure to hashrate cash flows.</p>
+          <p>Read across the table, the picture clarifies. ETFs and proxies are familiar but capture the wrong exposure. Direct mining captures the right exposure but at unacceptable operational cost. Listed equities introduce factors that have nothing to do with hashrate. Derivatives are precise but operationally inaccessible. A tokenized hashrate-backed security collapses the operational and custody complexity into a single instrument that institutional desks already know how to onboard, while preserving the underlying exposure to hashrate cash flows.</p>
 
           <h2 id="luxembourg-framework">The Luxembourg securitisation framework</h2>
           <p>Allocators evaluating any new structured product spend most of their diligence on the legal wrapper. The wrapper determines bankruptcy remoteness, ring-fencing, recourse, and the rights of noteholders against the issuer's assets. Hashrate-backed securitisations in particular need a robust wrapper, because the asset being securitised is unfamiliar to most institutional counterparties.</p>
@@ -293,7 +297,7 @@
           <p>The institutional case for tokenized hashrate-backed securities is not a hype case. It is a structural case. Each of the four traditional paths to Bitcoin mining exposure carries a specific friction that limits institutional adoption. Direct ownership demands operational capability that allocators do not want to build. Listed equity introduces non-hashrate factors that obscure the underlying exposure. ETFs capture a different asset entirely. Derivatives require infrastructure that most committees cannot stand up. A securitisation wrapper sitting on a regulated custodian, with onchain settlement under an established compliance standard, removes each of those frictions in turn.</p>
           <p>The Omnes Mining Note is a worked example of this design. Each note carries a notional one petahash per second (1 PH/s) of hashrate for a 730-day term. The hashrate is supplied by the Hashrate Aggregator, an Omnes affiliate, which may source it from multiple miners and pools and may pay Bitcoin in place of hashrate it does not deliver. The Bitcoin mined, or paid in its place, accrues in custody and is distributed to noteholders at maturity in Bitcoin. Costs are 3.75% of invested capital, and Costs and any tax liabilities rank ahead of noteholders. There is no performance fee.</p>
           <p>The book-entry register sits in Luxembourg. The onchain mirror is issued under the ERC-3643 compliant token standard via Tokeny S.à r.l., on the Base network, with transferability restricted to whitelisted professional investors. The Bitcoin custodian is Zodia Custody (Europe) S.A. The auditor is PricewaterhouseCoopers Assurance, Soci&eacute;t&eacute; coop&eacute;rative (PwC Luxembourg). Legal counsel is Arendt &amp; Medernach S.A. The corporate service provider is Apex Fund Services S.A. The security agent is Apex Corporate Trustees (UK) Limited. Subscriptions are accepted in USD, USDC, USDT, and BTC. Tranche 1 of Series 1 is US$50,000,000.</p>
-          <p>Stitched together, the structure produces what allocators have been asking for: direct economic exposure to Bitcoin mining cash flows, expressed as a Luxembourg-law debt note, held by a regulated custodian, mirrored onchain for settlement and verification, eligible for professional investors only, and reportable on a basis that internal accounting teams can absorb without bespoke work. It is not the only way to access hashrate. It is, on the criteria that matter to institutional committees, the cleanest way that currently exists.</p>
+          <p>Stitched together, the structure produces what allocators have been asking for: direct economic exposure to Bitcoin mining cash flows, expressed as a Luxembourg-law debt note, held by a regulated custodian, mirrored onchain for settlement and verification, and eligible for professional investors only. It is not the only way to access hashrate, but it is one that meets the criteria institutional committees apply.</p>
 
           <h2 id="risks">Risk factors that allocators must underwrite</h2>
           <p>No instrument removes risk. A tokenized hashrate-backed security relocates risk into a form that allocators can underwrite, but the risks remain real. Honest evaluation requires naming them.</p>
@@ -309,7 +313,7 @@
           <p>For allocators preparing to underwrite a hashrate-backed security, the diligence checklist covers the legal structure of the issuer, compartment ring-fencing arrangements, bankruptcy remoteness opinion, security interests granted to noteholders, the role of the security agent, the identity and credentials of the Bitcoin custodian, the custody arrangements, the identity of the auditor and the scope of the audit, the identity of the administrator and the reporting cadence, investor eligibility under the offering's professional investor framework, the tax analysis at investor level in the investor's domicile, the accounting treatment, the composition of the underlying hashrate including operators and contractual terms, and the cost breakdown and mechanics of distribution at maturity.</p>
 
           <h2 id="institutional-fit">Where a hashrate-backed security fits in a portfolio</h2>
-          <p>The right portfolio role depends on the investor. For family offices already long Bitcoin, it complements spot exposure with a yield-bearing position that monetises mining cash flows rather than relying on price alone. For asset managers building digital asset sleeves, it offers a fixed-income-shaped wrapper around an asset class that otherwise expresses itself only as spot. For hedge funds, it can sit in a structured credit or alternatives book where the Luxembourg securitisation form is already familiar. For corporate treasurers exploring Bitcoin balance sheet allocations, it provides an instrument that produces additional Bitcoin over time without requiring the treasurer to operate mining infrastructure.</p>
+          <p>The right portfolio role depends on the investor. For family offices already long Bitcoin, it complements spot exposure with a position that monetises mining cash flows rather than relying on price alone. For asset managers building digital asset sleeves, it offers a debt-note wrapper around an asset class that otherwise expresses itself only as spot. For hedge funds, it can sit in a structured credit or alternatives book where the Luxembourg securitisation form is already familiar. For corporate treasurers exploring Bitcoin balance sheet allocations, it provides an instrument that produces additional Bitcoin over time without requiring the treasurer to operate mining infrastructure.</p>
 
           <h2 id="conclusion">Closing</h2>
           <p>Bitcoin's institutionalisation has so far focused on the price. The next phase focuses on the cash flows. Hashrate is where those cash flows are produced, and until recently, institutional access to that layer was structurally blocked. The combination of Luxembourg securitisation law, regulated digital asset custody, independent audit, and onchain compliant tokenization has changed that. The Omnes Mining Note is one expression of the new design space. Allocators who have spent the last two years asking how to access Bitcoin mining economics without buying ASICs or wearing equity beta should put it on the diligence list.</p>
@@ -439,15 +443,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -455,42 +458,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -514,5 +514,6 @@
   mark();
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

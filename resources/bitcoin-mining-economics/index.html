@@ -20,12 +20,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <style>
 /* Resource articles: one template for every long-form resource (the page header band with
    breadcrumbs and reading time, contents beside the text, related resources, the closing
@@ -122,6 +124,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule -->
@@ -201,7 +205,7 @@
         <div class="prose">
           <h2 id="why">Why mining economics matter to institutional capital.</h2>
           <p>Institutional allocators have historically engaged with Bitcoin through spot exposure, futures, or, more recently, regulated exchange-traded products. Each of these wraps the same underlying asset and inherits the same return profile: the price of Bitcoin. Mining sits a layer beneath. It is the production economics of the network itself, the cost-curve that issues new supply, and the cash-yielding industrial activity that secures the chain.</p>
-          <p>For a portfolio manager, that distinction matters because mining economics carry return drivers that spot Bitcoin does not. A miner earns block subsidy and fees regardless of price direction, although the dollar value of that revenue is denominated in Bitcoin. Mining therefore behaves like a leveraged, operationally geared claim on Bitcoin, with additional sensitivity to network hashrate, energy markets, and hardware cycles. Understanding these drivers is a prerequisite for any institution considering exposure to compute-yield products, hashrate financing, or direct equity in mining operators.</p>
+          <p>For a portfolio manager, that distinction matters because mining economics carry return drivers that spot Bitcoin does not. A miner earns block subsidy and fees regardless of price direction, but that revenue is paid in Bitcoin, so its dollar value moves with the Bitcoin price. Mining therefore behaves like a leveraged, operationally geared claim on Bitcoin, with additional sensitivity to network hashrate, energy markets, and hardware cycles. Understanding these drivers is a prerequisite for any institution considering exposure to compute-yield products, hashrate financing, or direct equity in mining operators.</p>
           <p>This primer takes that institutional lens. It walks through the revenue side, the cost side, the canonical profitability metrics, the four-year halving cycle, and the comparison to traditional extractive industries.</p>
 
           <h2 id="revenue">The revenue side: block subsidy, fees, and the issuance schedule.</h2>
@@ -226,12 +230,12 @@
           <p>The second revenue component is the transaction fees paid by users to have their transactions included in a block. Fee revenue is variable. It rises with network demand, with the launch of new fee-paying use cases like ordinals and inscriptions, and with periods of mempool congestion. Over multi-year averages, fees have historically represented 1 to 5 percent of total miner revenue, although intraday and intra-week spikes regularly push fees to 20 percent of block reward and occasionally above 50 percent.</p>
           <p>As the block subsidy continues to halve, the fee share of miner revenue mechanically grows. Many analysts model a long-run equilibrium in which fees become the dominant component of miner compensation, although the trajectory and pace remain a subject of active debate.</p>
           <h3>Hashprice: the unifying revenue metric.</h3>
-          <p>The standard way to express miner revenue is hashprice. Hashprice is the daily revenue generated per unit of hashrate, typically quoted in US dollars per terahash per second per day (USD per TH per day). It collapses block subsidy, fees, BTC price, and total network hashrate into a single number.</p>
+          <p>The standard way to express miner revenue is hashprice. Hashprice is the daily revenue generated per unit of hashrate, quoted in US dollars per petahash (or terahash) per second per day. It collapses block subsidy, fees, BTC price, and total network hashrate into a single number.</p>
           <p>The formula is straightforward:</p>
           <div class="eqs">
-            <p class="eq">Hashprice (USD per TH per day) = (Block subsidy + Average fees per block) &times; Blocks per day &times; BTC price &divide; (Total network hashrate in TH per second &times; 86,400 seconds per day) &times; 86,400</p>
-            <p class="eq-via">Which simplifies to:</p>
-            <p class="eq">Hashprice &asymp; (Daily BTC issued + Daily BTC fees) &times; BTC price &divide; Total network hashrate in PH per second &times; 1,000</p>
+            <p class="eq">Hashprice (USD per PH/s per day) = 144 &times; (block subsidy + average fees per block) &times; BTC price &divide; network hashrate in PH/s</p>
+            <p class="eq-via">For US dollars per TH/s per day:</p>
+            <p class="eq">Hashprice (USD per TH/s per day) = hashprice in USD per PH/s per day &divide; 1,000</p>
           </div>
           <p>Hashprice is the price of the commodity a miner sells. A miner whose all-in cost is below hashprice runs profitably. A miner whose all-in cost is above hashprice burns capital. Across the cycle, hashprice has ranged from below 50 USD per PH per day in the depths of bear markets to several hundred USD per PH per day in late-cycle peaks.</p>
 
@@ -247,7 +251,7 @@
           <p>Most institutional-scale operators do not build their own substations. They host machines in third-party data centres that provide power, cooling, network, and racks under a hosting agreement. Hosting fees are quoted as an all-in dollar rate per kilowatt-hour, typically 1 to 3 &cent; per kWh on top of underlying energy cost. A hosted operator pays 5 to 8 &cent; per kWh all-in, depending on the venue.</p>
           <p>The build-vs-buy question for an institutional operator is a tradeoff between capital intensity, control, and time to deploy. Hosting trades a margin point for capital efficiency and operational simplicity.</p>
           <h3>Operations.</h3>
-          <p>Operations covers the rest: management overhead, pool fees, insurance, security, treasury management, accounting, regulatory compliance, and reserves for hardware replacement. For institutional operators, this typically sums to 50 to 150 basis points of revenue. Pool fees alone are usually 1 to 2 percent of mined Bitcoin.</p>
+          <p>Operations covers the rest: management overhead, pool fees, insurance, security, treasury management, accounting, regulatory compliance, and reserves for hardware replacement. These costs vary with scale and structure; pool fees are charged as a percentage of the Bitcoin mined.</p>
 
           <h2 id="metrics">Profitability metrics: how operators are actually measured.</h2>
           <p>Bitcoin mining is a margin business. Institutional analysts evaluate operators using a compact set of metrics.</p>
@@ -258,12 +262,12 @@
           <h3>Hashprice margin.</h3>
           <p>Daily revenue per TH minus daily cost per TH, expressed as a percentage of revenue. A 50 percent hashprice margin is robust. A 20 percent margin signals stress. Negative margin means the operator is mining at a loss and either has hedged, has subsidised power, or is funding losses from balance-sheet reserves.</p>
           <h3>ASIC efficiency and fleet age.</h3>
-          <p>Average J per TH across the fleet is a proxy for competitive positioning. Operators running 17 to 20 J per TH machines are at the frontier. Operators running 30 J per TH or higher are vulnerable to the next difficulty increase. Fleet age, measured as weighted average generation, is the leading indicator of capex obligations.</p>
+          <p>Average J per TH across the fleet is a proxy for competitive positioning. Operators running machines below 15 J per TH are at the frontier. Operators running 30 J per TH or higher are vulnerable to the next difficulty increase. Fleet age, measured as weighted average generation, is the leading indicator of capex obligations.</p>
           <h3>Uptime and realised hashrate.</h3>
           <p>Nameplate hashrate is the rated capacity of the fleet. Realised hashrate is what actually hashes after curtailment, maintenance, and failure. Best-in-class operators realise 95 to 98 percent of nameplate. Weaker operators come in at 85 to 90 percent. The gap directly reduces revenue.</p>
 
           <h2 id="worked">Worked example: a 100 PH per second fleet.</h2>
-          <p>Consider a hypothetical institutional miner operating a 100 PH per second (100,000 TH per second) fleet of current-generation S21 machines at 17 J per TH. Assume the operator hosts the fleet at an all-in energy and hosting cost of 6 &cent; per kWh.</p>
+          <p>Consider a hypothetical institutional miner operating a 100 PH per second (100,000 TH per second) fleet of 2024-generation S21 machines at 17 J per TH. Assume the operator hosts the fleet at an all-in energy and hosting cost of 6 &cent; per kWh.</p>
           <dl class="rows">
             <div><dt>Power draw</dt><dd>100,000 TH &times; 17 J per TH = 1,700,000 joules per second = 1.7 megawatts. Over 24 hours, that is 1.7 MW &times; 24 h = 40.8 MWh per day.</dd></div>
             <div><dt>Daily energy cost</dt><dd>40,800 kWh &times; 0.06 USD per kWh = 2,448 USD per day.</dd></div>
@@ -307,17 +311,17 @@
           <p>For institutional capital, the question is not whether Bitcoin mining is a real industry. It is. The question is how to gain exposure without inheriting the operational complexity of running a mining business.</p>
           <p>Direct ownership of mining equipment requires the institution to underwrite hardware procurement, hosting agreements, energy contracts, operations staff, treasury policy, and regulatory regimes across multiple jurisdictions. Few allocators are equipped to do this in-house, and the operational drag erodes the very return premium that justifies the allocation.</p>
           <p>Equity in listed miners offers liquid exposure but inherits balance-sheet risk, dilution risk, and management discretion. The correlation to BTC price is high but contaminated by company-specific noise.</p>
-          <p>Tokenised hashrate notes offer a third path. By converting the production cash-flow of a contracted block of hashrate into a securitised instrument, an institutional allocator gains direct economic exposure to the mining economy without operating mining infrastructure, inside a securitisation structure, and with reporting on output and custody.</p>
+          <p>Tokenized hashrate notes offer a third path. By converting the production cash-flow of a contracted block of hashrate into a securitised instrument, an institutional allocator gains direct economic exposure to the mining economy without operating mining infrastructure, inside a securitisation structure, and with reporting on output and custody.</p>
           <p>The <a href="/omn/">Omnes Mining Note</a> is one such instrument: a notional 1 PH per second of contracted hashrate per note, 730-day term, distributions paid in Bitcoin at maturity, Costs of 3.75 percent of invested capital, and no performance fee. The structure isolates the mining-economy return for the allocator without forcing the allocator to become a miner.</p>
 
           <h2 id="takeaways">Key takeaways for institutional readers.</h2>
           <ul>
             <li>Mining revenue is the sum of block subsidy and transaction fees, denominated in Bitcoin, monetised against a fixed and known issuance schedule.</li>
-            <li>Hashprice is the single unifying revenue metric. It collapses BTC price, network hashrate, and block reward into one USD-per-TH number.</li>
+            <li>Hashprice is the single unifying revenue metric. It collapses BTC price, network hashrate, and block reward into one US dollar figure per unit of hashrate per day.</li>
             <li>Energy is the dominant cost driver. ASIC efficiency (J per TH) is the second-largest lever. Together they explain the majority of operator survival outcomes across a cycle.</li>
             <li>The four-year halving cycle creates a predictable rhythm of pre-halving expansion, post-halving capitulation, mid-cycle recovery, and late-cycle peak. Multi-year exposure averages across this rhythm.</li>
             <li>Bitcoin mining is best understood as an extractive industry. The cost curve is the dominant organising frame. Difficulty adjustment, zero exploration cost, and hardware obsolescence cycles are the three structural differences from oil, gas, copper, and gold.</li>
-            <li>Institutional exposure can come via direct ownership, listed equity, or tokenised hashrate notes. Each carries a distinct risk profile.</li>
+            <li>Institutional exposure can come via direct ownership, listed equity, or tokenized hashrate notes. Each carries a distinct risk profile.</li>
           </ul>
           <p>For further reading on how institutional structures wrap Bitcoin mining economics, see our overview of the <a href="/omn/">Omnes Mining Note</a> and the <a href="/faqs/">FAQ</a>. For research and commentary, visit <a href="https://insights.omnes.io" target="_blank" rel="noopener">Omnes Insights<span class="vh"> (opens in a new tab)</span></a>.</p>
 
@@ -423,15 +427,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -439,42 +442,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -498,5 +498,6 @@
   mark();
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;d.classList.add(a?'omnes-agreed':'omnes-gate-pending');})();</script>
+<script>(function(){var d=document.documentElement,a=false;try{a=!!localStorage.getItem('omnes_access_agreed');}catch(e){}if(!a){try{a=!!sessionStorage.getItem('omnes_gate');}catch(e){}}if(/[?&]gate=1(&|$)/.test(location.search))a=false;if(a)d.classList.add('omnes-agreed');})();</script>
 <title>Website terms of use | Omnes</title>
 <meta name="description" content="The terms of use for the Omnes website: who owns it, who may access it, the restrictions for US, Canadian, UK and EEA persons, and the limits of the information it publishes.">
 <link rel="canonical" href="https://omnes.io/website-terms/">
@@ -20,12 +20,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@omnesfinance">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=3">
+<link rel="stylesheet" href="/assets/v2/site.css?v=4">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=2" defer></script>
+<script src="/assets/v2/site.js?v=4" defer></script>
 <style>
 /* Legal documents: the kit's long-form reading (pages.css K08), numbered. Page-only additions:
    the three legal documents in the header's foot row, numbers in the contents list, and a contents
@@ -139,6 +141,8 @@
 </script>
 </head>
 <body>
+<!-- Cloudflare email obfuscation off for this page: addresses stay readable without JavaScript -->
+<!--email_off-->
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- SHELL: nav, one floating capsule -->
@@ -207,67 +211,67 @@
         <ol id="tocList">
           <li><a href="#sec-01"><span class="n">01</span><span class="t">Overview</span></a></li>
           <li><a href="#sec-02"><span class="n">02</span><span class="t">General</span></a></li>
-          <li><a href="#sec-03"><span class="n">03</span><span class="t">Acceptance of Website Terms</span></a></li>
-          <li><a href="#sec-04"><span class="n">04</span><span class="t">Use of This Website</span></a></li>
-          <li><a href="#sec-05"><span class="n">05</span><span class="t">No Offer or Solicitation</span></a></li>
-          <li><a href="#sec-06"><span class="n">06</span><span class="t">Restrictions: US &amp; Canada Persons</span></a></li>
-          <li><a href="#sec-07"><span class="n">07</span><span class="t">Restrictions: UK Persons</span></a></li>
-          <li><a href="#sec-08"><span class="n">08</span><span class="t">Restrictions: EEA Persons</span></a></li>
-          <li><a href="#sec-09"><span class="n">09</span><span class="t">No Representation or Warranty</span></a></li>
-          <li><a href="#sec-10"><span class="n">10</span><span class="t">No Advice</span></a></li>
-          <li><a href="#sec-11"><span class="n">11</span><span class="t">No Reliance</span></a></li>
-          <li><a href="#sec-12"><span class="n">12</span><span class="t">No Liability</span></a></li>
-          <li><a href="#sec-13"><span class="n">13</span><span class="t">Investments Bear Risk</span></a></li>
-          <li><a href="#sec-14"><span class="n">14</span><span class="t">Risk Warnings</span></a></li>
-          <li><a href="#sec-15"><span class="n">15</span><span class="t">Intellectual Property and Privacy</span></a></li>
+          <li><a href="#sec-03"><span class="n">03</span><span class="t">Acceptance of website terms</span></a></li>
+          <li><a href="#sec-04"><span class="n">04</span><span class="t">Use of this website</span></a></li>
+          <li><a href="#sec-05"><span class="n">05</span><span class="t">No offer or solicitation</span></a></li>
+          <li><a href="#sec-06"><span class="n">06</span><span class="t">Restrictions: US and Canada persons</span></a></li>
+          <li><a href="#sec-07"><span class="n">07</span><span class="t">Restrictions: UK persons</span></a></li>
+          <li><a href="#sec-08"><span class="n">08</span><span class="t">Restrictions: EEA persons</span></a></li>
+          <li><a href="#sec-09"><span class="n">09</span><span class="t">No representation or warranty</span></a></li>
+          <li><a href="#sec-10"><span class="n">10</span><span class="t">No advice</span></a></li>
+          <li><a href="#sec-11"><span class="n">11</span><span class="t">No reliance</span></a></li>
+          <li><a href="#sec-12"><span class="n">12</span><span class="t">No liability</span></a></li>
+          <li><a href="#sec-13"><span class="n">13</span><span class="t">Investments bear risk</span></a></li>
+          <li><a href="#sec-14"><span class="n">14</span><span class="t">Risk warnings</span></a></li>
+          <li><a href="#sec-15"><span class="n">15</span><span class="t">Intellectual property and privacy</span></a></li>
           <li><a href="#sec-16"><span class="n">16</span><span class="t">Validity</span></a></li>
-          <li><a href="#sec-17"><span class="n">17</span><span class="t">Governing Law and Jurisdiction</span></a></li>
-          <li><a href="#sec-18"><span class="n">18</span><span class="t">How to Contact Us</span></a></li>
-          <li><a href="#sec-19"><span class="n">19</span><span class="t">Changes to Our Website Terms</span></a></li>
+          <li><a href="#sec-17"><span class="n">17</span><span class="t">Governing law and jurisdiction</span></a></li>
+          <li><a href="#sec-18"><span class="n">18</span><span class="t">How to contact us</span></a></li>
+          <li><a href="#sec-19"><span class="n">19</span><span class="t">Changes to our website terms</span></a></li>
         </ol>
       </nav>
       <div class="prose">
         <h2 id="sec-01"><span class="n">01</span>Overview</h2>
         <p>These website terms outline the terms and conditions related to your access or use of the website: www.omnes.io or the information contained in it.</p>
         <h2 id="sec-02"><span class="n">02</span>General</h2>
-        <p>The website is owned by Omnes Holdings Ltd, incorporated with limited liability in Abu Dhabi Global Market, UAE, company registration 28586, registered at DD-15-134-004–007, Level 15 WeWork Hub71, Al Khatem Tower, Abu Dhabi, UAE Global Market Square, Al Maryah Island, Abu Dhabi, United Arab Emirates.</p>
-        <p>References to “Omnes,” “we,” “us” and “our” refer to Omnes Securities S.à r.l., Luxembourg company, registration B306500, at 3, Rue Gabriel Lippmann, L-5365 Munsbach, Grand Duchy of Luxembourg. Omnes Securities is an affiliate of Omnes Holdings Ltd.</p>
-        <h2 id="sec-03"><span class="n">03</span>Acceptance of Website Terms</h2>
-        <p>By clicking ‘Accept’, accessing or using this website you are deemed to have read, understood and accepted these website terms.</p>
-        <h2 id="sec-04"><span class="n">04</span>Use of This Website</h2>
+        <p>The website is owned by Omnes Holdings Ltd, incorporated with limited liability in Abu Dhabi Global Market, UAE, company registration 28586, registered at DD-15-134-004–007, Level 15 WeWork Hub71, Al Khatem Tower, Abu Dhabi Global Market Square, Al Maryah Island, Abu Dhabi, United Arab Emirates.</p>
+        <p>References to “Omnes,” “we,” “us” and “our” refer to Omnes Securities S.à r.l., a Luxembourg company, registration B306500, at 3, Rue Gabriel Lippmann, L-5365 Munsbach, Grand Duchy of Luxembourg. Omnes Securities is an affiliate of Omnes Holdings Ltd.</p>
+        <h2 id="sec-03"><span class="n">03</span>Acceptance of website terms</h2>
+        <p>By clicking “I Agree”, accessing or using this website you are deemed to have read, understood and accepted these website terms.</p>
+        <h2 id="sec-04"><span class="n">04</span>Use of this website</h2>
         <p>Availability and dissemination of information may be restricted under applicable laws. Automated access or circumvention of access restrictions is prohibited.</p>
         <p>Information is not directed at persons in jurisdictions where dissemination would violate applicable laws or regulations.</p>
-        <p>By clicking ‘Accept’, accessing or using this website, you attest that you are a professional investor who is permitted to access this website, and the information contained on this website, in accordance with applicable laws and regulations.</p>
-        <h2 id="sec-05"><span class="n">05</span>No Offer or Solicitation</h2>
+        <p>By clicking “I Agree”, accessing or using this website, you attest that you are a professional investor who is permitted to access this website, and the information contained on this website, in accordance with applicable laws and regulations.</p>
+        <h2 id="sec-05"><span class="n">05</span>No offer or solicitation</h2>
         <p>Information is prepared for general purposes only. It does not constitute an offer to sell or buy or a solicitation regarding any securities (“Investment Product”). Any offer will only proceed via definitive Offering Documentation including private placement memorandum, subscription agreement, and related materials, which supersede website information.</p>
-        <p>Information intended solely for qualified persons satisfying relevant securities laws requirements.</p>
+        <p>The information is intended solely for persons who qualify under the relevant securities laws.</p>
         <p>Any investment in the Investment Product is speculative, involves a high degree of risk, and may result in the loss of the entire amount invested. Prospective investors must be prepared to bear the economic risk of an investment for an indefinite period of time and to withstand a total loss of their investment.</p>
-        <h2 id="sec-06"><span class="n">06</span>Restrictions: US &amp; Canada Persons</h2>
+        <h2 id="sec-06"><span class="n">06</span>Restrictions: US and Canada persons</h2>
         <p>Information does not constitute an advertisement or public offering directed to US or Canada persons/entities or their states/provinces/territories.</p>
-        <p>Neither Omnes nor Investment Products are authorized, regulated, or registered with SEC, CSA, or applicable state/provincial securities regulators.</p>
+        <p>Neither Omnes nor Investment Products are authorised, regulated, or registered with the SEC, the CSA, or applicable state/provincial securities regulators.</p>
         <p>This website and the information contained in it should not be accessed by a US or Canada natural or legal person or directly or indirectly introduced, transmitted, shared, or disseminated into the US or Canada.</p>
-        <h2 id="sec-07"><span class="n">07</span>Restrictions: UK Persons</h2>
-        <p>Information does not constitute an invitation or inducement to investment activity. Provided for informational purposes only, directed at UK investment professionals only (as defined under Financial Services and Markets Act 2000 (Financial Promotion) Order 2005), not retail investors.</p>
-        <p>Neither Omnes nor Investment Products are authorized or regulated by the UK Financial Conduct Authority (FCA).</p>
-        <h2 id="sec-08"><span class="n">08</span>Restrictions: EEA Persons</h2>
-        <p>Information does not constitute an invitation or inducement to investment activity. Provided for informational purposes directed at EEA investment professionals only, not retail clients as defined in Annex II of Directive 2014/65/EU (MiFID II).</p>
-        <h2 id="sec-09"><span class="n">09</span>No Representation or Warranty</h2>
+        <h2 id="sec-07"><span class="n">07</span>Restrictions: UK persons</h2>
+        <p>Information does not constitute an invitation or inducement to investment activity. It is provided for informational purposes only and is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005), not at retail investors.</p>
+        <p>Neither Omnes nor Investment Products are authorised or regulated by the UK Financial Conduct Authority (FCA).</p>
+        <h2 id="sec-08"><span class="n">08</span>Restrictions: EEA persons</h2>
+        <p>Information does not constitute an invitation or inducement to investment activity. It is provided for informational purposes and is directed only at EEA investment professionals, not at retail clients as defined in Annex II of Directive 2014/65/EU (MiFID II).</p>
+        <h2 id="sec-09"><span class="n">09</span>No representation or warranty</h2>
         <p>We make no representation or warranty, express or implied, as to the accuracy or completeness of the information contained on this website, and nothing contained herein should be relied upon as a promise, representation or warranty as to future performance or otherwise.</p>
-        <h2 id="sec-10"><span class="n">10</span>No Advice</h2>
+        <h2 id="sec-10"><span class="n">10</span>No advice</h2>
         <p>Information may be incomplete or subject to change without notice. Individual investment objectives, financial situations, or needs are not considered.</p>
-        <p>Prospective investors should not construe the contents of this presentation as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax, accounting or regulatory issues.</p>
+        <p>Prospective investors should not construe the contents of this website as legal, tax, investment, or accounting advice. Prospective investors are strongly advised to seek their own independent advice in relation to any investment, financial, legal, tax, accounting or regulatory issues.</p>
         <p>Accessing the website does not create a contract for information or investment advice provision.</p>
-        <h2 id="sec-11"><span class="n">11</span>No Reliance</h2>
+        <h2 id="sec-11"><span class="n">11</span>No reliance</h2>
         <p>Information may be incomplete and subject to change. Prospective investors should not rely without independent inquiries and advisor consultation regarding appropriateness, suitability, and legal/tax/accounting matters.</p>
         <p>Omnes will not be liable for any damages arising out of incomplete, inaccurate, or erroneous information.</p>
-        <h2 id="sec-12"><span class="n">12</span>No Liability</h2>
+        <h2 id="sec-12"><span class="n">12</span>No liability</h2>
         <p>Neither Omnes nor any of its affiliates, or their respective directors, officers or employees will be responsible or liable for any loss or damage including without limitation consequential or indirect damage or loss of profit, arising in any way from the use of, or inability to use, this website or any reliance placed on the information it contains.</p>
-        <p>Website is provided on an “as is” basis. Omnes takes reasonable care for accuracy but does not guarantee accuracy, availability, or uninterrupted access. Website may be suspended, modified, or discontinued without notice.</p>
-        <p>No guarantee of security or freedom from bugs/viruses. User assumes own risk.</p>
-        <p>Information and documents from other persons not controlled by Omnes. Third-party external websites may contain hyperlinks not endorsed or controlled by Omnes.</p>
-        <h2 id="sec-13"><span class="n">13</span>Investments Bear Risk</h2>
-        <p>Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an Investment Products’ objectives will be achieved or that investors will receive any return of capital.</p>
-        <h2 id="sec-14"><span class="n">14</span>Risk Warnings</h2>
+        <p>The website is provided on an “as is” basis. Omnes takes reasonable care for accuracy but does not guarantee accuracy, availability, or uninterrupted access. The website may be suspended, modified, or discontinued without notice.</p>
+        <p>We do not guarantee that the website is secure or free from bugs or viruses; you use it at your own risk.</p>
+        <p>The website may contain information and documents from other persons not controlled by Omnes, and hyperlinks to third-party websites that are not endorsed or controlled by Omnes.</p>
+        <h2 id="sec-13"><span class="n">13</span>Investments bear risk</h2>
+        <p>Investments are speculative and involve a high degree of risk. Past performance is not indicative of future results, and no assurance can be given that an Investment Product’s objectives will be achieved or that investors will receive any return of capital.</p>
+        <h2 id="sec-14"><span class="n">14</span>Risk warnings</h2>
         <ul>
           <li>Bitcoin and digital assets, and Investment Products linked to Bitcoin and digital assets, are highly volatile.</li>
           <li>Investors may lose their investment in whole or in part.</li>
@@ -275,16 +279,16 @@
           <li>Investment in Bitcoin and digital assets, and Investment Products linked to Bitcoin and digital assets, are only suitable for professional investors and you should seek independent, qualified, and professional advice prior to investing.</li>
           <li>All investors should read the relevant Offering Documentation before investing and, in particular, the section relating to ‘Risk Factors’ for further details of risks associated with an investment in an Investment Product.</li>
         </ul>
-        <h2 id="sec-15"><span class="n">15</span>Intellectual Property and Privacy</h2>
+        <h2 id="sec-15"><span class="n">15</span>Intellectual property and privacy</h2>
         <p>All contents, logos, brand names, trademarks, and website design are owned by Omnes or licensors, protected by copyright and trademark law. Copying requires prior written consent.</p>
         <p>Omnes respects user privacy. See <a href="/cookies-policy/">Cookies Policy</a> and <a href="/global-privacy-notice/">Global Privacy Notice</a> for personal information handling details.</p>
         <h2 id="sec-16"><span class="n">16</span>Validity</h2>
-        <p>If any provision of these website terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties’ intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
-        <h2 id="sec-17"><span class="n">17</span>Governing Law and Jurisdiction</h2>
+        <p>If any provision of these website terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties’ intentions as reflected in the provision and the other provisions of these terms shall remain in full force and effect.</p>
+        <h2 id="sec-17"><span class="n">17</span>Governing law and jurisdiction</h2>
         <p>These website terms will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these website terms, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
-        <h2 id="sec-18"><span class="n">18</span>How to Contact Us</h2>
+        <h2 id="sec-18"><span class="n">18</span>How to contact us</h2>
         <p>Contact us via email at <a href="mailto:legal@omnes.io">legal@omnes.io</a>.</p>
-        <h2 id="sec-19"><span class="n">19</span>Changes to Our Website Terms</h2>
+        <h2 id="sec-19"><span class="n">19</span>Changes to our website terms</h2>
         <p>Any changes we make to our website terms in the future will be posted on this page. Please check back frequently to see any updates or changes to our website terms.</p>
       </div>
     </div>
@@ -316,15 +320,14 @@
   <div class="gate-body">
     <div class="gate-head">
       <img src="/omnes-logo-black.svg" alt="Omnes">
-      <h2 id="gateTitle">Welcome to the Omnes Website.</h2>
+      <h2 id="gateTitle">Welcome to the Omnes website.</h2>
     </div>
-    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of Access">
-      <p class="gate-intro" id="gateIntro">This website <a href="https://www.omnes.io">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. ("<strong>Omnes</strong>") solely for information purposes. Structured products are offered by way of private placement only to non-US investors who qualify as professional investors under MiFID II.</p>
-      <p class="gate-hint">Please scroll through and read all terms carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
+    <div class="gate-scroll" id="gateScroll" tabindex="0" role="region" aria-label="Terms of access">
+      <p class="gate-intro" id="gateIntro">This website <a href="https://omnes.io/">www.omnes.io</a> and the information contained on it are provided by Omnes Securities S.&agrave; r.l. (&ldquo;<strong>Omnes</strong>&rdquo;) solely for information purposes. Structured products are available by way of private placement only to non-US investors who qualify as professional clients under MiFID II or as professional investors under the equivalent rules applicable to them.</p>
+      <p class="gate-hint">By proceeding you must accept the terms of access below. Please scroll through all the content of these terms of access and read it carefully before agreeing. If you do not agree, you must immediately leave this website.</p>
       <div class="gate-terms">
-        <h3>Terms of Access</h3>
         <h4>1. Acceptance of terms</h4>
-        <p>By clicking "I Agree" below, you confirm that you have read, understood, and agree to be bound by:</p>
+        <p>By clicking &ldquo;I Agree&rdquo; below, you confirm that you have read, understood, and agree to be bound by:</p>
         <ul>
           <li>the <a href="/website-terms/" target="_blank" rel="noopener">Website Terms</a></li>
           <li>the <a href="/global-privacy-notice/" target="_blank" rel="noopener">Global Privacy Notice</a></li>
@@ -332,42 +335,39 @@
         </ul>
         <p>You further attest that you are a professional investor who is permitted to access this website and the information contained on it in accordance with applicable laws and regulations.</p>
         <h4>2. Geographical / jurisdiction restrictions</h4>
-        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions.</p>
-        <p>The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction.</p>
-        <p>In particular:</p>
+        <p>The availability and dissemination of information on this website may be subject to restrictions under applicable laws or regulations in certain jurisdictions. The information on this website is not, and under no circumstances should be construed as being directed at, or intended for dissemination to, or use by any natural or legal person in any jurisdiction (whether such jurisdiction is determined by virtue of physical, virtual or registered office, domicile, nationality, or residence), where the dissemination or use of such information would be violating restrictions under applicable laws or regulations in such jurisdiction. In particular:</p>
         <ul>
           <li><strong>United States and Canada:</strong> This website and the information contained in it should not be accessed by any US or Canadian natural or legal person (or anyone located in, resident in, or organised under the laws of the US or Canada). The information is not, and must not be construed as, an advertisement or public offering in the US or Canada.</li>
-          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors.</li>
-          <li><strong>European Economic Area ("EEA"):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
+          <li><strong>United Kingdom:</strong> The information is directed only at UK investment professionals (as defined under the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended). It is not intended for retail investors. Persons who do not have professional experience in matters relating to investments should not rely on it.</li>
+          <li><strong>European Economic Area (&ldquo;EEA&rdquo;):</strong> The information is directed only at EEA investment professionals and is not intended for retail clients (as defined in MiFID II).</li>
         </ul>
-        <p>Persons in any of the above jurisdictions (or any other jurisdiction where access would be unlawful) must not access this website.</p>
+        <p>Persons in the United States or Canada, persons in the United Kingdom or the EEA who are not investment professionals as described above, and persons in any other jurisdiction where access would be unlawful, must not access this website.</p>
         <h4>3. Access at your initiative</h4>
-        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally.</p>
-        <p>Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
+        <p>By proceeding and accessing this website, you confirm that your access is not the result of or subsequent to any advertisement, article, notice or other communication published in any newspaper, magazine or similar media or broadcast over television or radio, or presented at any seminar or meeting accessible to the public, or any solicitation by a person not previously known to you in connection with investments generally. Furthermore, by proceeding you hereby confirm the following representations and warranties are accurate and correct:</p>
         <ol>
-          <li>I am a professional investor (as defined under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
-          <li>I have approached Omnes on my own exclusive initiative and this access does not come about as a result of any direct or indirect contact, solicitation, intervention, marketing, pre-marketing, arranging, advice, offering or placement efforts, nor as a result of any form of general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
-          <li>To the extent I have already received any information, documentation or communication concerning Omnes (including the link to this website), it was sent to me at and after my own request and otherwise only upon my own initiative.</li>
+          <li>I am a professional investor (being a professional client under MiFID II or the equivalent definition under the applicable law in my country of residence/registration) and I am eligible, in accordance with the applicable law, to request and receive this information.</li>
+          <li>I have not accessed this website as a result of any general solicitation or advertising by or on behalf of Omnes or its affiliates.</li>
           <li>Any decision to access this website or to consider any investment will be based solely on my own due diligence and review of materials received at my request.</li>
           <li>If any of the above representations becomes untrue or inaccurate, I will promptly inform Omnes in writing.</li>
         </ol>
         <h4>4. Validity</h4>
-        <p>If any provision of these terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavour to give effect to the parties' intentions as reflected in the provision and the other provisions of the website shall remain in full force and effect.</p>
+        <p>If any provision of these terms of access is found by a court of competent jurisdiction to be invalid, the court should endeavour to give effect to the intention reflected in that provision, and the other provisions of these terms of access shall remain in full force and effect.</p>
         <h4>5. Governing law and jurisdiction</h4>
         <p>These terms of access will be governed by, construed, interpreted and applied in accordance with the laws of the Grand Duchy of Luxembourg, without regard to its conflict of laws principles. Any dispute, claim or difference arising out of or in connection with these terms of access, your access to and use of this website, or the subject matter or formation of either (including any non-contractual dispute, claim or difference) will be referred to and finally resolved by the courts of Luxembourg City, Grand Duchy of Luxembourg.</p>
         <div class="gate-notice">
-          <p>By clicking "I Agree" you acknowledge that:</p>
+          <p>By clicking &ldquo;I Agree&rdquo; you acknowledge that:</p>
           <ul>
-            <li>This website and all information on it are provided on an "as is" basis with no representations or warranties.</li>
-            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment into an Investment Product will only be made on the basis of definitive offering documentation.</li>
+            <li>This website and all information on it are provided on an &ldquo;as is&rdquo; basis with no representations or warranties.</li>
+            <li>Nothing on this website constitutes an offer, solicitation or invitation to invest. Any investment in any structured product will only be made on the basis of definitive offering documentation.</li>
             <li>You access the website entirely at your own risk and initiative.</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="gate-actions">
+      <p class="gate-lock" id="gateLock" aria-live="polite">Scroll to the end of the terms to agree.</p>
       <button class="btn btn-light" type="button" id="gateLeave">Leave</button>
-      <button class="btn btn-dark" type="button" id="btnAgree" disabled>I Agree</button>
+      <button class="btn btn-dark" type="button" id="btnAgree" disabled aria-describedby="gateLock">I Agree</button>
     </div>
   </div>
 </dialog>
@@ -406,5 +406,6 @@
   links.forEach(function (a) { a.addEventListener("click", function () { if (small.matches) set(false); }); });
 })();
 </script>
+<!--/email_off-->
 </body>
 </html>

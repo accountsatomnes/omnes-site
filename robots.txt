@@ -1,9 +1,7 @@
 # omnes.io robots.txt
-# Allow indexing of all public pages; block auth stubs.
+# Everything may be crawled; /login/ and /signup/ stay out of search through their noindex meta tag.
 
 User-agent: *
 Allow: /
-Disallow: /login/
-Disallow: /signup/
 
 Sitemap: https://omnes.io/sitemap.xml
