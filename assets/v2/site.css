@@ -166,7 +166,6 @@ ul, ol { list-style: none; }
 .menu > a:hover + a, .menu > a + a:hover { box-shadow: none; }
 .menu .menu-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 6px 2px; }
 .menu .menu-actions a { height: 48px; padding: 0; }
-@media (max-width: 1099px) { .nav-links .opt { display: none; } }
 @media (max-width: 899px) { .nav-links, .nav-end { display: none; } .nav-logo { border-right: 0; } .menu-btn { display: inline-grid; } .nav-bar { padding: 0 7px 0 20px; } }
 @media (max-width: 599px) { .nav { top: 10px; } .menu { top: calc(10px + var(--nav-h) + 8px); } .nav-bar { padding-left: 18px; } }
 
@@ -742,7 +741,7 @@ ul, ol { list-style: none; }
 .closing-in { position: relative; z-index: 1; padding: clamp(56px, 7vw, 96px) clamp(24px, 6vw, 88px) 0; max-width: 780px; }
 .closing .body { margin-top: 20px; max-width: 560px; color: #3d5266; }
 .closing .btn-row { margin-top: 36px; }
-.closing .fine { margin-top: 24px; max-width: 640px; color: #3d5266; }
+.closing .fine { margin-top: 24px; max-width: 640px; color: #3d5266; text-wrap: pretty; }
 .closing-field { position: relative; height: 220px; margin-top: 24px; color: var(--tint-ink); }
 .closing-field canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 @media (max-width: 599px) { .closing-field { height: 150px; margin-top: 12px; } .closing .btn-row .btn { flex: 1 1 auto; } }
@@ -769,7 +768,7 @@ ul, ol { list-style: none; }
 .foot-legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .12); display: grid; gap: 12px; font-size: 12.5px; line-height: 1.6; color: rgba(255, 255, 255, .64); }
 .foot-legal p { max-width: 980px; }
 @media (max-width: 899px) { .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-lead { grid-column: 1 / -1; } }
-@media (max-width: 599px) { .foot-in { padding: 48px 0 32px; } .foot-legal { margin-top: 40px; } }
+@media (max-width: 599px) { .foot-in { padding: 48px 0 32px; } .foot-cols { column-gap: 16px; } .foot-legal { margin-top: 40px; } }
 
 /* 20 Gate ───────────────────────────────────────────────────────────── */
 /* The Terms of Access, word for word from the live site: a fixed head (logo, title), one

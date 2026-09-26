@@ -25,10 +25,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=4">
+<link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <script src="/assets/v2/site.js?v=4" defer></script>
 <style>
+/* the comparison table scrolls sideways: fade its right edge until the reader reaches the end */
+.cmp-wrap { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 64px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 64px), transparent); }
+.cmp-wrap.is-end { -webkit-mask-image: none; mask-image: none; }
 /* Resource articles: one template for every long-form resource (the page header band with
    breadcrumbs and reading time, contents beside the text, related resources, the closing
    panel). Only what the kit (pages.css K08) does not already provide lives here. */
@@ -146,7 +149,7 @@
       "name": "How are distributions paid?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For the Omnes Mining Note, the Bitcoin mined with each note's notional hashrate, or paid in its place, accrues over the 730-day term and is distributed to noteholders at maturity in Bitcoin, after Costs and any tax liabilities. Costs are 3.75% of invested capital, and there is no performance fee."
+        "text": "For the Omnes Mining Note, the Bitcoin mined with each note's notional hashrate, or paid in its place, accrues over the 730-day term and is distributed to noteholders at maturity in Bitcoin, after costs and any tax liabilities. The total expense ratio is 3%, included in the price of the note, with no performance fee."
       }
     }
   ]
@@ -295,7 +298,7 @@
 
           <h2 id="omn-as-answer">Why a tokenized hashrate-backed security is a structural answer</h2>
           <p>The institutional case for tokenized hashrate-backed securities is not a hype case. It is a structural case. Each of the four traditional paths to Bitcoin mining exposure carries a specific friction that limits institutional adoption. Direct ownership demands operational capability that allocators do not want to build. Listed equity introduces non-hashrate factors that obscure the underlying exposure. ETFs capture a different asset entirely. Derivatives require infrastructure that most committees cannot stand up. A securitisation wrapper sitting on a regulated custodian, with onchain settlement under an established compliance standard, removes each of those frictions in turn.</p>
-          <p>The Omnes Mining Note is a worked example of this design. Each note carries a notional one petahash per second (1 PH/s) of hashrate for a 730-day term. The hashrate is supplied by the Hashrate Aggregator, an Omnes affiliate, which may source it from multiple miners and pools and may pay Bitcoin in place of hashrate it does not deliver. The Bitcoin mined, or paid in its place, accrues in custody and is distributed to noteholders at maturity in Bitcoin. Costs are 3.75% of invested capital, and Costs and any tax liabilities rank ahead of noteholders. There is no performance fee.</p>
+          <p>The Omnes Mining Note is a worked example of this design. Each note carries a notional one petahash per second (1 PH/s) of hashrate for a 730-day term. The hashrate is supplied by the Hashrate Aggregator, an Omnes affiliate, which may source it from multiple miners and pools and may pay Bitcoin in place of hashrate it does not deliver. The Bitcoin mined, or paid in its place, accrues in custody and is distributed to noteholders at maturity in Bitcoin. The total expense ratio is 3%, included in the price of the note, with no performance fee. Costs and any tax liabilities rank ahead of noteholders.</p>
           <p>The book-entry register sits in Luxembourg. The onchain mirror is issued under the ERC-3643 compliant token standard via Tokeny S.à r.l., on the Base network, with transferability restricted to whitelisted professional investors. The Bitcoin custodian is Zodia Custody (Europe) S.A. The auditor is PricewaterhouseCoopers Assurance, Soci&eacute;t&eacute; coop&eacute;rative (PwC Luxembourg). Legal counsel is Arendt &amp; Medernach S.A. The corporate service provider is Apex Fund Services S.A. The security agent is Apex Corporate Trustees (UK) Limited. Subscriptions are accepted in USD, USDC, USDT, and BTC. Tranche 1 of Series 1 is US$50,000,000.</p>
           <p>Stitched together, the structure produces what allocators have been asking for: direct economic exposure to Bitcoin mining cash flows, expressed as a Luxembourg-law debt note, held by a regulated custodian, mirrored onchain for settlement and verification, and eligible for professional investors only. It is not the only way to access hashrate, but it is one that meets the criteria institutional committees apply.</p>
 
@@ -338,7 +341,7 @@
             </details>
             <details>
               <summary>How are distributions paid?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
-              <div class="a"><p>For the Omnes Mining Note, the Bitcoin mined with each note's notional hashrate, or paid in its place, accrues over the 730-day term and is distributed to noteholders at maturity in Bitcoin, after Costs and any tax liabilities. Costs are 3.75% of invested capital, and there is no performance fee.</p></div>
+              <div class="a"><p>For the Omnes Mining Note, the Bitcoin mined with each note's notional hashrate, or paid in its place, accrues over the 730-day term and is distributed to noteholders at maturity in Bitcoin, after costs and any tax liabilities. The total expense ratio is 3%, included in the price of the note, with no performance fee.</p></div>
             </details>
           </div>
           <p class="risk">This page is provided for information purposes only and does not constitute investment, legal, tax, or accounting advice or an offer or solicitation to subscribe for any security. Any investment in the Omnes Mining Note will be made solely on the basis of the private placement memorandum and related offering documentation, and is restricted to eligible professional investors. See the <a href="/website-terms/">Website Terms</a> for the full disclaimer.</p>
@@ -426,7 +429,7 @@
         <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
         <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice&nbsp;Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
       <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
       <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
       <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
@@ -499,6 +502,13 @@
 <script>
 (function () {
   "use strict";
+  var cmp = document.querySelector(".cmp-wrap");
+  if (cmp) {
+    var atEnd = function () { cmp.classList.toggle("is-end", cmp.scrollLeft + cmp.clientWidth >= cmp.scrollWidth - 2); };
+    cmp.addEventListener("scroll", atEnd, { passive: true });
+    window.addEventListener("resize", atEnd);
+    atEnd();
+  }
   var toc = document.querySelector(".toc");
   if (!toc) return;
   var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]')), heads = [];

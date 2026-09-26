@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://mempool.space" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=4">
+<link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <script src="/assets/v2/site.js?v=4" defer></script>
 <script src="/assets/v2/hashprice.js?v=3" defer></script>
@@ -71,7 +71,7 @@
 .hx-in .fig dd small { display: inline; margin-left: 6px; font-size: 14px; letter-spacing: 0; color: var(--muted); }
 .hx-in .fig dd .sk { width: 3.4em; height: .56em; }
 .hx-in .fig dd > [data-na] { font-size: 17px; letter-spacing: 0; color: var(--muted); }
-.hx-in .fig dd > .hx-sub { display: block; margin-top: 8px; max-width: 240px; font-size: 13.5px; line-height: 1.45; letter-spacing: 0; white-space: normal; font-variant-numeric: tabular-nums; color: var(--muted); }
+.hx-in .fig dd > .hx-sub { display: block; margin-top: 8px; max-width: 240px; font-size: 13.5px; line-height: 1.45; letter-spacing: 0; white-space: normal; color: var(--muted); }
 .hx-in .fig dd > .hx-sub .num { white-space: nowrap; }
 .hx-work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 8px; align-items: baseline; margin-top: 8px; padding: 22px 0 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .hx-work-k { grid-column: 1 / span 3; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
@@ -92,7 +92,7 @@
 .hx-read-v { font-size: clamp(24px, 2.1vw, 30px); line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
 .hx-read-u { font-size: 14.5px; color: var(--muted); }
 .hx-read-o { font-size: 15px; color: var(--ink); }
-.hx-read-a { font-size: 14.5px; color: var(--muted); }
+.hx-read-a { font-size: 14.5px; color: var(--muted); font-variant-numeric: normal; }
 .hx-plot { position: relative; height: clamp(320px, 33vw, 470px); margin-top: 18px; touch-action: pan-y; cursor: crosshair; border-radius: 4px; -webkit-user-select: none; user-select: none; }
 .hx-plot:focus-visible { outline-offset: 8px; border-radius: 10px; }
 .hx-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -114,7 +114,7 @@
 .is-wait .hx-read, .is-down .hx-read { visibility: hidden; }
 .hx-cap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; margin-top: 16px; font-size: 13.5px; line-height: 1.5; color: var(--muted); font-variant-numeric: tabular-nums; }
 .hx-cap .src { color: var(--ink); }
-.hx-cap .key { display: inline-flex; align-items: center; gap: 8px; }
+.hx-cap .key { display: inline-flex; align-items: center; gap: 8px; font-variant-numeric: normal; }
 .hx-cap .key i { display: block; width: 16px; height: 2px; border-radius: 2px; }
 .hx-cap .k-day { background: #5b8af0; }
 .hx-cap .k-avg { height: 3px; background: var(--tint-ink); }

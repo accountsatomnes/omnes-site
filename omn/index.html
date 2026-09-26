@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://mempool.space" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=4">
+<link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <script src="/assets/v2/site.js?v=4" defer></script>
 <style>
@@ -45,6 +45,7 @@
 .jump ul { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 22px; }
 .jump a { color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: color .18s ease, text-decoration-color .18s ease; }
 .jump a:hover { color: var(--tint-ink); text-decoration-color: currentColor; }
+@media (max-width: 599px) { .ph-foot .jump { flex-basis: 100%; } .jump ul { justify-content: space-between; column-gap: 12px; } }
 
 /* 2 */
 /* the statement scales down on the smallest phones so "One petahash per second," stays on one
@@ -52,6 +53,14 @@
 @container (max-width: 380px) { .eqn { font-size: clamp(22px, 8.8cqi, 32px); } }
 .spec-intro .body { max-width: 480px; }
 .spec-intro .arrow-link { flex: none; white-space: nowrap; }
+/* the total expense ratio's note is a phrase, not a unit: it sits on its own line under the
+   figure and wraps, instead of running into the next column (site.css keeps figures nowrap) */
+.spec-list .fig-note dd { white-space: normal; }
+.spec-list .fig-note dd small { display: block; margin: 6px 0 0; line-height: 1.45; }
+@media (max-width: 599px) {
+  .spec-list .fig-note dt { flex: none; }
+  .spec-list .fig-note dd { text-align: right; }
+}
 
 /* 3 */
 /* on phones a party in the structure diagram fits its name to the column, wrapping if it must
@@ -173,7 +182,7 @@
   "name": "Omnes Mining Note",
   "alternateName": "OMN Series 1",
   "url": "https://omnes.io/omn/",
-  "description": "The Omnes Mining Note (OMN) is a tokenized, secured, limited recourse debt note. Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term, with the Bitcoin mined with the notes' hashrate, or paid in its place, distributed to noteholders in Bitcoin at maturity. Tranche 1 of OMN Series 1 is US$50,000,000, with first issue expected on 1 November 2026. The minimum investment is US$100,000. Costs are 3.75% of invested capital, Costs and any tax liabilities rank ahead of noteholders, and there is no performance fee. Issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund, not supervised by the CSSF, with segregated compartments under the Luxembourg Securitisation Law of 22 March 2004, as amended.",
+  "description": "The Omnes Mining Note (OMN) is a tokenized, secured, limited recourse debt note. Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term, with the Bitcoin mined with the notes' hashrate, or paid in its place, distributed to noteholders in Bitcoin at maturity. Tranche 1 of OMN Series 1 is US$50,000,000, with first issue expected on 1 November 2026. The minimum investment is US$100,000. The total expense ratio is 3%, included in the price of the note, with no performance fee. Costs and any tax liabilities rank ahead of noteholders. Issued by Omnes Securities Fund, a Luxembourg unregulated securitisation fund, not supervised by the CSSF, with segregated compartments under the Luxembourg Securitisation Law of 22 March 2004, as amended.",
   "category": "Tokenized debt note security; Bitcoin hashrate-backed structured product",
   "provider": {
     "@type": "Organization",
@@ -197,7 +206,7 @@
     "@type": "PeopleAudience",
     "audienceType": "Professional investors (MiFID II Annex II); non-US, non-Canadian, non-restricted persons; minimum investment US$100,000"
   },
-  "feesAndCommissionsSpecification": "Costs of 3.75% of invested capital, as set in the Offering Addendum, which the issuer uses to pay all fees, costs and expenses it owes in connection with the notes, including mining fees. Tax liabilities are not included in Costs. Costs and any tax liabilities rank ahead of noteholders. No performance fee. Minimum investment US$100,000.",
+  "feesAndCommissionsSpecification": "Total expense ratio: 3%, included in the price of the note. It covers the fees, costs and expenses the issuer owes in connection with the notes, including mining fees. Tax liabilities are not included in the total expense ratio and are paid separately. Costs and any tax liabilities rank ahead of noteholders. No performance fee. Minimum investment US$100,000.",
   "termsOfService": "https://omnes.io/website-terms/"
 }
 </script>
@@ -305,7 +314,7 @@
         <h2 class="eqn" id="noteTitle">
           <span class="eqn-c"><span class="eqn-w">One petahash per second,</span><span class="eqn-l" aria-hidden="true">1 PH/s of hashrate per note, notional</span></span>
           <span class="eqn-c"><span class="eqn-w">for 730 days,</span><span class="eqn-l" aria-hidden="true">From commencement to maturity</span></span>
-          <span class="eqn-c"><span class="eqn-w">paid in Bitcoin.</span><span class="eqn-l" aria-hidden="true">At maturity, after Costs and tax</span></span>
+          <span class="eqn-c"><span class="eqn-w">paid in Bitcoin.</span><span class="eqn-l" aria-hidden="true">At maturity, after costs and tax</span></span>
         </h2>
       </div>
 
@@ -335,7 +344,7 @@
         </div>
         <dl class="spec-list">
           <div class="fig"><dt>Minimum investment</dt><dd>US$100,000</dd></div>
-          <div class="fig"><dt>Costs</dt><dd>3.75%<small>of invested capital</small></dd></div>
+          <div class="fig fig-note"><dt>Total expense ratio</dt><dd>3%<small>included in the price of the note</small></dd></div>
           <div class="fig"><dt>Performance fee</dt><dd>None</dd></div>
           <div><dt>Tenor</dt><dd>24 months</dd></div>
           <div><dt>Eligible investors</dt><dd>Professional investors (MiFID II), non-US, non-Canadian and non-restricted persons</dd></div>
@@ -402,7 +411,7 @@
           <span class="sx-lbl flow" aria-hidden="true" style="--x:83.333%;--y:212px">Paid in Bitcoin at maturity</span>
           <div class="sx-n main" data-node="inv" data-t="bl" data-lvl="0" style="--x:100%;--y:212px">
             <button class="sx-b" type="button" aria-describedby="sxd-inv"><span class="sx-dot" aria-hidden="true"></span><span class="sx-name">Investors</span><span class="sx-role">Noteholders</span></button>
-            <p class="sx-desc" id="sxd-inv">Professional investors subscribe for the notes and are paid in Bitcoin at maturity, after Costs and tax.</p>
+            <p class="sx-desc" id="sxd-inv">Professional investors subscribe for the notes and are paid in Bitcoin at maturity, after costs and tax.</p>
           </div>
           <span class="sx-lbl side v" aria-hidden="true" style="--x:33.333%;--y:128px">Manages the issuer</span>
           <span class="sx-lbl side v" aria-hidden="true" style="--x:33.333%;--y:334px">Keeps the register</span>
@@ -469,7 +478,7 @@
             </li>
             <li class="guard">
               <span class="mt" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="3.2" rx="1.6" fill="#174f7b" stroke="none" opacity=".28"/><rect x="4.5" y="10.4" width="10.5" height="3.2" rx="1.6" fill="#174f7b" stroke="none" opacity=".5"/><rect x="4.5" y="15.8" width="6" height="3.2" rx="1.6" fill="#2f6bff" stroke="none"/></svg></span>
-              <div><h3>Limited recourse and ranking</h3><p>Recourse is limited to the assets of the relevant compartment, and Costs and any tax liabilities rank ahead of noteholders.</p></div>
+              <div><h3>Limited recourse and ranking</h3><p>Recourse is limited to the assets of the relevant compartment, and costs and any tax liabilities rank ahead of noteholders.</p></div>
             </li>
           </ul>
         </div>
@@ -477,18 +486,18 @@
     </div>
   </section>
 
-  <!-- Fees and expenses: what Costs pay for and how they rank, as open rows -->
+  <!-- Fees and expenses: what the total expense ratio pays for and how costs rank, as open rows -->
   <section class="sec sec-top-0" id="fees" aria-labelledby="feesTitle">
     <div class="wrap split reveal">
       <div class="split-side">
         <h2 class="sh-title" id="feesTitle">Fees and expenses.</h2>
-        <p class="body">Costs set in the Offering Addendum, and no performance fee.</p>
+        <p class="body">A total expense ratio of 3%, included in the price of the note, and no performance fee.</p>
       </div>
       <dl class="specs split-main fees-list">
-        <div><dt>Costs</dt><dd>3.75% of invested capital<small>Set in the Offering Addendum and taken from the invested capital. The issuer uses Costs to pay all fees, costs and expenses it owes in connection with the notes.</small></dd></div>
+        <div><dt>Total expense ratio</dt><dd>3%, included in the price of the note<small>It covers the fees, costs and expenses the issuer owes in connection with the notes, including mining fees.</small></dd></div>
         <div><dt>Performance fee</dt><dd>None<small>No performance fee is charged on the Bitcoin distributed at maturity.</small></dd></div>
-        <div><dt>Mining fees</dt><dd>Reimbursed out of the Costs<small>Fees charged for mining with the notes&rsquo; hashrate are reimbursed by the issuer into the Bitcoin custody account, from a reserve funded out of the Costs.</small></dd></div>
-        <div><dt>Tax liabilities</dt><dd>Not included in Costs, and paid separately</dd></div>
+        <div><dt>Mining fees</dt><dd>Reimbursed out of the total expense ratio<small>Fees charged for mining with the notes&rsquo; hashrate are reimbursed by the issuer into the Bitcoin custody account, from a reserve funded out of the total expense ratio.</small></dd></div>
+        <div><dt>Tax liabilities</dt><dd>Not included in the total expense ratio, and paid separately</dd></div>
         <div><dt>Ranking</dt><dd>Costs and any tax liabilities rank ahead of noteholders in the priorities of payments</dd></div>
       </dl>
     </div>
@@ -617,7 +626,7 @@
         </details>
         <details>
           <summary>How does OMN generate returns for investors?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
-          <div class="a"><p>Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term. During this period, the Bitcoin mined with that hashrate, together with any Bitcoin paid in place of undelivered hashrate, is held in custody for the issuer's compartment. At maturity, noteholders receive their pro rata share of that Bitcoin, after Costs and any tax liabilities, which rank ahead of noteholders. Costs are 3.75% of invested capital, as set in the Offering Addendum, and there is no performance fee. Returns are not guaranteed, and investors can lose some or all of their investment.</p></div>
+          <div class="a"><p>Each OMN carries a notional allocation of one petahash per second (1 PH/s) of Bitcoin hashrate over a 730-day term. During this period, the Bitcoin mined with that hashrate, together with any Bitcoin paid in place of undelivered hashrate, is held in custody for the issuer's compartment. At maturity, noteholders receive their pro rata share of that Bitcoin, after costs and any tax liabilities, which rank ahead of noteholders. The total expense ratio is 3%, included in the price of the note, with no performance fee. Returns are not guaranteed, and investors can lose some or all of their investment.</p></div>
         </details>
         <details>
           <summary>How is the OMN issued?<svg viewBox="0 0 24 24" aria-hidden="true"><path class="pv" d="M12 5.5v13"/><path d="M5.5 12h13"/></svg></summary>
@@ -640,9 +649,9 @@
     <div class="wrap split disc reveal">
       <div class="split-side"><h2 class="sh-sub" id="discTitle">Disclaimer</h2></div>
       <div class="split-main disc-body">
-        <p>The information on this page is provided for general informational purposes only and is qualified in its entirety by the <a href="/website-terms/">Website Terms.</a> It does not constitute investment, financial, legal, tax, or other advice, nor an offer to sell or a solicitation of an offer to buy any securities.</p>
+        <p>The information on this page is provided for general informational purposes only and is qualified in its entirety by the <a href="/website-terms/">Website Terms</a>. It does not constitute investment, financial, legal, tax, or other advice, nor an offer to sell or a solicitation of an offer to buy any securities.</p>
         <p>Prospective investors should not rely on any content presented on this page for making investment decisions, as it may be incomplete, condensed, subject to change, or not tailored to individual circumstances. Instead, any investment consideration must be based solely on a thorough review of the <a href="/website-terms/">Website Terms</a> and the 'Offering Documentation' of the 'Investment Product' (in each case, as defined in the Website Terms), which supersede all information on this website.</p>
-        <p>No investment should be made without first obtaining and carefully reviewing these documents, along with independent advice from qualified professional advisors. For access to the Investment Product Offering Documentation, please create or log in to your account on the Omnes platform or <a href="/contact/">contact us directly.</a></p>
+        <p>No investment should be made without first obtaining and carefully reviewing these documents, along with independent advice from qualified professional advisors. For access to the Investment Product Offering Documentation, please create or log in to your account on the Omnes platform or <a href="/contact/">contact us directly</a>.</p>
       </div>
     </div>
   </section>
@@ -726,7 +735,7 @@
         <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
         <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice&nbsp;Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
       <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
       <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
       <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>

@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=4">
+<link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <style>
 /* Media kit: page-only styles. Everything else comes from site.css and pages.css.
@@ -50,6 +50,7 @@
 /* Logos */
 .logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 48px; }
 .logo { min-width: 0; }
+.logos { grid-template-columns: repeat(6, minmax(0, 1fr)); } .logos > .logo { grid-column: span 2; } .logos > .logo:nth-child(n+4) { grid-column: span 3; } .logos > .logo:nth-child(n+4) .logo-stage { aspect-ratio: 2 / 1; }
 .logo-stage { display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: var(--r-card); overflow: hidden; }
 .logo-stage > img { width: auto; height: clamp(30px, 2.9vw, 40px); }
 .stage-light { background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
@@ -128,6 +129,7 @@
 
 @media (max-width: 1099px) {
   .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .logos > .logo, .logos > .logo:nth-child(n+4) { grid-column: auto; } .logos > .logo:nth-child(n+4) .logo-stage { aspect-ratio: 4 / 3; } .logos > .logo:nth-child(3) { grid-column: 1 / -1; order: 1; } .logos > .logo:nth-child(3) .logo-stage { aspect-ratio: 2 / 1; }
   .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .faces { grid-template-columns: minmax(0, 1fr); }
   .face { padding-right: 0; padding-bottom: 36px; }
@@ -141,6 +143,7 @@
   .mk-jump { width: 100%; }
   .mk-jump .ph-meta > * + *::before { margin: 0 10px; }
   .logos { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .logos > .logo:nth-child(3) { grid-column: auto; } .logos > .logo .logo-stage, .logos > .logo:nth-child(n+4) .logo-stage, .logos > .logo:nth-child(3) .logo-stage { aspect-ratio: 16 / 10; }
   .logo-stage { aspect-ratio: 16 / 10; }
   .cs { --x: 32px; }
   .swatches { column-gap: 16px; row-gap: 28px; }
@@ -266,7 +269,7 @@
 
   <!-- Logos: each on the surface it is made for, with SVG and PNG downloads, the clearspace rule,
        the logomark on its own, and every file in one ZIP. The files live in /media-kit/files/:
-       tight-cropped SVGs and transparent PNGs (logo 1600 x 348, logomark 1024 x 1024). The site's
+       tight-cropped SVGs and transparent PNGs (logo 1776 x 524, logomark 1024 x 1024). The site's
        own header and footer keep using /omnes-logo-black.svg and /omnes-logo-white.svg. -->
   <section class="sec" id="logos" aria-labelledby="logosTitle">
     <div class="wrap">
@@ -274,7 +277,7 @@
         <h2 class="sh-title" id="logosTitle">Logo assets.</h2>
         <div class="sh-side">
           <p class="body">SVG for print and the web, PNG for documents and social media, all on transparent backgrounds. Keep a clear zone equal to the height of the logomark on all sides.</p>
-          <p class="logo-all-row"><a class="logo-dl logo-all" href="/media-kit/files/omnes-logo-pack.zip" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>Download all files<span class="logo-all-meta">ZIP, 105 KB</span></a></p>
+          <p class="logo-all-row"><a class="logo-dl logo-all" href="/media-kit/files/omnes-logo-pack.zip" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>Download all files<span class="logo-all-meta">ZIP, 113 KB</span></a></p>
         </div>
       </div>
       <ul class="logos reveal">
@@ -287,7 +290,7 @@
             </div>
             <div class="logo-dls">
               <a class="logo-dl" href="/media-kit/files/omnes-logo-black.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, black logo</span></a>
-              <a class="logo-dl" href="/media-kit/files/omnes-logo-black.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, black logo, 1600 by 348 pixels</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-black.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, black logo, 1776 by 524 pixels</span></a>
             </div>
           </div>
         </li>
@@ -300,7 +303,7 @@
             </div>
             <div class="logo-dls">
               <a class="logo-dl" href="/media-kit/files/omnes-logo-white.svg" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>SVG<span class="vh">, white logo</span></a>
-              <a class="logo-dl" href="/media-kit/files/omnes-logo-white.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, white logo, 1600 by 348 pixels</span></a>
+              <a class="logo-dl" href="/media-kit/files/omnes-logo-white.png" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5v11M7.2 11l4.8 4.8 4.8-4.8M5 19.5h14"/></svg>PNG<span class="vh">, white logo, 1776 by 524 pixels</span></a>
             </div>
           </div>
         </li>
@@ -439,7 +442,7 @@
         <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
         <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice&nbsp;Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
       <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/" aria-current="page">Media kit</a></nav>
       <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
       <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>

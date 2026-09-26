@@ -25,10 +25,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/v2/site.css?v=4">
+<link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
 <script src="/assets/v2/site.js?v=4" defer></script>
 <style>
+/* numbered headings hang the number, so a wrapped heading lines up under its first word */
+.prose h2 { display: grid; grid-template-columns: 1.05em minmax(0, 1fr); align-items: baseline; }
+.prose h2 .n { min-width: 0; vertical-align: baseline; }
 /* Resource articles: one template for every long-form resource (the page header band with
    breadcrumbs and reading time, contents beside the text, related resources, the closing
    panel). Only what the kit (pages.css K08) does not already provide lives here. */
@@ -262,7 +265,7 @@
           <p>Secondary markets for hashrate-backed securities are still developing. Investors should assume the instrument is held to maturity and size positions accordingly. Some structures provide for early redemption windows or sponsor-arranged liquidity at defined valuation methodologies, but these are not universal.</p>
 
           <h2 id="omn"><span class="n">7</span>The Omnes Mining Note as one implementation</h2>
-          <p>The Omnes Mining Note (OMN) is one implementation of the hashrate-backed security model, structured for professional investors with a preference for a Luxembourg legal structure and onchain transfer. OMN is issued as a tokenized debt security under the Luxembourg Securitisation Law of 22 March 2004 from a dedicated compartment of the Omnes Securities Fund, with each note carrying a notional 1 PH/s of contracted Bitcoin hashrate over a 730-day term. Distributions are paid in Bitcoin at maturity. Costs are 3.75 percent of invested capital, and Costs and any tax liabilities rank ahead of noteholders. There is no performance fee.</p>
+          <p>The Omnes Mining Note (OMN) is one implementation of the hashrate-backed security model, structured for professional investors with a preference for a Luxembourg legal structure and onchain transfer. OMN is issued as a tokenized debt security under the Luxembourg Securitisation Law of 22 March 2004 from a dedicated compartment of the Omnes Securities Fund, with each note carrying a notional 1 PH/s of contracted Bitcoin hashrate over a 730-day term. Distributions are paid in Bitcoin at maturity. The total expense ratio is 3 percent, included in the price of the note, with no performance fee. Costs and any tax liabilities rank ahead of noteholders.</p>
           <p>OMN illustrates the design choices available to issuers in this asset class: a Luxembourg compartment for collateral isolation, a MiCA-authorised crypto-asset custodian, Zodia Custody (Europe) S.A., for Bitcoin custody, a UK-based security agent (Apex Corporate Trustees) representing noteholders, independent audit, and a tokenized issuance on the Base network with transfer restrictions enforcing professional investor eligibility. Other issuers may choose different jurisdictions, custodians, or settlement layers; the structural principles remain the same.</p>
           <p>For a detailed product description, see the <a href="/omn/">OMN product page</a>. For general questions on the asset class, see the <a href="/faqs/">FAQs</a>. For investor enquiries, contact <a href="/contact/">Investor Relations</a>.</p>
 
@@ -358,7 +361,7 @@
         <img src="/omnes-logo-white.svg" alt="Omnes" width="88" height="20">
         <p>Omnes structures compute assets into tokenized debt instruments for professional investors.</p>
       </div>
-      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
+      <nav aria-labelledby="fProduct"><h2 id="fProduct">Product</h2><a href="/omn/">Omnes Mining Note</a><a href="/hashprice/">Omnes Hashprice&nbsp;Index</a><a href="/login/">Investor portal</a><a href="/signup/">Sign up</a></nav>
       <nav aria-labelledby="fResources"><h2 id="fResources">Resources</h2><a href="/resources/">Resources</a><a href="/faqs/">FAQs</a><a href="https://insights.omnes.io" target="_blank" rel="noopener">Insights</a><a href="/media-kit/">Media kit</a></nav>
       <nav aria-labelledby="fCompany"><h2 id="fCompany">Company</h2><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://www.linkedin.com/company/omnesfinance" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/omnesfinance" target="_blank" rel="noopener">X</a></nav>
       <nav aria-labelledby="fLegal"><h2 id="fLegal">Legal</h2><a href="/website-terms/">Website terms</a><a href="/global-privacy-notice/">Privacy notice</a><a href="/cookies-policy/">Cookies policy</a></nav>
