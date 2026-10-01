@@ -104,13 +104,15 @@
   }
 
   /* access gate: the Terms of Access, shown until the visitor clicks "I Agree", then not again in
-     this browser. Agreement persists in localStorage under the live site's key
-     "omnes_access_agreed"; the earlier session flag "omnes_gate" is honoured too. As on the live
+     this browser. Agreement persists in localStorage under the key "omnes_access_agreed" (and the
+     session flag "omnes_gate"), holding the version of the terms agreed to (GATE_V). An agreement
+     to an earlier version no longer counts, so the gate returns once whenever the terms change;
+     GATE_V must match the value the head script on every page compares against. As on the live
      gate, "I Agree" ships disabled in the markup and is enabled only once the visitor has scrolled
      to the end of the terms (at once if they fit without scrolling); #gateLock says so until then.
-     It cannot be dismissed with Escape. "Leave" closes the gate and leaves the site: it tries to
-     close the tab (browsers allow that only for tabs a script opened), then goes to a blank page.
-     ?gate=1 shows it again for review.
+     It cannot be dismissed with Escape. "I Do Not Agree" closes the gate and leaves the site: it
+     tries to close the tab (browsers allow that only for tabs a script opened), then goes to a
+     blank page. ?gate=1 shows it again for review.
      The head script has already set html.omnes-agreed or html.omnes-gate-pending before paint.
      The three documents the gate asks visitors to read (Website Terms, Global Privacy Notice,
      Cookies Policy) stay readable before agreeing: the gate does not open on them by itself and
@@ -119,9 +121,10 @@
     get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* storage blocked */ } }
   };
+  var GATE_V = "2026-10-01";
   var gate = $("#gate");
   var gateForced = /[?&]gate=1(&|$)/.test(window.location.search);
-  var gateAgreed = !gateForced && !!(local.get("omnes_access_agreed") || store.get("omnes_gate"));
+  var gateAgreed = !gateForced && (local.get("omnes_access_agreed") === GATE_V || store.get("omnes_gate") === GATE_V);
   var gateSkip = !gateForced && /^\/(website-terms|global-privacy-notice|cookies-policy)(\/(index\.html)?)?$/.test(window.location.pathname);
   if (gateAgreed || !gate) { root.classList.add("omnes-agreed"); root.classList.remove("omnes-gate-pending"); }
   else if (gateSkip) root.classList.remove("omnes-gate-pending");
@@ -145,8 +148,8 @@
     if (agreeBtn) {
       agreeBtn.addEventListener("click", function () {
         agreedNow = true;
-        local.set("omnes_access_agreed", "1");
-        store.set("omnes_gate", "1");
+        local.set("omnes_access_agreed", GATE_V);
+        store.set("omnes_gate", GATE_V);
         root.classList.add("omnes-agreed");
         root.classList.remove("omnes-gate-pending", "omnes-gate-open");
         gate.close();
