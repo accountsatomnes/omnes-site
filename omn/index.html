@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..500;1,8..60,300..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/v2/site.css?v=5">
 <link rel="stylesheet" href="/assets/v2/pages.css?v=2">
-<script src="/assets/v2/site.js?v=6" defer></script>
+<script src="/assets/v2/site.js?v=7" defer></script>
 <style>
 /* Mining Note page: only what site.css and the kit (pages.css) do not already cover.
    1 Header foot: breadcrumbs, then the page's own contents as plain links
@@ -517,7 +517,7 @@
         <dl class="minis">
           <div><dt>Paid in the last 144 blocks</dt><dd class="num" data-live="paid"><span class="sk"></span></dd></div>
           <div><dt>Network hashrate, seven-day estimate</dt><dd class="num" data-live="hashrate"><span class="sk"></span></dd></div>
-          <div><dt>Omnes Hashprice Index, per PH/s a day</dt><dd class="num" data-live="hashprice"><span class="sk"></span></dd></div>
+          <div><dt>Fees in the last 144 blocks</dt><dd class="num" data-live="fees"><span class="sk"></span></dd></div>
           <div><dt>Bitcoin price</dt><dd class="num" data-live="price"><span class="sk"></span></dd></div>
         </dl>
         <p class="live-line">
@@ -525,7 +525,6 @@
           <span>Block <span data-live="height"><span class="sk w3"></span></span></span>
           <span>Next adjustment <span data-live="adjustment"><span class="sk w3"></span></span></span>
         </p>
-        <p class="fine">The Omnes Hashprice Index is our own measure of what one petahash per second earns in a day: 144 &times; (block subsidy + average fees per block over the last 144 blocks) &divide; network hashrate in PH/s, at the current Bitcoin price, read live from public chain data.</p>
         <p class="fine">Network figures are estimates from public chain data, not a forecast of what any note will pay.</p>
       </div>
       <figure class="span-7 field-panel reveal">

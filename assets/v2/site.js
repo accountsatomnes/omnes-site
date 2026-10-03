@@ -20,7 +20,7 @@
    06  Boot            mounts every [data-field] and every [data-sx] diagram on the page
 
    Markup contracts
-   [data-live="price|hashrate|hashrateText|paid|paidUsd|hashprice|height|adjustment|updated"]
+   [data-live="price|hashrate|hashrateText|paid|paidUsd|fees|height|adjustment|updated"]
                                            a slot gets [data-na] while its figure is unavailable
    [data-live-status] [data-live-dot]      status text and dot for the live figures
    [data-wave-status] [data-wave-dot]      status text and dot for the hashrate history
@@ -211,8 +211,8 @@
         s.paid = Number(rw.totalReward) / 1e8;
         s.fees = Number(rw.totalFee) / 1e8;
         if (!(s.paid > 0)) s.paid = null;
+        if (!(s.fees > 0)) s.fees = null;
       }
-      s.hashprice = s.paid && s.blocks && s.hashrate && s.price ? (s.paid / s.blocks) * 144 / (s.hashrate / 1e15) * s.price : null;
       s.height = num(tip) && tip > 0 ? tip : null;
       if (adj && num(adj.difficultyChange)) s.adj = { change: adj.difficultyChange, blocks: adj.remainingBlocks, at: adj.estimatedRetargetDate };
       s.ok = !!(s.price || s.hashrate || s.paid || s.height);
@@ -231,7 +231,7 @@
       put("hashrateText", s.hashrate ? fmt.n(s.hashrate / 1e18) + " EH/s" : NA);
       put("paid", s.paid ? fmt.n(s.paid, 1) + "<small>BTC</small>" : NA);
       put("paidUsd", s.paid && s.price ? fmt.compactUsd(s.paid * s.price) : NA);
-      put("hashprice", s.hashprice ? fmt.usd(s.hashprice, 2) : NA);
+      put("fees", s.fees ? fmt.n(s.fees, 2) + "<small>BTC</small>" : NA);
       put("height", s.height ? fmt.n(s.height) : NA);
       if (s.adj) {
         var days = s.adj.at ? Math.max(0, (s.adj.at - Date.now()) / 864e5) : null;
